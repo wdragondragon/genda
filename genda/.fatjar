@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Sat Jan 12 21:25:56 CST 2019
+onejar.license.required=false
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=true
+jarname=C\:\\Users\\Administrator\\Desktop\\\u8DDF\\genda.jar
+manifest.mergeall=true
+manifest.mainclass=genda1.Example
+manifest.file=<createnew>
+jarname.isextern=true
+onejar.expand=
+excludes=
+includes=
