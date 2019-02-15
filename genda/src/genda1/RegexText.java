@@ -1,5 +1,8 @@
 package genda1;
 
+import SetWin.SetCharListener;
+import SetWin.SetspaceListener;
+
 public class RegexText {
 	int qi = 0;
 	int di = 0;
@@ -56,7 +59,18 @@ public class RegexText {
 		str = String.valueOf(a);
 		String regex = "[^0123456789]+";
 		str = str.replaceAll("#","");
-		str = str.replaceAll("\\s*", ""); 
+		if(SetspaceListener.spacesign==1)
+			str = str.replaceAll("\\s*", "");
+		String initchar = ";:,.!?";
+		String afterchar = "£»£º£¬¡££¡£¿";
+		a = str.toCharArray();
+		int b ;
+		char y[] = afterchar.toCharArray();
+		if(SetCharListener.charsign==1)
+			for(int i =0;i<a.length;i++)
+				if((b = initchar.indexOf(a[i]))!=-1)
+					a[i] = y[b];
+		str = String.valueOf(a);
 		duan = duan.replaceAll(regex,"");
 		duan1 = Integer.valueOf(duan);
 //		System.out.println(str);

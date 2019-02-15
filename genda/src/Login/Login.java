@@ -18,7 +18,8 @@ public class Login extends JFrame implements ActionListener{
 	JButton zhuce;
 	JButton wangmi;
 	JButton tuichu;
-	public static String banben = "版本1.481";
+	public static String banben = "版本1.488";
+	public static int port = 1230;
 	public static JTextField zhanghao;
 	public static JPasswordField mima;
 	public static DengluListener denglulistener;
@@ -39,7 +40,6 @@ public class Login extends JFrame implements ActionListener{
 		zhanghao = new JTextField("账号");
 		zhanghao.setBounds(20,20,190,30);
 		add(zhanghao);
-		
 		
 		mima = new JPasswordField("密码");
 		mima.setBounds(20,70,190,30);
@@ -77,7 +77,7 @@ public class Login extends JFrame implements ActionListener{
 	}
 	void link(){
 		try {
-			socket = new Socket(Window.IP,1232);
+			socket = new Socket(Window.IP,port);
 			socket.setSoTimeout(1000);
 			DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 			DataInputStream in = new DataInputStream(socket.getInputStream());
@@ -85,7 +85,7 @@ public class Login extends JFrame implements ActionListener{
 			String what = in.readUTF();
 			socket.setSoTimeout(0);
 			if(!what.equals("版本正确")){
-				JOptionPane.showMessageDialog(new JTextArea(),"请更新最新版本拖拉机，将自动跳转下载，群号974172771");
+				JOptionPane.showMessageDialog(new JTextArea(),what);
 				Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://x-ws.cn/tljxz");
 				System.exit(0);
 			}

@@ -7,6 +7,7 @@ import javax.swing.table.*;
 
 
 import Acticle.Acticle;
+import FriendSys.FriendsSysListener;
 import History.historyListener;
 import Login.Login;
 import QQ.ChangeQQWindow;
@@ -35,6 +36,7 @@ public class Window extends JFrame{
 	public static int fontallnum ;
 	public static int rightnum;
 	public static int misnum;
+	public static int datenum;
 	public static orActicle orActicle;
 	public static GendaListener gendaListener;
 	public static JProgressBar gendajindutiao;
@@ -42,13 +44,26 @@ public class Window extends JFrame{
 	
 	public static Tips tipschange;
 	public static JLabel tips;
+	public static String family = "微软雅黑";
 //	public static String IP = "127.0.0.1";
-	Font ziti;
-	JLabel qqName,zishu,allnumber;
+	Font ziti,zititip;
+	JLabel qqName;
+	static JLabel zishu;
+	JLabel allnumber;
 	public JLabel sendwen;
 	JScrollPane wenben1,dazi1,chengji1,zaiwenText1,tableN;
 	
-	JButton F3,zaiwen,more,suduButton,KeySuduButton,achievementButton,QQzaiwenButton,help,conection,set,online,Keylength;
+	JButton F3;
+	JButton zaiwen,more;
+	static JButton suduButton;
+	JButton KeySuduButton;
+	JButton achievementButton;
+	JButton QQzaiwenButton;
+	JButton help;
+	JButton conection;
+	JButton set;
+	JButton online;
+	JButton Keylength;
 	JButton close,max,size;
 	JButton changeQQButton;
 	JButton ce;
@@ -66,7 +81,7 @@ public class Window extends JFrame{
 	
 
 	public MoreListener morelistener;
-	F3Listener f3listener;
+	public static F3Listener f3listener;
 	JianQieListener zaiwenlistener;
 	MousePressedZaiwenText zaiwenMouselistener;
 	AchievementListener achievementListener;
@@ -258,26 +273,27 @@ public class Window extends JFrame{
 		setLayout(null);
 		Object name[]={"","速度","击键","码长","字数","回改","退格","错字","选重","键准","打词率","时间(秒)"},a[][] = null;
 		//字体大小
-		ziti = new Font("微软雅黑",0,fontSize);
+		ziti = new Font(family,0,fontSize);
+		zititip = new Font(family,0,12);
 		//字体颜色
 		JTextPaneChange.creat();
-		JTextPaneChange.createStyle("黑",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,"微软雅黑",rightcolor);
-		JTextPaneChange.createStyle("红",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,"微软雅黑",mistakecolor);
-		JTextPaneChange.createStyle("灰",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,"微软雅黑",mistakecolor);//GRAY
+		JTextPaneChange.createStyle("黑",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,family,rightcolor);
+		JTextPaneChange.createStyle("红",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,family,mistakecolor);
+		JTextPaneChange.createStyle("灰",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,family,mistakecolor);//GRAY
 		
-		JTextPaneChange.createStyle("蓝粗",JTextPaneChange.styledDoc,fontSize,1,0,0,smacicolor,"微软雅黑",mistakecolor);//GRAY
-		JTextPaneChange.createStyle("蓝",JTextPaneChange.styledDoc,fontSize,0,0,0,smacicolor,"微软雅黑",mistakecolor);//GRAY
-		JTextPaneChange.createStyle("蓝斜",JTextPaneChange.styledDoc,fontSize,0,1,0,smacicolor,"微软雅黑",mistakecolor);//GRAY
-		JTextPaneChange.createStyle("蓝粗斜",JTextPaneChange.styledDoc,fontSize,1,1,0,smacicolor,"微软雅黑",mistakecolor);//GRAY
-		JTextPaneChange.createStyle("粉粗",JTextPaneChange.styledDoc,fontSize,1,0,0,emacicolor,"微软雅黑",mistakecolor);//GRAY
-		JTextPaneChange.createStyle("粉",JTextPaneChange.styledDoc,fontSize,0,0,0,emacicolor,"微软雅黑",mistakecolor);//GRAY
-		JTextPaneChange.createStyle("粉斜",JTextPaneChange.styledDoc,fontSize,0,1,0,emacicolor,"微软雅黑",mistakecolor);//GRAY
-		JTextPaneChange.createStyle("粉粗斜",JTextPaneChange.styledDoc,fontSize,1,1,0,emacicolor,"微软雅黑",mistakecolor);//GRAY
+		JTextPaneChange.createStyle("蓝粗",JTextPaneChange.styledDoc,fontSize,1,0,0,smacicolor,family,mistakecolor);//GRAY
+		JTextPaneChange.createStyle("蓝",JTextPaneChange.styledDoc,fontSize,0,0,0,smacicolor,family,mistakecolor);//GRAY
+		JTextPaneChange.createStyle("蓝斜",JTextPaneChange.styledDoc,fontSize,0,1,0,smacicolor,family,mistakecolor);//GRAY
+		JTextPaneChange.createStyle("蓝粗斜",JTextPaneChange.styledDoc,fontSize,1,1,0,smacicolor,family,mistakecolor);//GRAY
+		JTextPaneChange.createStyle("粉粗",JTextPaneChange.styledDoc,fontSize,1,0,0,emacicolor,family,mistakecolor);//GRAY
+		JTextPaneChange.createStyle("粉",JTextPaneChange.styledDoc,fontSize,0,0,0,emacicolor,family,mistakecolor);//GRAY
+		JTextPaneChange.createStyle("粉斜",JTextPaneChange.styledDoc,fontSize,0,1,0,emacicolor,family,mistakecolor);//GRAY
+		JTextPaneChange.createStyle("粉粗斜",JTextPaneChange.styledDoc,fontSize,1,1,0,emacicolor,family,mistakecolor);//GRAY
 		
-		JTextPaneChange.createStyle("绿粗",JTextPaneChange.styledDoc,fontSize,1,0,0,qmacicolor,"微软雅黑",mistakecolor);//GRAY
-		JTextPaneChange.createStyle("绿",JTextPaneChange.styledDoc,fontSize,0,0,0,qmacicolor,"微软雅黑",mistakecolor);//GRAY
-		JTextPaneChange.createStyle("绿斜",JTextPaneChange.styledDoc,fontSize,0,1,0,qmacicolor,"微软雅黑",mistakecolor);//GRAY
-		JTextPaneChange.createStyle("绿粗斜",JTextPaneChange.styledDoc,fontSize,1,1,0,qmacicolor,"微软雅黑",mistakecolor);//GRAY
+		JTextPaneChange.createStyle("绿粗",JTextPaneChange.styledDoc,fontSize,1,0,0,qmacicolor,family,mistakecolor);//GRAY
+		JTextPaneChange.createStyle("绿",JTextPaneChange.styledDoc,fontSize,0,0,0,qmacicolor,family,mistakecolor);//GRAY
+		JTextPaneChange.createStyle("绿斜",JTextPaneChange.styledDoc,fontSize,0,1,0,qmacicolor,family,mistakecolor);//GRAY
+		JTextPaneChange.createStyle("绿粗斜",JTextPaneChange.styledDoc,fontSize,1,1,0,qmacicolor,family,mistakecolor);//GRAY
 		gendajindutiao = new JProgressBar(0,0);
 		
 		tableM = new DefaultTableModel(a,name);
@@ -286,11 +302,12 @@ public class Window extends JFrame{
 		
 		wenben = new JTextPane(JTextPaneChange.styledDoc);
 		
-		dazi = new JTextArea(){
-			@Override public void copy(){}
-			@Override public void paste(){
-				JOptionPane.showMessageDialog(new JTextArea(),"不允许粘贴");}
-		};
+		dazi = new JTextArea();
+//		{
+//			@Override public void copy(){}
+//			@Override public void paste(){
+//				JOptionPane.showMessageDialog(new JTextArea(),"不允许粘贴");}
+//		};
 		chengji = new JTextArea();
 		zaiwenText = new JTextArea();
 		
@@ -301,9 +318,9 @@ public class Window extends JFrame{
 		
 		qqName =  new JLabel("点击选择跟打群");
 		qqName.setBorder(BorderFactory.createTitledBorder("跟打群"));
-		zishu = new JLabel("字数/已打");
+		zishu = new JLabel("字数:0/已打:0/错:0");
 		zishu.setBorder(BorderFactory.createTitledBorder("字数"));
-		allnumber = new JLabel("总:"+String.valueOf(Window.fontallnum)+" 对:"+String.valueOf(Window.rightnum)+" 错:"+String.valueOf(Window.misnum));
+		allnumber = new JLabel("总:"+String.valueOf(Window.fontallnum)+" 对:"+String.valueOf(Window.rightnum)+" 错:"+String.valueOf(Window.misnum)+" 今:"+String.valueOf(Window.datenum));
 		allnumber.setBorder(BorderFactory.createTitledBorder("跟打记录"));
 		sendwen = new JLabel("发文进度");
 		sendwen.setBorder(BorderFactory.createTitledBorder("发文进度"));
@@ -364,7 +381,9 @@ public class Window extends JFrame{
 		orActicle = new orActicle(acticle,this);
 		next.addActionListener(Acticle.treeListener);
 		save.addActionListener(Acticle.treeListener);
-	
+		
+		AcitiyComp acitiycomp = new AcitiyComp();
+		acitiycomp.start();//速度击键码长动态变化线程
 		
 		ImageIcon icon=new ImageIcon("images//installer_repair_1.png");  //xxx代表图片存放路径，2.png图片名称及格式
 		this.setIconImage(icon.getImage());
@@ -432,6 +451,7 @@ public class Window extends JFrame{
 		acticlebutton.addActionListener(orActicle);
 		mix.addActionListener(mixlistener);
 		share.addActionListener(sharelistener);
+		
 	}
 	//所有监视器设置。。。。。。
 	void gendaListenerset(){
@@ -467,9 +487,6 @@ public class Window extends JFrame{
 		zaiwenlistener.setZishu(zishu);
 		zaiwenlistener.setJSB(JSBwenben);
 		zaiwenlistener.setJProgressBar(setGendajindu);
-		zaiwenlistener.setTipschange(tipschange);
-		zaiwenlistener.setLilunma(lilunma);
-		
 	}
 	void zaiwenMouselistenerset(){
 		zaiwenMouselistener.setZaiwenText(zaiwenText);
@@ -531,6 +548,12 @@ public class Window extends JFrame{
 		chengji.setFont(new Font("微软雅黑",0,20));
 		zaiwenText.setFont(ziti);
 		
+		qqName.setFont(zititip);
+		
+		zishu.setFont(zititip);
+		allnumber.setFont(zititip);
+		sendwen.setFont(zititip);;
+		tips.setFont(zititip);
 		online.setBackground(Color.white);
 	}
 
@@ -642,7 +665,7 @@ public class Window extends JFrame{
 	}
 	
 	JMenuBar menubar;
-	JMenu menu,base,linkbase,other;
+	JMenu menu,base,linkbase,other,paiming;
 	public static JMenuItem denglu;
 	JMenuItem fasongchengji;
 	JMenuItem fawen;
@@ -656,12 +679,14 @@ public class Window extends JFrame{
 	JMenuItem bang;
 	JMenuItem xiezhu;	
 	JMenuItem ramdom;
-	JMenuItem paiming;
+	JMenuItem paimingall,paimingday,paiming999;
 	JMenuItem txt;
 	JMenuItem historyall;
+	JMenuItem friendSys;
 	RankListener ranklistener = new RankListener() ;
 	BuildChooseFile changetxt = new BuildChooseFile();
 	historyListener historylistener = new historyListener();
+	FriendsSysListener fsyslistenre = new FriendsSysListener();
 	void jsplit(){
 		dazi.setDragEnabled(true);
 		jSplitPane1 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,false,wenben1,dazi1);
@@ -683,6 +708,10 @@ public class Window extends JFrame{
 		base = new JMenu("基本操作");
 		linkbase = new JMenu("联网操作");
 		other = new JMenu("其他");
+		paiming = new JMenu("排名");
+		paimingall = new JMenuItem("总跟打排名");
+		paimingday = new JMenuItem("日跟打排名");
+		paiming999 = new JMenuItem("赛文平均成绩排名");
 		
 		denglu = new JMenuItem("登录");
 		fasongchengji = new JMenuItem("发送成绩 F1");
@@ -693,13 +722,14 @@ public class Window extends JFrame{
 		jqbzaiwen = new JMenuItem("剪贴板载文");
 		jjmu = new JMenuItem("按钮模式");
 		ramdom = new JMenuItem("随机一文");
-		paiming = new JMenuItem("排名");
+		
 		txt = new JMenuItem("生成码表");
 		gengduo = new JMenuItem("更多设置 alt+Z");
 		zxdv = new JMenuItem("在线对战");
 		bang = new JMenuItem("使用帮助");
 		xiezhu = new JMenuItem("协助作者");
 		historyall = new JMenuItem("跟打记录");
+		friendSys = new JMenuItem("好友系统");
 		
 		RamdomListener ramdomlistener = new RamdomListener();
 		fasongchengji.addActionListener(achievementListener);
@@ -714,9 +744,16 @@ public class Window extends JFrame{
 		denglu.addActionListener(login);
 		zxdv.addActionListener(onlineListener);
 		ramdom.addActionListener(ramdomlistener);
-		paiming.addActionListener(ranklistener);
+		paimingall.addActionListener(ranklistener);
+		paimingday.addActionListener(ranklistener);
+		paiming999.addActionListener(ranklistener);
 		txt.addActionListener(changetxt);
 		historyall.addActionListener(historylistener);
+		friendSys.addActionListener(fsyslistenre);
+		
+		paiming.add(paimingall);
+		paiming.add(paimingday);
+		paiming.add(paiming999);
 		
 		base.add(fasongchengji);
 		base.add(fawen);
@@ -728,6 +765,7 @@ public class Window extends JFrame{
 		linkbase.add(paiming);
 		linkbase.add(zxdv);
 		linkbase.add(historyall);
+		linkbase.add(friendSys);
 		
 		other.add(jjmu);
 		other.add(txt);
@@ -801,7 +839,7 @@ public class Window extends JFrame{
 		score = new JButton("比分");
 		
 		accept.setLineWrap(true);//自动换行
-		accept.setFont(new Font("微软雅黑",0,30));
+		accept.setFont(new Font(family,0,30));
 
 		onlineListener = new OnlineOorF();
 		linkListener = new LinkListener();
@@ -863,6 +901,7 @@ public class Window extends JFrame{
 		seven.addActionListener(roomListener);
 		eight.addActionListener(roomListener);
 		ready.addActionListener(readyListener);
+		suduButton.addActionListener(setframe.cirecordlistener);
 	}
 	void clientAdd(){
 		add(one);

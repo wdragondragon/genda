@@ -20,13 +20,14 @@ import Tips.ChooseFile;
 public class SetFrame extends JFrame {
 	JRadioButton setjindutiaoON,setjindutiaoOFF;
 	ButtonGroup setjindutiaogroup;
-	SetFrameJinduListener setframeJindulistener = new SetFrameJinduListener();
+	
 	SetFrameKeyboardRecordListener keyRecordListener = new SetFrameKeyboardRecordListener();
-	SetFramechangeListener tiplistener = new SetFramechangeListener();
+
 	SetFrameSplitnum setframesplitenum;
 	GendaListener gendalistener;
 	JLabel qianshui;
 	public static JTextField Splitenum,FontSize;
+	public CirecordListener cirecordlistener;
 	JRadioButton qianshuiON;
 	JRadioButton qianshuiOFF;
 	JRadioButton changetxtON;
@@ -36,15 +37,15 @@ public class SetFrame extends JFrame {
 	
 	ButtonGroup setqianshui ;
 	ButtonGroup setchange;
-	SetFrameQianshuiListener setframeQianshuilistener = new SetFrameQianshuiListener();
+	
+	
 	Window win;
 	JLabel setjindutiao = new JLabel("设置动态进度条",JLabel.LEFT);
 	JLabel setchangetxt = new JLabel("词语提示",JLabel.LEFT);
+	public static JComboBox<String> family ;
 	public void SetFrame1(){
 		setTitle("设置");
-		setBounds(100,100,700,400);
 		setLayout(null);
-
 		setVisible(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
@@ -54,7 +55,10 @@ public class SetFrame extends JFrame {
 		addKeyboardRecord();
 		addKeymistakeRecord();
 		addQianshu();
+		addspaceON_Off();
+		addcharON_Off();
 		addChangetxt();
+		addCiRecord();
 		SetBackground setbackgroundListener = new SetBackground();
 		setbackgroundListener.setFrame(this);
 		setbackgroundListener.setWin(win);
@@ -107,11 +111,33 @@ public class SetFrame extends JFrame {
 		add(splitebutton);
 		
 		JButton mabiao = new JButton("全码表选择");
-		mabiao.setBounds(splitebutton.getX()+splitebutton.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,120,30);
+		mabiao.setBounds(splitebutton.getX()+splitebutton.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,100,30);
 		add(mabiao);
 		
+		family = new JComboBox<String>();
+		GraphicsEnvironment ge=GraphicsEnvironment.getLocalGraphicsEnvironment();
+        String [] fontName=ge.getAvailableFontFamilyNames();
+        for(int i=0;i<fontName.length;i++){
+            family.addItem(fontName[i]);
+        }
+		family.setBounds(RightcolorSet.getX(),FontSize.getY()+FontSize.getHeight()+10,120,30);
+		add(family);
+		
+		JButton familyque = new JButton("修改字型");
+		familyque.setBounds(family.getX()+family.getWidth()+10,FontSize.getY()+FontSize.getHeight()+10,90,30);
+		add(familyque);
+		
+		
+		
+		
+		
+		FontFamilyListener fontfamilylistener = new FontFamilyListener(family);
+		familyque.addActionListener(fontfamilylistener);
 		SetFontSize setfontlistener = new SetFontSize(FontSize);
 		setframesplitenum = new SetFrameSplitnum(Splitenum);
+		
+		
+		
 		
 		WenbenBackgroundSet.addActionListener(setbackgroundListener);
 		RightcolorSet.addActionListener(setbackgroundListener);
@@ -124,7 +150,6 @@ public class SetFrame extends JFrame {
 		changeFontSize.addActionListener(setfontlistener);
 		splitebutton.addActionListener(setframesplitenum);
 		mabiao.addActionListener(chosefilelistener);
-		
 	}
 	public void setGendaListener(GendaListener t){
 		gendalistener = t;
@@ -132,56 +157,40 @@ public class SetFrame extends JFrame {
 	public void setWin(Window win){
 		this.win = win;
 	}
-	void addJinduON_Off(){
-		setjindutiaoON = new JRadioButton("开");
-		setjindutiaoOFF = new JRadioButton("关");
-		setjindutiaogroup = new ButtonGroup();
-		setjindutiaogroup.add(setjindutiaoON);
-		setjindutiaogroup.add(setjindutiaoOFF);
-		setjindutiaoON.setBounds(110,10,50,20);
-		setjindutiaoOFF.setBounds(160,10,50,20);
-		setjindutiao.setBounds(10,10,90,20);
-		
-		add(setjindutiao);
-		add(setjindutiaoON);
-		add(setjindutiaoOFF);
-		setframeJindulistener.setButton1(setjindutiaoON);
-		setjindutiaoON.addActionListener(setframeJindulistener);
-		setjindutiaoOFF.addActionListener(setframeJindulistener);
+	void addcharON_Off(){
+		JButton charchange = new JButton("符号替换\"已关\"");
+		charchange.setBounds(460,10,110,20);
+		add(charchange);
+		SetCharListener setcharlistener = new SetCharListener(charchange);
+		charchange.addActionListener(setcharlistener);
 	}
-	void addChangetxt(){
-		
-		changetxtON = new JRadioButton("开");
-		changetxtOFF = new JRadioButton("关");
-		setchange = new ButtonGroup();
-		setchange.add(changetxtON);
-		setchange.add(changetxtOFF);
-		setchangetxt.setBounds(410,10,50,20);
-		changetxtON.setBounds(470,10,50,20);
-		changetxtOFF.setBounds(520,10,50,20);
-		add(setchangetxt);
-		add(changetxtON);
-		add(changetxtOFF);
-		tiplistener.setButton1(changetxtON);
-		changetxtON.addActionListener(tiplistener);
-		changetxtOFF.addActionListener(tiplistener);
+	void addspaceON_Off(){
+		JButton space = new JButton("去除空格\"已关\"");
+		space.setBounds(350,10,110,20);
+		add(space);
+		SetspaceListener setspacelistener = new SetspaceListener(space);
+		space.addActionListener(setspacelistener);
+	}
+	void addJinduON_Off(){
+		JButton jindu = new JButton("显示进度条\"已开\"");
+		jindu.setBounds(10,10,120,20);
+		add(jindu);
+		SetFrameJinduListener setframeJindulistener = new SetFrameJinduListener(jindu);
+		jindu.addActionListener(setframeJindulistener);
+	}
+	void addChangetxt(){	
+		JButton changetxt = new JButton("词语提示\"已开\"");
+		changetxt.setBounds(240,10,110,20);
+		add(changetxt);
+		SetFramechangeListener tiplistener = new SetFramechangeListener(changetxt);
+		changetxt.addActionListener(tiplistener);
 	}
 	void addQianshu(){
-		qianshui = new JLabel("潜水跟打",JLabel.LEFT);
-		qianshuiON = new JRadioButton("开");
-		qianshuiOFF = new JRadioButton("关");
-		setqianshui = new ButtonGroup();
-		setqianshui.add(qianshuiON);
-		setqianshui.add(qianshuiOFF);
-		qianshui.setBounds(220,10,50,20);
-		qianshuiON.setBounds(280,10,50,20);
-		qianshuiOFF.setBounds(330,10,50,20);
+		JButton qianshui = new JButton("潜水跟打\"已关\"");
+		qianshui.setBounds(130,10,110,20);
 		add(qianshui);
-		add(qianshuiON);
-		add(qianshuiOFF);
-		setframeQianshuilistener.setButton1(qianshuiON);
-		qianshuiON.addActionListener(setframeQianshuilistener);
-		qianshuiOFF.addActionListener(setframeQianshuilistener);
+		SetFrameQianshuiListener setframeQianshuilistener = new SetFrameQianshuiListener(qianshui);
+		qianshui.addActionListener(setframeQianshuilistener);
 	}
 	void addKeyboardRecord(){
 		JButton KeyboardRecord = new JButton("提取本次跟打击键记录");
@@ -195,24 +204,24 @@ public class SetFrame extends JFrame {
 		
 		KeyboardRecord.addActionListener(keyRecordListener);
 		Keyboarddisplay.setLineWrap(true);
-		Keyboarddisplay.setFont(new Font("微软雅黑",0,20));
-		KeyboardRecord.setBounds(10,40,250,20);
-		Keyboarddisplay1.setBounds(10,70,510,100);
+		Keyboarddisplay.setFont(new Font(Window.family,0,20));
+		KeyboardRecord.setBounds(10,40,200,20);
+		Keyboarddisplay1.setBounds(10,70,540,100);
 		add(KeyboardRecord);
 		add(Keyboarddisplay1);
 	}
 	void addKeymistakeRecord(){
 		JButton KeymistakeRecord = new JButton("提取本次跟打错字记录");
-//		JTextArea Keymistakedisplay = new JTextArea("提取文本在此显示");
-//		JScrollPane Keymistakedisplay1 = new JScrollPane(Keymistakedisplay);
-//		keyRecordListener.setKeymistakedisplay( Keymistakedisplay);
-		
 		KeymistakeRecord.addActionListener(keyRecordListener);
-//		Keymistakedisplay.setLineWrap(true);
-//		Keymistakedisplay.setFont(new Font("微软雅黑",0,20));
-		KeymistakeRecord.setBounds(270,40,250,20);
-//		Keymistakedisplay1.setBounds(10,210,500,100);
-		add(KeymistakeRecord);
-//		add(Keymistakedisplay1);
+		KeymistakeRecord.setBounds(220,40,200,20);
+		add(KeymistakeRecord);;
+	}
+	
+	void addCiRecord(){
+		JButton Cirecord = new JButton("跟打详情");
+		cirecordlistener = new CirecordListener();
+		Cirecord.addActionListener(cirecordlistener);
+		Cirecord.setBounds(430,40,120,20);
+		add(Cirecord);
 	}
 }

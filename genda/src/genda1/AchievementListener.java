@@ -157,7 +157,6 @@ public class AchievementListener extends AbstractAction{
 	public void setTable(TableAdd t){
 		table = t;
 	}
-	
     public static void setClipboardString(String text) {
         // 获取系统剪贴板
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();

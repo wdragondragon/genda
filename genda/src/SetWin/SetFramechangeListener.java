@@ -8,18 +8,20 @@ import javax.swing.JRadioButton;
 
 public class SetFramechangeListener implements ActionListener {
 	public static int tipsign = 1;
-	JRadioButton button1;
+	public static JButton change;
+	SetFramechangeListener(JButton change){
+		this.change = change;
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(button1.isSelected()){
+		if(tipsign == 0){
 			tipsign = 1;
+			change.setText("词语提示\"已开\"");
 		}
 		else{
 			tipsign = 0;
+			change.setText("词语提示\"已关\"");
 		}
-	}
-	public void setButton1(JRadioButton t){
-		button1 = t;
 	}
 }

@@ -13,10 +13,12 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.io.*;
 import Login.*;
+import SetWin.SetCharListener;
 import SetWin.SetFrame;
 import SetWin.SetFrameJinduListener;
 import SetWin.SetFrameQianshuiListener;
 import SetWin.SetFramechangeListener;
+import SetWin.SetspaceListener;
 import Tips.ChooseFile;
 import Tips.Tips;
 
@@ -68,6 +70,9 @@ public class readWrite
 				+"%"+String.valueOf(SetFramechangeListener.tipsign)
 				+"%"+String.valueOf(GendaListener.fenye)
 				+"%"+ChooseFile.cizufilename
+				+"%"+Window.family
+				+"%"+SetspaceListener.spacesign
+				+"%"+SetCharListener.charsign
 				;
 		Writer fWrite=new FileWriter("../set/lx.ini",false);
 		BufferedWriter wStream=new BufferedWriter(fWrite);
@@ -92,11 +97,12 @@ public class readWrite
 					0,0,0,0,0,
 					0,0,0,0,0,
 					0,0,0,0,0,
-					0,0,0,0,0
+					0,0,0,0,0,
+					0,0,0
 					};
 			int pos = 0;
 		
-			for(int i=0;i<40;i++){
+			for(int i=0;i<43;i++){
 				pos =  rString.indexOf('%',pos)+1;
 				if(pos!=-1)
 					num[i] = pos;
@@ -153,9 +159,11 @@ public class readWrite
 			int tip = Integer.parseInt(rString.substring(num[37],num[38]-1));
 			int fenye = Integer.parseInt(rString.substring(num[38],num[39]-1));
 			
-			String cizufilename  = rString.substring(num[39]);
-
+			String cizufilename  = rString.substring(num[39],num[40]-1);
+			String family = rString.substring(num[40],num[41]-1);
 			
+			int space = Integer.parseInt(rString.substring(num[41],num[42]-1));
+			int Charset = Integer.parseInt(rString.substring(num[42]));
 			win.setBounds(x,y,width,height);
 			
 			Window.rightcolor = new Color(rightR,rightG,rightB);
@@ -166,40 +174,67 @@ public class readWrite
 			
 			Window.wenben.setBackground(new Color(wenbenR,wenbenG,wenbenB));
 			Window.dazi.setBackground(new Color(daziR,daziG,daziB));
-			JTextPaneChange.createStyle("ºÚ",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,"Î¢ÈíÑÅºÚ",Window.rightcolor);
-			JTextPaneChange.createStyle("ºì",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,"Î¢ÈíÑÅºÚ",Window.mistakecolor);
+			Window.fontSize = fontSize;
+			Window.family = family;
+			Window.dazi.setFont(new Font(Window.family,0,fontSize));
+			Window.accept.setFont(new Font(Window.family,0,fontSize));
+			JTextPaneChange.createStyle("ºÚ",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,Window.family,Window.rightcolor);
+			JTextPaneChange.createStyle("ºì",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);
 			
-			JTextPaneChange.createStyle("»Ò",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,"Î¢ÈíÑÅºÚ",Window.mistakecolor);//GRAY
+			JTextPaneChange.createStyle("»Ò",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);//GRAY
 			
-			JTextPaneChange.createStyle("À¶´Ö",JTextPaneChange.styledDoc,fontSize,1,0,0,Window.smacicolor,"Î¢ÈíÑÅºÚ",Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("À¶",JTextPaneChange.styledDoc,fontSize,0,0,0,Window.smacicolor,"Î¢ÈíÑÅºÚ",Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("À¶Ð±",JTextPaneChange.styledDoc,fontSize,0,1,0,Window.smacicolor,"Î¢ÈíÑÅºÚ",Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("À¶´ÖÐ±",JTextPaneChange.styledDoc,fontSize,1,1,0,Window.smacicolor,"Î¢ÈíÑÅºÚ",Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("À¶´Ö",JTextPaneChange.styledDoc,fontSize,1,0,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("À¶",JTextPaneChange.styledDoc,fontSize,0,0,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("À¶Ð±",JTextPaneChange.styledDoc,fontSize,0,1,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("À¶´ÖÐ±",JTextPaneChange.styledDoc,fontSize,1,1,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
 			
-			JTextPaneChange.createStyle("·Û´Ö",JTextPaneChange.styledDoc,fontSize,1,0,0,Window.emacicolor,"Î¢ÈíÑÅºÚ",Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("·Û",JTextPaneChange.styledDoc,fontSize,0,0,0,Window.emacicolor,"Î¢ÈíÑÅºÚ",Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("·ÛÐ±",JTextPaneChange.styledDoc,fontSize,0,1,0,Window.emacicolor,"Î¢ÈíÑÅºÚ",Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("·Û´ÖÐ±",JTextPaneChange.styledDoc,fontSize,1,1,0,Window.emacicolor,"Î¢ÈíÑÅºÚ",Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("·Û´Ö",JTextPaneChange.styledDoc,fontSize,1,0,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("·Û",JTextPaneChange.styledDoc,fontSize,0,0,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("·ÛÐ±",JTextPaneChange.styledDoc,fontSize,0,1,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("·Û´ÖÐ±",JTextPaneChange.styledDoc,fontSize,1,1,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
 			
-			JTextPaneChange.createStyle("ÂÌ´Ö",JTextPaneChange.styledDoc,fontSize,1,0,0,Window.qmacicolor,"Î¢ÈíÑÅºÚ",Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("ÂÌ",JTextPaneChange.styledDoc,fontSize,0,0,0,Window.qmacicolor,"Î¢ÈíÑÅºÚ",Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("ÂÌÐ±",JTextPaneChange.styledDoc,fontSize,0,1,0,Window.qmacicolor,"Î¢ÈíÑÅºÚ",Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("ÂÌ´ÖÐ±",JTextPaneChange.styledDoc,fontSize,1,1,0,Window.qmacicolor,"Î¢ÈíÑÅºÚ",Window.rightcolor);//GRAY
-			SetFrameJinduListener.jindusign = jindusign;
-			
+			JTextPaneChange.createStyle("ÂÌ´Ö",JTextPaneChange.styledDoc,fontSize,1,0,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("ÂÌ",JTextPaneChange.styledDoc,fontSize,0,0,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("ÂÌÐ±",JTextPaneChange.styledDoc,fontSize,0,1,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("ÂÌ´ÖÐ±",JTextPaneChange.styledDoc,fontSize,1,1,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
+
 			MoreListener.MoreSign = moresign;
 			GendaListener.fenye = fenye;
-			Window.fontSize = fontSize;
-			Window.dazi.setFont(new Font("Î¢ÈíÑÅºÚ",0,fontSize));
+			
 			SetFrame.Splitenum.setText(String.valueOf(fenye));
 			SetFrame.FontSize.setText(String.valueOf(fontSize));
 			ChooseFile.cizufilename = cizufilename;
 			Window.tipschange = new Tips(Window.tips);
+			
 			win.jSplitPane2.setSize(sp2width,sp2height);
 			win.jSplitPane1.setDividerLocation(sp1);
 			win.jSplitPane2.setDividerLocation(sp2);
+			
 			SetFrameQianshuiListener.qianshui = qianshui;
+			if(qianshui == 1)
+				SetFrameQianshuiListener.qianshui1.setText("Ç±Ë®¸ú´ò\"ÒÑ¿ª\"");
+			else
+				SetFrameQianshuiListener.qianshui1.setText("Ç±Ë®¸ú´ò\"ÒÑ¹Ø\"");
 			SetFramechangeListener.tipsign = tip;
+			if(tip == 1)
+				SetFramechangeListener.change.setText("´ÊÓïÌáÊ¾\"ÒÑ¿ª\"");
+			else
+				SetFramechangeListener.change.setText("´ÊÓïÌáÊ¾\"ÒÑ¹Ø\"");
+			SetspaceListener.spacesign = space;
+			if(space ==1)
+				SetspaceListener.space.setText("È¥³ý¿Õ¸ñ\"ÒÑ¿ª\"");
+			else
+				SetspaceListener.space.setText("È¥³ý¿Õ¸ñ\"ÒÑ¹Ø\"");
+			SetCharListener.charsign = Charset;
+			if(Charset ==1)
+				SetCharListener.charset.setText("·ûºÅÌæ»»\"ÒÑ¿ª\"");
+			else
+				SetCharListener.charset.setText("·ûºÅÌæ»»\"ÒÑ¹Ø\"");
+			SetFrameJinduListener.jindusign = jindusign;
+			if(jindusign ==1)
+				SetFrameJinduListener.jindu.setText("½ø¶ÈÌõÏÔÊ¾\"ÒÑ¿ª\"");
+			else
+				SetFrameJinduListener.jindu.setText("½ø¶ÈÌõÏÔÊ¾\"ÒÑ¹Ø\"");
 		}catch(Exception ex){System.out.println("ÎÄ±¾¸ñÊ½²»¶Ô");ex.printStackTrace();}
 	}
 	public static void readfontnum() throws IOException{
@@ -207,9 +242,9 @@ public class readWrite
 		BufferedReader rStream=new BufferedReader(rReader);
 		rString = rStream.readLine();
 		try{
-			int num[] = {0,0,0};
+			int num[] = {0,0,0,0};
 			int pos = 0;
-			for(int i=0;i<3;i++){
+			for(int i=0;i<4;i++){
 				pos =  rString.indexOf('%',pos)+1;
 				if(pos!=-1)
 					num[i] = pos;
@@ -217,10 +252,12 @@ public class readWrite
 			}
 			int numall = Integer.parseInt(rString.substring(num[0],num[1]-1));
 			int right = Integer.parseInt(rString.substring(num[1],num[2]-1));
-			int mis = Integer.parseInt(rString.substring(num[2]));
+			int mis = Integer.parseInt(rString.substring(num[2],num[3]-1));
+			int date = Integer.parseInt(rString.substring(num[3]));
 			Window.fontallnum = numall;
 			Window.rightnum = right;
 			Window.misnum = mis;
+			Window.datenum = date;
 			rStream.close();
 			rReader.close();
 		}catch(Exception e){System.out.println("¶ÁÈ¡×ÖÊýÎÄ¼þÊ§°Ü");}
@@ -228,8 +265,7 @@ public class readWrite
 	public static void keepfontnum(int num,int rightnum,int misnum) throws IOException{
 		Writer fWrite=new FileWriter("../set/num.ini",false);
 		BufferedWriter wStream=new BufferedWriter(fWrite);
-		String message = "%"+String.valueOf(num)+"%"+String.valueOf(rightnum)+"%"+String.valueOf(misnum);
-		System.out.println(message);
+		String message = "%"+String.valueOf(num)+"%"+String.valueOf(rightnum)+"%"+String.valueOf(misnum)+"%"+String.valueOf(Window.datenum);
 		wStream.write(message);
 		wStream.close();
 		fWrite.close();

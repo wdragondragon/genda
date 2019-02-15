@@ -24,7 +24,7 @@ public class Acticle extends JFrame{
 	public Acticle(Window win){
 		this.win = win;
 		setTitle("发文");
-		setBounds(100,100,700,400);
+		setBounds(100,100,650,380);
 		setLayout(null);
 		init();
 		setVisible(false);
@@ -42,14 +42,14 @@ public class Acticle extends JFrame{
 	}
 	void addNext(){
 		next = new JButton("下一段");
-		next.setBounds(170, 290, 70, 30);
+		next.setBounds(170, 270, 70, 30);
 //		add(next);
 		next.addActionListener(treeListener);
 		
 	}
 	void Sendwenben(){
 		send = new JButton("确定");
-		send.setBounds(110, 290, 50, 30);
+		send.setBounds(105, 270, 50, 30);
 		add(send);
 		SendWenben sendwenben = new SendWenben(wenben);
 		sendwenben.setwin(win,this);
@@ -57,13 +57,13 @@ public class Acticle extends JFrame{
 	}
 	void addnumber(){
 		number = new JTextField("100");
-		number.setBounds(10,290,90,30);
+		number.setBounds(5,270,90,30);
 		add(number);
 	}
 	void addinArea(){
 		wenben = new JTextPane();
 		wenben1 = new JScrollPane(wenben);
-		wenben1.setBounds(210,10,400,270);
+		wenben1.setBounds(191,0,400,270);
 		add(wenben1);
 	}
 	void Articlelist(){
@@ -95,7 +95,7 @@ public class Acticle extends JFrame{
 		treeListener.setWenzhangFileName(wenzhangFileName);
 		treeListener.setWin(win);
 		tree.addTreeSelectionListener(treeListener);
-		tree1.setBounds(10,10,190,270);
+		tree1.setBounds(0,0,190,270);
 		treeListener.setWenbenText(wenben);
 
 		treeListener.setNumber(number);

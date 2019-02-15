@@ -13,17 +13,20 @@ import javax.swing.JTextArea;
 import QQ.QQ;
 
 public class ShareListener extends AbstractAction {
-	JLabel qqName;
+	static JLabel qqName;
 	public ShareListener(JLabel qqName){
-		this.qqName = qqName;
+		ShareListener.qqName = qqName;
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		send();
+	}
+	public static  void send(){
 		if(SendWenben.sendwenSign==0){JOptionPane.showMessageDialog(new JTextArea(),"发文功能只支持发文状态下使用");return;}
-		String share = SendWenben.title+"\n"+Window.wenben.getText()+"\n-----"+"第"+String.valueOf(RegexText.duan1)+"段-余"+String.valueOf(ActicleListener.length-ActicleListener.fontweizhi-ActicleListener.fontnum)+"字";
+		String share = SendWenben.title+"\n"+QQZaiwenListener.wenbenstr+"\n-----"+"第"+String.valueOf(RegexText.duan1)+"段-余"+String.valueOf(ActicleListener.length-ActicleListener.fontweizhi-ActicleListener.fontnum)+"字";
 		AchievementListener.setClipboardString(share); //将成绩放入剪贴板
-		
+		System.out.println(AchievementListener.getClipboardString());
 		try {
 			QQ.sendMessage(2,qqName.getText());
 		} catch (Exception e1) {
@@ -31,5 +34,4 @@ public class ShareListener extends AbstractAction {
 			System.out.println("分享发文失败");
 		}
 	}
-
 }

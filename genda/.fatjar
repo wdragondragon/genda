@@ -1,10 +1,10 @@
 #Fat Jar Configuration File
-#Sat Jan 12 21:25:56 CST 2019
+#Wed Feb 13 16:36:51 CST 2019
 onejar.license.required=false
 manifest.classpath=
 manifest.removesigners=true
 onejar.checkbox=true
-jarname=C\:\\Users\\Administrator\\Desktop\\\u8DDF\\genda.jar
+jarname=C\:\\Users\\Administrator\\Desktop\\\u8DDF\\\u62D6\u62C9\u673A\\genda.jar
 manifest.mergeall=true
 manifest.mainclass=genda1.Example
 manifest.file=<createnew>

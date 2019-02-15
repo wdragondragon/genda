@@ -16,21 +16,8 @@ public class Mix extends AbstractAction{
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 //		Window.wenben.setText(mix(Window.wenben.getText()));
-		String wenstr = mix(QQZaiwenListener.wenbenstr);
-		win.gendaListener.sign = 0;
-		win.gendaListener.deleteNumber = 0;
-		win.gendaListener.deleteTextNumber = 0;
-		win.gendaListener.KeyNumber = 0;
-		Window.dazi.setText(null);
-		Window.dazi.setEditable(true);
-		QQZaiwenListener.wenbenstr = wenstr;
-		
-		win.wenben.setText("");
-		Window.tipschange.changecolortip();
-		Window.wenben.setText("");
-		Window.gendaListener.ChangeFontColor();
-		Window.dazi.requestFocusInWindow();
-		win.wenben.setCaretPosition(0);
+		QQZaiwenListener.wenbenstr = mix(QQZaiwenListener.wenbenstr);
+		Window.f3listener.F3();
 	}
 	String mix(String str){
 		String mix = "";

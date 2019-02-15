@@ -17,6 +17,7 @@ import java.io.DataOutputStream;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
 import Login.*;
+import SetWin.SetFrameQianshuiListener;
 public class SendWenben implements ActionListener{
 	static public int sendwenSign = 0;
 	static public String title = "";
@@ -29,38 +30,11 @@ public class SendWenben implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		win.dazi.setText(null);
-		win.dazi.setEditable(true);
-		win.gendaListener.sign = 0;
-		win.gendaListener.deleteNumber = 0;
-		win.gendaListener.deleteTextNumber = 0;
-		win.gendaListener.KeyNumber = 0;
-		win.gendaListener.space = 0;
-		win.gendaListener.left = 0;
-		win.gendaListener.right = 0;
-		win.wenben.setText("");
-		
-		QQZaiwenListener.wenbenstr = wenben.getText();
-		win.tipschange.changecolortip();
-		win.wenben.setText("");
-		win.gendaListener.ChangeFontColor();//字体描色
-		
-		QQZaiwenListener.lilun = 1.0*win.tipschange.compalllength()/QQZaiwenListener.wenbenstr.length();
-		win.lilunma.setText("理论码长:"+String.format("%.2f", QQZaiwenListener.lilun));
-		
-		win.wenben.setCaretPosition(0);		//移动到最顶行
-		Window.dazi.requestFocusInWindow();	//固定焦点
-		win.setGendajindu.open(wenben.getText().length());	//进度条开启
-		sendwenSign = 1;	//发文标志
 		QQZaiwenListener.wenbenstr = wenben.getText();//固定文本框
+		Window.f3listener.F3();
+		sendwenSign = 1;	//发文标志
 		RegexText.duan1 = 1;//设置段数
-		
 		win.sendwen.setVisible(true);
-		win.sendwen.setText(String.valueOf(0)+"%");
-		
-		//打词重置
-		win.gendaListener.daciall = 0;
-		win.gendaListener.daci = 0;
 		try{
 			DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
 			out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+wenben.getText()+"%0"+"%"+Login.zhanghao.getText());
@@ -69,6 +43,7 @@ public class SendWenben implements ActionListener{
 			System.out.println("无法发送文本内容");
 		}
 		acticle.setVisible(false);
+		if(SetFrameQianshuiListener.qianshui==0)ShareListener.send();
 	}
 	public void setwin(Window t,Acticle acticle){
 		win = t;

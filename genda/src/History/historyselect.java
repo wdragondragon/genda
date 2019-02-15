@@ -13,6 +13,8 @@ import java.net.UnknownHostException;
 import java.util.Vector;
 
 import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.table.TableColumn;
 
 import Login.Login;
@@ -21,7 +23,7 @@ public class historyselect implements ActionListener {
 	Socket socket;
 	DataOutputStream out;
 	DataInputStream in;
-	Vector vRow1;
+	String id;
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -40,7 +42,7 @@ public class historyselect implements ActionListener {
 	}
 	void lianjie(){
 		try{
-			socket = new Socket(Window.IP,1232);
+			socket = new Socket(Window.IP,Login.port);
 			socket.setSoTimeout(100);
 			out = new DataOutputStream(socket.getOutputStream());
 			in = new DataInputStream(socket.getInputStream());
@@ -58,27 +60,21 @@ public class historyselect implements ActionListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		historyFrame.id.clear();
-		historyFrame.allhistory.clear();
-		historyFrame.clear();
-		historyFrame.yenum = 0;
-		historyFrame.dangqian = 0;
+		historyFrame.clearall();
 	}
 	void requestsaiwen(){
 		try {
-			int n =0;
 			while(true){
-				vRow1 = new Vector();
-				vRow1.add(++n);
+				historyFrame.vRow1 = new Vector();
+				historyFrame.vRow1.add(++historyFrame.n);
 				for(int i=0;i<13;i++){
-					vRow1.add(in.readUTF());	
+					historyFrame.vRow1.add(in.readUTF());	
 				}
-				String id = in.readUTF();
-				int duan = Integer.valueOf(vRow1.get(13).toString()); 
+				id = in.readUTF();
+				historyFrame.id.add(id);
+				int duan = Integer.valueOf(historyFrame.vRow1.get(13).toString()); 
 				if(duan==999){
-					historyFrame.id.add(id);
-					historyFrame.allhistory.add(vRow1);
-					historyFrame.yenum++;
+					getvROW();
 				}
 			}
 		} catch (Exception e) {
@@ -89,26 +85,30 @@ public class historyselect implements ActionListener {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			historyFrame.aver();
 			historyFrame.showtable();
 			System.out.println("排名结束");
 		}
 	}
 	void requestsudu(){
 		try {
-			int n =0;
 			while(true){
-				vRow1 = new Vector();
-				vRow1.add(++n);
+				historyFrame.vRow1 = new Vector();
+				historyFrame.vRow1.add(++historyFrame.n);
 				for(int i=0;i<13;i++){
-					vRow1.add(in.readUTF());	
+					historyFrame.vRow1.add(in.readUTF());	
 				}
-				String id = in.readUTF();
-				double sudu = Double.valueOf(vRow1.get(2).toString()); 
+				id = in.readUTF();
+				historyFrame.id.add(id);
+				double sudu = Double.valueOf(historyFrame.vRow1.get(2).toString());
+				double suduget;
+				try{
+					suduget = Integer.valueOf(historyFrame.suduf.getText());
+				}catch(Exception e){JOptionPane.showMessageDialog(new JTextArea(),"输入错误");return;}
 				if(sudu>=Integer.valueOf(historyFrame.suduf.getText())){
-					historyFrame.id.add(id);
-					historyFrame.allhistory.add(vRow1);
-					historyFrame.yenum++;
+					getvROW();
 				}
+				
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -118,28 +118,28 @@ public class historyselect implements ActionListener {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			if(historyFrame.num==0)return;
+			historyFrame.aver();
 			historyFrame.showtable();
 			System.out.println("排名结束");
 		}
 	}
 	void requestdate(){
 		try {
-			int n =0;
 			while(true){
-				vRow1 = new Vector();
-				vRow1.add(++n);
+				historyFrame.vRow1 = new Vector();
+				historyFrame.vRow1.add(++historyFrame.n);
 				for(int i=0;i<13;i++){
-					vRow1.add(in.readUTF());	
+					historyFrame.vRow1.add(in.readUTF());	
 				}
-				String id = in.readUTF();
-				String date1 = vRow1.get(1).toString();
+				id = in.readUTF();
+				historyFrame.id.add(id);
+				String date1 = historyFrame.vRow1.get(1).toString();
 				String []a= date1.split("-");  
 				System.out.println(date1);
 				String date = a[0]+a[1]+a[2];
 				if(date.equals(historyFrame.datef.getText())){
-					historyFrame.id.add(id);
-					historyFrame.allhistory.add(vRow1);
-					historyFrame.yenum++;
+					getvROW();
 				}
 			}
 		} catch (Exception e) {
@@ -150,9 +150,26 @@ public class historyselect implements ActionListener {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			if(historyFrame.num==0){JOptionPane.showMessageDialog(new JTextArea(),"无记录");return;}
+			historyFrame.aver();
 			historyFrame.showtable();
 			System.out.println("排名结束");
 		}
 	}
-	
+	void getvROW(){
+		historyFrame.allhistory.add(historyFrame.vRow1);
+		historyFrame.yenum++;
+		historyFrame.num++;
+		historyFrame.aversudu += Double.parseDouble((String) historyFrame.vRow1.get(2));
+		historyFrame.averkey += Double.parseDouble((String)historyFrame.vRow1.get(3));
+		historyFrame.averkeylength += Double.parseDouble((String)historyFrame.vRow1.get(4));
+		historyFrame.avernumber += Double.parseDouble((String)historyFrame.vRow1.get(5));
+		historyFrame.averdeletetext += Double.parseDouble((String)historyFrame.vRow1.get(6));
+		historyFrame.averdelete += Double.parseDouble((String)historyFrame.vRow1.get(7));
+		historyFrame.avermistake += Double.parseDouble((String)historyFrame.vRow1.get(8));
+		historyFrame.averrepeat += Double.parseDouble((String)historyFrame.vRow1.get(9));
+		historyFrame.averkeyaccur += Double.parseDouble((String)historyFrame.vRow1.get(10));
+		historyFrame.averdacilv += Double.parseDouble((String)historyFrame.vRow1.get(11));
+		historyFrame.avertime += Double.parseDouble((String)historyFrame.vRow1.get(12));
+	}
 }

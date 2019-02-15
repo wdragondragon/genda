@@ -24,7 +24,7 @@ public class Tips{
 	public static HashMap<String,String> moretiphash = null;
 
 	
-	public static ArrayList<HashMap<String,String>> hashlist = new ArrayList<HashMap<String,String>>();
+	public static ArrayList<HashMap<String,String>> hashlist;
 	public static List<Integer> quanmaci = new ArrayList<Integer>();
 	public static List<Integer> quanmacitwo = new ArrayList<Integer>();
 	public static List<Integer> quanmacione = new ArrayList<Integer>();
@@ -46,11 +46,14 @@ public class Tips{
 	public static List<Integer> cisjianmaci= new ArrayList<Integer>();
 	public static List<Integer> cisjianmacitwo= new ArrayList<Integer>();
 	public static List<Integer> cisjianmacione = new ArrayList<Integer>();
+	
+	public static List<Integer> danzi = new ArrayList<Integer>();
 	File more = new File(ChooseFile.cizufilename);
 	Scanner sc = null;
 	String str = null;
 	public Tips(JLabel showText){
 		this.showText = showText;
+		hashlist = new ArrayList<HashMap<String,String>>();
 		hashtable = new HashMap<String,String>();
 		try{
 			for(i=0;i<10;i++){
@@ -272,7 +275,8 @@ public class Tips{
 		for(int i=0;i<str.length();i++){
 			if(!quanmaci.contains(i)&&!ejianmaci.contains(i)&&!sjianmaci.contains(i)&&
 					!ciquanmaci.contains(i)&&!ciejianmaci.contains(i)&&!cisjianmaci.contains(i)){
-				System.out.println("µ¥×Ö");
+//				System.out.println("µ¥×Ö");
+				danzi.add(i);
 				if(hashtable.containsKey(String.valueOf(c[i]))){
 					String str1 = hashtable.get(String.valueOf(c[i]));
 					String temp = str1.substring(str1.length()-1);

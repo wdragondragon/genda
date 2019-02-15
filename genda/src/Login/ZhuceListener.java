@@ -22,7 +22,7 @@ public class ZhuceListener implements ActionListener {
 			if(Login.dengluSign == 0){
 				Login.out = new DataOutputStream(Login.socket.getOutputStream());
 				Login.in =  new DataInputStream(Login.socket.getInputStream());
-				String message = "%2%"+Login.zhanghao.getText()+"%"+Login.mima.getText()+"%无"+"%无"+"%无";
+				String message = "%2%"+Login.zhanghao.getText()+"%"+Login.mima.getText()+"%无"+"%无"+"%无"+"%无";
 				Login.out.writeUTF(message);
 				int i = Integer.parseInt(Login.in.readUTF());
 				if(i==1)

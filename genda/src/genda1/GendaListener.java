@@ -25,7 +25,8 @@ public class GendaListener implements DocumentListener,KeyListener {
 	JTextArea dazi,chengji;
 	JScrollPane wenben1;
 	JTextPane wenben;
-	String str1="",str2="";
+	static String str1="";
+	static String str2="";
 	public static String record;
 	public static ComputeSpeed comp = new ComputeSpeed();
 	ComputeSpeed compdazi = new ComputeSpeed();
@@ -39,13 +40,16 @@ public class GendaListener implements DocumentListener,KeyListener {
 	JLabel zishu;
 	JButton suduButton,KeysuduButton,achievement,Keylength;
 	AchievementListener achievementlistener;
-	double sudu,length=0,mistake=0;
+	public double sudu;
+	double length=0;
+	double mistake=0;
 	public double KeyNumber=0;
 	public double left=0;
 	public double right=0;
 	public double deleteNumber=0;
 	public double deleteTextNumber=0;
 	public double repeat=0;
+	double citime ;
 	public int space = 0;
 	String a,b,leftstr="qazwsxedcrfvtgb",rightstr=";/.,。，；、plokmijnuhy";
 	String dazidangyestr,wenbendangyestr;
@@ -60,8 +64,11 @@ public class GendaListener implements DocumentListener,KeyListener {
 	public int daci=0;
 	public int daciall=0;
 	public List<String> mistakelist = new ArrayList<String>();
+	public static List<String> dacilist = new ArrayList<String>();
+
 	private JLabel allnumber;
 	private Tips tipschange;
+	
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -69,7 +76,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 			if(str1.length()>0&&sign==1){
 				if(e.getKeyChar()=='\b'){
 					deleteNumber++;
-					System.out.println("退格+");
+//					System.out.println("退格+");
 					record = record + "←";
 				}
 				else if(e.getKeyChar()==' '){
@@ -92,7 +99,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 			}
 			if(str1.length()==0&&e.getKeyChar()=='\b'){
 				deleteNumber++;
-				System.out.println("退格+");
+//				System.out.println("退格+");
 				record = record + "←";
 			}
 		}
@@ -104,15 +111,16 @@ public class GendaListener implements DocumentListener,KeyListener {
 		try{
 			if(str1.length()>0&&str1.length()<=length&&e.getKeyChar()=='\b'){//触发按键时如果打字框长度减小并且按键为BackSpace，即为回改
 				deleteTextNumber++;
-				System.out.println("回改+");
+//				System.out.println("回改+");
 				comphvgd.time2=comphvgd.time1;
 				comphvgd.setTimeOne();
 				if(comphvgd.time1-comphvgd.time2<100){
 					deleteNumber++;
-					System.out.println("退格+");
+//					System.out.println("退格+");
 					lianhvgdsign++;
 				}
-				else if(lianhvgdsign!=0){System.out.println("退格+2");
+				else if(lianhvgdsign!=0){
+//					System.out.println("退格+2");
 					deleteNumber+=2;
 					lianhvgdsign = 0;
 				}
@@ -129,7 +137,6 @@ public class GendaListener implements DocumentListener,KeyListener {
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		try{
-			
 			mistakelist.clear();
 			if(e.getKeyChar()!='\b')
 				str1 = dazi.getText()+e.getKeyChar();
@@ -144,36 +151,13 @@ public class GendaListener implements DocumentListener,KeyListener {
 				else
 					Window.misnum++;
 				Window.fontallnum++;
+				Window.datenum++;
 			}
-			System.out.println(Window.rightnum+" "+Window.misnum);
-//			double fengzhitemp;
-//			if(str1.length()==1){fengzhi.time1=0;fengzhi.time2=0;fengzhinum=0;fengkey = 0;machang = 0;}
-//			if(str1.length()>length)
-//				if(str1.length()%fengzhicomp==2&&fenglengthOne==0){
-//					fengzhi.setTimeOne();
-//					fenglengthOne = str1.length();
-//				}
-//				else if((str1.length()%fengzhicomp)==fengzhicomp-1&&fenglengthOne!=0&&fenglengthTwo==0){
-//					fengzhi.setTimeTwo();
-//					fenglengthTwo = str1.length();
-//				}
-//			if(fenglengthOne!=0&&fenglengthTwo!=0){
-//				fengzhitemp = fengzhi.getSpeed((double)(fenglengthTwo - fenglengthOne),0);
-//				if(fengzhitemp>fengzhinum){
-//					fengzhinum = fengzhitemp;
-//					fengkey = fengkeytemp/fengzhi.getSecond();
-//					machang = fengkeytemp/(fengzhicomp-2);
-//				}
-//				fenglengthOne=0;fenglengthTwo=0;
-//				fengkeytemp = 0;
-//				machang = 0;
-//			}
-//			System.out.println(fengzhinum+"/"+fengkey+"/"+machang);
 			//计算打词率
 			try{
-				compdaci();
+				compdaci(e.getKeyChar());//计算打词
 			}
-			catch(Exception ex){System.out.println("打词计算失败");}
+			catch(Exception ex){System.out.println("打词计算失败180genda");}
 			mistake = 0;			//错误字数清零
 			length = str1.length();//计算当前打字框长度
 			for(n=0;n<str1.length();n++){					//统计错误字数，向文本框添加字体
@@ -183,17 +167,20 @@ public class GendaListener implements DocumentListener,KeyListener {
 					mistakelist.add(mistakeStr);
 				}
 			}
-			ChangeFontColor();	//改变字体颜色
+			if(sign==1)
+				ChangeFontColor();	//改变字体颜色
 			tipschange.changeTips(String.valueOf(c2[str1.length()]));//单字编码提示更改
 			zishu.setText("字数:"+str2.length()+"/已打:"+str1.length()+"/错"+(int)(mistake));
-			allnumber.setText("总:"+String.valueOf(Window.fontallnum)+" 对:"+String.valueOf(Window.rightnum)+" 错:"+String.valueOf(Window.misnum));
-			
+			allnumber.setText("总:"+String.valueOf(Window.fontallnum)+" 对:"+String.valueOf(Window.rightnum)+" 错:"+String.valueOf(Window.misnum)+" 今:"+String.valueOf(Window.datenum));
 			readWrite.keepfontnum(Window.fontallnum,Window.rightnum,Window.misnum);
-			
-			RecordChange.recordChange();
+			try{
+				RecordChange.recordChange();
+			}
+			catch(Exception ex){System.out.println("发送跟打字数失败196genda");}
 			if(SetFrameJinduListener.jindusign==1)//判断是否开了进度条
 				gendajindu.jindu(dazi.getText().length()+1-(int)(mistake));
 			ChangePosition();//文本自动翻页
+			
 		}
 		catch(Exception exp){}
 	}
@@ -201,64 +188,66 @@ public class GendaListener implements DocumentListener,KeyListener {
 		try{
 			str1 = dazi.getText();
 			str2 = QQZaiwenListener.wenbenstr;
-			if(sign==0&&str1.length()>0){	//计算第一键时的时间
-				comp.setTimeOne();
+			if(sign==0&&str1.length()>0){	
+				comp.setTimeOne();	//计算第一键时间
 				record = "";	//击键清空
-				sign = 1;	//设置标记后不再计算
+				sign = 1;	//设置标记后不再计算，标记已开始跟打
+				dacilist.clear();	//清除上次跟打留下的daci链表
+				length=0;	//清除上次跟打留下的Length
 			}
 			else
 				comp.setTimeTwo();	//计算最后一键时间
-			sudu = comp.getSpeed(str1.length(),0);		//速度计算算法
-			suduButton.setText(String.format("%.2f",sudu));		//更新临时速度
-			
-			Keylength.setText(String.format("%.2f", KeyNumber/length));
-			
 			a = String.valueOf(str1.charAt(str1.length()-1));
 			b = String.valueOf(str2.charAt(str2.length()-1));	//取两文本最后一个字
 			try{
-				battleClient.send.send();	//发送服务器信息
-			}catch(Exception ex){}
+				if(Window.one.isVisible())
+					battleClient.send.send();	//发送服务器信息
+			}catch(Exception ex){System.out.println("发送对战消息失败gen227");}
 			if(str1.length()==str2.length()&&a.equals(b))		//两文本长度相等且最后一字相同时执行
 			{
 				dazi.setEditable(false);		//设置不可打字状态
-				length = str2.length();
 				sign = 2;//可以生成成绩状态
 				KeyNumber++;		//解决漏一键问题
 				sudu = comp.getSpeed(str1.length(),(int)(mistake));		//速度显示
 				zishu.setText("跟打完毕字数:"+str2.length()+"/错"+mistake);	//字数显示
-				Keylength.setText(String.format("%.2f", KeyNumber/length));//码长显示
+				Keylength.setText(String.format("%.2f", KeyNumber/str2.length()));//码长显示
 				deleteNumber = deleteNumber-deleteTextNumber;	//退格真实数量要减去回改数量
-				if(deleteNumber<0)deleteNumber = 0;
+				if(deleteNumber<0)deleteNumber = 0;	//保证退格小于零
 				ReadyListener.BeganSign = 0;			//准备标志
 				AchievementListener.setClipboardString(achievementlistener.getGeshi()); //将成绩放入剪贴板
 				if(SetFrameQianshuiListener.qianshui == 0)		//不为潜水跟打的话发送成绩
 					achievementlistener.sendchengji();
+				if(SetFrameJinduListener.jindusign==1)//判断是否开了进度条
+					gendajindu.jindu(dazi.getText().length()+1);
 				ChangeAllColor();
+//				acitiycomp.stop();
 			}
 		}
 		catch(Exception exp){}
 	}
-	public void compdaci(){
+	public void compdaci(char c){
 		if(str1!=""&&str1.length()>=length){
 			compdazi.time2=compdazi.time1;
 			compdazi.setTimeOne();
-			if(compdazi.time1-compdazi.time2<100){
+			if(compdazi.time1-compdazi.time2<50){
 				daci++;
+				citime = comp.getSecond();
 			}
-			else{
-				if(daci!=0){
-					String temp = "";
-					daciall	+=	daci+1;
-					for(int k=str1.length()-daci-2;k<=str1.length()-2;k++){
-						temp += String.valueOf(c2[k]);
-					}
-					System.out.println(temp);
-					System.out.println(daciall);
+			else if(daci!=0){
+				String temp = "";
+				daciall	+=	daci+1;
+				for(int k=str1.length()-daci-2;k<=str1.length()-2;k++){
+					temp += String.valueOf(c2[k]);
 				}
-				daci = 0;
+				daci = 0;	//当前词长度清零
+				String s[] = dacilist.get(dacilist.size()-1).split(":");
+				if(s[0].equals(temp.substring(0,1)))	//单字对比
+					dacilist.remove(dacilist.get(dacilist.size()-1));
+				dacilist.add(temp+":"+citime+":"+String.format("%.2f",sudu)+":"+String.format("%.2f",KeyNumber/getSecond()));
 			}
-//			System.out.println(compdazi.time1);
-//			System.out.println(compdazi.time2);
+			else if(daci==0){
+				dacilist.add(String.valueOf(c)+":"+comp.getSecond()+":"+String.format("%.2f",sudu)+":"+String.format("%.2f",KeyNumber/getSecond()));
+			}
 		}
 	}
 	public void ChangeAllColor(){
@@ -274,15 +263,16 @@ public class GendaListener implements DocumentListener,KeyListener {
 			}catch(Exception e){n=0;System.out.println("wussssss");}
 		}catch(Exception ex){System.out.println("跟打框无字3");ex.printStackTrace();}
 	}
+	int dangyenum;
 	public void ChangeFontColor(){
 		try{
 			str2 = QQZaiwenListener.wenbenstr;
 			c2 = str2.toCharArray();
-			int dangyenum = str1.length()/fenye;
+			dangyenum = str1.length()/fenye;
 			int last;
-			if(str2.length()-fenye*dangyenum>=fenye){
+			if(str2.length()-fenye*dangyenum>fenye){
 				wenbendangyestr = str2.substring(fenye*dangyenum,(dangyenum+1)*fenye);
-				last = (dangyenum+1)*fenye;
+				last = (dangyenum+1)*fenye+(heng+1)/3;
 			}
 			else{
 				wenbendangyestr = str2.substring(fenye*dangyenum);
@@ -294,14 +284,17 @@ public class GendaListener implements DocumentListener,KeyListener {
 			wenben.setText("");	//清空文本框
 //			n = 0;
 			try{
-				for(n=dangyenum*fenye;n<str1.length();n++){					//统计错误字数，向文本框添加字体
-					if(c1[n]!=c2[n]){
+				if(dangyenum>0)n=dangyenum*fenye-(heng+1)/3;
+				else n = dangyenum*fenye;
+				for(;n<str1.length();n++){					//统计错误字数，向文本框添加字体
+					if(c1[n]!=c2[n]&&sign==1){
 						JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,String.valueOf(c2[n]),"红",wenben);
 					}
-					else
+					else if(sign==1)
 						JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,String.valueOf(c2[n]),"黑",wenben);
 				}
 			}catch(Exception e){n=0;System.out.println("wussssss");}
+			if(sign==0)n=0;
 			for(;n<last;n++){			//添加剩下字体
 //				System.out.print(n);
 				if(SetFramechangeListener.tipsign==0){
@@ -393,28 +386,49 @@ public class GendaListener implements DocumentListener,KeyListener {
 			}
 		}catch(Exception ex){System.out.println("跟打框无字3");ex.printStackTrace();}
 	}
+	
+	int heng;
 	void ChangePosition(){//自动滚动条翻页方法
 		int hengsize = Window.fontSize+59;	//一个字横分辨率
 		int shusize = Window.fontSize + 14;//一个字竖分辨率
 		int shu = winchange.shuweizhi/shusize; //行数
 		int tem = 0;
-		int heng = (winchange.hengweizhi-hengsize)/Window.fontSize;		//一行字数
-		number=number%fenye;
-		if(dazidangyestr.length()>number){
-			if(shu>2)
-				tem = (shu-1)*(heng+1);
-			else
-				tem = 1*(heng+1);
-			if(number+tem>fenye)
-				number = fenye-1;
-			else
-				number = number +tem;
-			System.out.println("文章光标:"+number);
-		}
+		heng = (winchange.hengweizhi-hengsize)/Window.fontSize;		//一行字数
+		number=number%(fenye+(heng+1)/3);
+		if(dangyenum==0)
+			while(dazidangyestr.length()>number){
+				if(shu>2)
+					tem = (shu-1)*(heng+1);
+				else
+					tem = 1*(heng+1);
+				if(number+tem>fenye)
+					number = fenye-1;
+				else
+					number = number +tem;
+				System.out.println("文章光标:"+number);
+			}
+		else 
+			while(dazidangyestr.length()+(heng+1)/3>number){
+				if(shu>2)
+					tem = (shu-1)*(heng+1);
+				else
+					tem = 1*(heng+1);
+				if(number+tem>fenye)
+					number = fenye+(heng+1)/3-1;
+				else
+					number = number +tem;
+				System.out.println("文章光标:"+number);
+			}
 		if(dazidangyestr.length()==1){
 			if(shu>1){
 				number=(shu-1)*(heng+1)+(heng+1)/3;
-				i=160;
+			}
+			else if(shu<=1)
+				number = 1*(heng+1)-(heng+1)/3;
+		}
+		else if(dazidangyestr.length()==0){
+			if(shu>1){
+				number=(shu-1)*(heng+1)+(heng+1)/3;
 			}
 			else if(shu<=1)
 				number = 1*(heng+1)-(heng+1)/3;

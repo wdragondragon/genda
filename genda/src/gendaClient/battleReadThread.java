@@ -59,14 +59,7 @@ public class battleReadThread extends Thread{//读取服务器发来信息的线程
 					System.out.println(wenben);
 					QQZaiwenListener.wenbenstr = wenben;
 					if(GendaListener.sign!=1){
-						Window.tipschange.changecolortip();
-						Window.gendaListener.ChangeFontColor();
-						Window.wenben.setCaretPosition(0);
-						QQZaiwenListener.lilun = 1.0*Window.tipschange.compalllength()/QQZaiwenListener.wenbenstr.length();
-						Window.lilunma.setText("理论码长:"+String.format("%.2f", QQZaiwenListener.lilun));
-						//打词重置
-						Window.gendaListener.daciall = 0;
-						Window.gendaListener.daci = 0;
+						Window.f3listener.F3();
 					}
 				}
 				if(!win.equals("无"))

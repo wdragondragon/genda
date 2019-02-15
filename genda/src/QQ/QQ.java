@@ -9,7 +9,7 @@ public class QQ {
     	Robot robot = new Robot();
     	HWND hWnd=User32.FindWindow("TXGuiFoundation", Name);
     	HWND genda = User32.FindWindow(null, "¸ú´ò");
-    	robot.delay(80);
+    	robot.delay(150);
     	if(hWnd.getValue()>0){
     		java.lang.String winname = User32.GetWindowText(hWnd);
     		System.out.println(winname);

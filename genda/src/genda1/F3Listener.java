@@ -38,14 +38,14 @@ public class F3Listener extends AbstractAction{
 		gendajindu = t;
 	}
 	public void actionPerformed(ActionEvent e) {
+		F3();
+	}
+	public void F3(){
 		dazi.setText(null);
 		dazi.setEditable(true);
-		chengji.append("选择重打\n");
+		
 		gendaListener.setSign(0);
-		gendaListener.KeyNumber = 0;
 		zishu.setText("字数:"+wenben.getText().length()+"/已打:"+0);
-		chengji.setCaretPosition(chengji.getText().length());
-		dazi.requestFocusInWindow();
 		
 		gendaListener.KeyNumber = 0;
 		gendaListener.deleteNumber = 0;
@@ -54,27 +54,27 @@ public class F3Listener extends AbstractAction{
 		gendaListener.right = 0;
 		gendaListener.repeat = 0;
 		gendaListener.space = 0;
+		gendaListener.suduButton.setText("0.00");
+		gendaListener.KeysuduButton.setText("0.00");
+		gendaListener.Keylength.setText("0.00");
 //		gendaListener.record = "";
 		battleSend.Mistake ++;
+		//进度条
 		if(SetFrameJinduListener.jindusign==1)
-			gendajindu.open(wenben.getText().length());
-		//字体变化
-		String wenbenstr = wenben.getText();
+			gendajindu.open(QQZaiwenListener.wenbenstr.length());//进度条开启
+		//字体载文
+		Window.tipschange.changecolortip();
 		wenben.setText("");
-		gendaListener.ChangeFontColor();
-		////////////////////
+		Window.gendaListener.ChangeFontColor();
 		wenben.setCaretPosition(0);
 		//打词重置
 		gendaListener.daciall = 0;
 		gendaListener.daci = 0;
-//		try{
-//			if(!Client2.socket.isClosed()){
-//				SendListener.Mistake++;
-//				SendListener.out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+wenben.getText()+"%0");		
-//			}
-//		}
-//		catch(Exception ex){
-//			System.out.println("无法发送文本内容F3");
-//		}
+		//理论码长
+		QQZaiwenListener.lilun = 1.0*Window.tipschange.compalllength()/QQZaiwenListener.wenbenstr.length();
+		Window.lilunma.setText("理论码长:"+String.format("%.2f", QQZaiwenListener.lilun));
+		Window.zishu.setText("字数:"+QQZaiwenListener.wenbenstr.length()+"/已打:"+0+"/错"+0);
+
+		dazi.requestFocusInWindow();
 	}
 }

@@ -4,11 +4,13 @@ import gendaClient.battleClient;
 
 import java.awt.event.*;
 import java.io.*;
+
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.tree.*;
 
 import Login.Login;
+import SetWin.SetFrameQianshuiListener;
 public class ActicleListener implements TreeSelectionListener ,ActionListener{
 	JTextArea dazi;
 	JTextPane wenben;
@@ -46,7 +48,6 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 	}
 	void getNumber(){
 		try{
-			System.out.println(number.getText());
 			fontnum = Integer.parseInt(number.getText());}
 		catch(Exception e){
 			JOptionPane.showMessageDialog(new JTextArea(),"字数框输入数字");
@@ -69,9 +70,13 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 				for(i=0;i<wenzhangFileName.length;i++){
 					if(in!=null)break;
 					if(node.toString().equals(wenzhangFileName[i])){
-						open = new File("文章//文章类",node.toString());
-						in = new RandomAccessFile(open,"r");
 						SendWenben.title = node.toString();
+						if(SendWenben.title.equals("跟打进度.txt")){
+							readjindu();
+						}
+						open = new File("文章//文章类",SendWenben.title);
+						in = new RandomAccessFile(open,"r");
+						
 						break;
 					}
 				}
@@ -87,10 +92,25 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 					wen = all.substring(fontweizhi,fontnum);
 				else
 					wen = all.substring(fontweizhi, fontweizhi+fontnum);
-				
 				wenben.setText(wen);
 				fontweizhi += fontnum;
+				win.sendwen.setText(String.valueOf(fontweizhi)+"/"+String.valueOf(all.length())+":"+String.format("%.2f",(double)fontweizhi*100/all.length())+"%");
 			} catch (IOException e) {}
+		}
+	}
+	void readjindu() throws IOException{
+		try {
+			open = new File("文章//文章类","跟打进度.txt");
+			Reader read = new FileReader(open);
+			BufferedReader br = new BufferedReader(read);
+			SendWenben.title = br.readLine();
+			fontweizhi = Integer.valueOf(br.readLine());
+			br.close();
+			read.close();
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	@Override
@@ -105,60 +125,40 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 						SendWenben.sendwenSign = 0;
 						return;
 					}
-					if(fontweizhi+fontnum>all.length())
+					if(fontweizhi+fontnum>=all.length()){
 						wen = all.substring(fontweizhi, all.length());
-					else
+						fontweizhi = all.length();
+					}
+					else{
 						wen = all.substring(fontweizhi, fontweizhi+fontnum);
+						fontweizhi+= fontnum;
+					}
 					QQZaiwenListener.wenbenstr = wen;
-					win.dazi.setText("");
-					win.tipschange.changecolortip();
-					win.wenben.setText(QQZaiwenListener.wenbenstr);
-					win.gendaListener.ChangeFontColor();
-					win.wenben.setCaretPosition(0);//字体描色
-					fontweizhi+= fontnum;
+					Window.f3listener.F3();
+					
+					RegexText.duan1++;	//发文增段
+					win.sendwen.setText(String.valueOf(fontweizhi)+"/"+String.valueOf(all.length())+":"+String.format("%.2f",(double)fontweizhi*100/all.length())+"%");
+					try{
+						DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
+						out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+Window.wenben.getText()+"%0"+"%"+Login.zhanghao.getText());
+					}
+					catch(Exception ex){
+						System.out.println("无法发送文本内容acticlelistner,121");
+					}
+					if(SetFrameQianshuiListener.qianshui==0)ShareListener.send();
 				}
 				catch(Exception ex){System.out.println("发文处失败");}
-				win.dazi.setText(null);
-				win.dazi.setEditable(true);
-				win.gendaListener.sign = 0;
-				win.gendaListener.deleteNumber = 0;
-				win.gendaListener.deleteTextNumber = 0;
-				win.gendaListener.KeyNumber = 0;
-				win.gendaListener.space = 0;
-				win.gendaListener.left = 0;
-				win.gendaListener.right = 0;
-				
-				win.wenben.setCaretPosition(0);
-				QQZaiwenListener.lilun = 1.0*win.tipschange.compalllength()/QQZaiwenListener.wenbenstr.length();
-				win.lilunma.setText("理论码长:"+String.format("%.2f", QQZaiwenListener.lilun));
-				
-				//打词重置
-				win.gendaListener.daciall = 0;
-				win.gendaListener.daci = 0;
-				
-				win.dazi.setEditable(true);
-				win.dazi.requestFocusInWindow();
-				win.setGendajindu.open(wenben.getText().length());
-				RegexText.duan1++;	//发文增段
-				win.sendwen.setText(String.valueOf(fontweizhi/2)+"/"+String.valueOf(length/2)+":"+String.format("%.2f",(double)fontweizhi*100/length)+"%");
-				try{
-					DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
-					out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+Window.wenben.getText()+"%0"+"%"+Login.zhanghao.getText());
-				}
-				catch(Exception ex){
-					System.out.println("无法发送文本内容");
-				}
 			}
 			else if(e.getActionCommand()=="保存跟打进度"){
 				try{
 					open = new File("文章//文章类","跟打进度.txt");
-					out = new RandomAccessFile(open,"rw");
-					wen = all.substring(fontweizhi-fontnum, all.length());
-					byte baocun[] = wen.getBytes();
-					out.write(baocun);
-					out.close();
+					FileOutputStream testfile = new FileOutputStream(open);
+					testfile.write(new String("").getBytes());
+					byte baocun[] = (SendWenben.title+"\r\n"+String.valueOf(fontweizhi-fontnum)).getBytes();
+					testfile.write(baocun);
+					testfile.close();
 					JOptionPane.showMessageDialog(new JTextArea(),"已保存当前跟打进度");
-				}catch(Exception ex){JOptionPane.showMessageDialog(new JTextArea(),"保存失败");}
+				}catch(Exception ex){JOptionPane.showMessageDialog(new JTextArea(),"保存进度失败");}
 			}
 		}
 		else 

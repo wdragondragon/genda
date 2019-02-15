@@ -3,22 +3,25 @@ package SetWin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JRadioButton;
 
 public class SetFrameJinduListener implements ActionListener {
-	JRadioButton button1;
+	public static JButton jindu;
 	public static int jindusign = 1;
+	SetFrameJinduListener(JButton jindu){
+		this.jindu = jindu;
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(button1.isSelected()){
+		if(jindusign == 0){
 			jindusign = 1;
+			jindu.setText("显示进度条\"已开\"");
 		}
 		else{
 			jindusign = 0;
+			jindu.setText("显示进度条\"已关\"");
 		}
-	}
-	public void setButton1(JRadioButton t){
-		button1 = t;
 	}
 }

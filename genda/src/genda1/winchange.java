@@ -46,10 +46,6 @@ public class winchange extends Thread{
 				sleep(1);
 				shuweizhi = jSplitPane1.getDividerLocation();
 				hengweizhi = jSplitPane2.getWidth();
-//				if(win.choseArticle.getWidth()>0){
-//					jsplitX = 10;
-//				}
-//				else
 					jsplitX = 10;
 				if(n<=0){
 					sleep(500);
@@ -81,10 +77,10 @@ public class winchange extends Thread{
 						
 					}
 					win.qqName.setBounds(jSplitPane2.getX(),jSplitPane2.getY()+jSplitPane2.getHeight()+10,120,40);
-					win.zishu.setBounds(jSplitPane2.getX()+win.qqName.getWidth()+5,jSplitPane2.getY()+jSplitPane2.getHeight()+10,170,40);
-					win.allnumber.setBounds(jSplitPane2.getX()+(win.qqName.getWidth()+win.zishu.getWidth()+10),jSplitPane2.getY()+jSplitPane2.getHeight()+10,220,40);
+					win.zishu.setBounds(jSplitPane2.getX()+win.qqName.getWidth()+5,jSplitPane2.getY()+jSplitPane2.getHeight()+10,(win.zishu.getText().length()-5)*7+5*12,40);
+					win.allnumber.setBounds(jSplitPane2.getX()+(win.qqName.getWidth()+win.zishu.getWidth()+10),jSplitPane2.getY()+jSplitPane2.getHeight()+10,(win.allnumber.getText().length()-4)*7+4*12,40);
 					win.tips.setBounds(jSplitPane2.getX()+(win.qqName.getWidth()+win.zishu.getWidth()+win.allnumber.getWidth()+15),jSplitPane2.getY()+jSplitPane2.getHeight()+10,80,40);
-					win.sendwen.setBounds(jSplitPane2.getX()+(win.qqName.getWidth()+win.zishu.getWidth()+win.allnumber.getWidth()+win.tips.getWidth()+20),jSplitPane2.getY()+jSplitPane2.getHeight()+10,120,40);
+					win.sendwen.setBounds(jSplitPane2.getX()+(win.qqName.getWidth()+win.zishu.getWidth()+win.allnumber.getWidth()+win.tips.getWidth()+20),jSplitPane2.getY()+jSplitPane2.getHeight()+10,win.sendwen.getText().length()*8,40);
 					
 					int jswei = jSplitPane2.getX()+jSplitPane2.getWidth()+5;
 					int chawei = win.one.getWidth()+5;
