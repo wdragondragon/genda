@@ -17,6 +17,13 @@ public class ComputeSpeed {
 		return sudu;
 	}
 	public double getSecond(){
+		BigInteger
+			timeOne = new BigInteger(String.valueOf(time1)),
+			timeTwo = new BigInteger(String.valueOf(time2)),
+			time = new BigInteger("0");
+		time = timeTwo.subtract(timeOne);
+		second = time.doubleValue();
+		second = second/1000;
 		return second;
 	}
 	public void setTimeOne(){

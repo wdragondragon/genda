@@ -1,5 +1,6 @@
 package Login;
 
+import genda1.QQZaiwenListener;
 import genda1.Window;
 
 import java.awt.event.ActionEvent;
@@ -68,6 +69,8 @@ public class DengluListener implements ActionListener{
 					Login.mima.setEditable(false);
 					readWrite.setzm();
 					login.setVisible(false);
+					
+					Window.everydaySign = false;
 					
 					heartThread = new heartThread(Login.socket);//ĞÄÌø°ü·¢ËÍ
 					heartThread.start();

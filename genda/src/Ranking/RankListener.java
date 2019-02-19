@@ -20,7 +20,9 @@ public class RankListener implements ActionListener {
 				new rankFrame(2).setTitle("日跟打排名");
 			else if(e.getActionCommand()=="赛文平均成绩排名")
 				new rankFrame(3).setTitle("赛文平均成绩排名");
-			
+			else if(e.getActionCommand()=="每日赛文排名"){
+				new EveryDayRank();
+			}
 		}
 		else{
 			JOptionPane.showMessageDialog(new JTextArea(),"请先登录");

@@ -19,27 +19,8 @@ public class ReadyListener extends AbstractAction {
 			if(BeganSign==0){
 				BeganSign = 1;
 				accept.append("已准备\n");
-				sendText.setText("");
-				sendText.setEditable(true);
-				gendaListener.setSign(0);
+				Window.f3listener.F3();
 				battleSend.Mistake = 0;
-				gendaListener.KeyNumber = 0;
-				gendaListener.deleteNumber = 0;
-				gendaListener.deleteTextNumber = 0;
-				gendaListener.left = 0;
-				gendaListener.right = 0;
-				gendaListener.repeat = 0;
-				gendaListener.record = "";
-				gendaListener.space = 0;
-				sendText.requestFocusInWindow();
-				Window.wenben.setCaretPosition(0);
-				
-				QQZaiwenListener.lilun = 1.0*Window.tipschange.compalllength()/QQZaiwenListener.wenbenstr.length();
-				Window.lilunma.setText("理论码长:"+String.format("%.2f", QQZaiwenListener.lilun));
-				
-				//打词重置
-				Window.gendaListener.daciall = 0;
-				Window.gendaListener.daci = 0;
 			}
 			else{
 				BeganSign = 0;

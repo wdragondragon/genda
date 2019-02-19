@@ -1,0 +1,23 @@
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.simontuffs.onejar.Boot.run(Boot.java:306)
+	at OneJar.run(OneJar.java:47)
+	at OneJar.main(OneJar.java:42)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.exe4j.runtime.LauncherEngine.launch(LauncherEngine.java:85)
+	at com.exe4j.runtime.WinLauncher.main(WinLauncher.java:94)
+Caused by: java.lang.NullPointerException
+	at Acticle.Acticle.Articlelist(Acticle.java:79)
+	at Acticle.Acticle.init(Acticle.java:40)
+	at Acticle.Acticle.<init>(Acticle.java:29)
+	at genda1.Window.setNew(Window.java:397)
+	at genda1.Window.init(Window.java:232)
+	at genda1.Window.<init>(Window.java:225)
+	at genda1.Example.main(Example.java:15)
+	... 13 more

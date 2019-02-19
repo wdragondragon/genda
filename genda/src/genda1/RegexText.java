@@ -55,15 +55,20 @@ public class RegexText {
 		
 		sign2=0;
 		sign1=0;
-		
 		str = String.valueOf(a);
 		String regex = "[^0123456789]+";
 		str = str.replaceAll("#","");
-		if(SetspaceListener.spacesign==1)
-			str = str.replaceAll("\\s*", "");
+		str = qukong(str);
+		str = huanfu(str);
+		duan = duan.replaceAll(regex,"");
+		duan1 = Integer.valueOf(duan);
+//		System.out.println(str);
+		return str;
+	}
+	public static String huanfu(String str){
 		String initchar = ";:,.!?";
 		String afterchar = "£»£º£¬¡££¡£¿";
-		a = str.toCharArray();
+		char []a = str.toCharArray();
 		int b ;
 		char y[] = afterchar.toCharArray();
 		if(SetCharListener.charsign==1)
@@ -71,9 +76,23 @@ public class RegexText {
 				if((b = initchar.indexOf(a[i]))!=-1)
 					a[i] = y[b];
 		str = String.valueOf(a);
-		duan = duan.replaceAll(regex,"");
-		duan1 = Integer.valueOf(duan);
-//		System.out.println(str);
+		return str;
+	}
+	public static String qukong(String str){
+		if(SetspaceListener.spacesign==1)
+			str = str.replaceAll("\\s*", "");
+		return str;
+	}
+	public static String biaoding(String str){
+		char []a = str.toCharArray();
+		String ding = "£¬¡£¡¢£¡?¡ý,.!?";
+		for(int i=0;i<a.length-1;i++){
+			if(a[i]=='_'&&ding.indexOf(String.valueOf(a[i+1]))!=-1){
+				a[i]='#';
+			}
+		}
+		str = new String(a);
+		str = str.replaceAll("#","");
 		return str;
 	}
 }

@@ -2,15 +2,26 @@ package Login;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.Socket;
+import java.net.URL;
+import java.net.URLConnection;
 import java.net.UnknownHostException;
 
 import genda1.*;
 
 import javax.swing.*;
+
+import Acticle.SendWenben;
 
 public class Login extends JFrame implements ActionListener{
 	static JButton confirm;
@@ -18,7 +29,7 @@ public class Login extends JFrame implements ActionListener{
 	JButton zhuce;
 	JButton wangmi;
 	JButton tuichu;
-	public static String banben = "版本1.488";
+	public static String banben = "版本1.491";
 	public static int port = 1230;
 	public static JTextField zhanghao;
 	public static JPasswordField mima;
@@ -85,16 +96,27 @@ public class Login extends JFrame implements ActionListener{
 			String what = in.readUTF();
 			socket.setSoTimeout(0);
 			if(!what.equals("版本正确")){
-				JOptionPane.showMessageDialog(new JTextArea(),what);
-				Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://x-ws.cn/tljxz");
-				System.exit(0);
+				UIManager.put("OptionPane.yesButtonText", "自动更新");
+				UIManager.put("OptionPane.noButtonText", "手动下载");
+				int n = JOptionPane.showConfirmDialog(null, what, "更新提示", JOptionPane.YES_NO_OPTION);
+				if (n == JOptionPane.YES_OPTION) {
+					// ......
+					Runtime.getRuntime().exec("更新.exe");
+					System.exit(0);
+				} else if (n == JOptionPane.NO_OPTION) {
+					// ......
+					Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://39.96.83.89/new.zip");
+					System.exit(0);
+				}
 			}
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(new JTextArea(),"连接异常");
+			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(new JTextArea(),"连接异常");
+			e.printStackTrace();
 		}
 	}
 	@Override

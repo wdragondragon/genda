@@ -49,7 +49,6 @@ public class SystemListener implements ActionListener,MouseListener,MouseMotionL
 				win.setSize(width,height);
 				x=0;y=0;width=0;height=0;
 				MaxSign = 0;
-				
 			}
 		}
 	}

@@ -4,6 +4,7 @@ import genda1.GendaJindutiao;
 import genda1.GendaListener;
 import genda1.QQZaiwenListener;
 import genda1.ReadyListener;
+import genda1.RegexText;
 import genda1.Window;
 
 import java.io.DataInputStream;
@@ -58,7 +59,8 @@ public class battleReadThread extends Thread{//读取服务器发来信息的线程
 						gendajindu.open(wenben.length());
 					System.out.println(wenben);
 					QQZaiwenListener.wenbenstr = wenben;
-					if(GendaListener.sign!=1){
+					QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText.huanfu(QQZaiwenListener.wenbenstr));
+					if(GendaListener.sign!=1&&ReadyListener.BeganSign==0){
 						Window.f3listener.F3();
 					}
 				}

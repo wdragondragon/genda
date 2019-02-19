@@ -73,6 +73,8 @@ public class readWrite
 				+"%"+Window.family
 				+"%"+SetspaceListener.spacesign
 				+"%"+SetCharListener.charsign
+				+"%"+String.valueOf(win.jSplitPane1.getWidth())
+				+"%"+String.valueOf(win.jSplitPane1.getHeight())
 				;
 		Writer fWrite=new FileWriter("../set/lx.ini",false);
 		BufferedWriter wStream=new BufferedWriter(fWrite);
@@ -98,11 +100,11 @@ public class readWrite
 					0,0,0,0,0,
 					0,0,0,0,0,
 					0,0,0,0,0,
-					0,0,0
+					0,0,0,0,0
 					};
 			int pos = 0;
 		
-			for(int i=0;i<43;i++){
+			for(int i=0;i<45;i++){
 				pos =  rString.indexOf('%',pos)+1;
 				if(pos!=-1)
 					num[i] = pos;
@@ -163,7 +165,10 @@ public class readWrite
 			String family = rString.substring(num[40],num[41]-1);
 			
 			int space = Integer.parseInt(rString.substring(num[41],num[42]-1));
-			int Charset = Integer.parseInt(rString.substring(num[42]));
+			int Charset = Integer.parseInt(rString.substring(num[42],num[43]-1));
+			
+			int sp1width = Integer.parseInt(rString.substring(num[43],num[44]-1));
+			int sp1height = Integer.parseInt(rString.substring(num[44]));
 			win.setBounds(x,y,width,height);
 			
 			Window.rightcolor = new Color(rightR,rightG,rightB);
@@ -207,8 +212,13 @@ public class readWrite
 			Window.tipschange = new Tips(Window.tips);
 			
 			win.jSplitPane2.setSize(sp2width,sp2height);
-			win.jSplitPane1.setDividerLocation(sp1);
+			win.jSplitPane1.setSize(sp1width,sp1height);
+//			win.jSplitPane2.setDividerLocation(0.9);
+//			win.jSplitPane1.setBounds(205,win.F3.getY()+win.F3.getHeight()+5,sp2width/2,sp2height/2);
+			
 			win.jSplitPane2.setDividerLocation(sp2);
+			win.jSplitPane1.setDividerLocation(sp1);
+			
 			
 			SetFrameQianshuiListener.qianshui = qianshui;
 			if(qianshui == 1)

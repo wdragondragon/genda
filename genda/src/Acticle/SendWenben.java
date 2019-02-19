@@ -31,6 +31,7 @@ public class SendWenben implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		QQZaiwenListener.wenbenstr = wenben.getText();//固定文本框
+		QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText.huanfu(QQZaiwenListener.wenbenstr));
 		Window.f3listener.F3();
 		sendwenSign = 1;	//发文标志
 		RegexText.duan1 = 1;//设置段数

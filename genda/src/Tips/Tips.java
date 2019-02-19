@@ -1,6 +1,7 @@
 package Tips;
 
 import genda1.QQZaiwenListener;
+import genda1.RegexText;
 import genda1.Window;
 
 import java.awt.event.ActionEvent;
@@ -18,11 +19,11 @@ import javax.swing.JTextField;
 public class Tips{
 	int i = 0;
 	JLabel showText;
-	public static double alllength = 0.0;
+	public static double alllength = 0.0,dingalllength = 0.0;
 	
 	public static HashMap<String,String> hashtable;
 	public static HashMap<String,String> moretiphash = null;
-
+	public static HashMap<String,String> fuhao = new HashMap<String,String>();
 	
 	public static ArrayList<HashMap<String,String>> hashlist;
 	public static List<Integer> quanmaci = new ArrayList<Integer>();
@@ -48,10 +49,34 @@ public class Tips{
 	public static List<Integer> cisjianmacione = new ArrayList<Integer>();
 	
 	public static List<Integer> danzi = new ArrayList<Integer>();
+	public static HashMap<Integer,String> bianma = new HashMap<Integer,String>();
+	public static String dingshowstr,showstr; 
 	File more = new File(ChooseFile.cizufilename);
+	File FuhaoFile = new File("编码文件/符号文件/符号文件.txt");
 	Scanner sc = null;
 	String str = null;
+	public void Fuhao() throws IOException{
+		FileInputStream fis = new FileInputStream(FuhaoFile); 
+        InputStreamReader read = new InputStreamReader(fis, "UTF-8");
+		BufferedReader  bufferRead = new BufferedReader(read);
+		while((str=bufferRead.readLine())!=null){
+			String[] splited = str.split("\\s+");
+			String ch = splited[0];
+			String bm = splited[1];
+			fuhao.put(ch, bm);
+			System.out.println(ch+":"+bm);
+		}
+		bufferRead.close();
+		read.close();
+		fis.close();
+	}
 	public Tips(JLabel showText){
+		try {
+			Fuhao();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		this.showText = showText;
 		hashlist = new ArrayList<HashMap<String,String>>();
 		hashtable = new HashMap<String,String>();
@@ -67,13 +92,24 @@ public class Tips{
 				String[] splited = str.split("\\s+");
 				String ch = splited[0];
 				String bm = splited[1];
+				String temp;
 			    int chlength = splited[0].length();
+			    int length = splited[1].length();
+			    if(bm.substring(length-1,length).equals("_"))length -= 1;
 			    i = -1;
 			    if(chlength==1){
 			    	if(hashtable.containsKey(splited[0])){
-						if(hashtable.get(splited[0]).length()>splited[1].length()){
+						if(hashtable.get(splited[0]).length()>length){
 							hashtable.put(ch, bm);
 							i++;
+						}
+						else if(hashtable.get(splited[0]).length()==length){
+							temp = bm.substring(bm.length()-1);
+//							System.out.println(temp);
+							if(temp.equals("2")){
+								hashtable.put(ch, bm);
+								i++;
+							}
 						}
 					}
 					else{
@@ -124,13 +160,16 @@ public class Tips{
 			    }
 			    if(i!=-1)
 				    if(hashlist.get(i).containsKey(splited[0])){
-			    		if(hashlist.get(i).get(splited[0]).length()>splited[1].length())
+			    		if(hashlist.get(i).get(splited[0]).length()>length)
 			    			hashlist.get(i).put(ch,bm);
 			    	}
 			    	else{
 			    		hashlist.get(i).put(ch,bm);
 			    	}
 			}
+			bufferRead.close();
+			read.close();
+			fis.close();
 		}catch(Exception e){
 			System.out.println("打开失败2");
 //			e.printStackTrace();
@@ -150,11 +189,14 @@ public class Tips{
 		String str = QQZaiwenListener.wenbenstr;
 		String regex = "1234567890";
 		alllength = 0;
+		dingalllength = 0;
+		
 //		System.out.println(str);
 //		String str = Window.wenben.getText();
-		String str1,str2;
+		String str1,str2,temp;
 		int cixuansign = 0;
 		int length;
+		String bianmatemp;
 		char a[] = str.toCharArray();
 		quanmaci.clear();
 		quanmacione.clear();
@@ -174,6 +216,7 @@ public class Tips{
 		cisjianmaci.clear();
 		cisjianmacione.clear();
 		cisjianmacitwo.clear();
+		bianma.clear();
 		try{
 			for(int i=9;i>=0;i--){
 				if(str.length()<i+2)continue;
@@ -185,11 +228,11 @@ public class Tips{
 								!ejianmaci.contains(j)&&!ejianmaci.contains(j+i+1)&&!ciejianmaci.contains(j)&&!ciejianmaci.contains(j+i+1)&&
 								!sjianmaci.contains(j)&&!sjianmaci.contains(j+i+1)&&!cisjianmaci.contains(j)&&!cisjianmaci.contains(j+i+1))
 						{
-							length = hashlist.get(i).get(str1).length();
-							str2 = hashlist.get(i).get(str1).substring(length-1,length);
-							
-//							System.out.print(str1+str2);
-							if(regex.indexOf(str2)!=-1){
+							bianmatemp =  hashlist.get(i).get(str1);	//临时放入编码，往后加 _
+							length = bianmatemp.length();
+							if(bianmatemp.substring(length-1,length).equals("_"))length -= 1;
+							str2 = hashlist.get(i).get(str1).substring(length-1,length);	//获取编码最后一个字符
+							if(regex.indexOf(str2)!=-1){		//判断最后一字符是否为多重
 								length = length-1;
 								cixuansign=1;
 							}
@@ -217,36 +260,34 @@ public class Tips{
 							if(length<3){
 								if(cixuansign==0){
 									ejianmacione.add(j);
-									ejianmacitwo.add(j+i+1);}
+									ejianmacitwo.add(j+i+1);
+								}
 								else{
 									ciejianmacione.add(j);
 									ciejianmacitwo.add(j+i+1);
 								}
-								alllength =alllength+length+1;
 							}
 							else if(length<4){
 								if(cixuansign==0){
 									sjianmacione.add(j);
-									sjianmacitwo.add(j+i+1);}
+									sjianmacitwo.add(j+i+1);
+								}
 								else{
 									cisjianmacione.add(j);
 									cisjianmacitwo.add(j+i+1);
 								}
-								alllength = alllength+length+1;
 							}
 							else{
 								if(cixuansign==0){
 									quanmacione.add(j);
 									quanmacitwo.add(j+i+1);
-									alllength =alllength+length;
 								}
 								else{
 									ciquanmacione.add(j);
 									ciquanmacitwo.add(j+i+1);
-									alllength =alllength+length+1;
 								}
 							}
-//							System.out.println(str1);
+							bianma.put(j, bianmatemp);
 						}
 					}
 				}
@@ -262,41 +303,40 @@ public class Tips{
 			Collections.sort(quanmacitwo);
 			Collections.sort(ejianmacitwo);
 			Collections.sort(sjianmacitwo);
-//			for(int i :quanmaci){
-//				System.out.print(i);
-//			}
 		}catch(Exception e){System.out.print("000");}
 	}
-	public double compalllength(){
+	public void compalllength(){
 		String str = QQZaiwenListener.wenbenstr;
 		String regex = "234567890";
 		char c[] = str.toCharArray();
+		String bianmatemp;
 		System.out.println();
-		for(int i=0;i<str.length();i++){
+		dingshowstr = "";
+		showstr = "";
+		for(int i=0;i<str.length();i++)
 			if(!quanmaci.contains(i)&&!ejianmaci.contains(i)&&!sjianmaci.contains(i)&&
-					!ciquanmaci.contains(i)&&!ciejianmaci.contains(i)&&!cisjianmaci.contains(i)){
-//				System.out.println("单字");
-				danzi.add(i);
-				if(hashtable.containsKey(String.valueOf(c[i]))){
-					String str1 = hashtable.get(String.valueOf(c[i]));
-					String temp = str1.substring(str1.length()-1);
-					if(hashtable.get(String.valueOf(c[i])).length()<4)
-						if(regex.indexOf(temp)!=-1){
-							alllength += str1.length();
-							System.out.print(c[i]);
-						}
-						else
-							alllength += str1.length()+1;
-					else {
-						alllength += str1.length();
+					!ciquanmaci.contains(i)&&!ciejianmaci.contains(i)&&!cisjianmaci.contains(i)){	//判断是否在已用索引中
+				danzi.add(i);		//单字索引添加
+				if(hashtable.containsKey(String.valueOf(c[i]))) 	//查询单字链表中是否存在该单字
+					bianmatemp = hashtable.get(String.valueOf(c[i]));		//放入编码中
+				else{									//不存在则原搬不动，码长算一
+					if(fuhao.containsKey(String.valueOf(c[i]))){
+						bianmatemp = fuhao.get(String.valueOf(c[i]));
 					}
+					else 
+						bianmatemp = String.valueOf(c[i]);
 				}
-				else{
-					alllength+=1;
-				}
+				bianma.put(i, bianmatemp);
+			}
+		for(int i=0;i<c.length;i++){
+			if(Tips.bianma.containsKey(i)){
+				showstr += Tips.bianma.get(i);
 			}
 		}
+		dingshowstr = RegexText.biaoding(showstr);
+		dingalllength = dingshowstr.length();
+		alllength = showstr.length();
 		System.out.println("\n理论:"+alllength);
-		return alllength;
+		System.out.println("\n标定:"+dingalllength);
 	}
 }

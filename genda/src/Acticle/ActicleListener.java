@@ -87,9 +87,9 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 				s = new byte[(int)length];
 				in.readFully(s);
 				all = new String(s);
-				all = all.replaceAll("\\s*", ""); 
+				all = all.replaceAll("\\s*", "");
 				if(fontnum>all.length())
-					wen = all.substring(fontweizhi,fontnum);
+					wen = all.substring(fontweizhi,all.length());
 				else
 					wen = all.substring(fontweizhi, fontweizhi+fontnum);
 				wenben.setText(wen);
@@ -134,6 +134,7 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 						fontweizhi+= fontnum;
 					}
 					QQZaiwenListener.wenbenstr = wen;
+					QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText.huanfu(QQZaiwenListener.wenbenstr));
 					Window.f3listener.F3();
 					
 					RegexText.duan1++;	//·¢ÎÄÔö¶Î

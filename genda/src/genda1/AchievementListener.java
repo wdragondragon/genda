@@ -44,7 +44,10 @@ public class AchievementListener extends AbstractAction{
 		if(gendaListener.sign==2){
 			try{			//判断对战中
 				if(!battleClient.socket.isClosed()){
-					battleSend.out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+Window.wenben.getText()+"%"+String.valueOf(sudu-30*battleSend.Mistake)+"%"+Login.zhanghao.getText());	
+					if(Window.reducesudu.getText()!="")
+						battleSend.out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+Window.wenben.getText()+"%"+String.valueOf(sudu-30*battleSend.Mistake-Integer.parseInt(Window.reducesudu.getText()))+"%"+Login.zhanghao.getText());	
+					else
+						battleSend.out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+Window.wenben.getText()+"%"+String.valueOf(sudu-30*battleSend.Mistake)+"%"+Login.zhanghao.getText());	
 				}
 			}
 			catch(Exception ex){
@@ -77,13 +80,14 @@ public class AchievementListener extends AbstractAction{
 			Keymethod = left/right;
 		else 
 			Keymethod = 1;
-		Keyaccuracy = (KeyNumber-deleteNumber*2-deleteTextNumber*(QQZaiwenListener.lilun))/KeyNumber;
+		Keyaccuracy = (KeyNumber-deleteNumber*2-deleteTextNumber*(1.0*Window.tipschange.alllength/QQZaiwenListener.wenbenstr.length()))/KeyNumber;
 		dacilv = ((double)(gendaListener.daciall)/(QQZaiwenListener.wenbenstr.length()+deleteTextNumber));
 		gendageshi = 
 				"第"+RegexText.duan1+
 				"段 速度"+String.format("%.2f", sudu)+
 				" 击键"+String.format("%.2f",KeyNumber/second)+
 				" 码长"+String.format("%.2f", KeyNumber/length)+
+				" 标顶理论"+String.format("%.2f", Tips.Tips.dingalllength/QQZaiwenListener.wenbenstr.length())+
 				" 字数"+(int)(length)+" 回改"+(int)(deleteTextNumber)+
 				" 退格"+(int)(deleteNumber)+
 				" 错字"+(int)(mistake)+
@@ -95,7 +99,7 @@ public class AchievementListener extends AbstractAction{
 				" 打词率"+String.format("%.2f", dacilv*100)+
 				"% 选重率"+String.format("%.2f", repeat/length*100)+
 //				"% 峰值"+String.format("%.2f", fengzhi)+
-				"% 拖拉机跟打器v1.48";
+				"% 拖拉机跟打器v1.49";
 		ReadyListener.ReadyDuan++;
 		table.addRow();
 		try{
@@ -103,9 +107,19 @@ public class AchievementListener extends AbstractAction{
 		}catch(Exception e){
 			System.out.println("历史成绩错误");
 		}
-		
+		try{
+			if(Window.everydaySign){
+				sendsaiwen();
+				Window.everydaySign = false;
+			}
+		}catch(Exception e){
+			System.out.println("每日赛文成绩错误 ACHI 112");
+		}
 		try{			//判断对战中
 			if(!battleClient.socket.isClosed()){
+				gendageshi = gendageshi+" 让速"+Window.reducesudu.getText()+
+						" 重打"+battleSend.Mistake+
+						" 最终速度(显示速度-重打*30-让速)"+String.format("%.2f",sudu-30*battleSend.Mistake-Integer.parseInt(Window.reducesudu.getText()));
 				gendageshi = gendageshi+" 正在对战中 "+battleReadThread.Whowin;
 			}
 		}
@@ -113,6 +127,29 @@ public class AchievementListener extends AbstractAction{
 			System.out.println("无法设置对战后缀");
 		}
 		return gendageshi;
+	}
+	public void sendsaiwen(){
+		if(Login.dengluSign == 1){
+			String message = "成绩"+
+					"%"+Login.zhanghao.getText()+
+					"%"+String.format("%.2f", sudu)+
+					"%"+String.format("%.2f",KeyNumber/second)+
+					"%"+String.format("%.2f", KeyNumber/length)+
+					"%"+(int)(length)+
+					"%"+(int)(deleteTextNumber)+
+					"%"+(int)(deleteNumber)+
+					"%"+(int)(mistake)+
+					"%"+(int)(repeat)+
+					"%"+String.format("%.2f",Keyaccuracy*100)+
+					"%"+String.format("%.2f", dacilv*100)+
+					"%"+String.valueOf(GendaListener.comp.getSecond());
+			try {
+				Login.out.writeUTF(message);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 	public void sendhistory(){
 		if(Login.dengluSign == 1){

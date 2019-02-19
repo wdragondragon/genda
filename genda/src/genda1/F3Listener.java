@@ -8,6 +8,7 @@ import javax.swing.*;
 import gendaClient.battleClient;
 import gendaClient.battleSend;
 import SetWin.SetFrameJinduListener;
+import Tips.Tips;
 public class F3Listener extends AbstractAction{
 	JButton F3;
 	JLabel zishu;
@@ -41,6 +42,7 @@ public class F3Listener extends AbstractAction{
 		F3();
 	}
 	public void F3(){
+		if(Window.everydaySign)return;
 		dazi.setText(null);
 		dazi.setEditable(true);
 		
@@ -71,10 +73,13 @@ public class F3Listener extends AbstractAction{
 		gendaListener.daciall = 0;
 		gendaListener.daci = 0;
 		//理论码长
-		QQZaiwenListener.lilun = 1.0*Window.tipschange.compalllength()/QQZaiwenListener.wenbenstr.length();
-		Window.lilunma.setText("理论码长:"+String.format("%.2f", QQZaiwenListener.lilun));
+		Window.tipschange.compalllength();
+//		QQZaiwenListener.lilun = 1.0*Window.tipschange.compalllength()/QQZaiwenListener.wenbenstr.length();
+ 
+		Window.lilunma.setText("理论码长:"+String.format("%.2f", 1.0*Window.tipschange.alllength/QQZaiwenListener.wenbenstr.length()));
+		Window.dinglilunma.setText("标顶理论:"+String.format("%.2f", 1.0*Window.tipschange.dingalllength/QQZaiwenListener.wenbenstr.length()));
 		Window.zishu.setText("字数:"+QQZaiwenListener.wenbenstr.length()+"/已打:"+0+"/错"+0);
-
+		Window.tipschange.changeTips(QQZaiwenListener.wenbenstr.substring(0,1));//单字编码提示更改
 		dazi.requestFocusInWindow();
 	}
 }

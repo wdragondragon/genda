@@ -14,7 +14,7 @@ public class Example{
 		int readsign;
 		Window win = new Window();
 		win.setTitle("跟打");
-		win.setBounds(100,100,1110,515);
+		win.setBounds(100,100,710,515);
 		
 		try {
 			readWrite.read(win);//读取保存的设置

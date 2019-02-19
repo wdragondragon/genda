@@ -10,7 +10,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 
 public class ChooseFile implements ActionListener{
-	public static String cizufilename = "编码文件/词组提示码表.txt";
+	public static String cizufilename = "编码文件/输入法编码/词组提示码表.txt";
 	JFileChooser jfc;
 	File file;
 	@Override

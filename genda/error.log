@@ -1,0 +1,7 @@
+java.lang.ClassNotFoundException: OneJar
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at com.exe4j.runtime.LauncherEngine.launch(LauncherEngine.java:81)
+	at com.exe4j.runtime.WinLauncher.main(WinLauncher.java:94)

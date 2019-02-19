@@ -9,10 +9,12 @@ import javax.swing.*;
 
 import QQ.*;
 import SetWin.*;
-import Tips.Tips;
 
 public class QQZaiwenListener extends AbstractAction{
-	public static double lilun;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JTextArea dazi;
 	JTextPane wenben;
 	JLabel qqName;
@@ -25,13 +27,12 @@ public class QQZaiwenListener extends AbstractAction{
 	public static String wenbenstr = "";
 	QQ qq = new QQ();
 	RegexText regexText = new RegexText();
-	private Tips tipschange;
-	private JButton lilunma;
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		try {
 			if(SendWenben.sendwenSign==1){JOptionPane.showMessageDialog(new JTextArea(),"先结束发文");return;}
+			if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"请先结束每日赛文");return;}
 			QQ.sendMessage(1,qqName.getText());
 			str = AchievementListener.getClipboardString();
 			System.out.println(str);
@@ -64,11 +65,5 @@ public class QQZaiwenListener extends AbstractAction{
 	}
 	public void setJProgressBar(GendaJindutiao t){
 		gendajindu = t;
-	}
-	public void setTipschange(Tips tipschange){
-		this.tipschange = tipschange;
-	}
-	public void setLilunma(JButton t){
-		lilunma = t;
 	}
 }

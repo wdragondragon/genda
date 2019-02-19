@@ -97,6 +97,7 @@ public class winchange extends Thread{
 					win.ready.setLocation(jswei, win.ready.getY());
 					win.score.setLocation(jswei+chawei,win.score.getY());
 					win.communion1.setLocation(jswei, win.communion1.getY());
+					win.reducesudu.setLocation(jswei,win.reducesudu.getY());
 				}
 				bottom =gendajindutiao.getY()+gendajindutiao.getHeight();
 //				if(win.getWidth()<800){

@@ -17,11 +17,13 @@ public class OnlineOorF implements ActionListener{
 	JScrollPane accept;
 	JScrollPane communion;
 	int tableweizhi1,tableweizhi2;
+	private JTextField reducesudu;
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 //		frame.setVisible(true);
 		if(Login.dengluSign == 0){JOptionPane.showMessageDialog(new JTextArea(),"请先登录");return;}
+		if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"请先结束每日赛文");return;}
 		if(one.isVisible()){
 			one.setVisible(false);
 			two.setVisible(false);
@@ -37,6 +39,7 @@ public class OnlineOorF implements ActionListener{
 			ready.setVisible(false);
 			score.setVisible(false);
 			communion.setVisible(false);
+			reducesudu.setVisible(false);
 			win.setSize(win.getWidth(),tableweizhi1+40);
 
 		}
@@ -55,6 +58,7 @@ public class OnlineOorF implements ActionListener{
 			ready.setVisible(true);
 			score.setVisible(true);
 			communion.setVisible(true);
+			reducesudu.setVisible(true);
 			tableweizhi1 = winchange.bottom;
 			if(win.getHeight()<(tableweizhi1+accept.getHeight()+45))
 				win.setSize(win.getWidth(),win.getHeight()+accept.getHeight()-((win.getHeight()-(tableweizhi1+5)))+45);
@@ -68,7 +72,7 @@ public class OnlineOorF implements ActionListener{
 	public void setFrame(Frame t){
 		frame = t;
 	}
-	public void setRoomNum(JButton one,JButton two,JButton three,JButton four,JButton five ,JButton six ,JButton seven ,JButton eight,JButton link,JButton breaklink,JScrollPane accept,JButton ready,JButton score,JScrollPane communion,Window win){
+	public void setRoomNum(JTextField reducesudu,JButton one,JButton two,JButton three,JButton four,JButton five ,JButton six ,JButton seven ,JButton eight,JButton link,JButton breaklink,JScrollPane accept,JButton ready,JButton score,JScrollPane communion,Window win){
 		this.one = one;
 		this.two = two;
 		this.three = three;
@@ -84,5 +88,6 @@ public class OnlineOorF implements ActionListener{
 		this.ready = ready;
 		this.score = score;
 		this.communion = communion;
+		this.reducesudu = reducesudu;
 	}
 }

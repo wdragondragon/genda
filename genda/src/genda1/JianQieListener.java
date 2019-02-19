@@ -31,10 +31,12 @@ public class JianQieListener extends AbstractAction {
 	}
 	public void actionPerformed(ActionEvent arg0) {
 		if(SendWenben.sendwenSign==1){JOptionPane.showMessageDialog(new JTextArea(),"先结束发文");return;}
+		if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"请先结束每日赛文");return;}
 		RegexText.duan1 = 1;
 		if(SetFrameJinduListener.jindusign==1)
 			gendajindu.open(wenben.getText().length());
-		QQZaiwenListener.wenbenstr = AchievementListener.getClipboardString().replaceAll("\\s*", "");
+		QQZaiwenListener.wenbenstr = AchievementListener.getClipboardString();
+		QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText.huanfu(QQZaiwenListener.wenbenstr));
 		Window.f3listener.F3();
 	}
 	public void setJProgressBar(GendaJindutiao t){

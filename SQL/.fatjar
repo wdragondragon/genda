@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Mon Feb 18 22:04:25 CST 2019
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=SQL_fat.jar
+manifest.mergeall=true
+manifest.mainclass=
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=

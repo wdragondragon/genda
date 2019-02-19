@@ -1,18 +1,27 @@
 package Tips;
 
+import genda1.ComputeSpeed;
 import genda1.Window;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 public class Changetxt extends Thread{
 	File more;
-	Changetxt(File file){
-		 more = file;
+	String filename;
+//	Changetxt(File file){
+//		 more = file;
+//	}
+	Changetxt(String filename){
+		this.filename = filename;
 	}
 	public void run(){
 		try {
@@ -23,12 +32,20 @@ public class Changetxt extends Thread{
 		}
 	}
 	public  void changetxt()throws IOException{
-		File one = new File("生成码表.txt");
-//		File more = new File("小鹤词组提示.txt");
-		List<String> strlist = new ArrayList<String>();
+		File one = new File("编码文件/生成码表.txt");
+		
+//		more = new File(filename);
+		Set<String> strlist = new TreeSet<String>();
+		boolean sign = true;
+		StringBuilder all = new StringBuilder();
 		String str;
-		try {
-			FileInputStream fis = new FileInputStream(more); 
+		int jin = 0;
+		int length = 0;
+		int xuan = 0;
+		String temp = "";
+		ComputeSpeed comp = new  ComputeSpeed ();
+
+			FileInputStream fis = new FileInputStream(filename); 
 	        InputStreamReader read = new InputStreamReader(fis, "UTF-8");
 			BufferedReader  bufferRead = new BufferedReader(read);
 			
@@ -37,35 +54,56 @@ public class Changetxt extends Thread{
 	        OutputStreamWriter writer = new OutputStreamWriter(fos, "UTF-8");
 			BufferedWriter  bufferWriter = new BufferedWriter(writer);
 			
-			LookChange look = new LookChange();
-			
+//			LookChange look = new LookChange();
+			comp.setTimeOne();
 			while((str=bufferRead.readLine())!=null){
+				if(str.indexOf("---")!=-1)continue;
+				int i = str.indexOf('#');
+				int n = str.indexOf('$');
+				if(i!=-1)
+					if(str.toCharArray()[i+1]=='用'||str.toCharArray()[i+1]=='固')
+						str = str.substring(0, i);
+					else continue;
+				else if(n!=-1)continue;
 				String[] splited = str.split("\\s+");
-				try {
-					Thread.sleep(1);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				length = splited[1].length();
+				temp = splited[1];
+				xuan = 2;
+				if(strlist.contains(splited[1]))
+					sign = false;
+				while(strlist.contains(temp+String.valueOf(xuan))){
+					xuan++;
+					sign = false;
 				}
-				if(strlist.contains(splited[1])){
-					str = splited[0]+"\t"+splited[1]+String.valueOf(2)+"\r\n";
-				}
+				if(sign)
+					strlist.add(splited[1]);
 				else
-					str = splited[0]+"\t"+splited[1]+"\r\n";
-				strlist.add(splited[1]);
-				if(look.look.getText().length()>5000)
-					look.look.setText("");
-				System.out.println(str);
-				look.look.append(str);
-				look.look.setCaretPosition(look.look.getText().length());
-				bufferWriter.write(str);
-				bufferWriter.flush();
+					strlist.add(splited[1]+String.valueOf(xuan));
+				if(length<4&&sign){
+					str = splited[0]+"\t"+splited[1];
+					str += "_"+"\r\n";
+				}
+				else if(length>=4&&sign){
+					str = splited[0]+"\t"+splited[1];
+					str += "\r\n";
+				}
+				else {
+					str = splited[0]+"\t"+splited[1]+String.valueOf(xuan);
+					str += "\r\n";
+				}
+				all.append(str);
+				sign = true;
+				LookChange.jindu.setText(String.valueOf(++jin));
+				comp.setTimeTwo();
+				System.out.println(splited[0]+"\t"+str);
 			}
-			JOptionPane.showMessageDialog(new JTextArea(),"转换成功,重启跟打器生效");
-			look.dispose();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(new JTextArea(),"转换失败3");
-		} 
+			bufferWriter.write(all.toString());
+			bufferWriter.flush();
+			double time = comp.getSecond();
+			JOptionPane.showMessageDialog(new JTextArea(),"转换成功,重新设置全码表生效词提、编码提示与理论码长\n生成码表位于:编码文件\n该次转换历时"+String.format("%.2f", time)+"秒");
+			bufferWriter.close();
+			read.close();
+			fis.close();
+
 	}
 }

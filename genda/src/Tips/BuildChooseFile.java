@@ -24,8 +24,9 @@ public class BuildChooseFile implements ActionListener {
         }else if(file.isFile()){  
             System.out.println("нд╪Ч:"+file.getAbsolutePath());  
         }  
+        String str = file.getAbsolutePath();
         System.out.println(jfc.getSelectedFile().getName());  
-        Changetxt change = new Changetxt(file);
+        Changetxt change = new Changetxt(str);
 		change.start();
     }
 }

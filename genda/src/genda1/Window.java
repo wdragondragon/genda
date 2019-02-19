@@ -1,5 +1,6 @@
 package genda1;
 import gendaClient.*;
+import saiwenSys.*;
 import java.awt.*;
 
 import javax.swing.*;
@@ -16,6 +17,7 @@ import Ranking.RankListener;
 import Ranking.rankFrame;
 import SetWin.*;
 import Tips.BuildChooseFile;
+import Tips.TheoryListener;
 import Tips.Tips;
 
 import java.awt.event.*;
@@ -41,7 +43,7 @@ public class Window extends JFrame{
 	public static GendaListener gendaListener;
 	public static JProgressBar gendajindutiao;
 	public static GendaJindutiao setGendajindu;
-	
+	public static boolean everydaySign = false;
 	public static Tips tipschange;
 	public static JLabel tips;
 	public static String family = "微软雅黑";
@@ -73,6 +75,7 @@ public class Window extends JFrame{
 	JButton save;
 	JButton share;
 	public static JButton lilunma;
+	public static JButton dinglilunma;
 	JTable table;
 	
 	
@@ -93,6 +96,7 @@ public class Window extends JFrame{
 	qqNameButtonAction qqNamebuttonlistener;
 	HelpDialog helpListener;
 	ChangeQQWindow changeQQwindow;
+	TheoryListener theorylistener;
 	
 	JScrollBar JSBwenben;
 	InputMap F3Key,zaiwenKey,qqzaiwenKey,sendChengji,readyKey,shareKey,changeQQButtonKey,setKey,fawenKey;
@@ -118,6 +122,7 @@ public class Window extends JFrame{
 	JButton six;
 	JButton seven;
 	JButton eight;
+	static JTextField reducesudu;
 	public static JTextArea accept = new JTextArea();
 	public static JTextArea communion = new JTextArea();
 	JScrollPane accept1 = new JScrollPane(accept);
@@ -302,14 +307,33 @@ public class Window extends JFrame{
 		
 		wenben = new JTextPane(JTextPaneChange.styledDoc);
 		
-		dazi = new JTextArea();
-//		{
-//			@Override public void copy(){}
-//			@Override public void paste(){
-//				JOptionPane.showMessageDialog(new JTextArea(),"不允许粘贴");}
-//		};
+		dazi = new JTextArea()
+		{
+			@Override public void copy(){
+				if(Window.everydaySign)
+					JOptionPane.showMessageDialog(new JTextArea(),"日赛中不允许复制");}
+			@Override public void paste(){
+				JOptionPane.showMessageDialog(new JTextArea(),"不允许粘贴");}
+		};
+//		dazi = new JTextArea();
 		chengji = new JTextArea();
 		zaiwenText = new JTextArea();
+		reducesudu = new JTextField("0");
+		reducesudu.addKeyListener(		//只能输入数字
+			new KeyListener(){
+				@Override
+				public void keyPressed(KeyEvent arg0) {}
+				@Override
+				public void keyReleased(KeyEvent arg0) {}
+				@Override
+				public void keyTyped(KeyEvent e) {
+					// TODO Auto-generated method stub
+					int keyChar = e.getKeyChar();
+					if(keyChar>=KeyEvent.VK_0&&keyChar<=KeyEvent.VK_9){}
+					else e.consume();
+				}
+			}
+		);
 		
 		wenben1 = new JScrollPane(wenben);
 		dazi1 = new JScrollPane(dazi);
@@ -335,6 +359,7 @@ public class Window extends JFrame{
 		KeySuduButton = new JButton("击键");
 		Keylength = new JButton("码长");
 		lilunma = new JButton("理论码长");
+		dinglilunma = new JButton("标顶理论");
 		achievementButton = new JButton("生成成绩");
 		QQzaiwenButton = new JButton("QQ群载文");
 		help = new JButton("帮助");
@@ -351,7 +376,7 @@ public class Window extends JFrame{
 		next = new JButton("下一段");
 		save = new JButton("保存跟打进度");
 		share = new JButton("分享发文");
-		
+
 		gendaListener = new GendaListener();//打字框监视器
 		f3listener = new F3Listener();//F3按钮监视器
 		zaiwenlistener = new JianQieListener();
@@ -369,6 +394,7 @@ public class Window extends JFrame{
 		mixlistener = new Mix(this);
 		sharelistener = new ShareListener(qqName);
 		tipschange = new Tips(tips);
+		theorylistener = new TheoryListener();
 		
 		setGendajindu = new GendaJindutiao();
 		JSBwenben = wenben1.getVerticalScrollBar();
@@ -425,6 +451,8 @@ public class Window extends JFrame{
 		add(sendwen);
 		add(tips);
 		add(lilunma);
+		add(dinglilunma);
+		add(reducesudu);
 	}
 	//给所有组件设置监视器
 	void addAllListener(){
@@ -451,7 +479,8 @@ public class Window extends JFrame{
 		acticlebutton.addActionListener(orActicle);
 		mix.addActionListener(mixlistener);
 		share.addActionListener(sharelistener);
-		
+		lilunma.addActionListener(theorylistener);
+		dinglilunma.addActionListener(theorylistener);
 	}
 	//所有监视器设置。。。。。。
 	void gendaListenerset(){
@@ -505,8 +534,6 @@ public class Window extends JFrame{
 		qqzaiwenListener.setQQName(qqName);
 		qqzaiwenListener.setGendaListener(gendaListener);
 		qqzaiwenListener.setJProgressBar(setGendajindu);
-		qqzaiwenListener.setTipschange(tipschange);
-		qqzaiwenListener.setLilunma(lilunma);
 	}
 	void qqNamebuttonlistenerset(){
 		qqNamebuttonlistener.setQQnameButton(qqName);
@@ -528,6 +555,7 @@ public class Window extends JFrame{
 		KeySuduButton.setBounds(217,F3.getY(),150,30);
 		Keylength.setBounds(377,F3.getY(),150,30);
 		lilunma.setBounds(537,F3.getY(),150,30);
+		dinglilunma.setBounds(697,F3.getY(),150,30);
 		
 		zaiwen.setBounds(353,F3.getY(),0,0);//剪切版载文按钮大小位置
 		more.setBounds(458,F3.getY(),0,0);//文本载文按钮大小位置
@@ -645,7 +673,6 @@ public class Window extends JFrame{
 	//表添加行设置
 	void TableRowAddset(){
 		tableAdd.init(tableM,gendaListener,table);
-		
 	}
 	//成绩表格设置
 	void Tableset(){
@@ -683,24 +710,28 @@ public class Window extends JFrame{
 	JMenuItem txt;
 	JMenuItem historyall;
 	JMenuItem friendSys;
-	RankListener ranklistener = new RankListener() ;
+	JMenuItem everydaysaiwen;
+	JMenuItem everydaypaiming;
+	
+	RankListener ranklistener = new RankListener();
 	BuildChooseFile changetxt = new BuildChooseFile();
 	historyListener historylistener = new historyListener();
 	FriendsSysListener fsyslistenre = new FriendsSysListener();
 	void jsplit(){
 		dazi.setDragEnabled(true);
-		jSplitPane1 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,false,wenben1,dazi1);
+		jSplitPane1 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true,wenben1,dazi1);
 		jSplitPane1.setBounds(205,F3.getY()+F3.getHeight()+5,900,300);
 		jSplitPane1.setDividerSize(5);
-//		jSplitPane1.setDividerLocation(0.7);
 		
-		jSplitPane2 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,false,jSplitPane1,tableN);
-		jSplitPane2.setBounds(10,F3.getY()+F3.getHeight()+5,1100,420);
+		
+		jSplitPane2 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true,jSplitPane1,tableN);
+		add(jSplitPane2);
+		jSplitPane2.setBounds(10,F3.getY()+F3.getHeight()+5,700,420);
 		jSplitPane2.setDividerSize(5);
 		jSplitPane2.setDividerLocation(0.7);
 		jSplitPane1.setDividerLocation(150);
+//		jSplitPane1.setDividerLocation(150);
 		ce.setBounds(jSplitPane2.getX()-5,jSplitPane2.getY(),5,jSplitPane2.getHeight());
-		add(jSplitPane2);
 	}
 	void menu(){
 		menubar = new JMenuBar();
@@ -712,6 +743,7 @@ public class Window extends JFrame{
 		paimingall = new JMenuItem("总跟打排名");
 		paimingday = new JMenuItem("日跟打排名");
 		paiming999 = new JMenuItem("赛文平均成绩排名");
+		everydaypaiming = new JMenuItem("每日赛文排名");
 		
 		denglu = new JMenuItem("登录");
 		fasongchengji = new JMenuItem("发送成绩 F1");
@@ -730,8 +762,11 @@ public class Window extends JFrame{
 		xiezhu = new JMenuItem("协助作者");
 		historyall = new JMenuItem("跟打记录");
 		friendSys = new JMenuItem("好友系统");
+		everydaysaiwen = new JMenuItem("每日赛文");
 		
 		RamdomListener ramdomlistener = new RamdomListener();
+		getDatesaiwen getsaiwen = new getDatesaiwen();
+		
 		fasongchengji.addActionListener(achievementListener);
 		chongda.addActionListener(f3listener);
 		QQQzaiwen.addActionListener(qqzaiwenListener);
@@ -750,10 +785,13 @@ public class Window extends JFrame{
 		txt.addActionListener(changetxt);
 		historyall.addActionListener(historylistener);
 		friendSys.addActionListener(fsyslistenre);
+		everydaysaiwen.addActionListener(getsaiwen);
+		everydaypaiming.addActionListener(ranklistener);
 		
 		paiming.add(paimingall);
 		paiming.add(paimingday);
 		paiming.add(paiming999);
+		paiming.add(everydaypaiming);
 		
 		base.add(fasongchengji);
 		base.add(fawen);
@@ -766,6 +804,7 @@ public class Window extends JFrame{
 		linkbase.add(zxdv);
 		linkbase.add(historyall);
 		linkbase.add(friendSys);
+		linkbase.add(everydaysaiwen);
 		
 		other.add(jjmu);
 		other.add(txt);
@@ -795,7 +834,7 @@ public class Window extends JFrame{
 	void Client(){
 		clientNew();
 		setReadyKey();
-		onlineListener.setRoomNum(one,two,three,four,five,six,seven,eight,link,breaklink,accept1,ready,score,communion1,this);
+		onlineListener.setRoomNum(reducesudu,one,two,three,four,five,six,seven,eight,link,breaklink,accept1,ready,score,communion1,this);
 		online.addActionListener(onlineListener);
 		ce.addActionListener(onlineListener);
 		//LINK监视器设置
@@ -871,6 +910,8 @@ public class Window extends JFrame{
 		score.setBounds(x+ready.getWidth()+5,link.getY()+link.getHeight()+10,90,30);
 		
 		communion1.setBounds(x,ready.getY()+ready.getHeight()+10,190,200);
+		
+		reducesudu.setBounds(x,communion1.getY()+communion1.getHeight()+10,90,30);
 		
 		one.setVisible(false);
 		two.setVisible(false);
