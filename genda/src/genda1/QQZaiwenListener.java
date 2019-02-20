@@ -40,7 +40,7 @@ public class QQZaiwenListener extends AbstractAction{
 			Window.f3listener.F3();
 			try{
 				DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
-				out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+wenbenstr+"%0"+"%"+Login.zhanghao.getText());
+				out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+wenbenstr+"%0"+"%"+Login.zhanghao.getText());
 			}
 			catch(Exception ex){
 				System.out.println("无法发送文本内容");

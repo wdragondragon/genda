@@ -2,6 +2,7 @@ package gendaClient;
 
 import genda1.QQZaiwenListener;
 import genda1.ReadyListener;
+import genda1.RegexText;
 import genda1.Window;
 
 import java.io.DataOutputStream;
@@ -26,7 +27,7 @@ public class battleSend{
 		try {
 			out = new DataOutputStream(socket.getOutputStream());
 			if(sendText.getText().length()!=0&&Window.wenben.getText().length()!=0){
-				message = "%"+ReadyListener.BeganSign+"%"+sendText.getText()+"%"+QQZaiwenListener.wenbenstr+"%0"+"%"+Login.zhanghao.getText();
+				message = "%"+ReadyListener.BeganSign+"%"+sendText.getText()+"%"+RegexText.duan1+"#"+QQZaiwenListener.wenbenstr+"%0"+"%"+Login.zhanghao.getText();
 				out.writeUTF(message);//向服务器发送信息
 			}
 		} catch (IOException e) {

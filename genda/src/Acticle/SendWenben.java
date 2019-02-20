@@ -38,7 +38,7 @@ public class SendWenben implements ActionListener{
 		win.sendwen.setVisible(true);
 		try{
 			DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
-			out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+wenben.getText()+"%0"+"%"+Login.zhanghao.getText());
+			out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+wenben.getText()+"%0"+"%"+Login.zhanghao.getText());
 		}
 		catch(Exception ex){
 			System.out.println("无法发送文本内容");

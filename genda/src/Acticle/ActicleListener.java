@@ -13,19 +13,19 @@ import Login.Login;
 import SetWin.SetFrameQianshuiListener;
 public class ActicleListener implements TreeSelectionListener ,ActionListener{
 	JTextArea dazi;
-	JTextPane wenben;
+	static JTextPane wenben;
 	JTree tree;
 	GendaListener gendalistener;
 	File open;
 	RandomAccessFile in = null,out=null;
 	String []danziFileName,wenzhangFileName;
 	byte s[] ;
-	String all,wen;
+	public static String all,wen;
 	int i;
 	public static long length = 0;
 	JTextField number;
 	public static int fontnum=0,fontweizhi=0;
-	Window win;
+	static Window win;
 //	String s;
 	public void setWenbenText(JTextPane t){
 		wenben = t;
@@ -88,15 +88,18 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 				in.readFully(s);
 				all = new String(s);
 				all = all.replaceAll("\\s*", "");
-				if(fontnum>all.length())
-					wen = all.substring(fontweizhi,all.length());
-				else
-					wen = all.substring(fontweizhi, fontweizhi+fontnum);
-				wenben.setText(wen);
-				fontweizhi += fontnum;
-				win.sendwen.setText(String.valueOf(fontweizhi)+"/"+String.valueOf(all.length())+":"+String.format("%.2f",(double)fontweizhi*100/all.length())+"%");
+				showwen();
 			} catch (IOException e) {}
 		}
+	}
+	public static void showwen(){
+		if(fontnum>all.length())
+			wen = all.substring(fontweizhi,all.length());
+		else
+			wen = all.substring(fontweizhi, fontweizhi+fontnum);
+		wenben.setText(wen);
+		fontweizhi += fontnum;
+		win.sendwen.setText(String.valueOf(fontweizhi)+"/"+String.valueOf(all.length())+":"+String.format("%.2f",(double)fontweizhi*100/all.length())+"%");
 	}
 	void readjindu() throws IOException{
 		try {
@@ -141,7 +144,7 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 					win.sendwen.setText(String.valueOf(fontweizhi)+"/"+String.valueOf(all.length())+":"+String.format("%.2f",(double)fontweizhi*100/all.length())+"%");
 					try{
 						DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
-						out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+Window.wenben.getText()+"%0"+"%"+Login.zhanghao.getText());
+						out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+Window.wenben.getText()+"%0"+"%"+Login.zhanghao.getText());
 					}
 					catch(Exception ex){
 						System.out.println("无法发送文本内容acticlelistner,121");

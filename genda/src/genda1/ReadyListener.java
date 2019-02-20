@@ -7,7 +7,7 @@ import SetWin.*;
 import Login.*;
 public class ReadyListener extends AbstractAction {
 	public static int BeganSign = 0;
-	public static int ReadyDuan = 0;
+//	public static int ReadyDuan = 0;
 	JTextArea accept,sendText;
 	battleClient client;
 	DataOutputStream out;
@@ -30,7 +30,7 @@ public class ReadyListener extends AbstractAction {
 			}
 			try {
 				out = new DataOutputStream(client.socket.getOutputStream());
-				String message = "%"+BeganSign+"%"+sendText.getText()+"%"+Window.wenben.getText()+"%0"+"%"+Login.zhanghao.getText();
+				String message = "%"+BeganSign+"%"+sendText.getText()+"%"+RegexText.duan1+"#"+Window.wenben.getText()+"%0"+"%"+Login.zhanghao.getText();
 				QQZaiwenListener.wenbenstr = Window.wenben.getText();
 				out.writeUTF(message);//向服务器发送信息
 			} catch (IOException e) {

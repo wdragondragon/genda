@@ -100,7 +100,7 @@ public class AchievementListener extends AbstractAction{
 				"% 选重率"+String.format("%.2f", repeat/length*100)+
 //				"% 峰值"+String.format("%.2f", fengzhi)+
 				"% 拖拉机跟打器v1.49";
-		ReadyListener.ReadyDuan++;
+//		ReadyListener.ReadyDuan++;
 		table.addRow();
 		try{
 			sendhistory();

@@ -1,9 +1,13 @@
 package genda1;
+import gendaClient.battleClient;
+
 import java.awt.event.ActionEvent;
+import java.io.DataOutputStream;
 
 import javax.swing.*;
 
 import Acticle.SendWenben;
+import Login.Login;
 import SetWin.SetFrameJinduListener;
 import Tips.Tips;
 public class JianQieListener extends AbstractAction {
@@ -37,6 +41,13 @@ public class JianQieListener extends AbstractAction {
 			gendajindu.open(wenben.getText().length());
 		QQZaiwenListener.wenbenstr = AchievementListener.getClipboardString();
 		QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText.huanfu(QQZaiwenListener.wenbenstr));
+		try{
+			DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
+			out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+Window.wenben.getText()+"%0"+"%"+Login.zhanghao.getText());
+		}
+		catch(Exception ex){
+			System.out.println("无法发送文本内容jianqie,49");
+		}
 		Window.f3listener.F3();
 	}
 	public void setJProgressBar(GendaJindutiao t){

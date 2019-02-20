@@ -91,7 +91,7 @@ public class Window extends JFrame{
 	QQZaiwenListener qqzaiwenListener;
 	ConectionListener conectionListener;
 	Set setlistener;
-	Mix mixlistener;
+	public Mix mixlistener;
 	ShareListener sharelistener;
 	qqNameButtonAction qqNamebuttonlistener;
 	HelpDialog helpListener;
@@ -372,7 +372,7 @@ public class Window extends JFrame{
 		changeQQButton = new JButton();
 		ce = new JButton();
 		acticlebutton = new JButton("发文");
-		mix = new JButton("乱序");
+		mix = new JButton("该段乱序");
 		next = new JButton("下一段");
 		save = new JButton("保存跟打进度");
 		share = new JButton("分享发文");

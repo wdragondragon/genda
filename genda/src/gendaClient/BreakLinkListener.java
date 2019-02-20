@@ -22,7 +22,7 @@ public class BreakLinkListener implements ActionListener{
 				}catch(Exception ex){}
 				finally{
 					accept.append("ÒÑ¶Ï¿ª\n");
-					ReadyListener.ReadyDuan = 1;
+//					ReadyListener.ReadyDuan = 1;
 				}
 			}
 			else {

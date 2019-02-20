@@ -19,7 +19,7 @@ public class Acticle extends JFrame{
 	JTextPane wenben;
 	JScrollPane wenben1;
 	JTextField number;
-	JButton send,next;
+	JButton send,next,mix;
 	int i;
 	public Acticle(Window win){
 		this.win = win;
@@ -39,6 +39,13 @@ public class Acticle extends JFrame{
 		Sendwenben();
 		Articlelist();
 		addNext();
+		addluanxu();
+	}
+	void addluanxu(){
+		mix = new JButton("全局乱序");
+		mix.setBounds(170, 270, 70, 30);
+		add(mix);
+		mix.addActionListener(win.mixlistener);
 	}
 	void addNext(){
 		next = new JButton("下一段");

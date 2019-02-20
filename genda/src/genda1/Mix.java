@@ -7,19 +7,27 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 
+import Acticle.ActicleListener;
+
 public class Mix extends AbstractAction{
 	Window win;
 	Mix(Window win){
 		this.win = win;
 	}
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 //		Window.wenben.setText(mix(Window.wenben.getText()));
-		QQZaiwenListener.wenbenstr = mix(QQZaiwenListener.wenbenstr);
-		Window.f3listener.F3();
+		if(e.getActionCommand().equals("¸Ã¶ÎÂÒÐò")){
+			QQZaiwenListener.wenbenstr = mix(QQZaiwenListener.wenbenstr);
+			Window.f3listener.F3();
+		}
+		else if(e.getActionCommand().equals("È«¾ÖÂÒÐò")){
+			ActicleListener.all = mix(ActicleListener.all);
+			ActicleListener.showwen();
+		}
 	}
-	String mix(String str){
+	public static String mix(String str){
 		String mix = "";
 		List list = new ArrayList<>();
 		char [] a = str.toCharArray();

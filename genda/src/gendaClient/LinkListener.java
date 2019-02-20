@@ -23,7 +23,7 @@ public class LinkListener implements ActionListener{
 					out.writeUTF(Window.state);
 					communion.append("已连接到"+Window.RoomNum+"号房\n等待对方连接\n");
 					Window.Linksign=battleClient.socket.isClosed();
-					ReadyListener.ReadyDuan = 1;
+//					ReadyListener.ReadyDuan = 1;
 				}
 				else if(Window.state.equals("观战")){
 					

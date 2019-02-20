@@ -48,20 +48,28 @@ public class battleReadThread extends Thread{//读取服务器发来信息的线程
 				if(num[0]==0)continue;
 				int sign =Integer.parseInt(message.substring(num[0],num[1]-1));
 				String jindu = message.substring(num[1],num[2]-1);
-				String wenben = message.substring(num[2],num[3]-1);
+				String wenbentemp = message.substring(num[2],num[3]-1);
 				String othName = message.substring(num[3],num[4]-1);
 				String win = message.substring(num[4],num[5]-1);
 				String system = message.substring(num[5],num[6]-1);
 				String began = message.substring(num[6]);
 				Whowin = othName+win;
-				if(sign!=1&&!QQZaiwenListener.wenbenstr.equals(wenben)&&!wenben.equals("无")){
-					if(SetFrameJinduListener.jindusign==1)
-						gendajindu.open(wenben.length());
-					System.out.println(wenben);
-					QQZaiwenListener.wenbenstr = wenben;
-					QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText.huanfu(QQZaiwenListener.wenbenstr));
-					if(GendaListener.sign!=1&&ReadyListener.BeganSign==0){
-						Window.f3listener.F3();
+				String wenben ="无";
+				System.out.println(wenbentemp);
+				
+				if(!wenbentemp.equals("无")&&!wenbentemp.equals("")&&wenbentemp!=null){
+					String wenben1[] = wenbentemp.split("#");
+					wenben = wenben1[1];
+					RegexText.duan1 = Integer.parseInt(wenben1[0]);
+					if(sign!=1&&!QQZaiwenListener.wenbenstr.equals(wenben)){
+						if(SetFrameJinduListener.jindusign==1)
+							gendajindu.open(wenben.length());
+						System.out.println(wenben);
+						QQZaiwenListener.wenbenstr = wenben;
+						QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText.huanfu(QQZaiwenListener.wenbenstr));
+						if(GendaListener.sign!=1&&ReadyListener.BeganSign==0){
+							Window.f3listener.F3();
+						}
 					}
 				}
 				if(!win.equals("无"))
@@ -71,8 +79,8 @@ public class battleReadThread extends Thread{//读取服务器发来信息的线程
 						otherready = 1;
 					else if (system.equals("对方取消准备\n"))
 						otherready = 0;
-					else if(system.equals("另一玩家断开\n"))
-						ReadyListener.ReadyDuan = 1;
+//					else if(system.equals("另一玩家断开\n"))
+
 					Window.communion.append(system);
 				}
 				if(!began.equals("无")){

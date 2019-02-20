@@ -35,7 +35,7 @@ public class Count extends Thread {
 						dazi.setEditable(true);
 					}
 					communion.setCaretPosition(Window.communion.getText().length());
-					RegexText.duan1 = ReadyListener.ReadyDuan;
+//					RegexText.duan1 = ReadyListener.ReadyDuan;
 					GendaListener.sign = 1;
 					GendaListener.comp.setTimeOne();
 					GendaListener.record = "";	//»÷¼üÇå¿Õ
