@@ -19,12 +19,12 @@ public class Acticle extends JFrame{
 	JTextPane wenben;
 	JScrollPane wenben1;
 	JTextField number;
-	JButton send,next,mix;
+	JButton send,next,mix,chouqu;
 	int i;
 	public Acticle(Window win){
 		this.win = win;
 		setTitle("发文");
-		setBounds(100,100,650,380);
+		setBounds(100,100,650,385);
 		setLayout(null);
 		init();
 		setVisible(false);
@@ -40,23 +40,30 @@ public class Acticle extends JFrame{
 		Articlelist();
 		addNext();
 		addluanxu();
+		addchouqu();
+	}
+	void addchouqu(){
+		chouqu = new JButton("抽取模式发文");
+		chouqu.setBounds(320,270,120,30);
+		add(chouqu);
+		chouqu.addActionListener(treeListener);
 	}
 	void addluanxu(){
 		mix = new JButton("全局乱序");
-		mix.setBounds(170, 270, 70, 30);
+		mix.setBounds(240, 270, 70, 30);
 		add(mix);
 		mix.addActionListener(win.mixlistener);
 	}
 	void addNext(){
 		next = new JButton("下一段");
-		next.setBounds(170, 270, 70, 30);
+		next.setBounds(240, 270, 70, 30);
 //		add(next);
 		next.addActionListener(treeListener);
 		
 	}
 	void Sendwenben(){
-		send = new JButton("确定");
-		send.setBounds(105, 270, 50, 30);
+		send = new JButton("顺序模式发文");
+		send.setBounds(105, 270, 120, 30);
 		add(send);
 		SendWenben sendwenben = new SendWenben(wenben);
 		sendwenben.setwin(win,this);
@@ -97,6 +104,7 @@ public class Acticle extends JFrame{
 		tree1 = new JScrollPane(tree);
 		 	
 		treeListener = new ActicleListener();
+		treeListener.setActicle(this);
 		treeListener.setTree(tree);
 		treeListener.setDanziFileName(danziFileName);
 		treeListener.setWenzhangFileName(wenzhangFileName);

@@ -25,7 +25,7 @@ public class Recordnum extends Thread{
     public  static String pass="951753";//mysql登录密码
     public static Connection con;//
     public  static ServerSocket server;//服务器
-    public static String banben149 = "版本1.491";
+    public static String banben149 = "版本1.493";
     public static int port = 1230;
     public static HashMap<String,Socket> online = new HashMap<String,Socket>();
 	public static void main(String args[]){
@@ -108,7 +108,7 @@ public class Recordnum extends Thread{
 					socketclose(socket);
 				}
 				else{
-					out.writeUTF("版本错误，新版本更新，增加功能：\n“对战让速，每日赛文，自动更新”\n理论码长增加标点顶屏：标顶理论\n增加提取理论编码\n自动跳转下载或加群号974172771");
+					out.writeUTF("版本错误，新版本更新，增加功能：\n“对战让速，每日赛文，自动更新”\n理论码长增加标点顶屏：标顶理论\n增加提取理论编码\n赛文中关闭词提，提示文章等级\n自动跳转下载或加群号974172771");
 				}
 			} catch (IOException e) {
 				try {

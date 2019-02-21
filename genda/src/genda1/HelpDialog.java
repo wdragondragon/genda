@@ -19,6 +19,7 @@ public class HelpDialog implements ActionListener{
 				+"F9分享发文\n"
 				+"alt+L乱序功能\n"
 				+"alt+P发文中发送下一段\n"
+				+"alt+O随机抽取发文下一段\n"
 				+"alt+S保存跟打进度\n"
 				+"alt+X在线跟打准备\n"
 				+"alt+Z简洁模式下进入设置\n"

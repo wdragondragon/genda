@@ -10,47 +10,53 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import SetWin.Set;
+
 public class Tips{
 	int i = 0;
 	JLabel showText;
 	public static double alllength = 0.0,dingalllength = 0.0;
 	
+	public static int qmc=0,cqmc=0,smc=0,csmc=0,emc=0,cemc=0,qdz=0,sdz=0,edz=0,cqdz=0,fh=0,weizhi=0;
+	public static double dengji = 0.0;
 	public static HashMap<String,String> hashtable;
 	public static HashMap<String,String> moretiphash = null;
 	public static HashMap<String,String> fuhao = new HashMap<String,String>();
 	
 	public static ArrayList<HashMap<String,String>> hashlist;
-	public static List<Integer> quanmaci = new ArrayList<Integer>();
-	public static List<Integer> quanmacitwo = new ArrayList<Integer>();
-	public static List<Integer> quanmacione = new ArrayList<Integer>();
-	public static List<Integer> ciquanmaci = new ArrayList<Integer>();
-	public static List<Integer> ciquanmacitwo = new ArrayList<Integer>();
-	public static List<Integer> ciquanmacione = new ArrayList<Integer>();
+	public static ArrayList<Integer> quanmaci = new ArrayList<Integer>();
+	public static ArrayList<Integer> quanmacitwo = new ArrayList<Integer>();
+	public static ArrayList<Integer> quanmacione = new ArrayList<Integer>();
+	public static ArrayList<Integer> ciquanmaci = new ArrayList<Integer>();
+	public static ArrayList<Integer> ciquanmacitwo = new ArrayList<Integer>();
+	public static ArrayList<Integer> ciquanmacione = new ArrayList<Integer>();
 	
-	public static List<Integer> ejianmaci= new ArrayList<Integer>();
-	public static List<Integer> ejianmacitwo= new ArrayList<Integer>();
-	public static List<Integer> ejianmacione = new ArrayList<Integer>();
-	public static List<Integer> ciejianmaci= new ArrayList<Integer>();
-	public static List<Integer> ciejianmacitwo= new ArrayList<Integer>();
-	public static List<Integer> ciejianmacione = new ArrayList<Integer>();
+	public static ArrayList<Integer> ejianmaci= new ArrayList<Integer>();
+	public static ArrayList<Integer> ejianmacitwo= new ArrayList<Integer>();
+	public static ArrayList<Integer> ejianmacione = new ArrayList<Integer>();
+	public static ArrayList<Integer> ciejianmaci= new ArrayList<Integer>();
+	public static ArrayList<Integer> ciejianmacitwo= new ArrayList<Integer>();
+	public static ArrayList<Integer> ciejianmacione = new ArrayList<Integer>();
 	
-	public static List<Integer> sjianmaci= new ArrayList<Integer>();
-	public static List<Integer> sjianmacitwo= new ArrayList<Integer>();
-	public static List<Integer> sjianmacione = new ArrayList<Integer>();
+	public static ArrayList<Integer> sjianmaci= new ArrayList<Integer>();
+	public static ArrayList<Integer> sjianmacitwo= new ArrayList<Integer>();
+	public static ArrayList<Integer> sjianmacione = new ArrayList<Integer>();
 	
-	public static List<Integer> cisjianmaci= new ArrayList<Integer>();
-	public static List<Integer> cisjianmacitwo= new ArrayList<Integer>();
-	public static List<Integer> cisjianmacione = new ArrayList<Integer>();
+	public static ArrayList<Integer> cisjianmaci= new ArrayList<Integer>();
+	public static ArrayList<Integer> cisjianmacitwo= new ArrayList<Integer>();
+	public static ArrayList<Integer> cisjianmacione = new ArrayList<Integer>();
 	
-	public static List<Integer> danzi = new ArrayList<Integer>();
+	public static ArrayList<Integer> danzi = new ArrayList<Integer>();
 	public static HashMap<Integer,String> bianma = new HashMap<Integer,String>();
-	public static String dingshowstr,showstr; 
+	public static String dingshowstr;
+	public static StringBuilder showstr = new StringBuilder(); 
 	File more = new File(ChooseFile.cizufilename);
 	File FuhaoFile = new File("编码文件/符号文件/符号文件.txt");
 	Scanner sc = null;
@@ -217,6 +223,7 @@ public class Tips{
 		cisjianmacione.clear();
 		cisjianmacitwo.clear();
 		bianma.clear();
+		emc=0;cemc=0;smc=0;csmc=0;qmc=0;cqmc=0;qdz=0;sdz=0;edz=0;cqdz=0;fh=0;weizhi=0;
 		try{
 			for(int i=9;i>=0;i--){
 				if(str.length()<i+2)continue;
@@ -243,6 +250,7 @@ public class Tips{
 										ejianmaci.add(k);
 									else
 										ciejianmaci.add(k);
+									
 								}
 								else if(length<4){
 									if(cixuansign==0)
@@ -261,30 +269,36 @@ public class Tips{
 								if(cixuansign==0){
 									ejianmacione.add(j);
 									ejianmacitwo.add(j+i+1);
+									emc++;
 								}
 								else{
 									ciejianmacione.add(j);
 									ciejianmacitwo.add(j+i+1);
+									cemc++;
 								}
 							}
 							else if(length<4){
 								if(cixuansign==0){
 									sjianmacione.add(j);
 									sjianmacitwo.add(j+i+1);
+									smc++;
 								}
 								else{
 									cisjianmacione.add(j);
 									cisjianmacitwo.add(j+i+1);
+									csmc++;
 								}
 							}
 							else{
 								if(cixuansign==0){
 									quanmacione.add(j);
 									quanmacitwo.add(j+i+1);
+									qmc++;
 								}
 								else{
 									ciquanmacione.add(j);
 									ciquanmacitwo.add(j+i+1);
+									cqmc++;
 								}
 							}
 							bianma.put(j, bianmatemp);
@@ -312,31 +326,63 @@ public class Tips{
 		String bianmatemp;
 		System.out.println();
 		dingshowstr = "";
-		showstr = "";
+//		showstr = "";
+		showstr = new StringBuilder();
 		for(int i=0;i<str.length();i++)
 			if(!quanmaci.contains(i)&&!ejianmaci.contains(i)&&!sjianmaci.contains(i)&&
 					!ciquanmaci.contains(i)&&!ciejianmaci.contains(i)&&!cisjianmaci.contains(i)){	//判断是否在已用索引中
 				danzi.add(i);		//单字索引添加
-				if(hashtable.containsKey(String.valueOf(c[i]))) 	//查询单字链表中是否存在该单字
+				if(hashtable.containsKey(String.valueOf(c[i]))){ 	//查询单字链表中是否存在该单字
 					bianmatemp = hashtable.get(String.valueOf(c[i]));		//放入编码中
+					int lengthtemp = bianmatemp.length();
+					if(lengthtemp==2){
+						edz++;
+					}
+					else if(lengthtemp==3){
+						sdz++;
+					}
+					else if(lengthtemp==4){
+						qdz++;
+					}
+					else{
+						cqdz++;
+					}
+				}
 				else{									//不存在则原搬不动，码长算一
 					if(fuhao.containsKey(String.valueOf(c[i]))){
 						bianmatemp = fuhao.get(String.valueOf(c[i]));
+						fh++;
 					}
-					else 
+					else {
 						bianmatemp = String.valueOf(c[i]);
+						weizhi++;
+					}
 				}
 				bianma.put(i, bianmatemp);
 			}
 		for(int i=0;i<c.length;i++){
 			if(Tips.bianma.containsKey(i)){
-				showstr += Tips.bianma.get(i);
+				showstr.append(Tips.bianma.get(i));
+//				showstr += Tips.bianma.get(i);
 			}
 		}
-		dingshowstr = RegexText.biaoding(showstr);
+		dingshowstr = RegexText.biaoding(showstr.toString());
 		dingalllength = dingshowstr.length();
 		alllength = showstr.length();
 		System.out.println("\n理论:"+alllength);
 		System.out.println("\n标定:"+dingalllength);
+		dengji = (1*4*qmc+
+				5*4*smc
+				+3*3*emc
+				+7*5*cqmc
+				+11*4*csmc
+				+7*3*cemc
+				+7*2*edz
+				+8*3*sdz
+				+13*4*qdz
+				+17*5*cqdz
+				+20*weizhi
+				+1*2*fh)
+				/alllength;
 	}
 }

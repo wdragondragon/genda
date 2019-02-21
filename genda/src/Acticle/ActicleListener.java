@@ -24,6 +24,7 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 	int i;
 	public static long length = 0;
 	JTextField number;
+	private Acticle acticle;
 	public static int fontnum=0,fontweizhi=0;
 	static Window win;
 //	String s;
@@ -165,7 +166,52 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 				}catch(Exception ex){JOptionPane.showMessageDialog(new JTextArea(),"保存进度失败");}
 			}
 		}
-		else 
+		else if(e.getActionCommand().equals("抽取模式发文")){
+			getNumber();
+			QQZaiwenListener.wenbenstr = randomCommon(all,fontnum);
+			Window.f3listener.F3();
+			if(SendWenben.sendwenSign2==0){
+				acticle.setVisible(false);
+				RegexText.duan1 = 1;
+				SendWenben.sendwenSign2 = 1;
+			}
+			else
+				RegexText.duan1++;	//发文增段
+			if(SetFrameQianshuiListener.qianshui==0)ShareListener.send();
+		}
+		else
 			win.dazi.requestFocusInWindow();
+		
+	}
+	public static String randomCommon(String wen, int n){
+		int min = 0;
+		int max = wen.length();
+		char c[] = wen.toCharArray();
+		StringBuilder resultstr = new StringBuilder();
+	    if (n > (max - min + 1) || max < min) {  
+	           return null;  
+	       }  
+	    int[] result = new int[n];  
+	    int count = 0;  
+	    while(count < n) {  
+	        int num = (int) (Math.random() * (max - min)) + min;  
+	        boolean flag = true;  
+	        for (int j = 0; j < n; j++) {  
+	            if(num == result[j]){  
+	                flag = false;  
+	                break;  
+	            }  
+	        }  
+	        if(flag){  
+	            result[count] = num;  
+	            count++;  
+	        }  
+	    }
+	    for(int i = 0;i<result.length;i++)
+	    	resultstr.append(String.valueOf(c[result[i]]));    
+	    return resultstr.toString();  
+	} 
+	public void setActicle(Acticle acticle){
+		this.acticle = acticle;
 	}
 }

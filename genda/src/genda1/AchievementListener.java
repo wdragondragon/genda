@@ -88,6 +88,7 @@ public class AchievementListener extends AbstractAction{
 				" 击键"+String.format("%.2f",KeyNumber/second)+
 				" 码长"+String.format("%.2f", KeyNumber/length)+
 				" 标顶理论"+String.format("%.2f", Tips.Tips.dingalllength/QQZaiwenListener.wenbenstr.length())+
+				" 文章难度"+String.format("%.2f", Tips.Tips.dengji)+
 				" 字数"+(int)(length)+" 回改"+(int)(deleteTextNumber)+
 				" 退格"+(int)(deleteNumber)+
 				" 错字"+(int)(mistake)+

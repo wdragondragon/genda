@@ -74,6 +74,7 @@ public class Window extends JFrame{
 	JButton next;
 	JButton save;
 	JButton share;
+	JButton chouqu;
 	public static JButton lilunma;
 	public static JButton dinglilunma;
 	JTable table;
@@ -376,7 +377,8 @@ public class Window extends JFrame{
 		next = new JButton("下一段");
 		save = new JButton("保存跟打进度");
 		share = new JButton("分享发文");
-
+		chouqu = new JButton("抽取模式发文");
+		
 		gendaListener = new GendaListener();//打字框监视器
 		f3listener = new F3Listener();//F3按钮监视器
 		zaiwenlistener = new JianQieListener();
@@ -407,6 +409,7 @@ public class Window extends JFrame{
 		orActicle = new orActicle(acticle,this);
 		next.addActionListener(Acticle.treeListener);
 		save.addActionListener(Acticle.treeListener);
+		chouqu.addActionListener(Acticle.treeListener);
 		
 		AcitiyComp acitiycomp = new AcitiyComp();
 		acitiycomp.start();//速度击键码长动态变化线程
@@ -453,6 +456,7 @@ public class Window extends JFrame{
 		add(lilunma);
 		add(dinglilunma);
 		add(reducesudu);
+		add(chouqu);
 	}
 	//给所有组件设置监视器
 	void addAllListener(){
@@ -607,6 +611,7 @@ public class Window extends JFrame{
 		mix.setMnemonic(KeyEvent.VK_L);
 		next.setMnemonic(KeyEvent.VK_P);
 		save.setMnemonic(KeyEvent.VK_S);
+		chouqu.setMnemonic(KeyEvent.VK_O);
 	}
 	void setFawenKey(){
 		acticlebutton.setMnemonic(KeyEvent.VK_2);

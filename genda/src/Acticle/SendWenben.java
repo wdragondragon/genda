@@ -20,6 +20,7 @@ import Login.*;
 import SetWin.SetFrameQianshuiListener;
 public class SendWenben implements ActionListener{
 	static public int sendwenSign = 0;
+	static public int sendwenSign2 = 0;
 	static public String title = "";
 	JTextPane wenben;
 	Window win;

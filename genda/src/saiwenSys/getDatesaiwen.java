@@ -34,10 +34,14 @@ public class getDatesaiwen implements ActionListener {
 				if(message.equals("已打过")){
 					JOptionPane.showMessageDialog(new JTextArea(),"你今天已打过赛文");return;
 				}
+				
 				QQZaiwenListener.wenbenstr = message;
-				Window.f3listener.F3();
 				Window.everydaySign = true;
 				RegexText.duan1 = 0;
+//				Window.f3listener.f3caozuo();
+				Window.dazi.setEditable(false);
+				CountSaiwen cs = new CountSaiwen();
+				cs.start();
 				Window.gendaListener.comp.setTimeOne();
 				GendaListener.sign = 1;
 			} catch (IOException ex) {
@@ -48,6 +52,5 @@ public class getDatesaiwen implements ActionListener {
 			// ......
 			
 		}
-		
 	}
 }

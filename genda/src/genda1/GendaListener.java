@@ -297,7 +297,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 			if(sign==0)n=0;
 			for(;n<last;n++){			//Ìí¼ÓÊ£ÏÂ×ÖÌå
 //				System.out.print(n);
-				if(SetFramechangeListener.tipsign==0){
+				if(SetFramechangeListener.tipsign==0||Window.everydaySign){
 					JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,String.valueOf(c2[n]),"»Ò",wenben);
 				}
 				else{
