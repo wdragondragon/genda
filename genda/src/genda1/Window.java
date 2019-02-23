@@ -717,7 +717,7 @@ public class Window extends JFrame{
 	JMenuItem friendSys;
 	JMenuItem everydaysaiwen;
 	JMenuItem everydaypaiming;
-	
+	JMenuItem fuwei;
 	RankListener ranklistener = new RankListener();
 	BuildChooseFile changetxt = new BuildChooseFile();
 	historyListener historylistener = new historyListener();
@@ -768,6 +768,7 @@ public class Window extends JFrame{
 		historyall = new JMenuItem("跟打记录");
 		friendSys = new JMenuItem("好友系统");
 		everydaysaiwen = new JMenuItem("每日赛文");
+		fuwei = new JMenuItem("复位");
 		
 		RamdomListener ramdomlistener = new RamdomListener();
 		getDatesaiwen getsaiwen = new getDatesaiwen();

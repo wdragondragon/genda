@@ -23,7 +23,7 @@ public class Dateinit extends Thread{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			addDatesaiwen.adddatesaiwen();
+			addDatesaiwen.adddatesaiwen();//添加每日赛文
 			
 			date2 = date1;
 			date1 = getdate();
@@ -33,9 +33,9 @@ public class Dateinit extends Thread{
 					String sql="update client set datenum=0";//搜索存在用户名，并改民字数
 					PreparedStatement ptmt=Recordnum.con.prepareStatement(sql);
 					ptmt.execute();
-					String sql1 = "delete from saiwenchengji";
-					Statement stmt = Recordnum.con.createStatement();
-					stmt.executeUpdate(sql1);
+//					String sql1 = "delete from saiwenchengji";
+//					Statement stmt = Recordnum.con.createStatement();
+//					stmt.executeUpdate(sql1);
 				}
 				catch(Exception e){}
 			}

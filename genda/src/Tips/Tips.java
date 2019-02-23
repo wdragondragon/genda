@@ -178,7 +178,7 @@ public class Tips{
 			fis.close();
 		}catch(Exception e){
 			System.out.println("´ò¿ªÊ§°Ü2");
-//			e.printStackTrace();
+			e.printStackTrace();
 		}
 	}
 	public void changeTips(String ch) {

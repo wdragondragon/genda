@@ -16,11 +16,12 @@ public class saiwenSys {
 	public static int everydaysaiwen(DataOutputStream out,String username){
     	Date date = Dateinit.getdate();
 		String sql = "select * from everydaysaiwen where saiwendate=?";
-		String sql1 = "select * from saiwenchengji where name=?";
+		String sql1 = "select * from saiwenchengji where name=? and date=?";
 		PreparedStatement ptmt;
 		try {
 			ptmt = Recordnum.con.prepareStatement(sql1);
 			ptmt.setString(1, username);
+			ptmt.setDate(2,date);
 			ResultSet rs=ptmt.executeQuery();
 			if(rs.next()){
 				try {

@@ -1,8 +1,11 @@
 package genda1;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import gendaClient.battleClient;
 
 import javax.swing.*;
-public class winchange extends Thread{
+public class winchange extends Thread implements ActionListener {
 	private static final int heightTwo = 0;
 	JTextArea dazi;
 	JTextPane wenben;
@@ -106,5 +109,10 @@ public class winchange extends Thread{
 //				}
 			}catch(Exception e){}
 		}
+	}
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

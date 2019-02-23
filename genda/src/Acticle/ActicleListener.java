@@ -72,12 +72,11 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 					if(in!=null)break;
 					if(node.toString().equals(wenzhangFileName[i])){
 						SendWenben.title = node.toString();
-						if(SendWenben.title.equals("跟打进度.txt")){
+						if(SendWenben.title.substring(0, 4).equals("跟打进度")){
 							readjindu();
 						}
 						open = new File("文章//文章类",SendWenben.title);
 						in = new RandomAccessFile(open,"r");
-						
 						break;
 					}
 				}
@@ -99,12 +98,12 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 		else
 			wen = all.substring(fontweizhi, fontweizhi+fontnum);
 		wenben.setText(wen);
-		fontweizhi += fontnum;
+//		fontweizhi += fontnum;
 		win.sendwen.setText(String.valueOf(fontweizhi)+"/"+String.valueOf(all.length())+":"+String.format("%.2f",(double)fontweizhi*100/all.length())+"%");
 	}
 	void readjindu() throws IOException{
 		try {
-			open = new File("文章//文章类","跟打进度.txt");
+			open = new File("文章//文章类",SendWenben.title);
 			Reader read = new FileReader(open);
 			BufferedReader br = new BufferedReader(read);
 			SendWenben.title = br.readLine();
@@ -156,7 +155,8 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 			}
 			else if(e.getActionCommand()=="保存跟打进度"){
 				try{
-					open = new File("文章//文章类","跟打进度.txt");
+					String jindufile = "跟打进度"+SendWenben.title+".txt";
+					open = new File("文章//文章类",jindufile);
 					FileOutputStream testfile = new FileOutputStream(open);
 					testfile.write(new String("").getBytes());
 					byte baocun[] = (SendWenben.title+"\r\n"+String.valueOf(fontweizhi-fontnum)).getBytes();

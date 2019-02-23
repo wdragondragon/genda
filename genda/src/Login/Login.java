@@ -29,7 +29,7 @@ public class Login extends JFrame implements ActionListener{
 	JButton zhuce;
 	JButton wangmi;
 	JButton tuichu;
-	public static String banben = "°æ±¾1.493";
+	public static String banben = "°æ±¾1.492";
 	public static int port = 1230;
 	public static JTextField zhanghao;
 	public static JPasswordField mima;

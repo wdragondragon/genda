@@ -61,7 +61,7 @@ public class Changetxt extends Thread{
 				int i = str.indexOf('#');
 				int n = str.indexOf('$');
 				if(i!=-1)
-					if(str.toCharArray()[i+1]=='”√'||str.toCharArray()[i+1]=='πÃ')
+					if(str.toCharArray()[i+1]=='–Ú'||str.toCharArray()[i+1]=='”√'||str.toCharArray()[i+1]=='πÃ')
 						str = str.substring(0, i);
 					else continue;
 				else if(n!=-1)continue;
@@ -104,6 +104,5 @@ public class Changetxt extends Thread{
 			bufferWriter.close();
 			read.close();
 			fis.close();
-
 	}
 }

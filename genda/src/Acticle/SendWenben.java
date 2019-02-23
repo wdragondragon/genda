@@ -36,6 +36,7 @@ public class SendWenben implements ActionListener{
 		Window.f3listener.F3();
 		sendwenSign = 1;	//发文标志
 		RegexText.duan1 = 1;//设置段数
+		ActicleListener.fontweizhi += ActicleListener.fontnum;
 		win.sendwen.setVisible(true);
 		try{
 			DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());

@@ -45,9 +45,9 @@ public class AchievementListener extends AbstractAction{
 			try{			//≈–∂œ∂‘’Ω÷–
 				if(!battleClient.socket.isClosed()){
 					if(Window.reducesudu.getText()!="")
-						battleSend.out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+Window.wenben.getText()+"%"+String.valueOf(sudu-30*battleSend.Mistake-Integer.parseInt(Window.reducesudu.getText()))+"%"+Login.zhanghao.getText());	
+						battleSend.out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+Window.wenben.getText()+"%"+String.valueOf(sudu-30*battleSend.Mistake-Integer.parseInt(Window.reducesudu.getText()))+"%"+Login.zhanghao.getText());	
 					else
-						battleSend.out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+Window.wenben.getText()+"%"+String.valueOf(sudu-30*battleSend.Mistake)+"%"+Login.zhanghao.getText());	
+						battleSend.out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+Window.wenben.getText()+"%"+String.valueOf(sudu-30*battleSend.Mistake)+"%"+Login.zhanghao.getText());	
 				}
 			}
 			catch(Exception ex){

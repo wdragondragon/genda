@@ -214,6 +214,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 				deleteNumber = deleteNumber-deleteTextNumber;	//退格真实数量要减去回改数量
 				if(deleteNumber<0)deleteNumber = 0;	//保证退格小于零
 				ReadyListener.BeganSign = 0;			//准备标志
+				Window.suduButton.setText(String.format("%.2f",Window.gendaListener.sudu));
 				AchievementListener.setClipboardString(achievementlistener.getGeshi()); //将成绩放入剪贴板
 				if(SetFrameQianshuiListener.qianshui == 0)		//不为潜水跟打的话发送成绩
 					achievementlistener.sendchengji();

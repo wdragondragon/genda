@@ -25,7 +25,7 @@ public class Recordnum extends Thread{
     public  static String pass="951753";//mysql登录密码
     public static Connection con;//
     public  static ServerSocket server;//服务器
-    public static String banben149 = "版本1.493";
+    public static String banben149 = "版本1.492";
     public static int port = 1230;
     public static HashMap<String,Socket> online = new HashMap<String,Socket>();
 	public static void main(String args[]){
@@ -119,10 +119,13 @@ public class Recordnum extends Thread{
 		}
 		void getRank(){
 			try{
-				String sql="SELECT * FROM saiwenchengji ORDER BY sudu DESC";
-				Statement ptmt=Recordnum.con.createStatement();
-				ResultSet rs=ptmt.executeQuery(sql);
-				System.out.println("获取赛文排名");
+				String sql="SELECT * FROM saiwenchengji WHERE date=? ORDER BY sudu DESC";
+//				Statement ptmt=Recordnum.con.createStatement();
+//				ResultSet rs=ptmt.executeQuery(sql);
+				PreparedStatement ptmt=Recordnum.con.prepareStatement(sql);
+				ptmt.setDate(1,Dateinit.getdate());
+				ResultSet rs=ptmt.executeQuery();
+				System.out.println("获取赛文排名"+Dateinit.getdate().toString());
 				while(rs.next()){
 					out.writeUTF(String.valueOf(rs.getString(1)));
 	        		out.writeUTF(String.valueOf(rs.getDouble(3)));
