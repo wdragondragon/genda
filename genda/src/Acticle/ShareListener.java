@@ -23,16 +23,15 @@ public class ShareListener extends AbstractAction {
 		send();
 	}
 	public static  void send(){
-		if(SendWenben.sendwenSign==0&&SendWenben.sendwenSign2==0){
-			JOptionPane.showMessageDialog(new JTextArea(),"发文功能只支持发文状态下使用");return;}
+//		if(SendWenben.sendwenSign==0&&SendWenben.sendwenSign2==0){
+//			JOptionPane.showMessageDialog(new JTextArea(),"发文功能只支持发文状态下使用");return;}
 		String share = "";
-		if(SendWenben.sendwenSign==1){
+		if(SendWenben.sendwenSign==1)
 			share = SendWenben.title+"\n"+QQZaiwenListener.wenbenstr+"\n-----"+"第"+String.valueOf(RegexText.duan1)+"段-余"+String.valueOf(ActicleListener.length-ActicleListener.fontweizhi-ActicleListener.fontnum)+"字";
-			
-		}
-		else if(SendWenben.sendwenSign2==1){
+		else if(SendWenben.sendwenSign2==1)
 			share = SendWenben.title+"：随机抽取发文模式"+"\n"+QQZaiwenListener.wenbenstr+"\n-----"+"第"+String.valueOf(RegexText.duan1)+"段";
-		}
+		else
+			share = SendWenben.title+"\n"+QQZaiwenListener.wenbenstr+"\n-----"+"第"+String.valueOf(RegexText.duan1)+"段";
 		AchievementListener.setClipboardString(share); //将成绩放入剪贴板
 		System.out.println(AchievementListener.getClipboardString());
 		try {

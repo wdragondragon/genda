@@ -8,14 +8,20 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.io.IOException;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 import keep.*;
 public class SystemListener implements ActionListener,MouseListener,MouseMotionListener{
-	Window win;
-	int x=0,y=0,width=0,height=0,locationPointx,locationPointy;
-	int MaxSign = 0;
+	static Window win;
+	static int x=0;
+	static int y=0;
+	static int width=0;
+	static int height=0;
+	int locationPointx;
+	int locationPointy;
+	static int MaxSign = 0;
 	Point pressedPoint ;
 	SystemListener(Window win){
 		this.win = win;
@@ -38,26 +44,44 @@ public class SystemListener implements ActionListener,MouseListener,MouseMotionL
 		}
 		else if(e.getActionCommand()=="最大化"){
 			if(MaxSign == 0){
-				x = win.getX();
-				y = win.getY();
-				width = win.getWidth();
-				height = win.getHeight();
 //				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //得到屏幕分辨率
-				GraphicsEnvironment ge=GraphicsEnvironment.getLocalGraphicsEnvironment(); 
-				Rectangle screenSize=ge.getMaximumWindowBounds(); 
-				int w=screenSize.width; 
-				int h=screenSize.height;
-				win.setLocation(0, 0); 
-				win.setSize(screenSize.width,screenSize.height); 
-				MaxSign = 1;
+//				GraphicsEnvironment ge=GraphicsEnvironment.getLocalGraphicsEnvironment(); 
+//				Rectangle screenSize=ge.getMaximumWindowBounds(); 
+//				int w=screenSize.width; 
+//				int h=screenSize.height;
+//				win.setLocation(0, 0); 
+//				win.setSize(screenSize.width,screenSize.height); 		
+				max();
 			}
 			else{
-				win.setLocation(x, y); 
-				win.setSize(width,height);
-				x=0;y=0;width=0;height=0;
-				MaxSign = 0;
+				min();
 			}
 		}
+		else if(e.getActionCommand().equals("最小化")){
+			System.out.println("最小化");
+			win.setExtendedState(JFrame.ICONIFIED); 
+		}
+	}
+	public static void max(){
+		x = win.getX();
+		y = win.getY();
+		width = win.getWidth();
+		height = win.getHeight();
+		Dimension   screenSize   =   Toolkit.getDefaultToolkit().getScreenSize();   
+		Rectangle   bounds   =   new   Rectangle(screenSize);   
+		Insets   insets   =   Toolkit.getDefaultToolkit().getScreenInsets(win.getGraphicsConfiguration());   
+		bounds.x   +=   insets.left;   
+		bounds.y   +=   insets.top;   
+		bounds.width   -=   insets.left   +   insets.right;   
+		bounds.height   -=   insets.top   +   insets.bottom;   
+		win.setBounds(bounds);
+		MaxSign = 1;
+	}
+	public static void min(){
+		win.setLocation(x, y); 
+		win.setSize(width,height);
+		x=0;y=0;width=0;height=0;
+		MaxSign = 0;
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {}

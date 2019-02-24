@@ -64,8 +64,6 @@ public class winchange extends Thread implements ActionListener {
 						jSplitPane2.setBounds(jsplitX,win.suduButton.getY()+win.suduButton.getHeight()+5,move-5,jSplitPane2.getHeight()+(heigthTwo-heightOne));//295
 						gendajindutiao.setBounds(jsplitX,jSplitPane2.getY()+jSplitPane2.getHeight()+(heigthTwo-heightOne),move-5,10);//341
 						accept.setBounds(jsplitX,accept.getY()+(heigthTwo-heightOne),move-5,200);//460
-						close.setBounds(win.getWidth()-20,0,20,10);
-						max.setBounds(win.getWidth()-42,0,20,10);
 						size.setBounds(win.getWidth()-10,win.getHeight()-10,10,10);
 						ce.setBounds(jSplitPane2.getX()+jSplitPane2.getWidth(),jSplitPane2.getY(),5,jSplitPane2.getHeight());
 					}
@@ -73,12 +71,14 @@ public class winchange extends Thread implements ActionListener {
 						jSplitPane2.setBounds(jsplitX,win.suduButton.getY()+win.suduButton.getHeight()+5,move-5-200,jSplitPane2.getHeight());//295
 						gendajindutiao.setBounds(jsplitX,jSplitPane2.getY()+jSplitPane2.getHeight(),move-5-200,10);//341
 						accept.setBounds(jsplitX,gendajindutiao.getY()+gendajindutiao.getHeight()+45,move-5-200,200);//460
-						close.setBounds(win.getWidth()-20,0,20,10);
-						max.setBounds(win.getWidth()-42,0,20,10);
+						
 						size.setBounds(win.getWidth()-10,win.getHeight()-10,10,10);
 						ce.setBounds(jSplitPane2.getX()+jSplitPane2.getWidth(),jSplitPane2.getY(),5,jSplitPane2.getHeight());
 						
 					}
+					close.setBounds(win.getWidth()-20,0,20,10);
+					max.setBounds(win.getWidth()-42,0,20,10);
+					win.min.setBounds(win.getWidth()-63,0,20,10);
 					win.qqName.setBounds(jSplitPane2.getX(),jSplitPane2.getY()+jSplitPane2.getHeight()+10,120,40);
 					win.zishu.setBounds(jSplitPane2.getX()+win.qqName.getWidth()+5,jSplitPane2.getY()+jSplitPane2.getHeight()+10,(win.zishu.getText().length()-5)*7+5*12,40);
 					win.allnumber.setBounds(jSplitPane2.getX()+(win.qqName.getWidth()+win.zishu.getWidth()+10),jSplitPane2.getY()+jSplitPane2.getHeight()+10,(win.allnumber.getText().length()-4)*7+4*12,40);

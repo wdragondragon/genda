@@ -69,7 +69,7 @@ public class Window extends JFrame{
 	JButton set;
 	JButton online;
 	JButton Keylength;
-	JButton close,max,size;
+	JButton close,max,size,min;
 	JButton changeQQButton;
 	JButton ce;
 	JButton acticlebutton;
@@ -192,27 +192,11 @@ public class Window extends JFrame{
 				pressedPoint = e.getPoint(); //记录鼠标坐标
 			}
 			public void mouseClicked(MouseEvent e){
-				if(e.getClickCount()>=2){			//双击最大化
-					if(systemlistener.MaxSign == 0){
-						systemlistener.x = systemlistener.win.getX();
-						systemlistener.y = systemlistener.win.getY();
-						systemlistener.width = systemlistener.win.getWidth();
-						systemlistener.height = systemlistener.win.getHeight();
-//						Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //得到屏幕分辨率
-						GraphicsEnvironment ge=GraphicsEnvironment.getLocalGraphicsEnvironment(); 
-						Rectangle screenSize=ge.getMaximumWindowBounds(); 
-						System.out.println(screenSize.width+"  "+screenSize.height);
-						systemlistener.win.setLocation(0, 0); 
-						systemlistener.win.setSize(screenSize.width,screenSize.height); 
-						systemlistener.MaxSign = 1;
-					}
-					else{
-						systemlistener.win.setLocation(systemlistener.x, systemlistener.y); 
-						systemlistener.win.setSize(systemlistener.width,systemlistener.height);
-						systemlistener.x=0;systemlistener.y=0;systemlistener.width=0;systemlistener.height=0;
-						systemlistener.MaxSign = 0;	
-					}
-				}
+				if(e.getClickCount()>=2)			//双击最大化
+					if(systemlistener.MaxSign == 0)
+						SystemListener.max();
+					else
+						SystemListener.min();	
 			}
 		});
 		this.addMouseMotionListener(new MouseMotionAdapter() {
@@ -375,6 +359,7 @@ public class Window extends JFrame{
 		online = new JButton("在线对战");
 		close = new JButton("关");
 		max = new JButton("最大化");
+		min = new JButton("最小化");
 		size = new JButton("大小");
 		changeQQButton = new JButton();
 		ce = new JButton();
@@ -447,6 +432,7 @@ public class Window extends JFrame{
 		
 		add(close);
 		add(max);
+		add(min);
 		add(size);
 		add(changeQQButton);
 		add(Keylength);
@@ -482,6 +468,7 @@ public class Window extends JFrame{
 		close.addActionListener(systemlistener);
 		max.addActionListener(systemlistener);
 		size.addMouseListener(systemlistener);
+		min.addActionListener(systemlistener);
 		size.addMouseMotionListener(systemlistener);
 		more.addActionListener(morelistener);
 //		online.addActionListener()

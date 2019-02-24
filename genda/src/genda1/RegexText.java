@@ -1,5 +1,6 @@
 package genda1;
 
+import Acticle.SendWenben;
 import SetWin.SetCharListener;
 import SetWin.SetspaceListener;
 
@@ -14,7 +15,7 @@ public class RegexText {
 	String str,duan;
 	public static int duan1;
 	String regetText(String str){
-		
+		SendWenben.title = "";
 		a = str.toCharArray();
 		length = str.length();
 		for(j=length-1;j>0;j--){
@@ -41,10 +42,15 @@ public class RegexText {
 			if(a[j]=='\n')
 			{
 				kong++;
+				a[j]='#';
 				if(kong>=2){
-					sign2 = j;
-					kong = 0;
+					sign2  = j;
+					while(a[j]!='\n')
+						j--;
 					a[j]='#';
+					for(j=j+1;j<sign2;j++)
+						SendWenben.title+=String.valueOf(a[j]);
+					kong = 0;
 					break;}
 			}
 		}
@@ -62,7 +68,7 @@ public class RegexText {
 		str = huanfu(str);
 		duan = duan.replaceAll(regex,"");
 		duan1 = Integer.valueOf(duan);
-//		System.out.println(str);
+		System.out.println(SendWenben.title+":"+str);
 		return str;
 	}
 	public static String huanfu(String str){

@@ -1,4 +1,4 @@
-package Tips;
+package Other;
 import java.io.*;
 public class mabiao {
 
