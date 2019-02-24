@@ -62,7 +62,8 @@ public class RWThread148 extends Thread{
 				}
 				else if(message.substring(0,2).equals("成绩")){
 					System.out.println(message);
-					addchengji(message,0);
+					if(saiwenSign)addchengji(message,0);
+					saiwenSign = false;
 					continue;
 				}
 				else if(message.equals("获取今日赛文")){
@@ -137,7 +138,7 @@ public class RWThread148 extends Thread{
 		}
 	}
 	public void addchengji(String message,int n){
-		String sql="insert into saiwenchengji values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into saiwenchengji values(?,?,?,?,?,?,?,?,?,?,?,?,?,default)";
 		Date date;
 		int y,m,d;
 		try{
@@ -361,12 +362,25 @@ public class RWThread148 extends Thread{
     	System.out.print(username+"正在登录\r");
     	try{
 	        String sql="select * from client where username=? and password=?";
-	        PreparedStatement ptmt=Recordnum.con.prepareStatement(sql);
+	        String sql1="select * from client where username=?";
+	        
+	        PreparedStatement ptmt=Recordnum.con.prepareStatement(sql1);
+	        ptmt.setString(1, username);
+	        ResultSet rs=ptmt.executeQuery();
+	        if(!rs.next()){		//检验账号是否存在
+	        	 System.out.print(username+"账户不存在！\n请重新登录：\r");
+	            String message = "%3%0%0%0%0";
+	            try {
+					out.writeUTF(message);
+				} catch (IOException e) {System.out.print(username+"发送登录失败失败\r");}
+	            return ;
+	        }
+	        ptmt=Recordnum.con.prepareStatement(sql);
 	        ptmt.setString(1, username);
 	        ptmt.setString(2, password);
-	        ResultSet rs=ptmt.executeQuery();
+	        rs=ptmt.executeQuery();
 	        //从登录用户给出的账号密码来检测查询在数据库表中是否存在相同的账号密码
-	        if(rs.next()){
+	        if(rs.next()){			//验证密码是否正确
 	            num = rs.getInt(3);
 	            rightnum = rs.getInt(4);
 	            misnum = rs.getInt(5);

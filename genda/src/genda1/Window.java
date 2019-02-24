@@ -12,6 +12,7 @@ import FriendSys.FriendsSysListener;
 import History.historyListener;
 import Login.Login;
 import QQ.ChangeQQWindow;
+import QQ.ForegroundWinName;
 import RamdomOne.RamdomListener;
 import Ranking.RankListener;
 import Ranking.rankFrame;
@@ -23,6 +24,8 @@ import Tips.Tips;
 import java.awt.event.*;
 import java.io.IOException;
 import Acticle.*;
+import BuildSai.BuildSaiListener;
+import Communication.CommunicationListener;
 import keep.readWrite;
 @SuppressWarnings("serial")
 public class Window extends JFrame{
@@ -718,10 +721,14 @@ public class Window extends JFrame{
 	JMenuItem everydaysaiwen;
 	JMenuItem everydaypaiming;
 	JMenuItem fuwei;
+	JMenuItem buildsaiwen;
+	JMenuItem com;
 	RankListener ranklistener = new RankListener();
 	BuildChooseFile changetxt = new BuildChooseFile();
 	historyListener historylistener = new historyListener();
 	FriendsSysListener fsyslistenre = new FriendsSysListener();
+	BuildSaiListener buildsailistener = new BuildSaiListener();
+	CommunicationListener comlistener = new CommunicationListener();
 	void jsplit(){
 		dazi.setDragEnabled(true);
 		jSplitPane1 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true,wenben1,dazi1);
@@ -768,6 +775,8 @@ public class Window extends JFrame{
 		historyall = new JMenuItem("跟打记录");
 		friendSys = new JMenuItem("好友系统");
 		everydaysaiwen = new JMenuItem("每日赛文");
+		buildsaiwen = new JMenuItem("创建比赛");
+		com = new JMenuItem("共聚一堂");
 		fuwei = new JMenuItem("复位");
 		
 		RamdomListener ramdomlistener = new RamdomListener();
@@ -793,6 +802,8 @@ public class Window extends JFrame{
 		friendSys.addActionListener(fsyslistenre);
 		everydaysaiwen.addActionListener(getsaiwen);
 		everydaypaiming.addActionListener(ranklistener);
+		buildsaiwen.addActionListener(buildsailistener);
+		com.addActionListener(comlistener);
 		
 		paiming.add(paimingall);
 		paiming.add(paimingday);
@@ -809,8 +820,10 @@ public class Window extends JFrame{
 		linkbase.add(paiming);
 		linkbase.add(zxdv);
 		linkbase.add(historyall);
-		linkbase.add(friendSys);
 		linkbase.add(everydaysaiwen);
+		linkbase.add(friendSys);
+		linkbase.add(buildsaiwen);
+		linkbase.add(com);
 		
 		other.add(jjmu);
 		other.add(txt);

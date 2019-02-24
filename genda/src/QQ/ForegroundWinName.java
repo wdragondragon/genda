@@ -1,4 +1,4 @@
-package genda1;
+package QQ;
 
 import javax.swing.*;
 

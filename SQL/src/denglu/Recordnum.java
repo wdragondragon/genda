@@ -45,7 +45,7 @@ public class Recordnum extends Thread{
 			Dateinit dateinit = new Dateinit();
 			dateinit.start();	//每日跟打动态重置
 			InitAll.getaver();//重新计算一次平均速度
-			
+			resertonline();//重置登录状态
 			System.out.print("速度平均成功\r");
 			while(true){
 				Socket socket = server.accept();//被动等待客户端的连接
@@ -55,7 +55,12 @@ public class Recordnum extends Thread{
         }
 		catch(Exception e){System.out.print("数据库失败\r");e.printStackTrace();}  
 	}
-	
+	void resertonline() throws SQLException{
+		String sql="update client set online=?";
+    	PreparedStatement ptmt=Recordnum.con.prepareStatement(sql);
+	    ptmt.setInt(1,0);
+	    ptmt.execute();
+	}
 	class ReadFirst extends Thread{	//防止死锁
 //		Socket socket;
 		DataInputStream in;

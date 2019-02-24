@@ -35,16 +35,20 @@ public class historyFrame extends JFrame implements ActionListener{
 	
 	public static List<String> id = new ArrayList<String>();
 	public static List<Vector> allhistory = new ArrayList<Vector>();
+	JPanel p = new JPanel();
 	public historyFrame(){
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds(10,10,850,screenSize.height*3/4);
+		
 		init();
 		setVisible(true);
 		setTitle("跟打记录");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//设置关闭按钮
 	}
 	void init(){
-		setLayout(null);
+//		setLayout(null);
+		p.setLayout(null);
+		add(p);
 		Object name[]={"","日期","速度","击键","码长","字数","回改","退格","错字","选重","键准","打词率","时间(秒)","段数"},a[][] = null;
 		tableM = new DefaultTableModel(a,name) {
             private static final long serialVersionUID = 1L;
@@ -111,23 +115,23 @@ public class historyFrame extends JFrame implements ActionListener{
 		golast.addActionListener(historyfanye);
 		go.addActionListener(historyfanye);
 		showall.addActionListener(this);
-		add(tableN);
-		add(lookwenben);
-		add(lookcow);
-		add(datef);
-		add(suduf);
-		add(dayf);
-		add(shaixuandate);
-		add(shaixuansudu);
-		add(shaixuansaiwen);
-		add(next);
-		add(before);
-		add(go);
-		add(dangqianye);
-		add(golast);
-		add(gofirst);
-		add(yemashow);
-		add(showall);
+		p.add(tableN);
+		p.add(lookwenben);
+		p.add(lookcow);
+		p.add(datef);
+		p.add(suduf);
+		p.add(dayf);
+		p.add(shaixuandate);
+		p.add(shaixuansudu);
+		p.add(shaixuansaiwen);
+		p.add(next);
+		p.add(before);
+		p.add(go);
+		p.add(dangqianye);
+		p.add(golast);
+		p.add(gofirst);
+		p.add(yemashow);
+		p.add(showall);
 		request();
 		this.setResizable(false);
 	}
