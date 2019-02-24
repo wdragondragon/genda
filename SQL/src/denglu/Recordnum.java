@@ -25,7 +25,7 @@ public class Recordnum extends Thread{
     public  static String pass="951753";//mysqlµÇÂ¼ÃÜÂë
     public static Connection con;//
     public  static ServerSocket server;//·şÎñÆ÷
-    public static String banben149 = "°æ±¾1.492";
+    public static String banben149 = "°æ±¾1.494";
     public static int port = 1230;
     public static HashMap<String,Socket> online = new HashMap<String,Socket>();
 	public static void main(String args[]){

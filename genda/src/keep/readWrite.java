@@ -27,8 +27,8 @@ public class readWrite
 	static String rString = "";
 	public static void keep (Window win)throws IOException
 	{
-		if(win.one.isVisible())
-			win.setSize(win.getWidth(),winchange.bottom+7);
+//		if(win.one.isVisible())
+//			win.setSize(win.getWidth(),winchange.bottom+7);
 //		System.out.println(Window.rightcolor.getRGB());
 		rString = "%"+String.valueOf(win.getWidth())
 				+"%"+String.valueOf(win.getHeight())

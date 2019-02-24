@@ -28,6 +28,9 @@ public class SystemListener implements ActionListener,MouseListener,MouseMotionL
 			if(win.one.isVisible()){
 				JOptionPane.showMessageDialog(new JTextArea(),"请先关闭在线对战");return;
 			}
+			if(MaxSign==1){
+				JOptionPane.showMessageDialog(new JTextArea(),"请先关闭全屏模式");return;
+			}
 			try {
 				readWrite.keep(win);//保存设置
 			} catch (IOException e1) {System.out.println("保存失败");}
@@ -39,7 +42,11 @@ public class SystemListener implements ActionListener,MouseListener,MouseMotionL
 				y = win.getY();
 				width = win.getWidth();
 				height = win.getHeight();
-				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //得到屏幕分辨率
+//				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //得到屏幕分辨率
+				GraphicsEnvironment ge=GraphicsEnvironment.getLocalGraphicsEnvironment(); 
+				Rectangle screenSize=ge.getMaximumWindowBounds(); 
+				int w=screenSize.width; 
+				int h=screenSize.height;
 				win.setLocation(0, 0); 
 				win.setSize(screenSize.width,screenSize.height); 
 				MaxSign = 1;
@@ -76,12 +83,14 @@ public class SystemListener implements ActionListener,MouseListener,MouseMotionL
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
-		Point point = e.getPoint();// 获取当前坐标
-		locationPointx = win.getWidth();
-		locationPointy = win.getHeight();
-		int i = locationPointx + point.x - pressedPoint.x;// 计算移动后的新坐标
-		int j = locationPointy + point.y - pressedPoint.y;
-		win.setSize(i, j);// 改变窗体大小
+		if(MaxSign==0){
+			Point point = e.getPoint();// 获取当前坐标
+			locationPointx = win.getWidth();
+			locationPointy = win.getHeight();
+			int i = locationPointx + point.x - pressedPoint.x;// 计算移动后的新坐标
+			int j = locationPointy + point.y - pressedPoint.y;
+			win.setSize(i, j);// 改变窗体大小
+		}
 	}
 
 	@Override

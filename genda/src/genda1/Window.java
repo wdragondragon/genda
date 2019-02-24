@@ -198,7 +198,9 @@ public class Window extends JFrame{
 						systemlistener.y = systemlistener.win.getY();
 						systemlistener.width = systemlistener.win.getWidth();
 						systemlistener.height = systemlistener.win.getHeight();
-						Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //得到屏幕分辨率
+//						Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //得到屏幕分辨率
+						GraphicsEnvironment ge=GraphicsEnvironment.getLocalGraphicsEnvironment(); 
+						Rectangle screenSize=ge.getMaximumWindowBounds(); 
 						System.out.println(screenSize.width+"  "+screenSize.height);
 						systemlistener.win.setLocation(0, 0); 
 						systemlistener.win.setSize(screenSize.width,screenSize.height); 
@@ -229,6 +231,7 @@ public class Window extends JFrame{
 			System.out.println("读取总跟打字数失败");
 		}
 		setVisible(true);//设置可见
+		setMinimumSize(new Dimension(850,100));
 		init();//初始化
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//设置关闭按钮
 		dazi.setBackground(new Color(238,238,238));//设置打字框颜色

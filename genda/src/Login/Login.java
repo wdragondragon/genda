@@ -40,37 +40,39 @@ public class Login extends JFrame implements ActionListener{
 	public static DataOutputStream out;
 	public static DataInputStream in;
 	public static int dengluSign = 0;
+	JPanel p = new JPanel();
 	public Login(Window win){
 		this.win = win;
 		link();
 		setTitle("µÇÂ¼");
-		setLayout(null);
+
 //		com.sun.awt.AWTUtilities.setWindowOpaque(this,true);
 		setBounds(win.getX()+win.getWidth()/4,win.getY()+win.getHeight()/4,300,300);
-		
+		add(p);
+		p.setLayout(null);
 		zhanghao = new JTextField("ÕËºÅ");
 		zhanghao.setBounds(20,20,190,30);
-		add(zhanghao);
+		p.add(zhanghao);
 		
 		mima = new JPasswordField("ÃÜÂë");
 		mima.setBounds(20,70,190,30);
-		add(mima);
+		p.add(mima);
 		
 		confirm = new JButton("µÇÂ¼");
 		confirm.setBounds(20,110,90,30);
-		add(confirm);
+		p.add(confirm);
 		
 		resert = new JButton("Çå¿ÕÊäÈë");
 		resert.setBounds(120,110,90,30);
-		add(resert);
+		p.add(resert);
 		
 		zhuce = new JButton("×¢²á");
 		zhuce.setBounds(20,150,90,30);
-		add(zhuce);
+		p.add(zhuce);
 		
 		wangmi = new JButton("Íü¼ÇÃÜÂë");
 		wangmi.setBounds(120,150,90,30);
-		add(wangmi);
+		p.add(wangmi);
 		
 		denglulistener = new DengluListener(this);
 		confirm.addActionListener(denglulistener);
