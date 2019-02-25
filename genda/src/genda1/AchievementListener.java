@@ -22,6 +22,7 @@ public class AchievementListener extends AbstractAction{
 	String gendageshi;
 	TableAdd table;
 	int space;
+	private Window win;
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -111,6 +112,7 @@ public class AchievementListener extends AbstractAction{
 		try{
 			if(Window.everydaySign){
 				sendsaiwen();
+				win.setAlwaysOnTop(false);
 				Window.everydaySign = false;
 			}
 		}catch(Exception e){
@@ -176,6 +178,9 @@ public class AchievementListener extends AbstractAction{
 				e.printStackTrace();
 			}
 		}
+	}
+	public void setWin(Window win){
+		this.win = win;
 	}
 	public void setGendaListener(GendaListener t){
 		gendaListener = t;

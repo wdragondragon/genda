@@ -16,7 +16,10 @@ import javax.swing.JTextArea;
 import Acticle.SendWenben;
 import Login.*;
 public class getDatesaiwen implements ActionListener {
-
+	Window win;
+	public getDatesaiwen(Window win){
+		this.win = win;
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -44,6 +47,7 @@ public class getDatesaiwen implements ActionListener {
 				cs.start();
 				Window.gendaListener.comp.setTimeOne();
 				GendaListener.sign = 1;
+				win.setAlwaysOnTop(true);
 			} catch (IOException ex) {
 				// TODO Auto-generated catch block
 				ex.printStackTrace();

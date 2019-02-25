@@ -30,7 +30,7 @@ public class Cirecord extends JFrame {
 		setResizable(false);
 		setTitle("跟打详情");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//设置关闭按钮
-		setBounds(10,10,1200,680);
+		setBounds(10,10,950,480);
 		
 	}
 	void init(){
@@ -45,7 +45,7 @@ public class Cirecord extends JFrame {
 		};
 		table = new JTable(tableM);
 		tableN = new JScrollPane(table);
-		tableN.setBounds(0,0,350,600);
+		tableN.setBounds(0,0,300,400);
 		add(tableN);
 		int n=0;
 		for(int i = 0;i<Window.gendaListener.dacilist.size();i++){
@@ -58,36 +58,46 @@ public class Cirecord extends JFrame {
 			vRow1.add(split[3]);
 			tableM.addRow((vRow1));
 		}
+		table.getColumnModel().getColumn(0).setPreferredWidth(30);
+		table.getColumnModel().getColumn(1).setPreferredWidth(60);
 		JPanel jpanel = createDemoPanel(); 
 		JScrollPane jpan1 = new JScrollPane(jpanel);
-		jpan1.setBounds(345,0,800,600);
-		add(jpan1);
+		jpanel.setLayout(null);
+		jpanel.setBounds(300, 0, 600, 400);
+//		jpan1.setBounds(345,0,800,600);
+//		add(jpan1);
+		add(jpanel);
 	}
 	private static CategoryDataset createDataset() { 
 		 DefaultCategoryDataset defaultcategorydataset = new DefaultCategoryDataset(); 
 		  //defaultcategorydataset.addValue()的参数解析：（数值，图例名，横坐标值） 
-		 for(int i=0;i<Window.gendaListener.dacilist.size();i++){ 
+		 for(int i=1;i<Window.gendaListener.dacilist.size();i++){ 
 			 String []split = Window.gendaListener.dacilist.get(i).split(":");
 		     defaultcategorydataset.addValue(Double.parseDouble(split[2]), 
-		     "First",split[1]); 
+		     "速度",split[1]); 
 		     defaultcategorydataset.addValue(Double.parseDouble(split[3])*20, 
-		     "second",split[1]); 
+		     "击键*20",split[1]); 
+		     defaultcategorydataset.addValue(Double.parseDouble(split[4]), 
+			 "顺时速度",split[1]); 
 		 }
 		 return defaultcategorydataset; 
 		 } 
 	private static JFreeChart createChart(CategoryDataset categorydataset) { 
 		JFreeChart jfreechart = ChartFactory.createLineChart( 
-	    "红线速度，蓝线击键*20",// 图表标题 
+	    "",// 图表标题 
 	    "time", // 主轴标签（x轴） 
 	    "speed",// 范围轴标签（y轴） 
 	    categorydataset, // 数据集 
 	    PlotOrientation.VERTICAL,// 方向 
-	    false, // 是否包含图例 
+	    true, // 是否包含图例 
 	    true, // 提示信息是否显示 
 	    false);// 是否使用urls 
 		
 		Font font = new Font("宋体",Font.BOLD,20);
 		jfreechart.getTitle().setFont(font);
+		
+		jfreechart.getLegend().setItemFont(font);
+//		jfreechart.getLegend().setMargin(0, 0, 0, 5);
 		CategoryPlot plot1 = jfreechart.getCategoryPlot();// 获得图表区域对象   
 		// 设置图表的纵轴和横轴   
 		CategoryAxis domainAxis1 = plot1.getDomainAxis(); //获得横轴——目录轴

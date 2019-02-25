@@ -524,6 +524,7 @@ public class Window extends JFrame{
 		achievementListener.setQQName(qqName);
 		achievementListener.setTable(tableAdd);
 		achievementListener.setWenbenText(wenben);
+		achievementListener.setWin(this);
 	}
 	void qqzaiwenlistenerset(){
 		qqzaiwenListener.setDaziText(dazi);
@@ -770,7 +771,7 @@ public class Window extends JFrame{
 		fuwei = new JMenuItem("¸´Î»");
 		
 		RamdomListener ramdomlistener = new RamdomListener();
-		getDatesaiwen getsaiwen = new getDatesaiwen();
+		getDatesaiwen getsaiwen = new getDatesaiwen(this);
 		
 		fasongchengji.addActionListener(achievementListener);
 		chongda.addActionListener(f3listener);

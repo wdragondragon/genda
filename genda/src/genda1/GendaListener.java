@@ -65,7 +65,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 	public int daciall=0;
 	public List<String> mistakelist = new ArrayList<String>();
 	public static List<String> dacilist = new ArrayList<String>();
-
+	public static List<String> shushisudu = new ArrayList<String>();
 	private JLabel allnumber;
 	private Tips tipschange;
 	
@@ -157,7 +157,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 			try{
 				compdaci(e.getKeyChar());//计算打词
 			}
-			catch(Exception ex){System.out.println("打词计算失败180genda");}
+			catch(Exception ex){System.out.println("打词计算失败180genda");ex.printStackTrace();}
 			mistake = 0;			//错误字数清零
 			length = str1.length();//计算当前打字框长度
 			for(n=0;n<str1.length();n++){					//统计错误字数，向文本框添加字体
@@ -193,6 +193,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 				record = "";	//击键清空
 				sign = 1;	//设置标记后不再计算，标记已开始跟打
 				dacilist.clear();	//清除上次跟打留下的daci链表
+				shushisudu.clear();
 				length=0;	//清除上次跟打留下的Length
 			}
 			else
@@ -221,10 +222,30 @@ public class GendaListener implements DocumentListener,KeyListener {
 				if(SetFrameJinduListener.jindusign==1)//判断是否开了进度条
 					gendajindu.jindu(dazi.getText().length()+1);
 				ChangeAllColor();
+//				compshushi();
 //				acitiycomp.stop();
 			}
 		}
 		catch(Exception exp){}
+	}
+	
+	public double compshushi(){
+		String temp;
+		int i = dacilist.size();
+		if(i>5){
+			temp = "";
+			String []first = dacilist.get(i-6).split(":");
+			String []last = dacilist.get(i-1).split(":");
+			for(int j=i-5;j<i;j++){
+				String []a = dacilist.get(j).split(":");
+				temp += a[0];
+			}
+			int length1 = temp.length();
+			double shushitime = Double.parseDouble(last[1])-Double.parseDouble(first[1]);
+			double shushisudu = length1/shushitime;
+			return shushisudu*60;
+		}
+		return 0;
 	}
 	public void compdaci(char c){
 		if(str1!=""&&str1.length()>=length){
@@ -244,10 +265,10 @@ public class GendaListener implements DocumentListener,KeyListener {
 				String s[] = dacilist.get(dacilist.size()-1).split(":");
 				if(s[0].equals(temp.substring(0,1)))	//单字对比
 					dacilist.remove(dacilist.get(dacilist.size()-1));
-				dacilist.add(temp+":"+citime+":"+String.format("%.2f",sudu)+":"+String.format("%.2f",KeyNumber/getSecond()));
+				dacilist.add(temp+":"+citime+":"+String.format("%.2f",sudu)+":"+String.format("%.2f",KeyNumber/getSecond())+":"+String.format("%.2f", compshushi()));
 			}
 			else if(daci==0){
-				dacilist.add(String.valueOf(c)+":"+comp.getSecond()+":"+String.format("%.2f",sudu)+":"+String.format("%.2f",KeyNumber/getSecond()));
+				dacilist.add(String.valueOf(c)+":"+comp.getSecond()+":"+String.format("%.2f",sudu)+":"+String.format("%.2f",KeyNumber/getSecond())+":"+String.format("%.2f", compshushi()));
 			}
 		}
 	}

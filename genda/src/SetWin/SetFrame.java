@@ -37,7 +37,7 @@ public class SetFrame extends JFrame {
 	
 	ButtonGroup setqianshui ;
 	ButtonGroup setchange;
-	
+	JButton zhiding;
 	
 	Window win;
 	JLabel setjindutiao = new JLabel("设置动态进度条",JLabel.LEFT);
@@ -97,7 +97,7 @@ public class SetFrame extends JFrame {
 		p.add(smccolorset);
 		
 		FontSize = new JTextField("填入字号:保存");
-		FontSize.setBounds(BackgroundSet.getX(),BackgroundSet.getY()+BackgroundSet.getHeight()+10,90,30);
+		FontSize.setBounds(BackgroundSet.getX(),BackgroundSet.getY()+BackgroundSet.getHeight()+10,70,30);
 		p.add(FontSize);
 		
 		JButton changeFontSize = new JButton("保存");
@@ -105,7 +105,7 @@ public class SetFrame extends JFrame {
 		p.add(changeFontSize);
 		
 		Splitenum = new JTextField("分页字数:保存");
-		Splitenum.setBounds(changeFontSize.getX()+changeFontSize.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,90,30);
+		Splitenum.setBounds(changeFontSize.getX()+changeFontSize.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,70,30);
 		p.add(Splitenum);
 		
 		JButton splitebutton = new JButton("保存");
@@ -115,6 +115,12 @@ public class SetFrame extends JFrame {
 		JButton mabiao = new JButton("全码表选择");
 		mabiao.setBounds(splitebutton.getX()+splitebutton.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,100,30);
 		p.add(mabiao);
+		
+		JButton zhiding = new JButton("置顶跟打\"关\"");
+		p.add(zhiding);
+		SetFramezhidingListener setframezhidinglistener = new SetFramezhidingListener(zhiding,win);
+		zhiding.addActionListener(setframezhidinglistener);
+		zhiding.setBounds(mabiao.getX()+mabiao.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,100,30);
 		
 		family = new JComboBox<String>();
 		GraphicsEnvironment ge=GraphicsEnvironment.getLocalGraphicsEnvironment();
