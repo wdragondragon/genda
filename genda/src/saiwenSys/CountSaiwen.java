@@ -1,5 +1,6 @@
 package saiwenSys;
 
+import genda1.GendaListener;
 import genda1.ReadyListener;
 import genda1.Window;
 import gendaClient.battleReadThread;
@@ -18,6 +19,7 @@ public class CountSaiwen extends Thread {
 			}
 			Window.f3listener.f3caozuo();
 			Window.gendaListener.sign = 1;
+			Window.gendaListener.comp.setTimeOne();
 			System.out.println("赛文开始");
 			stop();
 		}

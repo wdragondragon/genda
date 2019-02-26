@@ -120,7 +120,7 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(SendWenben.sendwenSign==1){
-			if(e.getActionCommand()=="下一段"){
+			if(e.getActionCommand()=="下一段"||e.getActionCommand()=="顺序下一段"){
 				try{
 					if(fontweizhi>=all.length()){
 						JOptionPane.showMessageDialog(new JTextArea(),"发文结束");
@@ -166,7 +166,7 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 				}catch(Exception ex){JOptionPane.showMessageDialog(new JTextArea(),"保存进度失败");}
 			}
 		}
-		else if(e.getActionCommand().equals("抽取模式发文")){
+		else if(e.getActionCommand().equals("抽取模式发文")||e.getActionCommand().equals("抽取下一段")){
 			getNumber();
 			QQZaiwenListener.wenbenstr = randomCommon(all,fontnum);
 			Window.f3listener.F3();

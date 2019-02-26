@@ -45,8 +45,6 @@ public class getDatesaiwen implements ActionListener {
 				Window.dazi.setEditable(false);
 				CountSaiwen cs = new CountSaiwen();
 				cs.start();
-				Window.gendaListener.comp.setTimeOne();
-				GendaListener.sign = 1;
 				win.setAlwaysOnTop(true);
 			} catch (IOException ex) {
 				// TODO Auto-generated catch block

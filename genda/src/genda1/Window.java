@@ -691,7 +691,7 @@ public class Window extends JFrame{
 	}
 	
 	JMenuBar menubar;
-	JMenu menu,base,linkbase,other,paiming;
+	JMenu menu,base,linkbase,other,paiming,fawenmenu;
 	public static JMenuItem denglu;
 	JMenuItem fasongchengji;
 	JMenuItem fawen;
@@ -714,6 +714,11 @@ public class Window extends JFrame{
 	JMenuItem fuwei;
 	JMenuItem buildsaiwen;
 	JMenuItem com;
+	
+	JMenuItem luanxu;
+	JMenuItem xiayiduan;
+	JMenuItem baocun;
+	JMenuItem chouquxiayiduan;
 	RankListener ranklistener = new RankListener();
 	BuildChooseFile changetxt = new BuildChooseFile();
 	historyListener historylistener = new historyListener();
@@ -743,6 +748,8 @@ public class Window extends JFrame{
 		linkbase = new JMenu("联网操作");
 		other = new JMenu("其他");
 		paiming = new JMenu("排名");
+		fawenmenu = new JMenu("发文操作");
+		
 		paimingall = new JMenuItem("总跟打排名");
 		paimingday = new JMenuItem("日跟打排名");
 		paiming999 = new JMenuItem("赛文平均成绩排名");
@@ -754,6 +761,12 @@ public class Window extends JFrame{
 		chongda = new JMenuItem("重打F3");
 		QQQzaiwen = new JMenuItem("载文 F4");
 		huanqun = new JMenuItem("换群 F5");
+		
+		xiayiduan = new JMenuItem("顺序下一段");
+		baocun = new JMenuItem("保存跟打进度");
+		chouquxiayiduan = new JMenuItem("抽取下一段");
+		luanxu = new JMenuItem("该段乱序");
+		
 		jqbzaiwen = new JMenuItem("剪贴板载文");
 		jjmu = new JMenuItem("按钮模式");
 		ramdom = new JMenuItem("随机一文");
@@ -796,6 +809,22 @@ public class Window extends JFrame{
 		buildsaiwen.addActionListener(buildsailistener);
 		com.addActionListener(comlistener);
 		
+		xiayiduan.addActionListener(Acticle.treeListener);
+		baocun.addActionListener(Acticle.treeListener);
+		chouquxiayiduan.addActionListener(Acticle.treeListener);
+		luanxu.addActionListener(mixlistener);
+		
+		
+		luanxu.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L , KeyEvent.CTRL_MASK));
+		chouquxiayiduan.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O , KeyEvent.CTRL_MASK));
+		xiayiduan.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P , KeyEvent.CTRL_MASK));
+		baocun.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S , KeyEvent.CTRL_MASK));
+		
+		fawenmenu.add(luanxu);
+		fawenmenu.add(xiayiduan);
+		fawenmenu.add(chouquxiayiduan);
+		fawenmenu.add(baocun); 	
+		
 		paiming.add(paimingall);
 		paiming.add(paimingday);
 		paiming.add(paiming999);
@@ -807,6 +836,7 @@ public class Window extends JFrame{
 		base.add(QQQzaiwen);
 		base.add(huanqun);
 		base.add(jqbzaiwen);
+		base.add(fawenmenu);
 		
 		linkbase.add(paiming);
 		linkbase.add(zxdv);
@@ -819,6 +849,8 @@ public class Window extends JFrame{
 		other.add(jjmu);
 		other.add(txt);
 		other.add(ramdom);
+		
+		
 		
 		menu.add(denglu);
 		menu.add(base);

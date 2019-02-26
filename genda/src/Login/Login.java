@@ -90,6 +90,7 @@ public class Login extends JFrame implements ActionListener{
 	}
 	void link(){
 		try {
+//			socket.setSoTimeout(1000);
 			socket = new Socket(Window.IP,port);
 			socket.setSoTimeout(1000);
 			DataOutputStream out = new DataOutputStream(socket.getOutputStream());
@@ -111,11 +112,7 @@ public class Login extends JFrame implements ActionListener{
 					System.exit(0);
 				}
 			}
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(new JTextArea(),"连接异常");
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(new JTextArea(),"连接异常");
 			e.printStackTrace();
