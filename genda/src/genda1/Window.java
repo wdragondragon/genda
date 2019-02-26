@@ -29,7 +29,7 @@ import Communication.CommunicationListener;
 import keep.readWrite;
 @SuppressWarnings("serial")
 public class Window extends JFrame{
-//	public static String IP = "39.96.83.89";
+	public static String IP = "39.96.83.89";
 	public static String state = "对战";//连接状态
 	public static Color rightcolor = Color.gray;
 	public static Color mistakecolor = Color.red;
@@ -50,7 +50,7 @@ public class Window extends JFrame{
 	public static Tips tipschange;
 	public static JLabel tips;
 	public static String family = "微软雅黑";
-	public static String IP = "127.0.0.1";
+//	public static String IP = "127.0.0.1";
 	Font ziti,zititip;
 	JLabel qqName;
 	static JLabel zishu;

@@ -210,17 +210,71 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 				String num[] = win.acticle.cikuchouqucanshu.getText().split(":");
 				int x = Integer.parseInt(num[0]);
 				y = Integer.parseInt(num[1]);
-				if(x==2){
+				if(x==1){
 					for(String str:Tips.alltable.keySet()){
-						if(Tips.alltable.get(str)==2){
+						if(Tips.alltable.get(str)==1&&num[2].equals("dc")){
 							chouqulist.add(str);
+						}
+						else if(Tips.alltable.get(str)==1&&num[2].equals("d")){
+							if(str.length()==1){
+								chouqulist.add(str);
+							}
+						}
+						else if(Tips.alltable.get(str)==1&&num[2].equals("c")){
+							if(str.length()>1){
+								chouqulist.add(str);
+							}
+						}
+					}
+				}
+				else if(x==2){
+					for(String str:Tips.alltable.keySet()){
+						if(Tips.alltable.get(str)==2&&num[2].equals("dc")){
+							chouqulist.add(str);
+						}
+						else if(Tips.alltable.get(str)==2&&num[2].equals("d")){
+							if(str.length()==1){
+								chouqulist.add(str);
+							}
+						}
+						else if(Tips.alltable.get(str)==2&&num[2].equals("c")){
+							if(str.length()>1){
+								chouqulist.add(str);
+							}
 						}
 					}
 				}
 				else if(x==3){
 					for(String str:Tips.alltable.keySet()){
-						if(Tips.alltable.get(str)==3){
+						if(Tips.alltable.get(str)==3&&num[2].equals("dc")){
 							chouqulist.add(str);
+						}
+						else if(Tips.alltable.get(str)==3&&num[2].equals("d")){
+							if(str.length()==1){
+								chouqulist.add(str);
+							}
+						}
+						else if(Tips.alltable.get(str)==3&&num[2].equals("c")){
+							if(str.length()>1){
+								chouqulist.add(str);
+							}
+						}
+					}
+				}
+				else if(x==4){
+					for(String str:Tips.alltable.keySet()){
+						if(Tips.alltable.get(str)==4&&num[2].equals("dc")){
+							chouqulist.add(str);
+						}
+						else if(Tips.alltable.get(str)==4&&num[2].equals("d")){
+							if(str.length()==1){
+								chouqulist.add(str);
+							}
+						}
+						else if(Tips.alltable.get(str)==4&&num[2].equals("c")){
+							if(str.length()>1){
+								chouqulist.add(str);
+							}
 						}
 					}
 				}
