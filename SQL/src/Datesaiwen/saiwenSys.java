@@ -45,6 +45,15 @@ public class saiwenSys {
 					e.printStackTrace();
 				}
 			}
+			else{
+				try {
+					System.out.print("无赛文\r");
+					out.writeUTF("无赛文");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

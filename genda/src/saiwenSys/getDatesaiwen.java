@@ -13,6 +13,8 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
+import keep.KeyPassword;
+
 import Acticle.SendWenben;
 import Login.*;
 public class getDatesaiwen implements ActionListener {
@@ -32,10 +34,14 @@ public class getDatesaiwen implements ActionListener {
 				Login.socket.setSoTimeout(1000);
 				DataOutputStream out = new DataOutputStream(Login.socket.getOutputStream());
 				DataInputStream in = new DataInputStream(Login.socket.getInputStream());
-				out.writeUTF("获取今日赛文");
-				String message = in.readUTF();
+				String message = KeyPassword.convertMD5("获取今日赛文");
+				out.writeUTF(message);
+				message = in.readUTF();
 				if(message.equals("已打过")){
 					JOptionPane.showMessageDialog(new JTextArea(),"你今天已打过赛文");return;
+				}
+				else if(message.equals("无赛文")){
+					JOptionPane.showMessageDialog(new JTextArea(),"今日无赛文");return;
 				}
 				SendWenben.title = "拖拉机每日赛文-作者：随机生成";
 				QQZaiwenListener.wenbenstr = message;

@@ -43,6 +43,8 @@ public class RWThread148 extends Thread{
 			while(true){
 				message = in.readUTF();//接收客户端发来的消息
 //				System.out.println(message);
+				message = KeyPassword.convertMD5(message);
+//				System.out.println(message);
 				if(message.equals("断开")){
 					socket.close();
 					System.out.println("退出登录");

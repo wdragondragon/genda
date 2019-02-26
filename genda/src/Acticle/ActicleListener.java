@@ -4,6 +4,11 @@ import gendaClient.battleClient;
 
 import java.awt.event.*;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Collections;
+import java.util.List;
 
 import javax.swing.*;
 import javax.swing.event.*;
@@ -11,6 +16,7 @@ import javax.swing.tree.*;
 
 import Login.Login;
 import SetWin.SetFrameQianshuiListener;
+import Tips.*;
 public class ActicleListener implements TreeSelectionListener ,ActionListener{
 	JTextArea dazi;
 	static JTextPane wenben;
@@ -26,6 +32,9 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 	JTextField number;
 	private Acticle acticle;
 	public static int fontnum=0,fontweizhi=0;
+	public static  ArrayList<String> chouqulist= new ArrayList<String>();
+	public static  ArrayList<String> chouqubufenlist= new ArrayList<String>();
+	public static int y; 
 	static Window win;
 //	String s;
 	public void setWenbenText(JTextPane t){
@@ -167,17 +176,73 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 			}
 		}
 		else if(e.getActionCommand().equals("抽取模式发文")||e.getActionCommand().equals("抽取下一段")){
-			getNumber();
-			QQZaiwenListener.wenbenstr = randomCommon(all,fontnum);
-			Window.f3listener.F3();
-			if(SendWenben.sendwenSign2==0){
-				acticle.setVisible(false);
-				RegexText.duan1 = 1;
-				SendWenben.sendwenSign2 = 1;
+			if(SendWenben.sendwenSign2==1){
+				getNumber();
+				QQZaiwenListener.wenbenstr = randomCommon(all,fontnum);
+				Window.f3listener.F3();
+				if(SendWenben.sendwenSign2==0){
+					acticle.setVisible(false);
+					RegexText.duan1 = 1;
+					SendWenben.sendwenSign2 = 1;
+				}
+				else
+					RegexText.duan1++;	//发文增段
 			}
-			else
-				RegexText.duan1++;	//发文增段
+			else if(SendWenben.sendwenSign3==1){
+				chouqubufenlist.clear();
+				Collections.shuffle(chouqulist);
+				String str = "";
+				for(int i=0;i<(chouqulist.size()<y?chouqulist.size():y);i++){
+					str += chouqulist.get(i);
+					chouqubufenlist.add(chouqulist.get(i));
+				}
+				QQZaiwenListener.wenbenstr = str;
+				Window.f3listener.F3();
+				RegexText.duan1++;
+			}
 			if(SetFrameQianshuiListener.qianshui==0)ShareListener.send();
+		}
+		else if(e.getActionCommand().equals("词库练习")){
+			String temp = "";
+			chouqulist.clear();
+			chouqubufenlist.clear();
+			try{
+				String num[] = win.acticle.cikuchouqucanshu.getText().split(":");
+				int x = Integer.parseInt(num[0]);
+				y = Integer.parseInt(num[1]);
+				if(x==2){
+					for(String str:Tips.alltable.keySet()){
+						if(Tips.alltable.get(str)==2){
+							chouqulist.add(str);
+						}
+					}
+				}
+				else if(x==3){
+					for(String str:Tips.alltable.keySet()){
+						if(Tips.alltable.get(str)==3){
+							chouqulist.add(str);
+						}
+					}
+				}
+				Collections.shuffle(chouqulist);
+//				System.out.println(chouqulist.size()+" "+y);
+				for(int i=0;i<(chouqulist.size()<y?chouqulist.size():y);i++){
+					temp += chouqulist.get(i);
+					chouqubufenlist.add(chouqulist.get(i));
+				}
+				QQZaiwenListener.wenbenstr = temp;
+				win.f3listener.F3();
+				RegexText.duan1 = 1;
+				SendWenben.sendwenSign3 = 1;
+				acticle.setVisible(false);
+//				else if(x==2&&num[1].equals("c")){
+//					
+//				}
+//				else if(x==3&&num[1].equals("c")){
+//					
+//				}
+//				System.out.println(temp);
+			}catch(Exception ex){ex.printStackTrace();}
 		}
 		else
 			win.dazi.requestFocusInWindow();

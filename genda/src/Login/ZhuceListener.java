@@ -9,6 +9,8 @@ import java.net.Socket;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
+import keep.KeyPassword;
+
 public class ZhuceListener implements ActionListener {
 
 	Login login;
@@ -23,6 +25,7 @@ public class ZhuceListener implements ActionListener {
 				Login.out = new DataOutputStream(Login.socket.getOutputStream());
 				Login.in =  new DataInputStream(Login.socket.getInputStream());
 				String message = "%2%"+Login.zhanghao.getText()+"%"+Login.mima.getText()+"%无"+"%无"+"%无"+"%无";
+				message = KeyPassword.convertMD5(message);
 				Login.out.writeUTF(message);
 				int i = Integer.parseInt(Login.in.readUTF());
 				if(i==1)

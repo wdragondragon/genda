@@ -16,6 +16,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
 
+import keep.KeyPassword;
+
 public class heartThread extends Thread{
 	private DataOutputStream outputStream;
 	Date date1 = getdate(),date2 = getdate();
@@ -24,7 +26,8 @@ public class heartThread extends Thread{
             try {
             	Thread.sleep(5*1000);datenum();
             	outputStream = new DataOutputStream(Login.socket.getOutputStream());
-				outputStream.writeUTF("ÐÄÌø");
+            	String message = KeyPassword.convertMD5("ÐÄÌø");
+				outputStream.writeUTF(message);
 	            outputStream.flush(); 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.text.JTextComponent;
 
+import keep.KeyPassword;
 import keep.readWrite;
 
 public class DengluListener implements ActionListener{
@@ -37,6 +38,7 @@ public class DengluListener implements ActionListener{
 				Login.out = new DataOutputStream(Login.socket.getOutputStream());
 				Login.in =  new DataInputStream(Login.socket.getInputStream());
 				String message = "%1%"+Login.zhanghao.getText()+"%"+Login.mima.getText()+"%-999"+"%нч"+"%нч"+"%нч";
+				message = KeyPassword.convertMD5(message);
 				Login.out.writeUTF(message);
 				message = Login.in.readUTF();
 				System.out.println(message);

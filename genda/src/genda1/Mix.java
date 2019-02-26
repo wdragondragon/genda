@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.AbstractAction;
 
 import Acticle.ActicleListener;
+import Acticle.SendWenben;
 
 public class Mix extends AbstractAction{
 	Window win;
@@ -19,13 +20,17 @@ public class Mix extends AbstractAction{
 		// TODO Auto-generated method stub
 //		Window.wenben.setText(mix(Window.wenben.getText()));
 		if(e.getActionCommand().equals("¸Ã¶ÎÂÒÐò")){
-			QQZaiwenListener.wenbenstr = mix(QQZaiwenListener.wenbenstr);
+			if(SendWenben.sendwenSign3==1)
+				QQZaiwenListener.wenbenstr = mixstr(ActicleListener.chouqubufenlist,ActicleListener.y);
+			else
+				QQZaiwenListener.wenbenstr = mix(QQZaiwenListener.wenbenstr);
 			Window.f3listener.F3();
 		}
 		else if(e.getActionCommand().equals("È«¾ÖÂÒÐò")){
 			ActicleListener.all = mix(ActicleListener.all);
 			ActicleListener.showwen();
 		}
+		
 	}
 	public static String mix(String str){
 		String mix = "";
@@ -38,5 +43,12 @@ public class Mix extends AbstractAction{
 		for(int i=0;i<str.length();i++)
 			mix = mix +(list.get(i));
 		return mix;
+	}
+	public static String mixstr(List chouqulist,int y){
+		Collections.shuffle(chouqulist);
+		String str = "";
+		for(int i=0;i<(chouqulist.size()<y?chouqulist.size():y);i++)
+			str += chouqulist.get(i);
+		return str;
 	}
 }

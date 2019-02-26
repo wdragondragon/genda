@@ -21,6 +21,7 @@ import SetWin.SetFrameQianshuiListener;
 public class SendWenben implements ActionListener{
 	static public int sendwenSign = 0;
 	static public int sendwenSign2 = 0;//抽取模式发文
+	static public int sendwenSign3 = 0;//词库练习发文
 	static public String title = "";
 	JTextPane wenben;
 	Window win;

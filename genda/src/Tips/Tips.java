@@ -26,6 +26,8 @@ public class Tips{
 	
 	public static int qmc=0,cqmc=0,smc=0,csmc=0,emc=0,cemc=0,qdz=0,sdz=0,edz=0,cqdz=0,fh=0,weizhi=0;
 	public static double dengji = 0.0;
+	public static HashMap<String,Integer> alltable = new HashMap<String,Integer>();
+	
 	public static HashMap<String,String> hashtable;
 	public static HashMap<String,String> moretiphash = null;
 	public static HashMap<String,String> fuhao = new HashMap<String,String>();
@@ -57,6 +59,7 @@ public class Tips{
 	public static HashMap<Integer,String> bianma = new HashMap<Integer,String>();
 	public static String dingshowstr;
 	public static StringBuilder showstr = new StringBuilder(); 
+	String regex = "234567890";
 	File more = new File(ChooseFile.cizufilename);
 	File FuhaoFile = new File("编码文件/符号文件/符号文件.txt");
 	Scanner sc = null;
@@ -101,7 +104,8 @@ public class Tips{
 				String temp;
 			    int chlength = splited[0].length();
 			    int length = splited[1].length();
-			    if(bm.substring(length-1,length).equals("_"))length -= 1;
+			    temp = bm.substring(bm.length()-1);
+			    if(temp.equals("_")||regex.indexOf(temp)!=-1)length -= 1;
 			    i = -1;
 			    if(chlength==1){
 			    	if(hashtable.containsKey(splited[0])){
@@ -110,7 +114,7 @@ public class Tips{
 							i++;
 						}
 						else if(hashtable.get(splited[0]).length()==length){
-							temp = bm.substring(bm.length()-1);
+							
 //							System.out.println(temp);
 							if(temp.equals("2")){
 								hashtable.put(ch, bm);
@@ -124,7 +128,7 @@ public class Tips{
 					}
 //					System.out.println(splited[0]+":"+splited[1]);
 			    }
-			    if(chlength==2){
+			    else if(chlength==2){
 //			    	System.out.println(ch+":"+bm);
 			    	i=0;
 			    }
@@ -164,7 +168,7 @@ public class Tips{
 //			    	System.out.println(ch+":"+bm);
 			    	i=9;
 			    }
-			    if(i!=-1)
+			    if(i!=-1){
 				    if(hashlist.get(i).containsKey(splited[0])){
 			    		if(hashlist.get(i).get(splited[0]).length()>length)
 			    			hashlist.get(i).put(ch,bm);
@@ -172,6 +176,8 @@ public class Tips{
 			    	else{
 			    		hashlist.get(i).put(ch,bm);
 			    	}
+				    alltable.put(ch, length);
+			    }
 			}
 			bufferRead.close();
 			read.close();
