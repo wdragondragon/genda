@@ -6,7 +6,11 @@ import java.awt.datatransfer.*;
 import java.awt.event.*;
 import java.io.IOException;
 
+
+
 import javax.swing.*;
+import Tips.*;
+import keep.KeyPassword;
 import Login.Login;
 import QQ.QQ;
 
@@ -88,8 +92,8 @@ public class AchievementListener extends AbstractAction{
 				"段 速度"+String.format("%.2f", sudu)+
 				" 击键"+String.format("%.2f",KeyNumber/second)+
 				" 码长"+String.format("%.2f", KeyNumber/length)+
-				" 标顶理论"+String.format("%.2f", Tips.Tips.dingalllength/QQZaiwenListener.wenbenstr.length())+
-				" 文章难度"+String.format("%.2f", Tips.Tips.dengji)+
+				" 标顶理论"+String.format("%.2f", Tips.dingalllength/QQZaiwenListener.wenbenstr.length())+
+				" 文章难度"+String.format("%.2f", Tips.dengji)+
 				" 字数"+(int)(length)+" 回改"+(int)(deleteTextNumber)+
 				" 退格"+(int)(deleteNumber)+
 				" 错字"+(int)(mistake)+
@@ -144,8 +148,11 @@ public class AchievementListener extends AbstractAction{
 					"%"+(int)(mistake)+
 					"%"+(int)(repeat)+
 					"%"+String.format("%.2f",Keyaccuracy*100)+
+					"%"+String.format("%.2f",Keymethod*100)+
 					"%"+String.format("%.2f", dacilv*100)+
-					"%"+String.valueOf(GendaListener.comp.getSecond());
+					"%"+String.valueOf(GendaListener.comp.getSecond())+
+					"%"+String.format("%.2f", Tips.dengji);
+			message = KeyPassword.convertMD5(message);
 			try {
 				Login.out.writeUTF(message);
 			} catch (IOException e) {
@@ -167,10 +174,13 @@ public class AchievementListener extends AbstractAction{
 					"%"+(int)(mistake)+
 					"%"+(int)(repeat)+
 					"%"+String.format("%.2f",Keyaccuracy*100)+
+					"%"+String.format("%.2f",Keymethod*100)+
 					"%"+String.format("%.2f", dacilv*100)+
 					"%"+String.valueOf(GendaListener.comp.getSecond())+
 					"%"+QQZaiwenListener.wenbenstr+
-					"%"+String.valueOf(RegexText.duan1);//14
+					"%"+String.valueOf(RegexText.duan1)+
+					"%"+String.format("%.2f", Tips.dengji);//14
+			message = KeyPassword.convertMD5(message);
 			try {
 				Login.out.writeUTF(message);
 			} catch (IOException e) {
@@ -207,13 +217,13 @@ public class AchievementListener extends AbstractAction{
         Transferable trans = new StringSelection(text);
         // 把文本内容设置到系统剪贴板
         clipboard.setContents(trans, null);
+        clipboard = null;
     }
     public static String getClipboardString() {
         // 获取系统剪贴板
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-
         // 获取剪贴板中的内容
-        Transferable trans = clipboard.getContents(null);
+        Transferable trans = clipboard.getContents("");
       
         if (trans != null) {
             // 判断剪贴板中的内容是否支持文本
@@ -221,12 +231,14 @@ public class AchievementListener extends AbstractAction{
                 try {
                     // 获取剪贴板中的文本内容
                     String text = (String) trans.getTransferData(DataFlavor.stringFlavor);
+                    clipboard = null;
                     return text;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
+        clipboard = null;
         return null;
     }
 }

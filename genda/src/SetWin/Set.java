@@ -15,7 +15,7 @@ public class Set extends AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		frame.setBounds(win.getX()+win.getWidth()/4,win.getY()+win.getHeight()/4,630,430);
+		frame.setBounds(win.getX()+win.getWidth()/4,win.getY()+win.getHeight()/4,585,385);
 //		SetFrame.p.setBounds(0,0,630,430);
 		frame.setVisible(true);
 	}

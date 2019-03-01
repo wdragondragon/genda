@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.*;
 
@@ -98,6 +100,21 @@ public class SetFrame extends JFrame {
 		
 		FontSize = new JTextField("填入字号:保存");
 		FontSize.setBounds(BackgroundSet.getX(),BackgroundSet.getY()+BackgroundSet.getHeight()+10,70,30);
+		FontSize.addKeyListener(		//只能输入数字
+				new KeyListener(){
+					@Override
+					public void keyPressed(KeyEvent arg0) {}
+					@Override
+					public void keyReleased(KeyEvent arg0) {}
+					@Override
+					public void keyTyped(KeyEvent e) {
+						// TODO Auto-generated method stub
+						int keyChar = e.getKeyChar();
+						if(keyChar>=KeyEvent.VK_0&&keyChar<=KeyEvent.VK_9){}
+						else e.consume();
+					}
+				}
+			);
 		p.add(FontSize);
 		
 		JButton changeFontSize = new JButton("保存");
@@ -106,6 +123,21 @@ public class SetFrame extends JFrame {
 		
 		Splitenum = new JTextField("分页字数:保存");
 		Splitenum.setBounds(changeFontSize.getX()+changeFontSize.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,70,30);
+		Splitenum.addKeyListener(		//只能输入数字
+				new KeyListener(){
+					@Override
+					public void keyPressed(KeyEvent arg0) {}
+					@Override
+					public void keyReleased(KeyEvent arg0) {}
+					@Override
+					public void keyTyped(KeyEvent e) {
+						// TODO Auto-generated method stub
+						int keyChar = e.getKeyChar();
+						if(keyChar>=KeyEvent.VK_0&&keyChar<=KeyEvent.VK_9){}
+						else e.consume();
+					}
+				}
+			);
 		p.add(Splitenum);
 		
 		JButton splitebutton = new JButton("保存");

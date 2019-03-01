@@ -6,6 +6,8 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.*;
 
+import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
+
 
 import Acticle.Acticle;
 import FriendSys.FriendsSysListener;
@@ -167,11 +169,19 @@ public class Window extends JFrame{
 //			.setCurrentTheme("org.jvnet.substance.theme.SubstanceAquaTheme");
 			
 //			UIManager.setLookAndFeel(LittleLuckLookAndFeel.class.getName());
+			BeautyEyeLNFHelper.frameBorderStyle = BeautyEyeLNFHelper.FrameBorderStyle.generalNoTranslucencyShadow;
 			org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF(); 
+//			System.setProperty("sun.java2d.noddraw", "true");
 			UIManager.put("RootPane.setupButtonVisible",false);
+//			System.setProperty("java.awt.im.style", null);
+//			System.setProperty("sun.java2d.noddraw", "true");
+			
+//			System.setProperty("sun.awt.noerasebackground","true");
+//			System.setProperty("java.awt.im.style", "below-the-spot");//解决输入法白屏
+			
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+//			e1.printStackTrace();
 		}
         addWindowFocusListener(new WindowFocusListener() {  
         	  
@@ -404,6 +414,9 @@ public class Window extends JFrame{
 		
 		AcitiyComp acitiycomp = new AcitiyComp();
 		acitiycomp.start();//速度击键码长动态变化线程
+		
+		Clip clip = new Clip();
+		clip.start();
 		
 		ImageIcon icon=new ImageIcon("images//installer_repair_1.png");  //xxx代表图片存放路径，2.png图片名称及格式
 		this.setIconImage(icon.getImage());

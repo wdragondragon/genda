@@ -30,7 +30,7 @@ public class InitAll {
 				while(rs1.next()){			//计算赛文成绩之和，计算成绩数量
 					temp = rs1.getDouble(1);
 					duan = rs1.getInt(2);
-					if(duan==999){
+					if(duan==999||duan==0){
 						aver += temp;
 						n++;
 					}

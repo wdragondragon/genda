@@ -209,6 +209,7 @@ public class readWrite
 			SetFrame.Splitenum.setText(String.valueOf(fenye));
 			SetFrame.FontSize.setText(String.valueOf(fontSize));
 			ChooseFile.cizufilename = cizufilename;
+			System.out.println("∂¡≈‰÷√:"+cizufilename);
 			Window.tipschange = new Tips(Window.tips);
 			
 			win.jSplitPane2.setSize(sp2width,sp2height);

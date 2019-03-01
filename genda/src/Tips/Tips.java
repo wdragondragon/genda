@@ -26,7 +26,9 @@ public class Tips{
 	
 	public static int qmc=0,cqmc=0,smc=0,csmc=0,emc=0,cemc=0,qdz=0,sdz=0,edz=0,cqdz=0,fh=0,weizhi=0;
 	public static double dengji = 0.0;
-	public static HashMap<String,Integer> alltable = new HashMap<String,Integer>();
+	public static HashMap<String,Integer> alltable;
+	public static HashMap<String,Integer> citable;
+	public static HashMap<String,Integer> shoutable;
 	
 	public static HashMap<String,String> hashtable;
 	public static HashMap<String,String> moretiphash = null;
@@ -73,13 +75,14 @@ public class Tips{
 			String ch = splited[0];
 			String bm = splited[1];
 			fuhao.put(ch, bm);
-			System.out.println(ch+":"+bm);
+//			System.out.println(ch+":"+bm);
 		}
 		bufferRead.close();
 		read.close();
 		fis.close();
 	}
 	public Tips(JLabel showText){
+		
 		try {
 			Fuhao();
 		} catch (IOException e1) {
@@ -89,6 +92,9 @@ public class Tips{
 		this.showText = showText;
 		hashlist = new ArrayList<HashMap<String,String>>();
 		hashtable = new HashMap<String,String>();
+		alltable =  new HashMap<String,Integer>();
+		citable =  new HashMap<String,Integer>();
+		shoutable =  new HashMap<String,Integer>();
 		try{
 			for(i=0;i<10;i++){
 				moretiphash = new HashMap<String,String>();
@@ -98,6 +104,7 @@ public class Tips{
 	        InputStreamReader read = new InputStreamReader(fis, "UTF-8");
 			BufferedReader  bufferRead = new BufferedReader(read);
 			while((str=bufferRead.readLine())!=null){
+				boolean cixuanSign = false;
 				String[] splited = str.split("\\s+");
 				String ch = splited[0];
 				String bm = splited[1];
@@ -105,19 +112,24 @@ public class Tips{
 			    int chlength = splited[0].length();
 			    int length = splited[1].length();
 			    temp = bm.substring(bm.length()-1);
-			    if(temp.equals("_")||regex.indexOf(temp)!=-1)length -= 1;
+			    if(temp.equals("_"))length -= 1;
+			    else if(regex.indexOf(temp)!=-1){
+			    	cixuanSign=true;
+			    	length -=1;
+			    }
 			    i = -1;
 			    if(chlength==1){
 			    	if(hashtable.containsKey(splited[0])){
 						if(hashtable.get(splited[0]).length()>length){
 							hashtable.put(ch, bm);
+							alltable.put(ch, length);
 							i++;
 						}
 						else if(hashtable.get(splited[0]).length()==length){
-							
 //							System.out.println(temp);
 							if(temp.equals("2")){
 								hashtable.put(ch, bm);
+								alltable.put(ch, length);
 								i++;
 							}
 						}
@@ -170,13 +182,24 @@ public class Tips{
 			    }
 			    if(i!=-1){
 				    if(hashlist.get(i).containsKey(splited[0])){
-			    		if(hashlist.get(i).get(splited[0]).length()>length)
+			    		if(hashlist.get(i).get(splited[0]).length()>length){
 			    			hashlist.get(i).put(ch,bm);
+			    			alltable.put(ch, length);
+			    			if(cixuanSign)
+			    				citable.put(ch, length);
+			    			else
+			    				shoutable.put(ch, length);
+			    			
+			    		}
 			    	}
 			    	else{
 			    		hashlist.get(i).put(ch,bm);
+			    		alltable.put(ch, length);
+			    		if(cixuanSign)
+		    				citable.put(ch, length);
+		    			else
+		    				shoutable.put(ch, length);
 			    	}
-				    alltable.put(ch, length);
 			    }
 			}
 			bufferRead.close();
@@ -323,6 +346,18 @@ public class Tips{
 			Collections.sort(quanmacitwo);
 			Collections.sort(ejianmacitwo);
 			Collections.sort(sjianmacitwo);
+			
+			Collections.sort(ciquanmaci);
+			Collections.sort(ciejianmaci);
+			Collections.sort(cisjianmaci);
+			
+			Collections.sort(ciquanmacione);
+			Collections.sort(ciejianmacione);
+			Collections.sort(cisjianmacione);
+			
+			Collections.sort(ciquanmacitwo);
+			Collections.sort(ciejianmacitwo);
+			Collections.sort(cisjianmacitwo);
 		}catch(Exception e){System.out.print("000");}
 	}
 	public void compalllength(){

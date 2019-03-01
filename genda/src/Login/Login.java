@@ -29,7 +29,7 @@ public class Login extends JFrame implements ActionListener{
 	JButton zhuce;
 	JButton wangmi;
 	JButton tuichu;
-	public static String banben = "°æ±¾1.494";
+	public static String banben = "°æ±¾1.497";
 	public static int port = 1230;
 	public static JTextField zhanghao;
 	public static JPasswordField mima;
@@ -47,7 +47,7 @@ public class Login extends JFrame implements ActionListener{
 		setTitle("µÇÂ¼");
 
 //		com.sun.awt.AWTUtilities.setWindowOpaque(this,true);
-		setBounds(win.getX()+win.getWidth()/4,win.getY()+win.getHeight()/4,300,300);
+		setBounds(win.getX()+win.getWidth()/4,win.getY()+win.getHeight()/4,255,255);
 		add(p);
 		p.setLayout(null);
 		zhanghao = new JTextField("ÕËºÅ");
@@ -121,7 +121,7 @@ public class Login extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		setBounds(win.getX()+win.getWidth()/2,win.getY()+win.getHeight()/2,300,300);
+		setBounds(win.getX()+win.getWidth()/2,win.getY()+win.getHeight()/2,245,245);
 		this.setVisible(true);
 	}
 }

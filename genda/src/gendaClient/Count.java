@@ -36,10 +36,10 @@ public class Count extends Thread {
 					}
 					communion.setCaretPosition(Window.communion.getText().length());
 //					RegexText.duan1 = ReadyListener.ReadyDuan;
-					GendaListener.sign = 1;
-					GendaListener.comp.setTimeOne();
-					GendaListener.record = "";	//»÷¼üÇå¿Õ
 				}
+				GendaListener.sign = 1;
+				GendaListener.comp.setTimeOne();
+				GendaListener.record = "";	//»÷¼üÇå¿Õ
 				while(ReadyListener.BeganSign==1&&battleReadThread.otherready==1){
 					try {
 						sleep(100);

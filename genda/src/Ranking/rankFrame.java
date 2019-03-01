@@ -3,6 +3,7 @@ package Ranking;
 import genda1.Window;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -17,6 +18,7 @@ public class rankFrame extends JFrame {
 	JTable table;
 	DefaultTableModel tableM;
 	JScrollPane tableN;
+//	JPanel p = new JPanel();
 	int i=0;
 //	public static void main(String args[]){
 //		new rankFrame();
@@ -24,12 +26,17 @@ public class rankFrame extends JFrame {
 	public rankFrame(int i){
 		this.i = i;
 		init();
+//		p.setLayout(null);
+//		add(p);
+//		setLayout(new FlowLayout());
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//设置关闭按钮
 		setBounds(10,10,700,500);
+//		setResizable(false);
 	}
 	void init(){
-		setLayout(null);
+		
+//		add(p);
 		Object name[]={"","名字","总字数","正确字数","错误字数","今日跟打","赛文等级","在线情况","最后登录","注册日期"},a[][] = null;
 		tableM = new DefaultTableModel(a,name){
             private static final long serialVersionUID = 1L;
@@ -40,12 +47,11 @@ public class rankFrame extends JFrame {
 		};
 		table = new JTable(tableM);
 		tableN = new JScrollPane(table);
-		table.setEnabled(false);
-		tableN.setBounds(0,0,650,450);
+//		table.setEnabled(false);
+		tableN.setBounds(0,0,695,470);
 		add(tableN);
 		request();
 		table.getColumnModel().getColumn(0).setPreferredWidth(30);
-		this.setResizable(false);
 	}
 	void request(){
 		try {

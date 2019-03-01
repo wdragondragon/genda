@@ -67,13 +67,13 @@ public class historyselect implements ActionListener {
 			while(true){
 				historyFrame.vRow1 = new Vector();
 				historyFrame.vRow1.add(++historyFrame.n);
-				for(int i=0;i<13;i++){
+				for(int i=0;i<14;i++){
 					historyFrame.vRow1.add(in.readUTF());	
 				}
 				id = in.readUTF();
 				historyFrame.id.add(id);
-				int duan = Integer.valueOf(historyFrame.vRow1.get(13).toString()); 
-				if(duan==999){
+				int duan = Integer.valueOf(historyFrame.vRow1.get(14).toString()); 
+				if(duan==999||duan==0){
 					getvROW();
 				}
 			}
@@ -95,7 +95,7 @@ public class historyselect implements ActionListener {
 			while(true){
 				historyFrame.vRow1 = new Vector();
 				historyFrame.vRow1.add(++historyFrame.n);
-				for(int i=0;i<13;i++){
+				for(int i=0;i<14;i++){
 					historyFrame.vRow1.add(in.readUTF());	
 				}
 				id = in.readUTF();
@@ -129,7 +129,7 @@ public class historyselect implements ActionListener {
 			while(true){
 				historyFrame.vRow1 = new Vector();
 				historyFrame.vRow1.add(++historyFrame.n);
-				for(int i=0;i<13;i++){
+				for(int i=0;i<14;i++){
 					historyFrame.vRow1.add(in.readUTF());	
 				}
 				id = in.readUTF();
@@ -169,7 +169,8 @@ public class historyselect implements ActionListener {
 		historyFrame.avermistake += Double.parseDouble((String)historyFrame.vRow1.get(8));
 		historyFrame.averrepeat += Double.parseDouble((String)historyFrame.vRow1.get(9));
 		historyFrame.averkeyaccur += Double.parseDouble((String)historyFrame.vRow1.get(10));
-		historyFrame.averdacilv += Double.parseDouble((String)historyFrame.vRow1.get(11));
-		historyFrame.avertime += Double.parseDouble((String)historyFrame.vRow1.get(12));
+		historyFrame.averkeymethod += Double.parseDouble((String)historyFrame.vRow1.get(11));
+		historyFrame.averdacilv += Double.parseDouble((String)historyFrame.vRow1.get(12));
+		historyFrame.avertime += Double.parseDouble((String)historyFrame.vRow1.get(13));
 	}
 }

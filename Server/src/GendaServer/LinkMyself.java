@@ -26,6 +26,7 @@ public class LinkMyself extends Thread{
 					DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 //					out.writeUTF("вта╛");
 					socket.close();
+					socket = null;
 				}
 			}
 		} catch (UnknownHostException e) {

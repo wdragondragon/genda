@@ -13,6 +13,7 @@ import java.util.Vector;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -29,18 +30,17 @@ public class EveryDayRank extends JFrame {
 	Socket socket;
 	DataOutputStream out;
 	DataInputStream in;
-	
 	public EveryDayRank(){
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		setBounds(10,10,855,screenSize.height*3/4);
+		setBounds(10,10,855,screenSize.height*2/4);
 		init();
 		setVisible(true);
 		setTitle("每日赛文排行");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//设置关闭按钮
+//		setResizable(false);
 	}
 	void init(){
-		setLayout(null);
-		Object name[]={"","用户名","速度","击键","码长","字数","回改","退格","错字","选重","键准","打词率","时间(秒)"},a[][] = null;
+		Object name[]={"","用户名","速度","击键","码长","字数","回改","退格","错字","选重","键准","键法","打词率","时间(秒)"},a[][] = null;
 		tableM = new DefaultTableModel(a,name) {
             private static final long serialVersionUID = 1L;
             @Override
@@ -54,7 +54,7 @@ public class EveryDayRank extends JFrame {
 		
 		tableN = new JScrollPane(table);
 		
-		tableN.setBounds(0,0,800,this.getHeight()-80);
+		tableN.setBounds(0,0,845,this.getHeight()-40);
 		
 		add(tableN);
 		request();
@@ -78,7 +78,7 @@ public class EveryDayRank extends JFrame {
 			while(true){
 				vRow1 = new Vector();
 				vRow1.add(++n);
-				for(int i=0;i<12;i++){
+				for(int i=0;i<13;i++){
 					vRow1.add(in.readUTF());
 				}
 				tableM.addRow(vRow1);

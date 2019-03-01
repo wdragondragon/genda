@@ -26,7 +26,7 @@ public class Acticle extends JFrame{
 	public Acticle(Window win){
 		this.win = win;
 		setTitle("·¢ÎÄ");
-		setBounds(100,100,650,385);
+		setBounds(100,100,605,340);
 //		setLayout(null);
 		p.setLayout(null);
 		add(p);
@@ -50,7 +50,7 @@ public class Acticle extends JFrame{
 	}
 	void addcikuchouqu(){
 		cikuchouqu = new JButton("´Ê¿âÁ·Ï°");
-		cikuchouqucanshu = new JTextField("x:y");
+		cikuchouqucanshu = new JTextField("x:y:z");
 		cikuchouqu.setBounds(390,270,70,30);
 		cikuchouqucanshu.setBounds(465,270,60,30);
 		cikuchouqu.addActionListener(treeListener);

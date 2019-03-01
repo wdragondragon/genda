@@ -90,6 +90,7 @@ public class Server extends Thread{
 			catch (IOException e) {
 				try {
 					socket.close();
+					socket = null;
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					System.out.print("超时无法关闭socket\r");
@@ -199,6 +200,7 @@ public class Server extends Thread{
 				}
 			} catch (IOException e) {
 				//e.printStackTrace();
+				
 				for(int i=0;i<socketList.size();i++){//发送给所有连接的客户端
 					if(socket!=socketList.get(i)){
 						try {
@@ -211,6 +213,7 @@ public class Server extends Thread{
 				}
 				System.out.print("玩家离开"+portNum/1111+"房间"+portNum/1111+"剩余"+(--socketSum)+"玩家\r");//客户断开后sockeSum减一
 				socketList.remove(socket);//从泛型链表中删除已断开的客户
+				socket = null;
 			}
 		}
 	}

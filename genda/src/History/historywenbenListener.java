@@ -31,7 +31,7 @@ public class historywenbenListener implements ActionListener {
 		System.out.println(lookrownum);
 		}catch(Exception e){	JOptionPane.showMessageDialog(new JTextArea()," ‰»Î¥ÌŒÛ");return;}
 		try{
-			Socket socket = new Socket(Window.IP,1232);
+			Socket socket = new Socket(Window.IP,Login.Login.port);
 			out = new DataOutputStream(socket.getOutputStream());
 			in = new DataInputStream(socket.getInputStream());
 			out.writeUTF("ƒ⁄»›%"+String.valueOf(lookrownum));

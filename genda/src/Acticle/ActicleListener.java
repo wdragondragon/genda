@@ -206,76 +206,144 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 			String temp = "";
 			chouqulist.clear();
 			chouqubufenlist.clear();
+			SendWenben.title = "´Ê¿âÁ·Ï°";
 			try{
 				String num[] = win.acticle.cikuchouqucanshu.getText().split(":");
 				int x = Integer.parseInt(num[0]);
 				y = Integer.parseInt(num[1]);
-				if(x==1){
-					for(String str:Tips.alltable.keySet()){
-						if(Tips.alltable.get(str)==1&&num[2].equals("dc")){
-							chouqulist.add(str);
+				if(num[3].equals("0")){
+					if(num[2].length()==1){
+						int cinum = Integer.parseInt(num[2]);
+						if(cinum==0){
+							for(String str:Tips.alltable.keySet())
+								if(Tips.alltable.get(str)==x)
+									chouqulist.add(str);
 						}
-						else if(Tips.alltable.get(str)==1&&num[2].equals("d")){
-							if(str.length()==1){
-								chouqulist.add(str);
-							}
+						else
+							for(String str:Tips.alltable.keySet())
+								if(str.length()==cinum)
+									if(Tips.alltable.get(str)==x)
+										chouqulist.add(str);
+					}
+					else if(num[2].length()==2){
+						int cinum = Integer.parseInt(num[2].substring(1));
+						String chfuhao = num[2].substring(0,1);
+						if(chfuhao.equals(">")){
+							for(String str:Tips.alltable.keySet())
+								if(str.length()>cinum)
+									if(Tips.alltable.get(str)==x)
+										chouqulist.add(str);
 						}
-						else if(Tips.alltable.get(str)==1&&num[2].equals("c")){
-							if(str.length()>1){
-								chouqulist.add(str);
-							}
+						else if(chfuhao.equals("<")){
+							for(String str:Tips.alltable.keySet())
+								if(str.length()<cinum)
+									if(Tips.alltable.get(str)==x)
+										chouqulist.add(str);
+						}
+						else if(chfuhao.equals("-")){
+							for(String str:Tips.alltable.keySet())
+								if(str.length()!=cinum)
+									if(Tips.alltable.get(str)==x)
+										chouqulist.add(str);
 						}
 					}
-				}
-				else if(x==2){
-					for(String str:Tips.alltable.keySet()){
-						if(Tips.alltable.get(str)==2&&num[2].equals("dc")){
-							chouqulist.add(str);
-						}
-						else if(Tips.alltable.get(str)==2&&num[2].equals("d")){
-							if(str.length()==1){
-								chouqulist.add(str);
-							}
-						}
-						else if(Tips.alltable.get(str)==2&&num[2].equals("c")){
-							if(str.length()>1){
-								chouqulist.add(str);
-							}
-						}
+					else if(num[2].length()==3&&num[2].substring(1,2).equals("<")){
+						int cimin = Integer.parseInt(num[2].substring(0,1));
+						int cimax = Integer.parseInt(num[2].substring(2));
+						for(String str:Tips.alltable.keySet())
+							if(str.length()>cimin&&str.length()<cimax)
+								if(Tips.alltable.get(str)==x)
+									chouqulist.add(str);
 					}
 				}
-				else if(x==3){
-					for(String str:Tips.alltable.keySet()){
-						if(Tips.alltable.get(str)==3&&num[2].equals("dc")){
-							chouqulist.add(str);
+				else if(num[3].equals("s")){
+					if(num[2].length()==1){
+						int cinum = Integer.parseInt(num[2]);
+						if(cinum==0){
+							for(String str:Tips.shoutable.keySet())
+								if(Tips.shoutable.get(str)==x)
+									chouqulist.add(str);
 						}
-						else if(Tips.alltable.get(str)==3&&num[2].equals("d")){
-							if(str.length()==1){
-								chouqulist.add(str);
-							}
+						else
+							for(String str:Tips.shoutable.keySet())
+								if(str.length()==cinum)
+									if(Tips.shoutable.get(str)==x)
+										chouqulist.add(str);
+					}
+					else if(num[2].length()==2){
+						int cinum = Integer.parseInt(num[2].substring(1));
+						String chfuhao = num[2].substring(0,1);
+						if(chfuhao.equals(">")){
+							for(String str:Tips.shoutable.keySet())
+								if(str.length()>cinum)
+									if(Tips.shoutable.get(str)==x)
+										chouqulist.add(str);
 						}
-						else if(Tips.alltable.get(str)==3&&num[2].equals("c")){
-							if(str.length()>1){
-								chouqulist.add(str);
-							}
+						else if(chfuhao.equals("<")){
+							for(String str:Tips.shoutable.keySet())
+								if(str.length()<cinum)
+									if(Tips.shoutable.get(str)==x)
+										chouqulist.add(str);
+						}
+						else if(chfuhao.equals("-")){
+							for(String str:Tips.shoutable.keySet())
+								if(str.length()!=cinum)
+									if(Tips.shoutable.get(str)==x)
+										chouqulist.add(str);
 						}
 					}
+					else if(num[2].length()==3&&num[2].substring(1,2).equals("<")){
+						int cimin = Integer.parseInt(num[2].substring(0,1));
+						int cimax = Integer.parseInt(num[2].substring(2));
+						for(String str:Tips.shoutable.keySet())
+							if(str.length()>cimin&&str.length()<cimax)
+								if(Tips.shoutable.get(str)==x)
+									chouqulist.add(str);
+					}
 				}
-				else if(x==4){
-					for(String str:Tips.alltable.keySet()){
-						if(Tips.alltable.get(str)==4&&num[2].equals("dc")){
-							chouqulist.add(str);
+				else if(num[3].equals("c")){
+					if(num[2].length()==1){
+						int cinum = Integer.parseInt(num[2]);
+						if(cinum==0){
+							for(String str:Tips.citable.keySet())
+								if(Tips.citable.get(str)==x)
+									chouqulist.add(str);
 						}
-						else if(Tips.alltable.get(str)==4&&num[2].equals("d")){
-							if(str.length()==1){
-								chouqulist.add(str);
-							}
+						else
+							for(String str:Tips.citable.keySet())
+								if(str.length()==cinum)
+									if(Tips.citable.get(str)==x)
+										chouqulist.add(str);
+					}
+					else if(num[2].length()==2){
+						int cinum = Integer.parseInt(num[2].substring(1));
+						String chfuhao = num[2].substring(0,1);
+						if(chfuhao.equals(">")){
+							for(String str:Tips.citable.keySet())
+								if(str.length()>cinum)
+									if(Tips.citable.get(str)==x)
+										chouqulist.add(str);
 						}
-						else if(Tips.alltable.get(str)==4&&num[2].equals("c")){
-							if(str.length()>1){
-								chouqulist.add(str);
-							}
+						else if(chfuhao.equals("<")){
+							for(String str:Tips.citable.keySet())
+								if(str.length()<cinum)
+									if(Tips.citable.get(str)==x)
+										chouqulist.add(str);
 						}
+						else if(chfuhao.equals("-")){
+							for(String str:Tips.citable.keySet())
+								if(str.length()!=cinum)
+									if(Tips.citable.get(str)==x)
+										chouqulist.add(str);
+						}
+					}
+					else if(num[2].length()==3&&num[2].substring(1,2).equals("<")){
+						int cimin = Integer.parseInt(num[2].substring(0,1));
+						int cimax = Integer.parseInt(num[2].substring(2));
+						for(String str:Tips.citable.keySet())
+							if(str.length()>cimin&&str.length()<cimax)
+								if(Tips.citable.get(str)==x)
+									chouqulist.add(str);
 					}
 				}
 				Collections.shuffle(chouqulist);

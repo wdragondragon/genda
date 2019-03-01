@@ -21,7 +21,7 @@ public class RWThread148 extends Thread{
 	DataInputStream in = null;
 	DataOutputStream out = null;
 	int num[] = {0,0,0,0,0,0,0};
-	int hisnum[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+	int hisnum[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 	int dengluSign = 0;
 	public int recordnum = 0;
 	public int recordNumlast = 0;
@@ -140,7 +140,7 @@ public class RWThread148 extends Thread{
 		}
 	}
 	public void addchengji(String message,int n){
-		String sql="insert into saiwenchengji values(?,?,?,?,?,?,?,?,?,?,?,?,?,default)";
+		String sql="insert into saiwenchengji values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,default)";
 		Date date;
 		int y,m,d;
 		try{
@@ -153,7 +153,7 @@ public class RWThread148 extends Thread{
 		PreparedStatement ptmt;
 		if(n==0){
 			int pos = 0;
-			for(int i=0;i<12;i++){				//分析收到信息,分块化
+			for(int i=0;i<14;i++){				//分析收到信息,分块化
 				pos =  message.indexOf('%',pos)+1;
 				if(pos!=-1)
 					hisnum[i] = pos;
@@ -170,8 +170,10 @@ public class RWThread148 extends Thread{
 			int mistake = Integer.parseInt(message.substring(hisnum[7],hisnum[8]-1));
 			int repeat = Integer.parseInt(message.substring(hisnum[8],hisnum[9]-1));
 			double Keyaccuracy = Double.parseDouble(message.substring(hisnum[9],hisnum[10]-1));
-			double dacilv = Double.parseDouble(message.substring(hisnum[10],hisnum[11]-1));
-			double time = Double.parseDouble(message.substring(hisnum[11],hisnum[12]-1));
+			double Keymethod = Double.parseDouble(message.substring(hisnum[10],hisnum[11]-1));
+			double dacilv = Double.parseDouble(message.substring(hisnum[11],hisnum[12]-1));
+			double time = Double.parseDouble(message.substring(hisnum[12],hisnum[13]-1));
+			double nandu = Double.parseDouble(message.substring(hisnum[13]));
 			try {
 				ptmt=Recordnum.con.prepareStatement(sql);
 			    ptmt.setString(1, name);
@@ -185,8 +187,10 @@ public class RWThread148 extends Thread{
 			    ptmt.setInt(9, mistake);
 			    ptmt.setInt(10, repeat);
 			    ptmt.setDouble(11, Keyaccuracy);
-			    ptmt.setDouble(12, dacilv);
-			    ptmt.setDouble(13, time);
+			    ptmt.setDouble(12, Keymethod);
+			    ptmt.setDouble(13, dacilv);
+			    ptmt.setDouble(14, time);
+			    ptmt.setDouble(15, nandu);
 			    ptmt.execute();
 			    
 			} catch (SQLException e) {
@@ -209,7 +213,9 @@ public class RWThread148 extends Thread{
 			    ptmt.setInt(10, 0);
 			    ptmt.setDouble(11, 0);
 			    ptmt.setDouble(12, 0);
-				ptmt.setDouble(13, 0);
+			    ptmt.setDouble(13, 0);
+				ptmt.setDouble(14, 0);
+				ptmt.setDouble(15, 0);
 				ptmt.execute();
 				System.out.println("赛文作废");
 			} catch (SQLException e) {
@@ -219,7 +225,7 @@ public class RWThread148 extends Thread{
 		}
 	}
 	public void addhistory(String message){
-		String sql="insert into history values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,default)";
+		String sql="insert into history values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,default)";
 		Date date;
 		int y,m,d;
 		try{
@@ -231,7 +237,7 @@ public class RWThread148 extends Thread{
 		}catch(Exception e){System.out.println("获取时间错误");return;}
 		
 		int pos = 0;
-		for(int i=0;i<14;i++){				//分析收到信息,分块化
+		for(int i=0;i<16;i++){				//分析收到信息,分块化
 			pos =  message.indexOf('%',pos)+1;
 			if(pos!=-1)
 				hisnum[i] = pos;
@@ -248,10 +254,12 @@ public class RWThread148 extends Thread{
 		int mistake = Integer.parseInt(message.substring(hisnum[7],hisnum[8]-1));
 		int repeat = Integer.parseInt(message.substring(hisnum[8],hisnum[9]-1));
 		double Keyaccuracy = Double.parseDouble(message.substring(hisnum[9],hisnum[10]-1));
-		double dacilv = Double.parseDouble(message.substring(hisnum[10],hisnum[11]-1));
-		double time = Double.parseDouble(message.substring(hisnum[11],hisnum[12]-1));
-		String wenben = message.substring(hisnum[12],hisnum[13]-1);
-		int duan = Integer.parseInt(message.substring(hisnum[13]));
+		double Keymethod = Double.parseDouble(message.substring(hisnum[10],hisnum[11]-1));
+		double dacilv = Double.parseDouble(message.substring(hisnum[11],hisnum[12]-1));
+		double time = Double.parseDouble(message.substring(hisnum[12],hisnum[13]-1));
+		String wenben = message.substring(hisnum[13],hisnum[14]-1);
+		int duan = Integer.parseInt(message.substring(hisnum[14],hisnum[15]-1));
+		double nandu = Double.parseDouble(message.substring(hisnum[15]));
 		System.out.println(wenben);
 		PreparedStatement ptmt;
 		try {
@@ -267,14 +275,16 @@ public class RWThread148 extends Thread{
 		    ptmt.setInt(9, mistake);
 		    ptmt.setInt(10, repeat);
 		    ptmt.setDouble(11, Keyaccuracy);
-		    ptmt.setDouble(12, dacilv);
-		    ptmt.setDouble(13, time);
-		    ptmt.setString(14, wenben);
-		    ptmt.setInt(15, duan);
+		    ptmt.setDouble(12, Keymethod);
+		    ptmt.setDouble(13, dacilv);
+		    ptmt.setDouble(14, time);
+		    ptmt.setString(15, wenben);
+		    ptmt.setInt(16, duan);
+		    ptmt.setDouble(17, nandu);
 		    ptmt.execute();
 		    System.out.println(date);
 		    //999段添加平均成绩
-		    if(duan==999){
+		    if(duan==999||duan==0){
 			    sql = "SELECT aver,n FROM client WHERE username=?";
 			    ptmt = Recordnum.con.prepareStatement(sql);
 			    ptmt.setString(1, name);

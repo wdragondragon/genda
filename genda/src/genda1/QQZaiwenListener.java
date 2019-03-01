@@ -23,31 +23,36 @@ public class QQZaiwenListener extends AbstractAction{
 	SetFrameJinduListener setframejinduListener;
 	int i;
 	public static int duan;
-	String str,dvbi;
+	public static String str,dvbi;
 	public static String wenbenstr = "";
+	public static boolean zaiwenSign = false;
 	QQ qq = new QQ();
-	RegexText regexText = new RegexText();
+	static RegexText regexText = new RegexText();
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		try {
 			if(SendWenben.sendwenSign==1){JOptionPane.showMessageDialog(new JTextArea(),"先结束发文");return;}
 			if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"请先结束每日赛文");return;}
+//			AchievementListener.setClipboardString("");
 			QQ.sendMessage(1,qqName.getText());
-			str = AchievementListener.getClipboardString();
-			System.out.println(str);
-			wenbenstr = regexText.regetText(str);
-			Window.f3listener.F3();
-			try{
-				DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
-				out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+wenbenstr+"%0"+"%"+Login.zhanghao.getText());
-			}
-			catch(Exception ex){
-				System.out.println("无法发送文本内容");
-			}
+//			str = AchievementListener.getClipboardString();
+//			wenbenstr = regexText.regetText(str);
+//			System.out.println(wenbenstr);
+			
+//			Window.f3listener.F3();
+//			try{
+//				DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
+//				out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+wenbenstr+"%0"+"%"+Login.zhanghao.getText());
+//			}
+//			catch(Exception ex){
+//				System.out.println("无法发送文本内容");
+//			}
+			zaiwenSign = true;
 		} catch (Exception ex) {
 			// TODO Auto-generated catch block
 			System.out.println("载文失败");
+			ex.printStackTrace();
 		}
 	}
 	public void setDaziText(JTextArea t){

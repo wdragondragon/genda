@@ -49,7 +49,7 @@ public class historyFrame extends JFrame implements ActionListener{
 //		setLayout(null);
 		p.setLayout(null);
 		add(p);
-		Object name[]={"","日期","速度","击键","码长","字数","回改","退格","错字","选重","键准","打词率","时间(秒)","段数"},a[][] = null;
+		Object name[]={"","日期","速度","击键","码长","字数","回改","退格","错字","选重","键准","键法","打词率","时间(秒)","段数"},a[][] = null;
 		tableM = new DefaultTableModel(a,name) {
             private static final long serialVersionUID = 1L;
             @Override
@@ -63,7 +63,7 @@ public class historyFrame extends JFrame implements ActionListener{
 		
 		tableN = new JScrollPane(table);
 		
-		tableN.setBounds(0,0,800,this.getHeight()-150);
+		tableN.setBounds(0,0,840,this.getHeight()-105);
 		
 		before = new JButton("上一页");
 		next = new JButton("下一页");
@@ -144,6 +144,7 @@ public class historyFrame extends JFrame implements ActionListener{
 	public static double avermistake = 0;
 	public static double averrepeat = 0;
 	public static double averkeyaccur = 0;
+	public static double averkeymethod = 0;
 	public static double averdacilv = 0;
 	public static double avertime = 0;
 	static int n =0;
@@ -169,7 +170,7 @@ public class historyFrame extends JFrame implements ActionListener{
 			while(true){
 				vRow1 = new Vector();
 				vRow1.add(++n);
-				for(int i=0;i<13;i++){
+				for(int i=0;i<14;i++){
 					vRow1.add(in.readUTF());
 				}
 				getvROW();
@@ -214,6 +215,7 @@ public class historyFrame extends JFrame implements ActionListener{
 		vRow1.add(String.format("%.2f", avermistake));
 		vRow1.add(String.format("%.2f", averrepeat));
 		vRow1.add(String.format("%.2f", averkeyaccur));
+		vRow1.add(String.format("%.2f", averkeymethod));
 		vRow1.add(String.format("%.2f", averdacilv));
 		vRow1.add(String.format("%.2f", avertime));
 		String duanwei = "";
@@ -292,6 +294,7 @@ public class historyFrame extends JFrame implements ActionListener{
 		avermistake /= num;
 		averrepeat /= num;
 		averkeyaccur /= num;
+		averkeymethod /= num;
 		averdacilv /= num;
 		avertime /= num;
 	}
@@ -305,8 +308,9 @@ public class historyFrame extends JFrame implements ActionListener{
 		avermistake += Double.parseDouble((String)vRow1.get(8));
 		averrepeat += Double.parseDouble((String)vRow1.get(9));
 		averkeyaccur += Double.parseDouble((String)vRow1.get(10));
-		averdacilv += Double.parseDouble((String)vRow1.get(11));
-		avertime += Double.parseDouble((String)vRow1.get(12));
+		averkeymethod += Double.parseDouble((String)vRow1.get(11));
+		averdacilv += Double.parseDouble((String)vRow1.get(12));
+		avertime += Double.parseDouble((String)vRow1.get(13));
 		num++;
 	}
 	public static void clearall(){
@@ -326,6 +330,7 @@ public class historyFrame extends JFrame implements ActionListener{
 		historyFrame.avermistake = 0;
 		historyFrame.averrepeat = 0;
 		historyFrame.averkeyaccur = 0;
+		historyFrame.averkeymethod = 0;
 		historyFrame.averdacilv = 0;
 		historyFrame.avertime = 0;
 	}
