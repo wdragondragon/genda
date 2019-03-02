@@ -25,20 +25,24 @@ public class Clip extends Thread{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(QQZaiwenListener.zaiwenSign){
-				System.out.println(AchievementListener.getClipboardString());
-				QQZaiwenListener.str = AchievementListener.getClipboardString();
-				QQZaiwenListener.wenbenstr = QQZaiwenListener.regexText.regetText(QQZaiwenListener.str);
-				Window.f3listener.F3();
-				try{
-					DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
-					out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+QQZaiwenListener.wenbenstr+"%0"+"%"+Login.zhanghao.getText());
+			try{
+				if(QQZaiwenListener.zaiwenSign){
+					System.out.println(AchievementListener.getClipboardString());
+					QQZaiwenListener.str = AchievementListener.getClipboardString();
+					QQZaiwenListener.wenbenstr = QQZaiwenListener.regexText.regetText(QQZaiwenListener.str);
+					Window.f3listener.F3();
+					try{
+						DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
+						out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+QQZaiwenListener.wenbenstr+"%0"+"%"+Login.zhanghao.getText());
+					}
+					catch(Exception ex){
+						System.out.println("无法发送文本内容");
+					}
+					QQZaiwenListener.zaiwenSign = false;
+					System.out.println(QQZaiwenListener.zaiwenSign);
 				}
-				catch(Exception ex){
-					System.out.println("无法发送文本内容");
-				}
-				QQZaiwenListener.zaiwenSign = false;
 			}
+			catch(Exception ex){System.out.println("Clip错误");}
 //			System.out.println(wenbenstr);
 //			AchievementListener.setClipboardString(AchievementListener.getClipboardString());
 		}

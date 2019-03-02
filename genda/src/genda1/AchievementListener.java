@@ -223,7 +223,7 @@ public class AchievementListener extends AbstractAction{
         // 获取系统剪贴板
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         // 获取剪贴板中的内容
-        Transferable trans = clipboard.getContents("");
+        Transferable trans = clipboard.getContents(null);
       
         if (trans != null) {
             // 判断剪贴板中的内容是否支持文本

@@ -48,6 +48,7 @@ public class QQZaiwenListener extends AbstractAction{
 //			catch(Exception ex){
 //				System.out.println("无法发送文本内容");
 //			}
+			System.out.println(zaiwenSign);
 			zaiwenSign = true;
 		} catch (Exception ex) {
 			// TODO Auto-generated catch block
