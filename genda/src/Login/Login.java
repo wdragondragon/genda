@@ -29,7 +29,8 @@ public class Login extends JFrame implements ActionListener{
 	JButton zhuce;
 	JButton wangmi;
 	JButton tuichu;
-	public static String banben = "版本1.497";
+	public static String banben = "版本1.498";
+	public static String zxbanben = "";
 	public static int port = 1230;
 	public static JTextField zhanghao;
 	public static JPasswordField mima;
@@ -45,7 +46,7 @@ public class Login extends JFrame implements ActionListener{
 		this.win = win;
 		link();
 		setTitle("登录");
-
+		Window.dqbanben.setText(Window.dqbanben.getText()+banben);
 //		com.sun.awt.AWTUtilities.setWindowOpaque(this,true);
 		setBounds(win.getX()+win.getWidth()/4,win.getY()+win.getHeight()/4,255,255);
 		add(p);
@@ -98,7 +99,7 @@ public class Login extends JFrame implements ActionListener{
 			out.writeUTF(Login.banben);
 			String what = in.readUTF();
 			socket.setSoTimeout(0);
-			if(!what.equals("版本正确")){
+			if(!what.substring(0,4).equals("版本正确")){
 				UIManager.put("OptionPane.yesButtonText", "自动更新");
 				UIManager.put("OptionPane.noButtonText", "手动下载");
 				int n = JOptionPane.showConfirmDialog(null, what, "更新提示", JOptionPane.YES_NO_OPTION);
@@ -112,6 +113,8 @@ public class Login extends JFrame implements ActionListener{
 					System.exit(0);
 				}
 			}
+			zxbanben = what.substring(what.indexOf("最新版本")+4);
+			Window.zxbanben.setText(Window.zxbanben.getText()+zxbanben);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(new JTextArea(),"连接异常");

@@ -1,5 +1,6 @@
 package Tips;
 
+import genda1.AchievementListener;
 import genda1.QQZaiwenListener;
 import genda1.RegexText;
 import genda1.Window;
@@ -15,6 +16,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import SetWin.Set;
@@ -24,7 +27,7 @@ public class Tips{
 	JLabel showText;
 	public static double alllength = 0.0,dingalllength = 0.0;
 	
-	public static int qmc=0,cqmc=0,smc=0,csmc=0,emc=0,cemc=0,qdz=0,sdz=0,edz=0,cqdz=0,fh=0,weizhi=0;
+	public static int qmc=0,cqmc=0,smc=0,csmc=0,emc=0,cemc=0,qdz=0,sdz=0,edz=0,cqdz=0,fh=0,weizhi=0,szfh=0;
 	public static double dengji = 0.0;
 	public static HashMap<String,Integer> alltable;
 	public static HashMap<String,Integer> citable;
@@ -60,7 +63,8 @@ public class Tips{
 	public static ArrayList<Integer> danzi = new ArrayList<Integer>();
 	public static HashMap<Integer,String> bianma = new HashMap<Integer,String>();
 	public static String dingshowstr;
-	public static StringBuilder showstr = new StringBuilder(); 
+	public static StringBuilder showstr = new StringBuilder();
+	
 	String regex = "234567890";
 	File more = new File(ChooseFile.cizufilename);
 	File FuhaoFile = new File("编码文件/符号文件/符号文件.txt");
@@ -252,7 +256,7 @@ public class Tips{
 		cisjianmacione.clear();
 		cisjianmacitwo.clear();
 		bianma.clear();
-		emc=0;cemc=0;smc=0;csmc=0;qmc=0;cqmc=0;qdz=0;sdz=0;edz=0;cqdz=0;fh=0;weizhi=0;
+		emc=0;cemc=0;smc=0;csmc=0;qmc=0;cqmc=0;qdz=0;sdz=0;edz=0;cqdz=0;fh=0;weizhi=0;szfh=0;
 		try{
 			for(int i=9;i>=0;i--){
 				if(str.length()<i+2)continue;
@@ -360,9 +364,12 @@ public class Tips{
 			Collections.sort(cisjianmacitwo);
 		}catch(Exception e){System.out.print("000");}
 	}
+	public static String weizhistr = "";
 	public void compalllength(){
 		String str = QQZaiwenListener.wenbenstr;
 		String regex = "234567890";
+		String fu = "@#$%^&*,./;'\\\"";
+		weizhistr = "";
 		char c[] = str.toCharArray();
 		String bianmatemp;
 		System.out.println();
@@ -394,8 +401,13 @@ public class Tips{
 						bianmatemp = fuhao.get(String.valueOf(c[i]));
 						fh++;
 					}
+					else if((c[i]>='a'&&c[i]<='z')||(c[i]>='A'&&c[i]<='Z')||(c[i]>='0'&&c[i]<='9')||fu.indexOf(String.valueOf(c[i]))!=-1){
+						bianmatemp = String.valueOf(c[i]);
+						szfh++;
+					}
 					else {
 						bianmatemp = String.valueOf(c[i]);
+						weizhistr += bianmatemp;
 						weizhi++;
 					}
 				}
@@ -423,7 +435,12 @@ public class Tips{
 				+13*4*qdz
 				+17*5*cqdz
 				+20*weizhi
-				+1*2*fh)
+				+1*2*fh
+				+szfh)
 				/alllength;
+		if(Tips.weizhi!=0){
+			AchievementListener.setClipboardString(Tips.weizhistr);
+			JOptionPane.showMessageDialog(new JTextArea(),"载文中有"+Tips.weizhi+"个未收录字符:\n"+Tips.weizhistr+"\n已放入剪贴板");
+		}
 	}
 }

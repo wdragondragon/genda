@@ -58,6 +58,7 @@ public class Window extends JFrame{
 	static JLabel zishu;
 	JLabel allnumber;
 	public JLabel sendwen;
+	public static JLabel dqbanben,zxbanben;
 	JScrollPane wenben1,dazi1,chengji1,zaiwenText1,tableN;
 	
 	JButton F3;
@@ -352,6 +353,9 @@ public class Window extends JFrame{
 		tips = new JLabel("编码提示");
 		tips.setBorder(BorderFactory.createTitledBorder("编码提示"));
 		
+		dqbanben = new JLabel("当前");
+		zxbanben = new JLabel("最新");
+		
 		F3 = new JButton("重打");
 		zaiwen = new JButton("剪切板载文");
 		more = new JButton("菜单模式");
@@ -462,6 +466,8 @@ public class Window extends JFrame{
 		add(dinglilunma);
 		add(reducesudu);
 		add(chouqu);
+		add(zxbanben);
+		add(dqbanben);
 	}
 	//给所有组件设置监视器
 	void addAllListener(){

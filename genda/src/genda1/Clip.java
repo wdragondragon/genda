@@ -4,9 +4,12 @@ import gendaClient.battleClient;
 
 import java.io.DataOutputStream;
 
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+
 import Login.Login;
 
-
+import Tips.*;
 public class Clip extends Thread{
 
 	/**

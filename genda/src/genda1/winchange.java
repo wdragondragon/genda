@@ -84,7 +84,8 @@ public class winchange extends Thread implements ActionListener {
 					win.allnumber.setBounds(jSplitPane2.getX()+(win.qqName.getWidth()+win.zishu.getWidth()+10),jSplitPane2.getY()+jSplitPane2.getHeight()+10,(win.allnumber.getText().length()-4)*7+4*12,40);
 					win.tips.setBounds(jSplitPane2.getX()+(win.qqName.getWidth()+win.zishu.getWidth()+win.allnumber.getWidth()+15),jSplitPane2.getY()+jSplitPane2.getHeight()+10,80,40);
 					win.sendwen.setBounds(jSplitPane2.getX()+(win.qqName.getWidth()+win.zishu.getWidth()+win.allnumber.getWidth()+win.tips.getWidth()+20),jSplitPane2.getY()+jSplitPane2.getHeight()+10,win.sendwen.getText().length()*8,40);
-					
+					win.dqbanben.setBounds(win.getWidth()-100,win.getHeight()-50,100,40);
+					win.zxbanben.setBounds(win.getWidth()-100,win.getHeight()-30,100,40);
 					int jswei = jSplitPane2.getX()+jSplitPane2.getWidth()+5;
 					int chawei = win.one.getWidth()+5;
 					win.one.setLocation(jswei, win.one.getY());

@@ -25,7 +25,12 @@ public class Recordnum extends Thread{
     public  static String pass="951753";//mysql登录密码
     public static Connection con;//
     public  static ServerSocket server;//服务器
-    public static String banben149 = "版本1.497";
+    public static String banben1497 = "版本1.497";
+    public static String banben1498 = "版本1.498";
+    public static String banben1499 = "版本1.499";
+    public static String banben1500 = "版本1.500";
+    public static String banben1501 = "版本1.501";
+    public static String zxbb = "";
     public static int port = 1230;
     public static HashMap<String,Socket> online = new HashMap<String,Socket>();
 	public static void main(String args[]){
@@ -73,8 +78,30 @@ public class Recordnum extends Thread{
 				String what = in.readUTF();
 				socket.setSoTimeout(0);
 				System.out.println(what);
-				if(what.equals(banben149)){
-					out.writeUTF("版本正确");
+				
+				zxbb = getBanben();
+				if(what.equals(banben1497)){
+					out.writeUTF("版本正确"+banben1497+"最新版本"+zxbb);
+					//新的线程
+					new RWThread148(socket).start();
+				}
+				else if(what.equals(banben1498)){
+					out.writeUTF("版本正确"+banben1498+"最新版本"+zxbb);
+					//新的线程
+					new RWThread148(socket).start();
+				}
+				else if(what.equals(banben1499)){
+					out.writeUTF("版本正确"+banben1499+"最新版本"+zxbb);
+					//新的线程
+					new RWThread148(socket).start();
+				}
+				else if(what.equals(banben1500)){
+					out.writeUTF("版本正确"+banben1500+"最新版本"+zxbb);
+					//新的线程
+					new RWThread148(socket).start();
+				}
+				else if(what.equals(banben1501)){
+					out.writeUTF("版本正确"+banben1501+"最新版本"+zxbb);
 					//新的线程
 					new RWThread148(socket).start();
 				}
@@ -113,7 +140,7 @@ public class Recordnum extends Thread{
 					socketclose(socket);
 				}
 				else{
-					out.writeUTF("版本错误，新版本更新\n因为版本错误未能及时同步问题，进行同步版本\n自动跳转下载或加群号974172771");
+					out.writeUTF("版本强制更新：\n因为版本错误未能及时同步问题，进行同步版本\n自动跳转下载或加群号974172771");
 				}
 			} catch (IOException e) {
 				try {
@@ -121,6 +148,20 @@ public class Recordnum extends Thread{
 					socket = null;
 				} catch (IOException e1) {}
 			}
+		}
+		String getBanben(){
+			try{
+				String sql="SELECT * FROM banben";
+				PreparedStatement ptmt;
+				ptmt = con.prepareStatement(sql);
+				ResultSet rs=ptmt.executeQuery();
+				if(rs.next()){
+					return rs.getString(1);
+				}
+			}catch(Exception e){
+				
+			}
+			return "";
 		}
 		void getRank(){
 			try{

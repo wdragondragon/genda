@@ -92,7 +92,7 @@ public class DengluListener implements ActionListener{
 				Login.out.writeUTF(Login.banben);
 				Login.in = new DataInputStream(Login.socket.getInputStream());
 				String what = Login.in.readUTF();
-				if(!what.equals("版本正确"))System.exit(0);
+				if(!what.substring(0,4).equals("版本正确"))System.exit(0);
 				JOptionPane.showMessageDialog(new JTextArea(),"退出登录成功");
 				Login.zhanghao.setEditable(true);
 				Login.mima.setEditable(true);
