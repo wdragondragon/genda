@@ -368,7 +368,7 @@ public class Tips{
 	public void compalllength(){
 		String str = QQZaiwenListener.wenbenstr;
 		String regex = "234567890";
-		String fu = "@#$%^&*,./;'\\\"";
+		String fu = "@#$%^&*,./;'\\\"——-+=_·| ";
 		weizhistr = "";
 		char c[] = str.toCharArray();
 		String bianmatemp;
@@ -424,18 +424,32 @@ public class Tips{
 		alllength = showstr.length();
 		System.out.println("\n理论:"+alllength);
 		System.out.println("\n标定:"+dingalllength);
-		dengji = (1*4*qmc+
-				5*4*smc
-				+3*3*emc
-				+7*5*cqmc
-				+11*4*csmc
-				+7*3*cemc
-				+7*2*edz
-				+8*3*sdz
-				+13*4*qdz
-				+17*5*cqdz
-				+20*weizhi
-				+1*2*fh
+//		dengji = (1*4*qmc+
+//				5*4*smc
+//				+3*3*emc
+//				+7*5*cqmc
+//				+11*4*csmc
+//				+7*3*cemc
+//				+7*2*edz
+//				+8*3*sdz
+//				+13*4*qdz
+//				+17*5*cqdz
+//				+20*weizhi
+//				+1*2*fh
+//				+szfh)
+//				/alllength;
+		dengji = (50*4*qmc+
+				55*4*smc
+				+60*3*emc
+				+65*5*cqmc
+				+70*4*csmc
+				+75*3*cemc
+				+80*2*edz
+				+85*3*sdz
+				+90*4*qdz
+				+95*5*cqdz
+				+100*weizhi
+				+45*2*fh
 				+szfh)
 				/alllength;
 		if(Tips.weizhi!=0){
