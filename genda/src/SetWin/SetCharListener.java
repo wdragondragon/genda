@@ -17,10 +17,12 @@ public class SetCharListener implements ActionListener{
 		if(charsign == 0){
 			charsign = 1;
 			charset.setText("·ûºÅÌæ»»\"ÒÑ¿ª\"");
+			charset.setForeground(SetFrame.open);
 		}
 		else{
 			charsign = 0;
 			charset.setText("·ûºÅÌæ»»\"ÒÑ¹Ø\"");
+			charset.setForeground(SetFrame.close);
 		}
 		
 	}

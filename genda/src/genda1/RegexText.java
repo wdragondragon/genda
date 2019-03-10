@@ -45,9 +45,12 @@ public class RegexText {
 				a[j]='#';
 				if(kong>=2){
 					sign2  = j;
-					while(a[j]!='\n')
+					while(a[j]!='\n'&&j>0)
 						j--;
-					a[j]='#';
+					if(j>0)
+						a[j]='#';
+					else
+						j=-1;
 					for(j=j+1;j<sign2;j++)
 						SendWenben.title+=String.valueOf(a[j]);
 					kong = 0;

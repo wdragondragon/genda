@@ -55,7 +55,7 @@ public class battleReadThread extends Thread{//读取服务器发来信息的线程
 				String began = message.substring(num[6]);
 				Whowin = othName+win;
 				String wenben ="无";
-				System.out.println(wenbentemp);
+//				System.out.println(wenbentemp);
 				
 				if(!wenbentemp.equals("无")&&!wenbentemp.equals("")&&wenbentemp!=null){
 					String wenben1[] = wenbentemp.split("#");

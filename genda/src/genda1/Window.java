@@ -10,6 +10,7 @@ import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
 
 
 import Acticle.Acticle;
+import EmailSys.Email;
 import FriendSys.FriendsSysListener;
 import History.historyListener;
 import Login.Login;
@@ -20,6 +21,7 @@ import Ranking.RankListener;
 import Ranking.rankFrame;
 import SetWin.*;
 import Tips.BuildChooseFile;
+import Tips.Noexit;
 import Tips.TheoryListener;
 import Tips.Tips;
 
@@ -53,6 +55,7 @@ public class Window extends JFrame{
 	public static JLabel tips;
 	public static String family = "微软雅黑";
 //	public static String IP = "127.0.0.1";
+	public static String Email = "";
 	Font ziti,zititip;
 	JLabel qqName;
 	static JLabel zishu;
@@ -738,6 +741,8 @@ public class Window extends JFrame{
 	JMenuItem xiayiduan;
 	JMenuItem baocun;
 	JMenuItem chouquxiayiduan;
+	JMenuItem email;
+	JMenuItem chexit;
 	RankListener ranklistener = new RankListener();
 	BuildChooseFile changetxt = new BuildChooseFile();
 	historyListener historylistener = new historyListener();
@@ -759,6 +764,9 @@ public class Window extends JFrame{
 		jSplitPane1.setDividerLocation(150);
 //		jSplitPane1.setDividerLocation(150);
 		ce.setBounds(jSplitPane2.getX()-5,jSplitPane2.getY(),5,jSplitPane2.getHeight());
+		
+
+
 	}
 	void menu(){
 		menubar = new JMenuBar();
@@ -801,9 +809,13 @@ public class Window extends JFrame{
 		buildsaiwen = new JMenuItem("创建比赛");
 		com = new JMenuItem("共聚一堂");
 		fuwei = new JMenuItem("复位");
+		email = new JMenuItem("绑定邮箱");
+		chexit = new JMenuItem("检查编码");
 		
 		RamdomListener ramdomlistener = new RamdomListener();
 		getDatesaiwen getsaiwen = new getDatesaiwen(this);
+		Email emaillistener = new Email();
+		Noexit noexit = new Noexit();
 		
 		fasongchengji.addActionListener(achievementListener);
 		chongda.addActionListener(f3listener);
@@ -832,7 +844,8 @@ public class Window extends JFrame{
 		baocun.addActionListener(Acticle.treeListener);
 		chouquxiayiduan.addActionListener(Acticle.treeListener);
 		luanxu.addActionListener(mixlistener);
-		
+		email.addActionListener(emaillistener);
+		chexit.addActionListener(noexit);
 		
 		luanxu.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L , KeyEvent.CTRL_MASK));
 		chouquxiayiduan.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O , KeyEvent.CTRL_MASK));
@@ -855,12 +868,14 @@ public class Window extends JFrame{
 		base.add(QQQzaiwen);
 		base.add(huanqun);
 		base.add(jqbzaiwen);
+		base.add(chexit);
 		base.add(fawenmenu);
 		
 		linkbase.add(paiming);
 		linkbase.add(zxdv);
 		linkbase.add(historyall);
 		linkbase.add(everydaysaiwen);
+		linkbase.add(email);
 		linkbase.add(friendSys);
 		linkbase.add(buildsaiwen);
 		linkbase.add(com);

@@ -21,7 +21,7 @@ public class TestSysteTray {
 			SystemTray tray = SystemTray.getSystemTray(); // 创建系统托盘
 
 
-			Image image = Toolkit.getDefaultToolkit().getImage("images/config_3.ico");//载入图片 图片位置是程序所在的目录
+			Image image = Toolkit.getDefaultToolkit().getImage("images\\config_3.png");//载入图片 图片位置是程序所在的目录
 			ActionListener listener = new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					// 创建一个窗体

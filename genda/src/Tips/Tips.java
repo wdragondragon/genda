@@ -108,6 +108,7 @@ public class Tips{
 	        InputStreamReader read = new InputStreamReader(fis, "UTF-8");
 			BufferedReader  bufferRead = new BufferedReader(read);
 			while((str=bufferRead.readLine())!=null){
+//				System.out.println(str);
 				boolean cixuanSign = false;
 				String[] splited = str.split("\\s+");
 				String ch = splited[0];
@@ -452,9 +453,5 @@ public class Tips{
 				+45*2*fh
 				+szfh)
 				/alllength;
-		if(Tips.weizhi!=0){
-			AchievementListener.setClipboardString(Tips.weizhistr);
-			JOptionPane.showMessageDialog(new JTextArea(),"载文中有"+Tips.weizhi+"个未收录字符:\n"+Tips.weizhistr+"\n已放入剪贴板");
-		}
 	}
 }

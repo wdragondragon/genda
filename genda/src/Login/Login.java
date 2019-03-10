@@ -22,6 +22,7 @@ import genda1.*;
 import javax.swing.*;
 
 import Acticle.SendWenben;
+import EmailCheck.Email;
 
 public class Login extends JFrame implements ActionListener{
 	static JButton confirm;
@@ -29,7 +30,7 @@ public class Login extends JFrame implements ActionListener{
 	JButton zhuce;
 	JButton wangmi;
 	JButton tuichu;
-	public static String banben = "°æ±¾1.500";
+	public static String banben = "°æ±¾1.502";
 	public static String zxbanben = "";
 	public static int port = 1230;
 	public static JTextField zhanghao;
@@ -59,6 +60,8 @@ public class Login extends JFrame implements ActionListener{
 		mima.setBounds(20,70,190,30);
 		p.add(mima);
 		
+		
+		
 		confirm = new JButton("µÇÂ¼");
 		confirm.setBounds(20,110,90,30);
 		p.add(confirm);
@@ -86,6 +89,7 @@ public class Login extends JFrame implements ActionListener{
 		
 		ForgetListener forgetlistener = new ForgetListener();
 		wangmi.addActionListener(forgetlistener);
+		
 		
 		setVisible(true);
 	}

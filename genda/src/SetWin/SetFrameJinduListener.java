@@ -18,9 +18,11 @@ public class SetFrameJinduListener implements ActionListener {
 		if(jindusign == 0){
 			jindusign = 1;
 			jindu.setText("显示进度条\"已开\"");
+			jindu.setForeground(SetFrame.open);;
 		}
 		else{
 			jindusign = 0;
+			jindu.setForeground(SetFrame.close);
 			jindu.setText("显示进度条\"已关\"");
 		}
 	}

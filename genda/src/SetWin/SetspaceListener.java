@@ -17,10 +17,12 @@ public class SetspaceListener implements ActionListener {
 		if(spacesign == 0){
 			spacesign = 1;
 			space.setText("去除空格\"已开\"");
+			space.setForeground(SetFrame.open);
 		}
 		else{
 			spacesign = 0;
 			space.setText("去除空格\"已关\"");
+			space.setForeground(SetFrame.close);
 		}
 	}
 }

@@ -58,7 +58,7 @@ public class RWThread148 extends Thread{
 					continue;
 				}
 				else if(message.substring(0,2).equals("历史")){
-					System.out.println(message);
+//					System.out.println(message);
 					addhistory(message);
 					continue;
 				}
@@ -78,6 +78,18 @@ public class RWThread148 extends Thread{
 					System.out.println(message);
 					saiwenSys.getachievement(in);
 					saiwenSign = false;
+					continue;
+				}
+				else if(message.substring(0,4).equals("绑定邮箱")){
+					addbangemail(message.substring(4));
+					continue;
+				}
+				else if(message.substring(0,4).equals("验证邮箱")){
+					checkemail(message.substring(4));
+					continue;
+				}
+				else if(message.substring(0,4).equals("修改密码")){
+					xgmima(message.substring(4));
 					continue;
 				}
 				else{
@@ -138,6 +150,53 @@ public class RWThread148 extends Thread{
 				}
 			}
 		}
+	}
+	public void checkemail(String mess) throws SQLException, IOException{
+		String sql="";
+		PreparedStatement ptmt;
+		sql = "SELECT * FROM client WHERE username=? and email=?";
+	    ptmt = Recordnum.con.prepareStatement(sql);
+	    String c[] = mess.split("%");
+		System.out.println(c[0]+" "+c[1]);
+	    ptmt.setString(1, c[0]);
+	    ptmt.setString(2, c[1]);
+		ResultSet rs=ptmt.executeQuery();
+		if(rs.next())out.writeUTF("验证成功");
+		else out.writeUTF("验证失败");
+	}
+	public void xgmima(String mess) throws IOException{
+		String sql="update client set password=? where username=?";
+		PreparedStatement ptmt;
+		try {
+			ptmt = Recordnum.con.prepareStatement(sql);
+			String c[] = mess.split("%");
+			System.out.println(c[0]+" "+c[1]);
+			ptmt.setString(1, c[1]);
+			ptmt.setString(2, c[0]);
+			ptmt.execute();
+			out.writeUTF("修改成功");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("绑定密码成功");
+	}
+	public void addbangemail(String email){
+		String sql="update client set email=? where username=?";
+		PreparedStatement ptmt;
+		try {
+			ptmt = Recordnum.con.prepareStatement(sql);
+			String c[] = email.split("%");
+			System.out.println(c[0]+" "+c[1]);
+			ptmt.setString(1, c[0]);
+			ptmt.setString(2, c[1]);
+			ptmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("绑定邮箱成功");
 	}
 	public void addchengji(String message,int n){
 		String sql="insert into saiwenchengji values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,default)";
@@ -344,7 +403,7 @@ public class RWThread148 extends Thread{
 			} catch (IOException e) {System.out.print(username+"通知相同用户名失败\r");}
         }
         else{
-	        sql="insert into client values(?,?,?,?,?,?,?,?,?,?,?)";
+	        sql="insert into client values(?,?,?,?,?,?,?,?,?,?,?,default)";
 	        ptmt=Recordnum.con.prepareStatement(sql);
 	        ptmt.setString(1, username);
 	        ptmt.setString(2, password);
@@ -370,6 +429,7 @@ public class RWThread148 extends Thread{
     	int misnum = 0;
     	int rightnum = 0;
     	int datenum = 0;
+    	String email;
     	Date date;
     	System.out.print(username+"正在登录\r");
     	try{
@@ -381,7 +441,7 @@ public class RWThread148 extends Thread{
 	        ResultSet rs=ptmt.executeQuery();
 	        if(!rs.next()){		//检验账号是否存在
 	        	 System.out.print(username+"账户不存在！\n请重新登录：\r");
-	            String message = "%3%0%0%0%0";
+	            String message = "%3%0%0%0%0%0";
 	            try {
 					out.writeUTF(message);
 				} catch (IOException e) {System.out.print(username+"发送登录失败失败\r");}
@@ -397,6 +457,10 @@ public class RWThread148 extends Thread{
 	            rightnum = rs.getInt(4);
 	            misnum = rs.getInt(5);
 	            datenum = rs.getInt(6);
+	            email = rs.getString(12);
+	            if(email==null){
+	            	email="0";
+	            }
 	        	try {
 					if(rightnum+misnum!=num){
 						int temp = num-rightnum-misnum;
@@ -410,7 +474,7 @@ public class RWThread148 extends Thread{
 					try{
 						Recordnum.online.put(username, socket);
 					}catch(Exception e){e.printStackTrace();}
-					String message = "%1%"+String.valueOf(num)+"%"+String.valueOf(rightnum)+"%"+String.valueOf(misnum)+"%"+String.valueOf(datenum);
+					String message = "%1%"+String.valueOf(num)+"%"+String.valueOf(rightnum)+"%"+String.valueOf(misnum)+"%"+String.valueOf(datenum)+"%"+email;
 					System.out.println(message);
 					out.writeUTF(message);
 					dengluSign = 1;
@@ -418,7 +482,7 @@ public class RWThread148 extends Thread{
 				} catch (IOException e) {System.out.print(username+"发送登录成功失败\r");}
 	        }else{
 	            System.out.print(username+"姓名或密码错误！\n请重新登录：\r");
-	            String message = "%2%0%0%0%0";
+	            String message = "%2%0%0%0%0%0";
 	            try {
 					out.writeUTF(message);
 				} catch (IOException e) {System.out.print(username+"发送登录失败失败\r");}

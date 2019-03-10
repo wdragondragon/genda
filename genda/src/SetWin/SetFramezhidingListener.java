@@ -21,11 +21,13 @@ public class SetFramezhidingListener implements ActionListener {
 		if(zhidingsign == 0){
 			zhidingsign = 1;
 			zhiding.setText("跟打置顶\"开\"");
+			zhiding.setForeground(SetFrame.open);
 			win.setAlwaysOnTop(true);
 		}
 		else{
 			zhidingsign = 0;
 			zhiding.setText("跟打置顶\"关\"");
+			zhiding.setForeground(SetFrame.close);
 			win.setAlwaysOnTop(false);
 		}
 	}

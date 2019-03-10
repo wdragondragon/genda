@@ -18,10 +18,12 @@ public class SetFramechangeListener implements ActionListener {
 		if(tipsign == 0){
 			tipsign = 1;
 			change.setText("词语提示\"已开\"");
+			change.setForeground(SetFrame.open);
 		}
 		else{
 			tipsign = 0;
 			change.setText("词语提示\"已关\"");
+			change.setForeground(SetFrame.close);
 		}
 	}
 }

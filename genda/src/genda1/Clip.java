@@ -25,17 +25,16 @@ public class Clip extends Thread{
 				sleep(10);
 				if(QQZaiwenListener.zaiwenSign)
 					setZaiwenSign();
-				if(GendaListener.gendaSign){
-					GendaListener.gendaSign=false;
-						setgendaSign();
-				}
-			}catch (InterruptedException e) {
+				if(GendaListener.gendaSign)
+					setgendaSign();
+			}catch (Exception e) {
 				e.printStackTrace();System.out.println("Clip错误");}
 //			System.out.println(wenbenstr);
 //			AchievementListener.setClipboardString(AchievementListener.getClipboardString());
 		}
 	}
 	void setZaiwenSign() throws InterruptedException{
+		QQZaiwenListener.zaiwenSign = false;
 		QQZaiwenListener.str = AchievementListener.getClipboardString();
 		QQZaiwenListener.wenbenstr = QQZaiwenListener.regexText.regetText(QQZaiwenListener.str);
 		Window.f3listener.F3();
@@ -46,11 +45,12 @@ public class Clip extends Thread{
 		catch(Exception ex){
 			System.out.println("无法发送文本内容");
 		}
-		QQZaiwenListener.zaiwenSign = false;
+		
 		System.out.println(QQZaiwenListener.zaiwenSign);
 	}
 	void setgendaSign() throws InterruptedException{
-		sleep(200);
+		GendaListener.gendaSign=false;
+		sleep(100);
 		GendaListener.sign=2;
 		Window.gendaListener.sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(Window.gendaListener.mistake));		//速度显示
 		Window.gendaListener.zishu.setText("跟打完毕字数:"+Window.gendaListener.str2.length()+"/错"+Window.gendaListener.mistake);	//字数显示
@@ -65,5 +65,6 @@ public class Clip extends Thread{
 		if(SetFrameJinduListener.jindusign==1)//判断是否开了进度条
 			Window.gendaListener.gendajindu.jindu(Window.gendaListener.dazi.getText().length()+1);
 		Window.gendaListener.ChangeAllColor();
+		
 	}
 }

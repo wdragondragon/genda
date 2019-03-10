@@ -22,7 +22,7 @@ import keep.readWrite;
 public class DengluListener implements ActionListener{
 	Login login;
 	heartThread heartThread;
-	int num[] = {0,0,0,0,0};
+	int num[] = {0,0,0,0,0,0};
 	DengluListener(Login login){
 		this.login = login;
 	}
@@ -43,7 +43,7 @@ public class DengluListener implements ActionListener{
 				message = Login.in.readUTF();
 				System.out.println(message);
 				int pos = 0;
-				for(int i=0;i<5;i++){
+				for(int i=0;i<6;i++){
 					pos =  message.indexOf('%',pos)+1;
 					if(pos!=-1)
 						num[i] = pos;
@@ -54,8 +54,8 @@ public class DengluListener implements ActionListener{
 				int zishu = Integer.parseInt(message.substring(num[1],num[2]-1));		//接受数据字数
 				int rightnum = Integer.parseInt(message.substring(num[2],num[3]-1));
 				int misnum = Integer.parseInt(message.substring(num[3],num[4]-1));
-				int datenum = Integer.parseInt(message.substring(num[4]));
-				
+				int datenum = Integer.parseInt(message.substring(num[4],num[5]-1));
+				Window.Email = message.substring(num[5]);
 				Login.socket.setSoTimeout(0);
 				if(i==1){
 					Login.dengluSign = 1;

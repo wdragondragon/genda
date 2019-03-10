@@ -44,6 +44,7 @@ public class SetFrame extends JFrame {
 	Window win;
 	JLabel setjindutiao = new JLabel("设置动态进度条",JLabel.LEFT);
 	JLabel setchangetxt = new JLabel("词语提示",JLabel.LEFT);
+	public static Color close,open = new Color(255,117,90);
 	public static JPanel p = new JPanel();
 	public static JComboBox<String> family ;
 	public void SetFrame1(){
@@ -63,6 +64,7 @@ public class SetFrame extends JFrame {
 		addcharON_Off();
 		addChangetxt();
 		addCiRecord();
+		
 		SetBackground setbackgroundListener = new SetBackground();
 		setbackgroundListener.setFrame(this);
 		setbackgroundListener.setWin(win);
@@ -190,6 +192,9 @@ public class SetFrame extends JFrame {
 		changeFontSize.addActionListener(setfontlistener);
 		splitebutton.addActionListener(setframesplitenum);
 		mabiao.addActionListener(chosefilelistener);
+		
+		
+		
 	}
 	public void setGendaListener(GendaListener t){
 		gendalistener = t;
@@ -203,6 +208,7 @@ public class SetFrame extends JFrame {
 		p.add(charchange);
 		SetCharListener setcharlistener = new SetCharListener(charchange);
 		charchange.addActionListener(setcharlistener);
+		close = charchange.getForeground();
 	}
 	void addspaceON_Off(){
 		JButton space = new JButton("去除空格\"已关\"");

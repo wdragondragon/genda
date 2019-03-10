@@ -19,11 +19,12 @@ public class SetFrameQianshuiListener implements ActionListener {
 		if(qianshui==0){
 			qianshui = 1;
 			qianshui1.setText("潜水跟打\"已开\"");
-			
+			qianshui1.setForeground(SetFrame.open);
 		}
 		else{
 			qianshui = 0;
 			qianshui1.setText("潜水跟打\"已关\"");
+			qianshui1.setForeground(SetFrame.close);
 		}
 	}
 }

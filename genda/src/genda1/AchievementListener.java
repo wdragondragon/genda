@@ -53,6 +53,7 @@ public class AchievementListener extends AbstractAction{
 						battleSend.out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+Window.wenben.getText()+"%"+String.valueOf(sudu-30*battleSend.Mistake-Integer.parseInt(Window.reducesudu.getText()))+"%"+Login.zhanghao.getText());	
 					else
 						battleSend.out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+Window.wenben.getText()+"%"+String.valueOf(sudu-30*battleSend.Mistake)+"%"+Login.zhanghao.getText());	
+				System.out.println("ËÙ¶È"+String.valueOf(sudu-30*battleSend.Mistake-Integer.parseInt(Window.reducesudu.getText())));
 				}
 			}
 			catch(Exception ex){
