@@ -19,6 +19,7 @@ import QQ.ForegroundWinName;
 import RamdomOne.RamdomListener;
 import Ranking.RankListener;
 import Ranking.rankFrame;
+import Robots.RobotListener;
 import SetWin.*;
 import Tips.BuildChooseFile;
 import Tips.Noexit;
@@ -427,6 +428,8 @@ public class Window extends JFrame{
 		
 		ImageIcon icon=new ImageIcon("images//installer_repair_1.png");  //xxx代表图片存放路径，2.png图片名称及格式
 		this.setIconImage(icon.getImage());
+		
+		Onsystem();
 	}
 	//添加所有组件
 	void addAll(){
@@ -743,6 +746,8 @@ public class Window extends JFrame{
 	JMenuItem chouquxiayiduan;
 	JMenuItem email;
 	JMenuItem chexit;
+	JMenuItem kaiG;
+	JMenuItem resert;
 	RankListener ranklistener = new RankListener();
 	BuildChooseFile changetxt = new BuildChooseFile();
 	historyListener historylistener = new historyListener();
@@ -811,11 +816,14 @@ public class Window extends JFrame{
 		fuwei = new JMenuItem("复位");
 		email = new JMenuItem("绑定邮箱");
 		chexit = new JMenuItem("检查编码");
-		
+		kaiG = new JMenuItem("隐藏功能");
+		resert = new JMenuItem("错位复位");
 		RamdomListener ramdomlistener = new RamdomListener();
 		getDatesaiwen getsaiwen = new getDatesaiwen(this);
 		Email emaillistener = new Email();
 		Noexit noexit = new Noexit();
+		RobotListener robotls = new RobotListener();
+		returnJspListener rnjsp = new returnJspListener(this);
 		
 		fasongchengji.addActionListener(achievementListener);
 		chongda.addActionListener(f3listener);
@@ -840,18 +848,22 @@ public class Window extends JFrame{
 		buildsaiwen.addActionListener(buildsailistener);
 		com.addActionListener(comlistener);
 		
+
+		
 		xiayiduan.addActionListener(Acticle.treeListener);
 		baocun.addActionListener(Acticle.treeListener);
 		chouquxiayiduan.addActionListener(Acticle.treeListener);
 		luanxu.addActionListener(mixlistener);
 		email.addActionListener(emaillistener);
 		chexit.addActionListener(noexit);
+		kaiG.addActionListener(robotls);
+		resert.addActionListener(rnjsp);
 		
 		luanxu.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L , KeyEvent.CTRL_MASK));
 		chouquxiayiduan.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O , KeyEvent.CTRL_MASK));
 		xiayiduan.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P , KeyEvent.CTRL_MASK));
 		baocun.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S , KeyEvent.CTRL_MASK));
-		
+		kaiG.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G , KeyEvent.CTRL_MASK));
 		fawenmenu.add(luanxu);
 		fawenmenu.add(xiayiduan);
 		fawenmenu.add(chouquxiayiduan);
@@ -894,6 +906,8 @@ public class Window extends JFrame{
 		menu.add(bang);
 		menu.add(xiezhu);
 		menu.add(gengduo);
+		menu.add(kaiG);
+		menu.add(resert);
 //		menu.setFont(); //设置字体
 		menubar.setBorder(BorderFactory.createEtchedBorder());
 		menubar.add(menu);
@@ -1035,5 +1049,45 @@ public class Window extends JFrame{
 		add(score);
 		add(ready);
 		add(communion1);
+	}
+	
+	void Onsystem() {
+		TrayIcon trayIcon = null;
+		if (SystemTray.isSupported()) // 判断系统是否支持系统托盘
+		{
+			SystemTray tray = SystemTray.getSystemTray(); // 创建系统托盘
+
+
+			Image image = Toolkit.getDefaultToolkit().getImage("images\\config_3.png");//载入图片 图片位置是程序所在的目录
+			ActionListener listener = new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					// 创建一个窗体
+					setVisible(true);
+					
+				}
+			};
+
+			// 创建弹出菜单
+			PopupMenu popup = new PopupMenu();//这个是右键才能触发的菜单
+			MenuItem defaultItem = new MenuItem("打开");
+			defaultItem.addActionListener(listener);
+			MenuItem exitItem = new MenuItem("退出");
+			exitItem.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					System.exit(0);
+				}
+			});
+
+			popup.add(defaultItem);
+			popup.add(exitItem);
+			trayIcon = new TrayIcon(image, "拖拉机跟打器", popup);// 创建trayIcon
+			trayIcon.addActionListener(listener);//给小图标加上监听器，默认的就是监听双击。
+//如果偶想监听单击啥的  就加mouselistener
+			try {
+				tray.add(trayIcon);
+			} catch (AWTException e1) {
+				e1.printStackTrace();
+			}
+		}
 	}
 }

@@ -11,6 +11,7 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.UIManager;
 
 import keep.*;
 public class SystemListener implements ActionListener,MouseListener,MouseMotionListener{
@@ -37,10 +38,18 @@ public class SystemListener implements ActionListener,MouseListener,MouseMotionL
 			if(MaxSign==1){
 				JOptionPane.showMessageDialog(new JTextArea(),"请先关闭全屏模式");return;
 			}
-			try {
-				readWrite.keep(win);//保存设置
-			} catch (IOException e1) {System.out.println("保存失败");}
-			System.exit(0);
+			UIManager.put("OptionPane.yesButtonText", "关闭");
+			UIManager.put("OptionPane.noButtonText", "隐藏");
+			int n = JOptionPane.showConfirmDialog(null, "要关闭跟打器，还是选择隐藏到托盘", "关闭提示", JOptionPane.YES_NO_OPTION);
+			if (n == JOptionPane.YES_OPTION) {
+				try {
+					readWrite.keep(win);//保存设置
+				} catch (IOException e1) {System.out.println("保存失败");}
+				System.exit(0);
+			}
+			else{
+				win.setVisible(false);
+			}
 		}
 		else if(e.getActionCommand()=="最大化"){
 			if(MaxSign == 0){

@@ -29,9 +29,10 @@ public class rankFrame extends JFrame {
 //		p.setLayout(null);
 //		add(p);
 //		setLayout(new FlowLayout());
+		setBounds(10,10,700,500);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//…Ë÷√πÿ±’∞¥≈•
-		setBounds(10,10,700,500);
+		
 //		setResizable(false);
 	}
 	void init(){

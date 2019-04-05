@@ -33,9 +33,11 @@ public class Clip extends Thread{
 //			AchievementListener.setClipboardString(AchievementListener.getClipboardString());
 		}
 	}
-	void setZaiwenSign() throws InterruptedException{
+	void setZaiwenSign(){
+		try{
 		QQZaiwenListener.zaiwenSign = false;
 		QQZaiwenListener.str = AchievementListener.getClipboardString();
+		System.out.println(QQZaiwenListener.str);
 		QQZaiwenListener.wenbenstr = QQZaiwenListener.regexText.regetText(QQZaiwenListener.str);
 		Window.f3listener.F3();
 		try{
@@ -47,6 +49,8 @@ public class Clip extends Thread{
 		}
 		
 		System.out.println(QQZaiwenListener.zaiwenSign);
+		}catch(Exception ex){ex.printStackTrace();}
+		
 	}
 	void setgendaSign() throws InterruptedException{
 		GendaListener.gendaSign=false;

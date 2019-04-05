@@ -56,7 +56,7 @@ public class heartThread extends Thread{
 			out.writeUTF(Login.banben);
 			String what = in.readUTF();
 			Login.socket.setSoTimeout(0);
-			if(!what.equals("版本正确")){
+			if(!what.substring(0,4).equals("版本正确")){
 				UIManager.put("OptionPane.yesButtonText", "自动更新");
 				UIManager.put("OptionPane.noButtonText", "手动下载");
 				int n = JOptionPane.showConfirmDialog(null, what, "更新提示", JOptionPane.YES_NO_OPTION);

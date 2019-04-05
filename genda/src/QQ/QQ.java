@@ -1,5 +1,6 @@
 package QQ;
 import java.awt.Robot;
+
 import java.awt.event.KeyEvent;
 import org.xvolks.jnative.misc.basicStructures.HWND;
 import org.xvolks.jnative.util.User32;
@@ -15,15 +16,16 @@ public class QQ {
     		System.out.println(winname);
     		User32.SetForegroundWindow(hWnd);	//ÇÐ»»µ½ÁÄÌì´°¿Ú
         	if(i==1){
+        		
     			robot.keyPress(KeyEvent.VK_TAB);
     			robot.keyRelease(KeyEvent.VK_TAB);
     			
     			robot.keyPress(KeyEvent.VK_CONTROL);
-    			robot.keyPress(KeyEvent.VK_A);
-    			robot.keyPress(KeyEvent.VK_C);
+    			robot.keyPress('A');
+    			robot.keyPress('C');
     			
-    			robot.keyRelease(KeyEvent.VK_A);
-        		robot.keyRelease(KeyEvent.VK_C);
+    			robot.keyRelease('A');
+        		robot.keyRelease('C');
         		robot.keyRelease(KeyEvent.VK_CONTROL);
         		
     			}

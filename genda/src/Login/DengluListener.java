@@ -66,7 +66,7 @@ public class DengluListener implements ActionListener{
 //					JOptionPane.showMessageDialog(new JTextArea(),"登录成功");
 					Login.confirm.setText("退出登录");
 					Window.denglu.setText("欢迎："+Login.zhanghao.getText());
-					Window.wenben.setText("登录成功"+"\n"+"欢迎："+Login.zhanghao.getText());
+					Window.wenben.setText("登录成功"+"\n"+"欢迎："+Login.zhanghao.getText()+"\n拖拉机交流群:974172771");
 					Login.zhanghao.setEditable(false);
 					Login.mima.setEditable(false);
 					readWrite.setzm();

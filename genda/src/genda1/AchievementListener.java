@@ -106,7 +106,7 @@ public class AchievementListener extends AbstractAction{
 				" 打词率"+String.format("%.2f", dacilv*100)+
 				"% 选重率"+String.format("%.2f", repeat/length*100)+
 //				"% 峰值"+String.format("%.2f", fengzhi)+
-				"% 拖拉机跟打器v1.50";
+				"% 拖拉机跟打器v1.50 Windows版";
 //		ReadyListener.ReadyDuan++;
 		table.addRow();
 		try{

@@ -131,6 +131,7 @@ public class RWThread148 extends Thread{
 			System.out.print(username+"用户退出\r");
 			if(dengluSign==1){
 				try {
+					System.out.println("最后字数:"+recordNumlast);
 					if(recordNumlast<0)
 						recordNumlast = 0;
 					changeRecord(recordNumlast,recordrightnum,recordmisnum,recorddatenumlast);
