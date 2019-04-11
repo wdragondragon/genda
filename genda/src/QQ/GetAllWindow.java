@@ -22,7 +22,6 @@ public class GetAllWindow
 					continue;
 				name.add(WindowUtils.getWindowTitle(wnd));
 			}
-			
 		}
 		catch (Exception e)
 		{

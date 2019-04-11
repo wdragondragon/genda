@@ -204,7 +204,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 				if(Window.one.isVisible())
 					battleClient.send.send();	//发送服务器信息
 			}catch(Exception ex){System.out.println("发送对战消息失败gen227");}
-			if(str1.length()==str2.length()&&a.equals(b))		//两文本长度相等且最后一字相同时执行
+			if(str1.length()==str2.length()&&a.equals(b)&&!Window.Pattern)		//两文本长度相等且最后一字相同时执行
 			{
 				dazi.setEditable(false);		//设置不可打字状态
 //				sign = 2;//可以生成成绩状态

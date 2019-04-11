@@ -32,6 +32,7 @@ import Acticle.*;
 import BuildSai.BuildSaiListener;
 import Communication.CommunicationListener;
 import keep.readWrite;
+import lookplay.AchListener;
 @SuppressWarnings("serial")
 public class Window extends JFrame{
 	public static String IP = "39.96.83.89";
@@ -57,6 +58,7 @@ public class Window extends JFrame{
 	public static String family = "微软雅黑";
 //	public static String IP = "127.0.0.1";
 	public static String Email = "";
+	public static boolean Pattern =false;
 	Font ziti,zititip;
 	JLabel qqName;
 	static JLabel zishu;
@@ -85,6 +87,9 @@ public class Window extends JFrame{
 	JButton save;
 	JButton share;
 	JButton chouqu;
+	
+	JButton lookplayfinish;
+	
 	public static JButton lilunma;
 	public static JButton dinglilunma;
 	JTable table;
@@ -108,6 +113,7 @@ public class Window extends JFrame{
 	HelpDialog helpListener;
 	ChangeQQWindow changeQQwindow;
 	TheoryListener theorylistener;
+	AchListener lookplaylistener;
 	
 	JScrollBar JSBwenben;
 	InputMap F3Key,zaiwenKey,qqzaiwenKey,sendChengji,readyKey,shareKey,changeQQButtonKey,setKey,fawenKey;
@@ -387,6 +393,8 @@ public class Window extends JFrame{
 		save = new JButton("保存跟打进度");
 		share = new JButton("分享发文");
 		chouqu = new JButton("抽取模式发文");
+		lookplayfinish = new JButton("跟打");
+		
 		
 		gendaListener = new GendaListener();//打字框监视器
 		f3listener = new F3Listener();//F3按钮监视器
@@ -406,6 +414,7 @@ public class Window extends JFrame{
 		sharelistener = new ShareListener(qqName);
 		tipschange = new Tips(tips);
 		theorylistener = new TheoryListener();
+		lookplaylistener = new AchListener();
 		
 		setGendajindu = new GendaJindutiao();
 		JSBwenben = wenben1.getVerticalScrollBar();
@@ -474,6 +483,7 @@ public class Window extends JFrame{
 		add(chouqu);
 		add(zxbanben);
 		add(dqbanben);
+		add(lookplayfinish);
 	}
 	//给所有组件设置监视器
 	void addAllListener(){
@@ -748,6 +758,8 @@ public class Window extends JFrame{
 	JMenuItem chexit;
 	JMenuItem kaiG;
 	JMenuItem resert;
+	
+	JMenuItem lookplay;
 	RankListener ranklistener = new RankListener();
 	BuildChooseFile changetxt = new BuildChooseFile();
 	historyListener historylistener = new historyListener();
@@ -818,6 +830,8 @@ public class Window extends JFrame{
 		chexit = new JMenuItem("检查编码");
 		kaiG = new JMenuItem("隐藏功能");
 		resert = new JMenuItem("错位复位");
+		lookplay = new JMenuItem("成绩提交");
+		
 		RamdomListener ramdomlistener = new RamdomListener();
 		getDatesaiwen getsaiwen = new getDatesaiwen(this);
 		Email emaillistener = new Email();
@@ -858,12 +872,16 @@ public class Window extends JFrame{
 		chexit.addActionListener(noexit);
 		kaiG.addActionListener(robotls);
 		resert.addActionListener(rnjsp);
+		lookplayfinish.addActionListener(lookplaylistener);
+		lookplay.addActionListener(lookplaylistener);
 		
 		luanxu.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L , KeyEvent.CTRL_MASK));
 		chouquxiayiduan.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O , KeyEvent.CTRL_MASK));
 		xiayiduan.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P , KeyEvent.CTRL_MASK));
 		baocun.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S , KeyEvent.CTRL_MASK));
 		kaiG.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G , KeyEvent.CTRL_MASK));
+		lookplay.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER , KeyEvent.CTRL_MASK));
+		
 		fawenmenu.add(luanxu);
 		fawenmenu.add(xiayiduan);
 		fawenmenu.add(chouquxiayiduan);
@@ -882,6 +900,7 @@ public class Window extends JFrame{
 		base.add(jqbzaiwen);
 		base.add(chexit);
 		base.add(fawenmenu);
+		base.add(lookplay);
 		
 		linkbase.add(paiming);
 		linkbase.add(zxdv);
@@ -1066,19 +1085,37 @@ public class Window extends JFrame{
 					
 				}
 			};
-
+			ActionListener lookda = new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					if(Pattern){
+						Pattern=false;
+						System.out.println("跟打");
+						lookplayfinish.setText("跟打");
+					}
+					else{
+						Pattern=true;
+						lookplayfinish.setText("看打");
+						System.out.println("看打");
+						JTextPaneChange.createStyle("黑",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,new Color(238,238,238));
+						JTextPaneChange.createStyle("红",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,new Color(238,238,238));
+					}
+					
+				}
+			};
 			// 创建弹出菜单
 			PopupMenu popup = new PopupMenu();//这个是右键才能触发的菜单
 			MenuItem defaultItem = new MenuItem("打开");
 			defaultItem.addActionListener(listener);
+			MenuItem change = new MenuItem("看/跟");
+			change.addActionListener(lookda);
 			MenuItem exitItem = new MenuItem("退出");
 			exitItem.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					System.exit(0);
 				}
 			});
-
 			popup.add(defaultItem);
+			popup.add(change);
 			popup.add(exitItem);
 			trayIcon = new TrayIcon(image, "拖拉机跟打器", popup);// 创建trayIcon
 			trayIcon.addActionListener(listener);//给小图标加上监听器，默认的就是监听双击。

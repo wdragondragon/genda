@@ -11,6 +11,7 @@ import java.io.IOException;
 import javax.swing.*;
 import Tips.*;
 import keep.KeyPassword;
+import lookplay.AchListener;
 import Login.Login;
 import QQ.QQ;
 
@@ -86,6 +87,10 @@ public class AchievementListener extends AbstractAction{
 			Keymethod = left/right;
 		else 
 			Keymethod = 1;
+		
+		if(Window.Pattern)
+			mistake=0;
+		
 		Keyaccuracy = (KeyNumber-deleteNumber*2-deleteTextNumber*(1.0*Window.tipschange.alllength/QQZaiwenListener.wenbenstr.length()))/KeyNumber;
 		dacilv = ((double)(gendaListener.daciall)/(QQZaiwenListener.wenbenstr.length()+deleteTextNumber));
 		gendageshi = 
@@ -104,9 +109,14 @@ public class AchievementListener extends AbstractAction{
 				"% 键法"+String.format("%.2f",Keymethod*100)+
 				"%(左"+String.valueOf((int)left)+":右"+String.valueOf((int)right)+":空格"+String.valueOf(space)+")"+
 				" 打词率"+String.format("%.2f", dacilv*100)+
-				"% 选重率"+String.format("%.2f", repeat/length*100)+
+				"% 选重率"+String.format("%.2f", repeat/length*100);
 //				"% 峰值"+String.format("%.2f", fengzhi)+
-				"% 拖拉机跟打器v1.50 Windows版";
+				
+		
+		if(Window.Pattern)
+			gendageshi+="% 拖拉机跟打器v1.50 Windows版  看打版 "+AchListener.lookplay;
+		else
+			gendageshi += "% 拖拉机跟打器v1.50 Windows版";
 //		ReadyListener.ReadyDuan++;
 		table.addRow();
 		try{

@@ -33,7 +33,7 @@ public class SetBackground implements ActionListener {
 		else if(e.getActionCommand()=="打错字颜色"){
 			Window.mistakecolor = JColorChooser.showDialog(win, "调色板", Color.red);
 			if(Window.mistakecolor!=null)
-				JTextPaneChange.createStyle("红",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Window.mistakecolor,Window.family,Window.mistakecolor);
+				JTextPaneChange.createStyle("红",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);
 		}
 		else if(e.getActionCommand()=="整体界面颜色"){
 			tempColor = JColorChooser.showDialog(win, "调色板", Color.red);
