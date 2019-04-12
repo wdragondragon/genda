@@ -89,7 +89,7 @@ public class AchievementListener extends AbstractAction{
 			Keymethod = 1;
 		
 		if(Window.Pattern)
-			mistake=0;
+			mistake=AchListener.duo+AchListener.lou+AchListener.mistake;
 		
 		Keyaccuracy = (KeyNumber-deleteNumber*2-deleteTextNumber*(1.0*Window.tipschange.alllength/QQZaiwenListener.wenbenstr.length()))/KeyNumber;
 		dacilv = ((double)(gendaListener.daciall)/(QQZaiwenListener.wenbenstr.length()+deleteTextNumber));

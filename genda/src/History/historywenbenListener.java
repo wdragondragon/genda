@@ -19,6 +19,7 @@ public class historywenbenListener implements ActionListener {
 	String a;
 	DataOutputStream out;
 	DataInputStream in;
+	ShowWen sw = new ShowWen();
 	historywenbenListener(JTextField lookcow){
 		this.lookcow = lookcow;
 	}
@@ -38,7 +39,8 @@ public class historywenbenListener implements ActionListener {
 			String wen = in.readUTF();
 			System.out.println(wen);
 			socket = null;
-			new ShowWen(wen);
+			sw.setVisible(true);
+			sw.showwen(wen);
 		}
 		catch(Exception e){System.out.println("发送获取内容失败");e.printStackTrace();}
 	}

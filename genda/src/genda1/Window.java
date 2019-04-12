@@ -394,7 +394,7 @@ public class Window extends JFrame{
 		share = new JButton("分享发文");
 		chouqu = new JButton("抽取模式发文");
 		lookplayfinish = new JButton("跟打");
-		
+		lookplayfinish.setToolTipText("看打算法由英打群群主“凌风”友情优化");
 		
 		gendaListener = new GendaListener();//打字框监视器
 		f3listener = new F3Listener();//F3按钮监视器
@@ -872,7 +872,7 @@ public class Window extends JFrame{
 		chexit.addActionListener(noexit);
 		kaiG.addActionListener(robotls);
 		resert.addActionListener(rnjsp);
-		lookplayfinish.addActionListener(lookplaylistener);
+		lookplayfinish.addActionListener(lookda);
 		lookplay.addActionListener(lookplaylistener);
 		
 		luanxu.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L , KeyEvent.CTRL_MASK));
@@ -1069,7 +1069,24 @@ public class Window extends JFrame{
 		add(ready);
 		add(communion1);
 	}
-	
+	ActionListener lookda = new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			if(Pattern){
+				Pattern=false;
+				System.out.println("跟打");
+				lookplayfinish.setText("跟打");
+				JTextPaneChange.createStyle("黑",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.rightcolor);
+				JTextPaneChange.createStyle("红",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);
+			}
+			else{
+				Pattern=true;
+				lookplayfinish.setText("看打");
+				System.out.println("看打");
+				JTextPaneChange.createStyle("黑",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,new Color(238,238,238));
+				JTextPaneChange.createStyle("红",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,new Color(238,238,238));
+			}
+		}
+	};
 	void Onsystem() {
 		TrayIcon trayIcon = null;
 		if (SystemTray.isSupported()) // 判断系统是否支持系统托盘
@@ -1082,23 +1099,6 @@ public class Window extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 					// 创建一个窗体
 					setVisible(true);
-					
-				}
-			};
-			ActionListener lookda = new ActionListener(){
-				public void actionPerformed(ActionEvent e){
-					if(Pattern){
-						Pattern=false;
-						System.out.println("跟打");
-						lookplayfinish.setText("跟打");
-					}
-					else{
-						Pattern=true;
-						lookplayfinish.setText("看打");
-						System.out.println("看打");
-						JTextPaneChange.createStyle("黑",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,new Color(238,238,238));
-						JTextPaneChange.createStyle("红",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,new Color(238,238,238));
-					}
 					
 				}
 			};
