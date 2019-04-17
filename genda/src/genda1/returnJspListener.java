@@ -11,7 +11,7 @@ public class returnJspListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		win.jSplitPane2.setBounds(10,win.F3.getY()+win.F3.getHeight()+5,win.getWidth()-10,win.getHeight()-95);
+		win.jSplitPane1.setBounds(5,win.suduButton.getY()+win.suduButton.getHeight()+5, win.getWidth()-5,win.getHeight()-95);
 	}
 
 }

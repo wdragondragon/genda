@@ -61,12 +61,15 @@ public class AchievementListener extends AbstractAction{
 				System.out.println("无法发送文本内容F1");
 			}
 			setClipboardString(gendageshi);//将成绩段放入剪切板
-			QQ qq = new QQ();
+		
+			
 			try {			//发送成绩给QQ窗口
-				qq.sendMessage(2,qqName.getText());
+				QQ qq = new QQ();
+				if(Example.systemname.substring(0,7).equals("Windows"))
+					qq.sendMessage(2,qqName.getText());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
-				System.out.println("载文错误");
+				System.out.println("发送成绩错误");
 			}
 		}
 	}
@@ -93,30 +96,54 @@ public class AchievementListener extends AbstractAction{
 		
 		Keyaccuracy = (KeyNumber-deleteNumber*2-deleteTextNumber*(1.0*Window.tipschange.alllength/QQZaiwenListener.wenbenstr.length()))/KeyNumber;
 		dacilv = ((double)(gendaListener.daciall)/(QQZaiwenListener.wenbenstr.length()+deleteTextNumber));
+		
 		gendageshi = 
-				"第"+RegexText.duan1+
-				"段 速度"+String.format("%.2f", sudu)+
-				" 击键"+String.format("%.2f",KeyNumber/second)+
-				" 码长"+String.format("%.2f", KeyNumber/length)+
-				" 标顶理论"+String.format("%.2f", Tips.dingalllength/QQZaiwenListener.wenbenstr.length())+
-				" 文章难度"+String.format("%.2f", Tips.dengji)+
-				" 字数"+(int)(length)+" 回改"+(int)(deleteTextNumber)+
-				" 退格"+(int)(deleteNumber)+
-				" 错字"+(int)(mistake)+
-				" 键数"+(int)(KeyNumber)+
-				" 选重"+(int)(repeat)+
-				" 键准"+String.format("%.2f",Keyaccuracy*100)+
-				"% 键法"+String.format("%.2f",Keymethod*100)+
-				"%(左"+String.valueOf((int)left)+":右"+String.valueOf((int)right)+":空格"+String.valueOf(space)+")"+
-				" 打词率"+String.format("%.2f", dacilv*100)+
-				"% 选重率"+String.format("%.2f", repeat/length*100);
-//				"% 峰值"+String.format("%.2f", fengzhi)+
+				"第"+RegexText.duan1;
+		if(mistake==0)
+			gendageshi += 
+			"段 速度"+String.format("%.2f", sudu)+
+			" 击键"+String.format("%.2f",KeyNumber/second)+
+			" 码长"+String.format("%.2f", KeyNumber/length)+
+			" 标顶理论"+String.format("%.2f", Tips.dingalllength/QQZaiwenListener.wenbenstr.length())+
+			" 文章难度"+String.format("%.2f", Tips.dengji)+
+			" 字数"+(int)(length)+" 回改"+(int)(deleteTextNumber)+
+			" 退格"+(int)(deleteNumber)+
+			" 错字"+(int)(mistake)+
+			" 键数"+(int)(KeyNumber)+
+			" 选重"+(int)(repeat)+
+			" 键准"+String.format("%.2f",Keyaccuracy*100)+
+			"% 键法"+String.format("%.2f",Keymethod*100)+
+			"%(左"+String.valueOf((int)left)+":右"+String.valueOf((int)right)+":空格"+String.valueOf(space)+")"+
+			" 打词率"+String.format("%.2f", dacilv*100)+
+			"% 选重率"+String.format("%.2f", repeat/length*100)+
+			"% 拖拉机跟打器v"+
+			Login.banben+
+			Example.systemname+"版 ";
+		else
+			gendageshi += 
+			"段 速度"+String.format("%.2f", sudu)+"/"+String.format("%.2f",Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),0))+
+			" 击键"+String.format("%.2f",KeyNumber/second)+
+			" 码长"+String.format("%.2f", KeyNumber/length)+
+			" 标顶理论"+String.format("%.2f", Tips.dingalllength/QQZaiwenListener.wenbenstr.length())+
+			" 文章难度"+String.format("%.2f", Tips.dengji)+
+			" 字数"+(int)(length)+" 回改"+(int)(deleteTextNumber)+
+			" 退格"+(int)(deleteNumber)+
+			" 错字"+(int)(mistake)+
+			" 键数"+(int)(KeyNumber)+
+			" 选重"+(int)(repeat)+
+			" 键准"+String.format("%.2f",Keyaccuracy*100)+
+			"% 键法"+String.format("%.2f",Keymethod*100)+
+			"%(左"+String.valueOf((int)left)+":右"+String.valueOf((int)right)+":空格"+String.valueOf(space)+")"+
+			" 打词率"+String.format("%.2f", dacilv*100)+
+			"% 选重率"+String.format("%.2f", repeat/length*100)+
+			"% 拖拉机跟打器 "+
+			Login.banben+" "+
+			Example.systemname+"版 ";
 				
 		
+		
 		if(Window.Pattern)
-			gendageshi+="% 拖拉机跟打器v1.50 Windows版  看打版 "+AchListener.lookplay;
-		else
-			gendageshi += "% 拖拉机跟打器v1.50 Windows版";
+			gendageshi+=" 看打版 "+AchListener.lookplay;
 //		ReadyListener.ReadyDuan++;
 		table.addRow();
 		try{

@@ -12,6 +12,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.io.*;
+
+import javax.swing.JSplitPane;
+
 import Login.*;
 import SetWin.SetCharListener;
 import SetWin.SetFrame;
@@ -29,7 +32,7 @@ public class readWrite
 	{
 //		if(win.one.isVisible())
 //			win.setSize(win.getWidth(),winchange.bottom+7);
-//		System.out.println(Window.rightcolor.getRGB());
+		System.out.println(win.jSplitPane1.getDividerLocation());
 		rString = "%"+String.valueOf(win.getWidth())
 				+"%"+String.valueOf(win.getHeight())
 				+"%"+String.valueOf(win.getX())
@@ -39,9 +42,9 @@ public class readWrite
 				+"%"+String.valueOf(MoreListener.MoreSign)
 				+"%"+Login.zhanghao.getText()
 				+"%"+String.valueOf(win.jSplitPane1.getDividerLocation())
-				+"%"+String.valueOf(win.jSplitPane2.getDividerLocation())
-				+"%"+String.valueOf(win.jSplitPane2.getWidth())
-				+"%"+String.valueOf(win.jSplitPane2.getHeight())
+				+"%"+String.valueOf(win.jSplitPane1.getDividerLocation())
+				+"%"+String.valueOf(win.jSplitPane1.getWidth())
+				+"%"+String.valueOf(win.jSplitPane1.getHeight())
 				+"%"+String.valueOf(SetFrameQianshuiListener.qianshui)
 				+"%"+String.valueOf(Window.rightcolor.getRed())
 				+"%"+String.valueOf(Window.rightcolor.getGreen())
@@ -169,7 +172,7 @@ public class readWrite
 			
 			int sp1width = Integer.parseInt(rString.substring(num[43],num[44]-1));
 			int sp1height = Integer.parseInt(rString.substring(num[44]));
-			win.setBounds(x,y,width,height);
+			
 			
 			Window.rightcolor = new Color(rightR,rightG,rightB);
 			Window.mistakecolor = new Color(misR,misG,misB);
@@ -211,16 +214,12 @@ public class readWrite
 			ChooseFile.cizufilename = cizufilename;
 			System.out.println("读配置:"+cizufilename);
 			Window.tipschange = new Tips(Window.tips);
+
+			Window.jSplitPane1.setSize(sp1width,sp1height);
+		    Window.jSplitPane1.setDividerLocation(sp1);
 			
-			win.jSplitPane2.setSize(sp2width,sp2height);
-			win.jSplitPane1.setSize(sp1width,sp1height);
-//			win.jSplitPane2.setDividerLocation(0.9);
-//			win.jSplitPane1.setBounds(205,win.F3.getY()+win.F3.getHeight()+5,sp2width/2,sp2height/2);
-			
-			win.jSplitPane2.setDividerLocation(sp2);
-			win.jSplitPane1.setDividerLocation(sp1);
-			
-			
+			win.setBounds(x,y,width,height);
+	
 			SetFrameQianshuiListener.qianshui = qianshui;
 			if(qianshui == 1){
 				SetFrameQianshuiListener.qianshui1.setText("潜水跟打\"已开\"");
@@ -338,4 +337,5 @@ public class readWrite
 		wStream.close();
 		fWrite.close();
 	}
+	
 }

@@ -30,7 +30,7 @@ public class Login extends JFrame implements ActionListener{
 	JButton zhuce;
 	JButton wangmi;
 	JButton tuichu;
-	public static String banben = "版本1.506";
+	public static String banben = "版本1.600";
 	public static String zxbanben = "";
 	public static int port = 1230;
 	public static JTextField zhanghao;
@@ -109,7 +109,10 @@ public class Login extends JFrame implements ActionListener{
 				int n = JOptionPane.showConfirmDialog(null, what, "更新提示", JOptionPane.YES_NO_OPTION);
 				if (n == JOptionPane.YES_OPTION) {
 					// ......
-					Runtime.getRuntime().exec("更新.exe");
+					if(Example.systemname.length()>=7&&Example.systemname.substring(0,7).equals("Windows"))
+						Runtime.getRuntime().exec("更新.exe");
+					else
+						Runtime.getRuntime().exec("java -jar update.jar");
 					System.exit(0);
 				} else if (n == JOptionPane.NO_OPTION) {
 					// ......

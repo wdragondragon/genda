@@ -71,7 +71,7 @@ public class RegexText {
 		str = huanfu(str);
 		duan = duan.replaceAll(regex,"");
 		duan1 = Integer.valueOf(duan);
-		System.out.println(SendWenben.title+":"+str);
+		System.out.println("БъЬт:"+SendWenben.title+"\n"+str);
 		return str;
 	}
 	public static String huanfu(String str){

@@ -3,7 +3,6 @@ package Robots;
 import java.awt.AWTException;
 import java.awt.Robot;
 
-import com.sun.glass.events.KeyEvent;
 
 import Tips.Tips;
 

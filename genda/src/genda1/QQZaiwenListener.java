@@ -31,30 +31,17 @@ public class QQZaiwenListener extends AbstractAction{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		if(SendWenben.sendwenSign==1){JOptionPane.showMessageDialog(new JTextArea(),"先结束发文");return;}
+		if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"请先结束每日赛文");return;}
 		try {
-			if(SendWenben.sendwenSign==1){JOptionPane.showMessageDialog(new JTextArea(),"先结束发文");return;}
-			if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"请先结束每日赛文");return;}
-//			AchievementListener.setClipboardString("");
-			QQ.sendMessage(1,qqName.getText());
-//			str = AchievementListener.getClipboardString();
-//			wenbenstr = regexText.regetText(str);
-//			System.out.println(wenbenstr);
-			
-//			Window.f3listener.F3();
-//			try{
-//				DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
-//				out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+wenbenstr+"%0"+"%"+Login.zhanghao.getText());
-//			}
-//			catch(Exception ex){
-//				System.out.println("无法发送文本内容");
-//			}
-			System.out.println(zaiwenSign);
-			zaiwenSign = true;
+			if(Example.systemname.substring(0,7).equals("Windows"))
+				QQ.sendMessage(1,qqName.getText());
 		} catch (Exception ex) {
 			// TODO Auto-generated catch block
 			System.out.println("载文失败");
-			ex.printStackTrace();
+//			ex.printStackTrace();
 		}
+		zaiwenSign = true;
 	}
 	public void setDaziText(JTextArea t){
 		dazi = t;

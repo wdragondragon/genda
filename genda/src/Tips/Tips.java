@@ -277,7 +277,7 @@ public class Tips{
 								length = length-1;
 								cixuansign=1;
 							}
-							System.out.print(length);
+//							System.out.print(length);
 							for(int k=j;k<j+i+2;k++){
 								if(length<3){
 									if(cixuansign==0)
@@ -423,8 +423,8 @@ public class Tips{
 		dingshowstr = RegexText.biaoding(showstr.toString());
 		dingalllength = dingshowstr.length();
 		alllength = showstr.length();
-		System.out.println("\n理论:"+alllength);
-		System.out.println("\n标定:"+dingalllength);
+		System.out.println("理论:"+alllength);
+		System.out.println("标定:"+dingalllength);
 //		dengji = (1*4*qmc+
 //				5*4*smc
 //				+3*3*emc

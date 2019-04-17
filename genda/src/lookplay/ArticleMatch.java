@@ -61,10 +61,10 @@ public class ArticleMatch {
 				}
 			}
 		}
-		int destX = lenOrigin - 1;
-		int destY = lenTyped - 1;
-		int curX = destX;
-		int curY = destY;
+//		int destX = lenOrigin - 1;
+//		int destY = lenTyped - 1;
+		int curX = lenOrigin;
+		int curY = lenTyped;
 		int[] resOrigin = new int[lenOrigin];
 		int[] resTyped = new int[lenTyped];
 		ArrayList<int[]> a = new ArrayList<int[]>();
@@ -79,6 +79,7 @@ public class ArticleMatch {
 					resOrigin[curX - 1] = 1;	
 				} else {					//less word
 					resTyped[curY - 1] = 1;
+					
 				}
 			}
 			curX = prevX;

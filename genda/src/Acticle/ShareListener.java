@@ -35,6 +35,7 @@ public class ShareListener extends AbstractAction {
 		AchievementListener.setClipboardString(share); //将成绩放入剪贴板
 		System.out.println(AchievementListener.getClipboardString());
 		try {
+			if(Example.systemname.substring(0,7).equals("Windows"))
 			QQ.sendMessage(2,qqName.getText());
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block

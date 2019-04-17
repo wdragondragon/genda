@@ -10,8 +10,8 @@ public class winchange extends Thread implements ActionListener {
 	JTextArea dazi;
 	JTextPane wenben;
 	JScrollPane accept;
-	JSplitPane jSplitPane2;
 	JSplitPane jSplitPane1;
+//	JSplitPane jSplitPane1;
 	Window win;
 	JScrollPane tableN;
 	JProgressBar gendajindutiao;
@@ -25,11 +25,11 @@ public class winchange extends Thread implements ActionListener {
 	int move = 215;
 	int jsplitX = 0;
 
-	winchange(JButton ce,JButton size,JButton max,JButton close,JTextPane one,JTextArea two,JScrollPane accept,JSplitPane jSplitPane1,JSplitPane jSplitPane2,Window win,JScrollPane tableN,JProgressBar gendajindutiao){
+	winchange(JButton ce,JButton size,JButton max,JButton close,JTextPane one,JTextArea two,JScrollPane accept,JSplitPane jSplitPane1,Window win,JScrollPane tableN,JProgressBar gendajindutiao){
 		this.wenben = one;
 		this.dazi = two;
 		this.jSplitPane1 = jSplitPane1;
-		this.jSplitPane2=jSplitPane2;
+//		this.jSplitPane1=jSplitPane2;
 		this.win = win;
 		this.tableN = tableN;
 		this.gendajindutiao = gendajindutiao;
@@ -48,8 +48,8 @@ public class winchange extends Thread implements ActionListener {
 					}
 				sleep(1);
 				shuweizhi = jSplitPane1.getDividerLocation();
-				hengweizhi = jSplitPane2.getWidth();
-					jsplitX = 10;
+				hengweizhi = jSplitPane1.getWidth();
+					jsplitX = 5;
 				if(n<=0){
 					sleep(500);
 					heightOne = heigthTwo;
@@ -61,34 +61,36 @@ public class winchange extends Thread implements ActionListener {
 					if(!accept.isVisible()){
 						heightOne = heigthTwo;
 						heigthTwo = win.getHeight();
-						jSplitPane2.setBounds(jsplitX,win.suduButton.getY()+win.suduButton.getHeight()+5,move-5,jSplitPane2.getHeight()+(heigthTwo-heightOne));//295
-						gendajindutiao.setBounds(jsplitX,jSplitPane2.getY()+jSplitPane2.getHeight()+(heigthTwo-heightOne),move-5,10);//341
+						jSplitPane1.setBounds(jsplitX,win.suduButton.getY()+win.suduButton.getHeight()+5,move-5,jSplitPane1.getHeight()+(heigthTwo-heightOne));//295
+						gendajindutiao.setBounds(jsplitX,jSplitPane1.getY()+jSplitPane1.getHeight()+(heigthTwo-heightOne),move-5,10);//341
 						accept.setBounds(jsplitX,accept.getY()+(heigthTwo-heightOne),move-5,200);//460
 						size.setBounds(win.getWidth()-10,win.getHeight()-10,10,10);
-						ce.setBounds(jSplitPane2.getX()+jSplitPane2.getWidth(),jSplitPane2.getY(),5,jSplitPane2.getHeight());
+						ce.setBounds(jSplitPane1.getX()+jSplitPane1.getWidth(),jSplitPane1.getY(),5,jSplitPane1.getHeight());
+						
 					}
 					else{
-						jSplitPane2.setBounds(jsplitX,win.suduButton.getY()+win.suduButton.getHeight()+5,move-5-200,jSplitPane2.getHeight());//295
-						gendajindutiao.setBounds(jsplitX,jSplitPane2.getY()+jSplitPane2.getHeight(),move-5-200,10);//341
+						jSplitPane1.setBounds(jsplitX,win.suduButton.getY()+win.suduButton.getHeight()+5,move-5-200,jSplitPane1.getHeight());//295
+						gendajindutiao.setBounds(jsplitX,jSplitPane1.getY()+jSplitPane1.getHeight(),move-5-200,10);//341
 						accept.setBounds(jsplitX,gendajindutiao.getY()+gendajindutiao.getHeight()+45,move-5-200,200);//460
 						
 						size.setBounds(win.getWidth()-10,win.getHeight()-10,10,10);
-						ce.setBounds(jSplitPane2.getX()+jSplitPane2.getWidth(),jSplitPane2.getY(),5,jSplitPane2.getHeight());
+						ce.setBounds(jSplitPane1.getX()+jSplitPane1.getWidth(),jSplitPane1.getY(),5,jSplitPane1.getHeight());
 						
 					}
 					close.setBounds(win.getWidth()-20,0,20,10);
 					max.setBounds(win.getWidth()-42,0,20,10);
 					win.min.setBounds(win.getWidth()-63,0,20,10);
-					win.qqName.setBounds(jSplitPane2.getX(),jSplitPane2.getY()+jSplitPane2.getHeight()+10,120,40);
-					win.zishu.setBounds(jSplitPane2.getX()+win.qqName.getWidth()+5,jSplitPane2.getY()+jSplitPane2.getHeight()+10,(win.zishu.getText().length()-5)*7+5*12,40);
-					win.allnumber.setBounds(jSplitPane2.getX()+(win.qqName.getWidth()+win.zishu.getWidth()+10),jSplitPane2.getY()+jSplitPane2.getHeight()+10,(win.allnumber.getText().length()-4)*7+4*12,40);
-					win.tips.setBounds(jSplitPane2.getX()+(win.qqName.getWidth()+win.zishu.getWidth()+win.allnumber.getWidth()+15),jSplitPane2.getY()+jSplitPane2.getHeight()+10,80,40);
-					win.sendwen.setBounds(jSplitPane2.getX()+(win.qqName.getWidth()+win.zishu.getWidth()+win.allnumber.getWidth()+win.tips.getWidth()+20),jSplitPane2.getY()+jSplitPane2.getHeight()+10,win.sendwen.getText().length()*8,40);
+					win.qqName.setBounds(jSplitPane1.getX()-5,jSplitPane1.getY()+jSplitPane1.getHeight()+10,120,40);
+					win.zishu.setBounds(jSplitPane1.getX()-5+win.qqName.getWidth()+5,jSplitPane1.getY()+jSplitPane1.getHeight()+10,(win.zishu.getText().length()-5)*7+5*12,40);
+					win.allnumber.setBounds(jSplitPane1.getX()-5+(win.qqName.getWidth()+win.zishu.getWidth()+10),jSplitPane1.getY()+jSplitPane1.getHeight()+10,(win.allnumber.getText().length()-4)*7+4*12,40);
+					win.tips.setBounds(jSplitPane1.getX()-5+(win.qqName.getWidth()+win.zishu.getWidth()+win.allnumber.getWidth()+15),jSplitPane1.getY()+jSplitPane1.getHeight()+10,80,40);
+					win.sendwen.setBounds(jSplitPane1.getX()-5+(win.qqName.getWidth()+win.zishu.getWidth()+win.allnumber.getWidth()+win.tips.getWidth()+20),jSplitPane1.getY()+jSplitPane1.getHeight()+10,win.sendwen.getText().length()*8,40);
 					win.dqbanben.setBounds(win.getWidth()-100,win.getHeight()-50,100,40);
 					win.zxbanben.setBounds(win.getWidth()-100,win.getHeight()-30,100,40);
 					win.lookplayfinish.setBounds(win.sendwen.getX()+win.sendwen.getWidth(), win.sendwen.getY()+5, 100, 30);
+					win.leftce.setBounds(win.jSplitPane1.getX()-5,win.jSplitPane1.getY(),5,jSplitPane1.getHeight());
 					
-					int jswei = jSplitPane2.getX()+jSplitPane2.getWidth()+5;
+					int jswei = jSplitPane1.getX()+jSplitPane1.getWidth()+5;
 					int chawei = win.one.getWidth()+5;
 					win.one.setLocation(jswei, win.one.getY());
 					win.two.setLocation(jswei+chawei, win.two.getY());

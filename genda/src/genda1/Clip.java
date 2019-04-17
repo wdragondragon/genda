@@ -39,7 +39,7 @@ public class Clip extends Thread{
 		try{
 		QQZaiwenListener.zaiwenSign = false;
 		QQZaiwenListener.str = AchievementListener.getClipboardString();
-		System.out.println(QQZaiwenListener.str);
+//		System.out.println(QQZaiwenListener.str);
 		QQZaiwenListener.wenbenstr = QQZaiwenListener.regexText.regetText(QQZaiwenListener.str);
 		Window.f3listener.F3();
 		try{
@@ -50,8 +50,8 @@ public class Clip extends Thread{
 			System.out.println("无法发送文本内容");
 		}
 		
-		System.out.println(QQZaiwenListener.zaiwenSign);
-		}catch(Exception ex){ex.printStackTrace();}
+//		System.out.println(QQZaiwenListener.zaiwenSign);
+		}catch(Exception ex){}
 		
 	}
 	void setgendaSign() throws InterruptedException{

@@ -4,17 +4,26 @@ import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.io.IOException;
+import java.util.Properties;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import keep.readWrite;
 import Login.*;
 import Ranking.rankFrame;
 public class Example{
+	public static String systemname;
 	public static void main(String args[]){
-		int readsign;
+//		int readsign;
 		Window win = new Window();
+		
 		win.setTitle("跟打");
 		win.setBounds(100,100,710,515);
+		
+		Properties props = System.getProperties();
+		systemname = props.getProperty("os.name");
+		System.out.println("操作系统的名称：" + props.getProperty("os.name"));
+        System.out.println("操作系统的版本：" + props.getProperty("os.version"));
 		
 		try {
 			readWrite.read(win);//读取保存的设置

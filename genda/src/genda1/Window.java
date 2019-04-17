@@ -27,6 +27,7 @@ import Tips.TheoryListener;
 import Tips.Tips;
 
 import java.awt.event.*;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import Acticle.*;
 import BuildSai.BuildSaiListener;
@@ -65,7 +66,8 @@ public class Window extends JFrame{
 	JLabel allnumber;
 	public JLabel sendwen;
 	public static JLabel dqbanben,zxbanben;
-	JScrollPane wenben1,dazi1,chengji1,zaiwenText1,tableN;
+	JScrollPane wenben1,dazi1,chengji1,zaiwenText1;
+	public static JScrollPane tableN;
 	
 	JButton F3;
 	JButton zaiwen,more;
@@ -80,7 +82,8 @@ public class Window extends JFrame{
 	JButton Keylength;
 	JButton close,max,size,min;
 	JButton changeQQButton;
-	JButton ce;
+	JButton rightce;
+	JButton leftce;
 	JButton acticlebutton;
 	JButton mix;
 	JButton next;
@@ -153,8 +156,8 @@ public class Window extends JFrame{
 	battleClient client;
 	
 	//全局定义
-	public JSplitPane jSplitPane1;
-	public JSplitPane jSplitPane2;
+	public static JSplitPane jSplitPane1;
+//	public JSplitPane jSplitPane2;
 	public static int RoomNum = 0;
 	public static boolean Linksign = true;
 	static public int fontSize = 30;
@@ -386,7 +389,8 @@ public class Window extends JFrame{
 		min = new JButton("最小化");
 		size = new JButton("大小");
 		changeQQButton = new JButton();
-		ce = new JButton();
+		rightce = new JButton();
+		leftce = new JButton();
 		acticlebutton = new JButton("发文");
 		mix = new JButton("该段乱序");
 		next = new JButton("下一段");
@@ -468,7 +472,8 @@ public class Window extends JFrame{
 		add(size);
 		add(changeQQButton);
 		add(Keylength);
-		add(ce);
+		add(rightce);
+		add(leftce);
 		add(acticlebutton);
 		add(allnumber);
 		add(mix);
@@ -513,6 +518,7 @@ public class Window extends JFrame{
 		share.addActionListener(sharelistener);
 		lilunma.addActionListener(theorylistener);
 		dinglilunma.addActionListener(theorylistener);
+		leftce.addActionListener(historylistener);
 	}
 	//所有监视器设置。。。。。。
 	void gendaListenerset(){
@@ -607,6 +613,9 @@ public class Window extends JFrame{
 		wenben.setFont(ziti);
 		dazi.setFont(ziti);
 		chengji.setFont(new Font("微软雅黑",0,20));
+		min.setFont(new Font(family,0,0));
+		max.setFont(new Font(family,0,0));
+		close.setFont(new Font(family,0,0));
 		zaiwenText.setFont(ziti);
 		
 		qqName.setFont(zititip);
@@ -769,20 +778,20 @@ public class Window extends JFrame{
 	void jsplit(){
 		dazi.setDragEnabled(true);
 		jSplitPane1 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true,wenben1,dazi1);
-		jSplitPane1.setBounds(205,F3.getY()+F3.getHeight()+5,900,300);
+		jSplitPane1.setBounds(10,F3.getY()+F3.getHeight()+5,700,420);
 		jSplitPane1.setDividerSize(5);
 		
 		
-		jSplitPane2 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true,jSplitPane1,tableN);
-		add(jSplitPane2);
-		jSplitPane2.setBounds(10,F3.getY()+F3.getHeight()+5,700,420);
-		jSplitPane2.setDividerSize(5);
-		jSplitPane2.setDividerLocation(0.7);
-		jSplitPane1.setDividerLocation(150);
+//		jSplitPane2 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true,jSplitPane1,tableN);
+		add(jSplitPane1);
+//		jSplitPane2.setBounds(10,F3.getY()+F3.getHeight()+5,700,420);
+//		jSplitPane2.setDividerSize(5);
+//		jSplitPane2.setDividerLocation(0.7);
+		jSplitPane1.setDividerLocation(400);
+		System.out.println(jSplitPane1.getDividerLocation());
 //		jSplitPane1.setDividerLocation(150);
-		ce.setBounds(jSplitPane2.getX()-5,jSplitPane2.getY(),5,jSplitPane2.getHeight());
+//		ce.setBounds(jSplitPane2.getX()-5,jSplitPane2.getY(),5,jSplitPane2.getHeight());
 		
-
 
 	}
 	void menu(){
@@ -839,6 +848,7 @@ public class Window extends JFrame{
 		RobotListener robotls = new RobotListener();
 		returnJspListener rnjsp = new returnJspListener(this);
 		
+		
 		fasongchengji.addActionListener(achievementListener);
 		chongda.addActionListener(f3listener);
 		QQQzaiwen.addActionListener(qqzaiwenListener);
@@ -874,6 +884,8 @@ public class Window extends JFrame{
 		resert.addActionListener(rnjsp);
 		lookplayfinish.addActionListener(lookda);
 		lookplay.addActionListener(lookplaylistener);
+		
+		resert.addActionListener(rnjsp);
 		
 		luanxu.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L , KeyEvent.CTRL_MASK));
 		chouquxiayiduan.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O , KeyEvent.CTRL_MASK));
@@ -930,12 +942,12 @@ public class Window extends JFrame{
 //		menu.setFont(); //设置字体
 		menubar.setBorder(BorderFactory.createEtchedBorder());
 		menubar.add(menu);
-		menubar.setBounds(10,10,45,32);
+		menubar.setBounds(5,10,45,32);
 		add(menubar);
 	}
 	void FlowLayout(){
 		
-		Winchg = new winchange(ce,size,max,close,wenben,dazi,accept1,jSplitPane1,jSplitPane2,this,tableN,gendajindutiao);
+		Winchg = new winchange(rightce,size,max,close,wenben,dazi,accept1,jSplitPane1,this,tableN,gendajindutiao);
 		Winchg.start();
 	}
 	
@@ -945,7 +957,7 @@ public class Window extends JFrame{
 		setReadyKey();
 		onlineListener.setRoomNum(reducesudu,one,two,three,four,five,six,seven,eight,link,breaklink,accept1,ready,score,communion1,this);
 		online.addActionListener(onlineListener);
-		ce.addActionListener(onlineListener);
+		rightce.addActionListener(onlineListener);
 		//LINK监视器设置
 		linkListener.setClient(client);
 		linkListener.setCommunion(communion);
@@ -998,10 +1010,10 @@ public class Window extends JFrame{
 		client = new battleClient();
 	}
 	void clientSetBounds(){
-		int x = jSplitPane2.getX()+jSplitPane2.getWidth()+5;
+		int x = jSplitPane1.getX()+jSplitPane1.getWidth()+5;
 		accept1.setBounds(210,460,820,200);
-		one.setBounds(x,jSplitPane2.getY()+30,90,30);
-		two.setBounds(x+one.getWidth()+5,jSplitPane2.getY()+30,90,30);
+		one.setBounds(x,jSplitPane1.getY()+30,90,30);
+		two.setBounds(x+one.getWidth()+5,jSplitPane1.getY()+30,90,30);
 		
 		three.setBounds(x,one.getY()+one.getHeight()+10,90,30);
 		four.setBounds(x+three.getWidth()+5,one.getY()+one.getHeight()+10,90,30);

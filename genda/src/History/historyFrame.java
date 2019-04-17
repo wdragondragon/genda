@@ -42,7 +42,7 @@ public class historyFrame extends JFrame implements ActionListener{
 		
 		init();
 		setVisible(true);
-		setTitle("跟打记录");
+//		setTitle("跟打记录");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//设置关闭按钮
 	}
 	void init(){

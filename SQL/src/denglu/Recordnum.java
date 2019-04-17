@@ -25,16 +25,7 @@ public class Recordnum extends Thread{
     public  static String pass="951753";//mysql登录密码
     public static Connection con;//
     public  static ServerSocket server;//服务器
-//    public static String banben1500 = "版本1.500";
-//    public static String banben1501 = "版本1.501";
-    public static String banben1502 = "版本1.502";
-    public static String banben1503 = "版本1.503";
-    public static String banben1504 = "版本1.504";
-    public static String banben1505 = "版本1.505";
-    public static String banben1506 = "版本1.506";
-    public static String banben1507 = "版本1.507";
-    public static String banben1508 = "版本1.508";
-    public static String banben1509 = "版本1.509";
+    public static ArrayList<String> banben = new ArrayList<String>();
     
     public static String zxbb = "";
     public static int port = 1230;
@@ -86,48 +77,12 @@ public class Recordnum extends Thread{
 				System.out.println(what);
 				
 				zxbb = getBanben();
-//				if(what.equals(banben1500)){
-//					out.writeUTF("版本正确"+banben1500+"最新版本"+zxbb);
-//					//新的线程
-//					new RWThread148(socket).start();
-//				}
-				if(what.equals(banben1502)){
-					out.writeUTF("版本正确"+banben1502+"最新版本"+zxbb);
-					//新的线程
-					new RWThread148(socket).start();
-				}
-				else if(what.equals(banben1503)){
-					out.writeUTF("版本正确"+banben1503+"最新版本"+zxbb);
-					//新的线程
-					new RWThread148(socket).start();
-				}
-				else if(what.equals(banben1504)){
-					out.writeUTF("版本正确"+banben1504+"最新版本"+zxbb);
-					//新的线程
-					new RWThread148(socket).start();
-				}
-				else if(what.equals(banben1505)){
-					out.writeUTF("版本正确"+banben1505+"最新版本"+zxbb);
-					//新的线程
-					new RWThread148(socket).start();
-				}
-				else if(what.equals(banben1506)){
-					out.writeUTF("版本正确"+banben1506+"最新版本"+zxbb);
-					//新的线程
-					new RWThread148(socket).start();
-				}
-				else if(what.equals(banben1507)){
-					out.writeUTF("版本正确"+banben1507+"最新版本"+zxbb);
-					//新的线程
-					new RWThread148(socket).start();
-				}
-				else if(what.equals(banben1508)){
-					out.writeUTF("版本正确"+banben1508+"最新版本"+zxbb);
-					//新的线程
-					new RWThread148(socket).start();
-				}
-				else if(what.equals(banben1509)){
-					out.writeUTF("版本正确"+banben1509+"最新版本"+zxbb);
+				for(int i = 502;i<507;i++)
+					banben.add("版本1."+String.valueOf(i));
+				for(int i = 600;i<605;i++)
+					banben.add("版本1."+String.valueOf(i));
+				if(banben.contains(what)){
+					out.writeUTF("版本正确"+what+"最新版本"+zxbb);
 					//新的线程
 					new RWThread148(socket).start();
 				}

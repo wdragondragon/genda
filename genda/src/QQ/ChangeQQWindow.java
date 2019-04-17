@@ -1,5 +1,7 @@
 package QQ;
 
+import genda1.Example;
+
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
@@ -16,11 +18,15 @@ public class ChangeQQWindow extends AbstractAction{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		if(i==0){
-			ot = new GetQQWindow();
-		}
-		F5.setText(ot.name.get(i));
-		i++;
-		i = i%(ot.name.size());
+		try{
+			if(!Example.systemname.substring(0,7).equals("Windows"))return;
+			
+			if(i==0){
+				ot = new GetQQWindow();
+			}
+			F5.setText(ot.name.get(i));
+			i++;
+			i = i%(ot.name.size());
+		}catch(Exception e){System.out.println("»ñÈ¡QQ´°¿Ú´íÎó");}
 	}
 }
