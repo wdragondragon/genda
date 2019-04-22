@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.AbstractAction;
 
 import Acticle.ActicleListener;
+import Acticle.EnlishRamdom;
 import Acticle.SendWenben;
 
 public class Mix extends AbstractAction{
@@ -22,6 +23,8 @@ public class Mix extends AbstractAction{
 		if(e.getActionCommand().equals("¸Ã¶ÎÂÒÐò")){
 			if(SendWenben.sendwenSign3==1)
 				QQZaiwenListener.wenbenstr = mixstr(ActicleListener.chouqubufenlist,ActicleListener.y);
+			else if(SendWenben.sendwenSign4)
+				QQZaiwenListener.wenbenstr = EnglishMix();
 			else
 				QQZaiwenListener.wenbenstr = mix(QQZaiwenListener.wenbenstr);
 			Window.f3listener.F3();
@@ -50,5 +53,14 @@ public class Mix extends AbstractAction{
 		for(int i=0;i<(chouqulist.size()<y?chouqulist.size():y);i++)
 			str += chouqulist.get(i);
 		return str;
+	}
+	public static String EnglishMix(){
+		String str = "";
+		Collections.shuffle(EnlishRamdom.wordlist);
+		for(int i = 0;i<EnlishRamdom.wordlist.size();i++){
+			str+=EnlishRamdom.wordlist.get(i);
+			str+=" ";
+		}
+		return str.substring(0,str.length()-1);
 	}
 }

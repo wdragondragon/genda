@@ -176,19 +176,7 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 			}
 		}
 		else if(e.getActionCommand().equals("抽取模式发文")||e.getActionCommand().equals("抽取下一段")){
-			if(SendWenben.sendwenSign2==1){
-				getNumber();
-				QQZaiwenListener.wenbenstr = randomCommon(all,fontnum);
-				Window.f3listener.F3();
-				if(SendWenben.sendwenSign2==0){
-					acticle.setVisible(false);
-					RegexText.duan1 = 1;
-					SendWenben.sendwenSign2 = 1;
-				}
-				else
-					RegexText.duan1++;	//发文增段
-			}
-			else if(SendWenben.sendwenSign3==1){
+			if(SendWenben.sendwenSign3==1){
 				chouqubufenlist.clear();
 				Collections.shuffle(chouqulist);
 				String str = "";
@@ -199,7 +187,36 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 				QQZaiwenListener.wenbenstr = str;
 				Window.f3listener.F3();
 				RegexText.duan1++;
+				if(SetFrameQianshuiListener.qianshui==0)ShareListener.send();
 			}
+			else if(e.getActionCommand().equals("抽取模式发文")||SendWenben.sendwenSign2==1){
+				getNumber();
+				QQZaiwenListener.wenbenstr = randomCommon(all,fontnum);
+				Window.f3listener.F3();
+				if(SendWenben.sendwenSign2==0){
+					acticle.setVisible(false);
+					RegexText.duan1 = 1;
+					SendWenben.sendwenSign2 = 1;
+				}
+				else
+					RegexText.duan1++;	//发文增段
+				if(SetFrameQianshuiListener.qianshui==0)ShareListener.send();
+			}
+		}
+		else if(e.getActionCommand().equals("英词练习")||e.getActionCommand().endsWith("英词下一段")){
+			SendWenben.title = "英文单词抽取练习";
+			if(!SendWenben.sendwenSign4){
+				acticle.setVisible(false);
+				RegexText.duan1 = 1;
+			}
+			else
+				RegexText.duan1++;
+			if(e.getActionCommand().equals("英词练习"))
+				QQZaiwenListener.wenbenstr = EnlishRamdom.readtext();
+			else 
+				QQZaiwenListener.wenbenstr = EnlishRamdom.RamdomWord();
+			Window.f3listener.F3();
+			SendWenben.sendwenSign4=true;
 			if(SetFrameQianshuiListener.qianshui==0)ShareListener.send();
 		}
 		else if(e.getActionCommand().equals("词库练习")){
@@ -357,13 +374,6 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 				RegexText.duan1 = 1;
 				SendWenben.sendwenSign3 = 1;
 				acticle.setVisible(false);
-//				else if(x==2&&num[1].equals("c")){
-//					
-//				}
-//				else if(x==3&&num[1].equals("c")){
-//					
-//				}
-//				System.out.println(temp);
 			}catch(Exception ex){ex.printStackTrace();}
 		}
 		else

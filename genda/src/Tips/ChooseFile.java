@@ -11,11 +11,17 @@ import javax.swing.JLabel;
 
 public class ChooseFile implements ActionListener{
 	public static String cizufilename = "编码文件/输入法编码/词组提示码表.txt";
-	JFileChooser jfc;
-	File file;
 	@Override
 	public void actionPerformed(ActionEvent e) {  
-        // TODO Auto-generated method stub  
+        // TODO Auto-generated method stub 
+		cizufilename = getFileName();
+		if(cizufilename==null)
+			cizufilename = "编码文件/输入法编码/词组提示码表.txt";
+		Window.tipschange = new Tips(Window.tips);
+	}
+	public static String getFileName(){
+		JFileChooser jfc;
+		File file;
 		jfc=new JFileChooser();  
 	    jfc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES );  
 	    jfc.showDialog(new JLabel(), "选择");  
@@ -28,9 +34,9 @@ public class ChooseFile implements ActionListener{
 		    }
 		    String str = file.getAbsolutePath();
 		    str = str.replace("\\", "/");
-			cizufilename = str;
-			Window.tipschange = new Tips(Window.tips);
-			System.out.println("选择词码表:"+str); 
+		    System.out.println("选择词码表:"+str); 
+			return str;
 	    }
+	    return null;
 	}
 }

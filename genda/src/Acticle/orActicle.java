@@ -21,7 +21,7 @@ public class orActicle extends AbstractAction{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"请先结束每日赛文");return;}
-		if (SendWenben.sendwenSign==1||SendWenben.sendwenSign2==1||SendWenben.sendwenSign3==1){
+		if (SendWenben.sendwenSign==1||SendWenben.sendwenSign2==1||SendWenben.sendwenSign3==1||SendWenben.sendwenSign4){
 			n = JOptionPane.showConfirmDialog(null, "正在发文，要取消发文吗?", "正在发文提示", JOptionPane.YES_NO_OPTION);
 			if (n == JOptionPane.YES_OPTION) {
 				// ......
@@ -30,6 +30,7 @@ public class orActicle extends AbstractAction{
 				SendWenben.sendwenSign = 0;
 				SendWenben.sendwenSign2 = 0;
 				SendWenben.sendwenSign3 = 0;
+				SendWenben.sendwenSign4 = false;
 				} else if (n == JOptionPane.NO_OPTION) {
 					// ......
 				}

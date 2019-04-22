@@ -31,6 +31,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import Acticle.*;
 import BuildSai.BuildSaiListener;
+import Check.Check;
 import Communication.CommunicationListener;
 import keep.readWrite;
 import lookplay.AchListener;
@@ -90,6 +91,7 @@ public class Window extends JFrame{
 	JButton save;
 	JButton share;
 	JButton chouqu;
+	JButton Englishnew;
 	
 	JButton lookplayfinish;
 	
@@ -396,7 +398,8 @@ public class Window extends JFrame{
 		next = new JButton("下一段");
 		save = new JButton("保存跟打进度");
 		share = new JButton("分享发文");
-		chouqu = new JButton("抽取模式发文");
+		chouqu = new JButton("抽取下一段");
+		Englishnew = new JButton("英词下一段");
 		lookplayfinish = new JButton("跟打");
 		lookplayfinish.setToolTipText("看打算法由英打群群主“凌风”友情优化");
 		
@@ -432,6 +435,7 @@ public class Window extends JFrame{
 		next.addActionListener(Acticle.treeListener);
 		save.addActionListener(Acticle.treeListener);
 		chouqu.addActionListener(Acticle.treeListener);
+		Englishnew.addActionListener(Acticle.treeListener);
 		
 		AcitiyComp acitiycomp = new AcitiyComp();
 		acitiycomp.start();//速度击键码长动态变化线程
@@ -486,6 +490,7 @@ public class Window extends JFrame{
 		add(dinglilunma);
 		add(reducesudu);
 		add(chouqu);
+		add( Englishnew);
 		add(zxbanben);
 		add(dqbanben);
 		add(lookplayfinish);
@@ -769,12 +774,15 @@ public class Window extends JFrame{
 	JMenuItem resert;
 	
 	JMenuItem lookplay;
+	JMenuItem check;
+	JMenuItem EnglishNext;
 	RankListener ranklistener = new RankListener();
 	BuildChooseFile changetxt = new BuildChooseFile();
 	historyListener historylistener = new historyListener();
 	FriendsSysListener fsyslistenre = new FriendsSysListener();
 	BuildSaiListener buildsailistener = new BuildSaiListener();
 	CommunicationListener comlistener = new CommunicationListener();
+	Check checklistener = new Check();
 	void jsplit(){
 		dazi.setDragEnabled(true);
 		jSplitPane1 = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true,wenben1,dazi1);
@@ -840,6 +848,9 @@ public class Window extends JFrame{
 		kaiG = new JMenuItem("隐藏功能");
 		resert = new JMenuItem("错位复位");
 		lookplay = new JMenuItem("成绩提交");
+		check = new JMenuItem("看打检验");
+		
+		EnglishNext = new JMenuItem("英词下一段");
 		
 		RamdomListener ramdomlistener = new RamdomListener();
 		getDatesaiwen getsaiwen = new getDatesaiwen(this);
@@ -886,6 +897,9 @@ public class Window extends JFrame{
 		lookplay.addActionListener(lookplaylistener);
 		
 		resert.addActionListener(rnjsp);
+		check.addActionListener(checklistener);
+		
+		EnglishNext.addActionListener(Acticle.treeListener);
 		
 		luanxu.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L , KeyEvent.CTRL_MASK));
 		chouquxiayiduan.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O , KeyEvent.CTRL_MASK));
@@ -893,10 +907,13 @@ public class Window extends JFrame{
 		baocun.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S , KeyEvent.CTRL_MASK));
 		kaiG.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G , KeyEvent.CTRL_MASK));
 		lookplay.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER , KeyEvent.CTRL_MASK));
+		EnglishNext.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I , KeyEvent.CTRL_MASK));
+		
 		
 		fawenmenu.add(luanxu);
 		fawenmenu.add(xiayiduan);
 		fawenmenu.add(chouquxiayiduan);
+		fawenmenu.add(EnglishNext);
 		fawenmenu.add(baocun); 	
 		
 		paiming.add(paimingall);
@@ -913,6 +930,7 @@ public class Window extends JFrame{
 		base.add(chexit);
 		base.add(fawenmenu);
 		base.add(lookplay);
+		base.add(check);
 		
 		linkbase.add(paiming);
 		linkbase.add(zxdv);

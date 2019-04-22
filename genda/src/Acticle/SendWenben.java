@@ -21,7 +21,8 @@ import SetWin.SetFrameQianshuiListener;
 public class SendWenben implements ActionListener{
 	static public int sendwenSign = 0;
 	static public int sendwenSign2 = 0;//抽取模式发文
-	static public int sendwenSign3 = 0;//词库练习发文
+	static public int sendwenSign3 = 0;//1、词库练习发文
+	static public boolean sendwenSign4 = false;//英词
 	static public String title = "";
 	JTextPane wenben;
 	Window win;
@@ -30,7 +31,7 @@ public class SendWenben implements ActionListener{
 		this.wenben = wenben;
 	}
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		QQZaiwenListener.wenbenstr = wenben.getText();//固定文本框
 		QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText.huanfu(QQZaiwenListener.wenbenstr));

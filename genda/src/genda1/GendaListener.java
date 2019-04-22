@@ -124,8 +124,6 @@ public class GendaListener implements DocumentListener,KeyListener {
 					deleteNumber+=2;
 					lianhvgdsign = 0;
 				}
-//				System.out.println(comphvgd.time1);
-//				System.out.println(comphvgd.time2);
 			}
 			else if(lianhvgdsign!=0){System.out.println("退格+2");
 				deleteNumber+=2;
@@ -207,23 +205,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 			if(str1.length()==str2.length()&&a.equals(b)&&!Window.Pattern)		//两文本长度相等且最后一字相同时执行
 			{
 				dazi.setEditable(false);		//设置不可打字状态
-//				sign = 2;//可以生成成绩状态
 				gendaSign = true;
-//				KeyNumber++;		//解决漏一键问题
-//				sudu = comp.getSpeed(str1.length(),(int)(mistake));		//速度显示
-//				zishu.setText("跟打完毕字数:"+str2.length()+"/错"+mistake);	//字数显示
-//				Keylength.setText(String.format("%.2f", KeyNumber/str2.length()));//码长显示
-//				deleteNumber = deleteNumber-deleteTextNumber;	//退格真实数量要减去回改数量
-//				if(deleteNumber<0)deleteNumber = 0;	//保证退格小于零
-//				ReadyListener.BeganSign = 0;			//准备标志
-//				Window.suduButton.setText(String.format("%.2f",Window.gendaListener.sudu));
-//				AchievementListener.setClipboardString(achievementlistener.getGeshi()); //将成绩放入剪贴板
-//				if(SetFrameQianshuiListener.qianshui == 0)		//不为潜水跟打的话发送成绩
-//					achievementlistener.sendchengji();
-//				if(SetFrameJinduListener.jindusign==1)//判断是否开了进度条
-//					gendajindu.jindu(dazi.getText().length()+1);
-//				ChangeAllColor();
-
 			}
 		}
 		catch(Exception exp){}
@@ -319,7 +301,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 			if(sign==0)n=0;
 			for(;n<last;n++){			//添加剩下字体
 //				System.out.print(n);
-				if(SetFramechangeListener.tipsign==0||Window.everydaySign){
+				if(SetFramechangeListener.tipsign==0||Window.everydaySign||Window.Pattern){
 					JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,String.valueOf(c2[n]),"灰",wenben);
 				}
 				else{

@@ -19,8 +19,8 @@ public class Acticle extends JFrame{
 	Window win;
 	JTextPane wenben;
 	JScrollPane wenben1;
-	JTextField number,cikuchouqucanshu;
-	JButton send,next,mix,chouqu,cikuchouqu;
+	public static JTextField number,cikuchouqucanshu;
+	JButton send,next,mix,chouqu,cikuchouqu,English;
 	JPanel p = new JPanel();
 	int i;
 	public Acticle(Window win){
@@ -47,25 +47,32 @@ public class Acticle extends JFrame{
 		addluanxu();
 		addchouqu();
 		addcikuchouqu();
+		addEnglish();
+	}
+	void addEnglish(){
+		English = new JButton("英词练习");
+		English.setBounds(490,270 , 90, 30);
+		English.addActionListener(treeListener);
+		p.add(English);
 	}
 	void addcikuchouqu(){
 		cikuchouqu = new JButton("词库练习");
 		cikuchouqucanshu = new JTextField("x:y:z");
-		cikuchouqu.setBounds(390,270,70,30);
-		cikuchouqucanshu.setBounds(465,270,60,30);
+		cikuchouqu.setBounds(350,270,70,30);
+		cikuchouqucanshu.setBounds(425,270,60,30);
 		cikuchouqu.addActionListener(treeListener);
 		p.add(cikuchouqu);
 		p.add(cikuchouqucanshu);
 	}
 	void addchouqu(){
 		chouqu = new JButton("抽取模式发文");
-		chouqu.setBounds(285,270,100,30);
+		chouqu.setBounds(245,270,100,30);
 		p.add(chouqu);
 		chouqu.addActionListener(treeListener);
 	}
 	void addluanxu(){
 		mix = new JButton("全局乱序");
-		mix.setBounds(210, 270, 70, 30);
+		mix.setBounds(170, 270, 70, 30);
 		p.add(mix);
 		mix.addActionListener(win.mixlistener);
 	}
@@ -78,7 +85,7 @@ public class Acticle extends JFrame{
 	}
 	void Sendwenben(){
 		send = new JButton("顺序模式发文");
-		send.setBounds(105, 270, 100, 30);
+		send.setBounds(65, 270, 100, 30);
 		p.add(send);
 		SendWenben sendwenben = new SendWenben(wenben);
 		sendwenben.setwin(win,this);
@@ -86,7 +93,7 @@ public class Acticle extends JFrame{
 	}
 	void addnumber(){
 		number = new JTextField("100");
-		number.setBounds(5,270,90,30);
+		number.setBounds(5,270,50,30);
 		p.add(number);
 	}
 	void addinArea(){

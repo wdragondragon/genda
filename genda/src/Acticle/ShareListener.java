@@ -36,7 +36,7 @@ public class ShareListener extends AbstractAction {
 		System.out.println(AchievementListener.getClipboardString());
 		try {
 			if(Example.systemname.substring(0,7).equals("Windows"))
-			QQ.sendMessage(2,qqName.getText());
+				QQ.sendMessage(2,qqName.getText());
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			System.out.println("∑÷œÌ∑¢Œƒ ß∞‹");

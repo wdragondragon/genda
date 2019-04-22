@@ -1,13 +1,7 @@
 package GendaServer;
-
-
-
 import java.io.*;
 import java.net.*;
 import java.util.*;
-
-
-
 /*服务器类*/
 public class Server extends Thread{
 	public List<Socket> socketList = new ArrayList<Socket>();//存放所有连接的客户端的集合

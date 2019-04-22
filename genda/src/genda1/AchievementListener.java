@@ -12,6 +12,7 @@ import javax.swing.*;
 import Tips.*;
 import keep.KeyPassword;
 import lookplay.AchListener;
+import Check.DoCheck;
 import Login.Login;
 import QQ.QQ;
 
@@ -32,19 +33,6 @@ public class AchievementListener extends AbstractAction{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 			sendchengji();
-//			dazi.setText("");
-//			dazi.setEditable(true);
-//			dazi.requestFocusInWindow();
-//			wenben.setCaretPosition(0);
-//			gendaListener.setSign(0);
-//			gendaListener.KeyNumber = 0;
-//			gendaListener.deleteNumber = 0;
-//			gendaListener.deleteTextNumber = 0;
-//			gendaListener.left = 0;
-//			gendaListener.right = 0;
-//			gendaListener.repeat = 0;
-//			gendaListener.record = "";
-		
 	}
 	public void sendchengji(){
 		if(gendaListener.sign==2){
@@ -86,14 +74,25 @@ public class AchievementListener extends AbstractAction{
 		repeat = gendaListener.getRepeat();
 		space = gendaListener.getSpace();
 		fengzhi = gendaListener.getFenzhi();
+		
+		String check = 
+				String.format("%.2f",Double.parseDouble(String.format("%.2f", sudu))+
+				Double.parseDouble(String.format("%.2f",KeyNumber/second))+
+				Double.parseDouble(String.format("%.2f", KeyNumber/length)));
+//		System.out.println(Double.parseDouble(String.format("%.2f", sudu))
+//				+":"
+//				+Double.parseDouble(String.format("%.2f",KeyNumber/second))
+//				+":"
+//				+Double.parseDouble(String.format("%.2f", KeyNumber/length))
+//				+":"
+//				+"速度:"+check);
 		if(right!=0)
 			Keymethod = left/right;
 		else 
 			Keymethod = 1;
-		
-		if(Window.Pattern)
+		if(Window.Pattern){
 			mistake=AchListener.duo+AchListener.lou+AchListener.mistake;
-		
+		}
 		Keyaccuracy = (KeyNumber-deleteNumber*2-deleteTextNumber*(1.0*Window.tipschange.alllength/QQZaiwenListener.wenbenstr.length()))/KeyNumber;
 		dacilv = ((double)(gendaListener.daciall)/(QQZaiwenListener.wenbenstr.length()+deleteTextNumber));
 		
@@ -116,8 +115,8 @@ public class AchievementListener extends AbstractAction{
 			"%(左"+String.valueOf((int)left)+":右"+String.valueOf((int)right)+":空格"+String.valueOf(space)+")"+
 			" 打词率"+String.format("%.2f", dacilv*100)+
 			"% 选重率"+String.format("%.2f", repeat/length*100)+
-			"% 拖拉机跟打器v"+
-			Login.banben+
+			"% 拖拉机跟打器 "+
+			Login.banben+" "+
 			Example.systemname+"版 ";
 		else
 			gendageshi += 
@@ -140,10 +139,10 @@ public class AchievementListener extends AbstractAction{
 			Login.banben+" "+
 			Example.systemname+"版 ";
 				
-		
-		
 		if(Window.Pattern)
-			gendageshi+=" 看打版 "+AchListener.lookplay;
+			gendageshi+=" 看打版 "+AchListener.lookplay +" 校验"+DoCheck.buildcheckstr(check,"kanda");
+		else
+			gendageshi+=" 校验"+DoCheck.buildcheckstr(check,"genda");
 //		ReadyListener.ReadyDuan++;
 		table.addRow();
 		try{
