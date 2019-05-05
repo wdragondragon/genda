@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.*;
 import java.awt.event.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 
@@ -22,12 +23,14 @@ public class AchievementListener extends AbstractAction{
 	GendaListener gendaListener;
 	JTextArea chengji,dazi;
 	JTextPane wenben;
-	double sudu,second,length,Keymethod,right,left,KeyNumber,mistake,deleteNumber,deleteTextNumber,repeat,fengzhi;
+	double sudu,second,length,Keymethod,right,left,KeyNumber,mistake,deleteNumber,deleteTextNumber,repeat,fengzhi,yingdasudu,yingdamistake;
+	String yingdanomistakesudu;
 	public static double Keyaccuracy;
 	public static double dacilv;
 	String gendageshi;
 	TableAdd table;
 	int space;
+	
 	private Window win;
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -86,18 +89,67 @@ public class AchievementListener extends AbstractAction{
 //				+Double.parseDouble(String.format("%.2f", KeyNumber/length))
 //				+":"
 //				+"速度:"+check);
+		
+
 		if(right!=0)
 			Keymethod = left/right;
 		else 
 			Keymethod = 1;
-		if(Window.Pattern){
-			mistake=AchListener.duo+AchListener.lou+AchListener.mistake;
+		String nomistakesudu = "";
+		String []temp = QQZaiwenListener.wenbenstr.split(" ");
+		int [] EnglishType = new int[temp.length];
+		
+		if(Window.Pattern==1){
+			if(QQZaiwenListener.wenbenstr.length()<=300)
+				sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),4*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));//速度显示
+			else if(QQZaiwenListener.wenbenstr.length()<=600&&QQZaiwenListener.wenbenstr.length()>300)
+				sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),3*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
+			else if(QQZaiwenListener.wenbenstr.length()<=1000&&QQZaiwenListener.wenbenstr.length()>600)
+				sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),2*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
+			else if(QQZaiwenListener.wenbenstr.length()>1000)
+				sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
+			
 		}
+		else if(Window.Pattern==2){
+			ArrayList<Integer> misType = new ArrayList<Integer>();
+			for(int i = 0;i<temp.length;i++){
+				int sign = QQZaiwenListener.wenbenstr.indexOf(temp[i])+temp[i].length();
+				if(i!=0&&EnglishType[i-1]==sign)
+					sign = -1;
+				EnglishType[i] = sign ;
+				
+//				EnglishType.add(sign+"%"+temp[i]+"%"+(sign+temp[i].length()));
+			}
+			for(int i = 0;i<GendaListener.missign.size();i++){
+				int missign = GendaListener.missign.get(i);
+				System.out.println(i);
+				for(int j = 0;j<temp.length;j++){
+					if(EnglishType[j]>missign&&EnglishType[i]!=-1){
+						if(!misType.contains(j)){
+							misType.add(j);
+						}
+						break;
+					}
+				}
+			}
+			sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(Window.gendaListener.mistake));
+			yingdamistake=misType.size();
+			System.out.println("错误"+yingdamistake);
+			yingdasudu = Window.gendaListener.comp.getSpeed(temp.length,(int)yingdamistake);		//速度显示
+			yingdanomistakesudu = String.format("%.2f",Window.gendaListener.comp.getSpeed(temp.length,0));
+		}
+		else{
+			nomistakesudu = String.format("%.2f",Window.gendaListener.comp.getSpeed(Window.dazi.getText().length(),0));
+			sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(Window.gendaListener.mistake));
+		}
+		nomistakesudu = String.format("%.2f",Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),0));
+		
 		Keyaccuracy = (KeyNumber-deleteNumber*2-deleteTextNumber*(1.0*Window.tipschange.alllength/QQZaiwenListener.wenbenstr.length()))/KeyNumber;
 		dacilv = ((double)(gendaListener.daciall)/(QQZaiwenListener.wenbenstr.length()+deleteTextNumber));
 		
 		gendageshi = 
 				"第"+RegexText.duan1;
+		
 		if(mistake==0)
 			gendageshi += 
 			"段 速度"+String.format("%.2f", sudu)+
@@ -120,7 +172,7 @@ public class AchievementListener extends AbstractAction{
 			Example.systemname+"版 ";
 		else
 			gendageshi += 
-			"段 速度"+String.format("%.2f", sudu)+"/"+String.format("%.2f",Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),0))+
+			"段 速度"+String.format("%.2f", sudu)+"/"+nomistakesudu+
 			" 击键"+String.format("%.2f",KeyNumber/second)+
 			" 码长"+String.format("%.2f", KeyNumber/length)+
 			" 标顶理论"+String.format("%.2f", Tips.dingalllength/QQZaiwenListener.wenbenstr.length())+
@@ -139,8 +191,13 @@ public class AchievementListener extends AbstractAction{
 			Login.banben+" "+
 			Example.systemname+"版 ";
 				
-		if(Window.Pattern)
+		if(Window.Pattern==1)
 			gendageshi+=" 看打版 "+AchListener.lookplay +" 校验"+DoCheck.buildcheckstr(check,"kanda");
+		else if(Window.Pattern==2)
+			if(mistake==0)
+				gendageshi+="英打版 速度:"+String.format("%.2f", yingdasudu)+" 单词"+temp.length+" 错"+(int)yingdamistake+" 校验"+DoCheck.buildcheckstr(check,"yingda");
+			else
+				gendageshi+="英打版 速度:"+String.format("%.2f", yingdasudu)+"/"+yingdanomistakesudu+" 单词"+temp.length+" 错"+(int)yingdamistake+" 校验"+DoCheck.buildcheckstr(check,"yingda");
 		else
 			gendageshi+=" 校验"+DoCheck.buildcheckstr(check,"genda");
 //		ReadyListener.ReadyDuan++;

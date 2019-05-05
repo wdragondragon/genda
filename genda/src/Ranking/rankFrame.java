@@ -57,9 +57,9 @@ public class rankFrame extends JFrame {
 	void request(){
 		try {
 			Socket socket = new Socket(Window.IP,Login.Login.port);
-			socket.setSoTimeout(500);
 			DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 			DataInputStream in = new DataInputStream(socket.getInputStream());
+			socket.setSoTimeout(2000);
 			if(i==1)
 				out.writeUTF("еецШ1");
 			else if(i==2)

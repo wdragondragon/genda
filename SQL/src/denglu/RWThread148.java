@@ -131,10 +131,11 @@ public class RWThread148 extends Thread{
 			System.out.print(username+"用户退出\r");
 			if(dengluSign==1){
 				try {
-					System.out.println("最后字数:"+recordNumlast);
-					if(recordNumlast<0)
-						recordNumlast = 0;
-					changeRecord(recordNumlast,recordrightnum,recordmisnum,recorddatenumlast);
+					System.out.println("最后字数:"+recordNumlast+":"+recordrightnum+":"+recordmisnum+":"+recorddatenumlast);
+//					if(recordNumlast<0)
+//						recordNumlast = 0;
+					if(recordrightnum>0&&recordNumlast>0)
+						changeRecord(recordNumlast,recordrightnum,recordmisnum,recorddatenumlast);
 					changeonline(0);
 					if(saiwenSign)
 						addchengji("无",1);
@@ -320,7 +321,7 @@ public class RWThread148 extends Thread{
 		String wenben = message.substring(hisnum[13],hisnum[14]-1);
 		int duan = Integer.parseInt(message.substring(hisnum[14],hisnum[15]-1));
 		double nandu = Double.parseDouble(message.substring(hisnum[15]));
-		System.out.println(wenben);
+//		System.out.println(wenben);
 		PreparedStatement ptmt;
 		try {
 			ptmt=Recordnum.con.prepareStatement(sql);
@@ -342,7 +343,7 @@ public class RWThread148 extends Thread{
 		    ptmt.setInt(16, duan);
 		    ptmt.setDouble(17, nandu);
 		    ptmt.execute();
-		    System.out.println(date);
+//		    System.out.println(date);
 		    //999段添加平均成绩
 		    if(duan==999||duan==0){
 			    sql = "SELECT aver,n FROM client WHERE username=?";

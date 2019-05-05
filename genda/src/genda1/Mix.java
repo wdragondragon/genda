@@ -31,11 +31,13 @@ public class Mix extends AbstractAction{
 		}
 		else if(e.getActionCommand().equals("È«¾ÖÂÒÐò")){
 			ActicleListener.all = mix(ActicleListener.all);
+			if(ActicleListener.all==null)return;
 			ActicleListener.showwen();
 		}
 		
 	}
 	public static String mix(String str){
+		if(str==null)return null;
 		String mix = "";
 		List list = new ArrayList<>();
 		char [] a = str.toCharArray();

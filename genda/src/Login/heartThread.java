@@ -22,13 +22,14 @@ public class heartThread extends Thread{
 	private DataOutputStream outputStream;
 	Date date1 = getdate(),date2 = getdate();
 	public void run(){
+		try{
+			outputStream = new DataOutputStream(Login.socket.getOutputStream());
+		}catch(Exception e){}
 		while(true){
             try {
             	Thread.sleep(5*1000);datenum();
-            	outputStream = new DataOutputStream(Login.socket.getOutputStream());
             	String message = KeyPassword.convertMD5("ÐÄÌø");
-				outputStream.writeUTF(message);
-	            outputStream.flush(); 
+				outputStream.writeUTF(message); 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -15,9 +15,9 @@ public class Acticle extends JFrame{
 	JTree tree;
 	JScrollPane tree1;
 	DefaultMutableTreeNode root;
-	DefaultMutableTreeNode danzilei,wenzhanglei;
+	DefaultMutableTreeNode danzilei,wenzhanglei,yingwenlei;
 	Window win;
-	JTextPane wenben;
+	JTextArea wenben;
 	JScrollPane wenben1;
 	public static JTextField number,cikuchouqucanshu;
 	JButton send,next,mix,chouqu,cikuchouqu,English;
@@ -57,7 +57,7 @@ public class Acticle extends JFrame{
 	}
 	void addcikuchouqu(){
 		cikuchouqu = new JButton("词库练习");
-		cikuchouqucanshu = new JTextField("x:y:z");
+		cikuchouqucanshu = new JTextField("a:b:c:d");
 		cikuchouqu.setBounds(350,270,70,30);
 		cikuchouqucanshu.setBounds(425,270,60,30);
 		cikuchouqu.addActionListener(treeListener);
@@ -97,8 +97,9 @@ public class Acticle extends JFrame{
 		p.add(number);
 	}
 	void addinArea(){
-		wenben = new JTextPane();
+		wenben = new JTextArea();
 		wenben1 = new JScrollPane(wenben);
+		wenben.setLineWrap(true);
 		wenben1.setBounds(191,0,400,270);
 		p.add(wenben1);
 	}
@@ -106,12 +107,17 @@ public class Acticle extends JFrame{
 		root = new DefaultMutableTreeNode("练习");
 		danzilei = new DefaultMutableTreeNode("单字类");
 		wenzhanglei = new DefaultMutableTreeNode("文章类");
+		yingwenlei = new DefaultMutableTreeNode("英打类");
 		File danziDir = new File("文章//单字类"),
-				wenzhangDir = new File("文章//文章类");
+				wenzhangDir = new File("文章//文章类"),
+				yingwenDir = new File("文章//英打类");
+		
 		File []danziFile = danziDir.listFiles(),
-				wenzhangFile = wenzhangDir.listFiles();
+				wenzhangFile = wenzhangDir.listFiles(),
+				yingwenFile = yingwenDir.listFiles();
 		String[]danziFileName = danziDir.list(),
-				wenzhangFileName = wenzhangDir.list();
+				wenzhangFileName = wenzhangDir.list(),
+				yingwenFileName = yingwenDir.list();
 		for(i=0;i<danziFileName.length;i++)
 			 if(danziFile[i].isFile()) {
 				 danzilei.add(new DefaultMutableTreeNode(danziFileName[i]));
@@ -119,9 +125,14 @@ public class Acticle extends JFrame{
 		for(i=0;i<wenzhangFileName.length;i++)
 			if(wenzhangFile[i].isFile())
 				wenzhanglei.add(new DefaultMutableTreeNode(wenzhangFileName[i]));
+		for(i=0;i<yingwenFileName.length;i++){
+			if(yingwenFile[i].isFile())
+				yingwenlei.add(new DefaultMutableTreeNode(yingwenFileName[i]));
+		}
 		root.add(danzilei);
 		root.add(wenzhanglei);
-
+		root.add(yingwenlei);
+		
 		tree = new JTree(root);
 		tree1 = new JScrollPane(tree);
 		 	

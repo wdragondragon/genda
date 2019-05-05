@@ -259,7 +259,7 @@ public class readWrite
 			}
 			else
 				SetFrameJinduListener.jindu.setText("进度条显示\"已关\"");
-		}catch(Exception ex){System.out.println("文本格式不对");ex.printStackTrace();}
+		}catch(Exception ex){System.out.println("文本格式不对");}
 	}
 	public static void readfontnum() throws IOException{
 		Reader rReader = new FileReader("../set/num.ini");

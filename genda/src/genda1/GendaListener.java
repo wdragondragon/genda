@@ -15,11 +15,13 @@ import keep.readWrite;
 
 import com.sun.jna.platform.win32.WinDef.CHAR;
 
+import Acticle.SendWenben;
 import Login.RecordChange;
 import SetWin.SetFrameJinduListener;
 import SetWin.SetFrameQianshuiListener;
 import SetWin.SetFramechangeListener;
 import Tips.Tips;
+import Tips.TipsFrame;
 
 public class GendaListener implements DocumentListener,KeyListener {
 	JTextArea dazi,chengji;
@@ -64,6 +66,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 	public int daci=0;
 	public int daciall=0;
 	public List<String> mistakelist = new ArrayList<String>();
+	public static List<Integer> missign = new ArrayList<Integer>();
 	public static List<String> dacilist = new ArrayList<String>();
 	public static List<String> shushisudu = new ArrayList<String>();
 	private JLabel allnumber;
@@ -136,6 +139,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 		// TODO Auto-generated method stub
 		try{
 			mistakelist.clear();
+			missign.clear();
 			if(e.getKeyChar()!='\b')
 				str1 = dazi.getText()+e.getKeyChar();
 			else
@@ -155,7 +159,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 			try{
 				compdaci(e.getKeyChar());//计算打词
 			}
-			catch(Exception ex){System.out.println("打词计算失败180genda");ex.printStackTrace();}
+			catch(Exception ex){System.out.println("打词计算失败180genda");}
 			mistake = 0;			//错误字数清零
 			length = str1.length();//计算当前打字框长度
 			for(n=0;n<str1.length();n++){					//统计错误字数，向文本框添加字体
@@ -163,11 +167,13 @@ public class GendaListener implements DocumentListener,KeyListener {
 					mistake++;
 					String mistakeStr = "\""+String.valueOf(c2[n])+"\"在第"+String.valueOf(n+1)+"个字\n";
 					mistakelist.add(mistakeStr);
+					missign.add(n);
 				}
 			}
 			if(sign==1)
 				ChangeFontColor();	//改变字体颜色
 			tipschange.changeTips(String.valueOf(c2[str1.length()]));//单字编码提示更改
+			
 			zishu.setText("字数:"+str2.length()+"/已打:"+str1.length()+"/错"+(int)(mistake));
 			allnumber.setText("总:"+String.valueOf(Window.fontallnum)+" 对:"+String.valueOf(Window.rightnum)+" 错:"+String.valueOf(Window.misnum)+" 今:"+String.valueOf(Window.datenum));
 			readWrite.keepfontnum(Window.fontallnum,Window.rightnum,Window.misnum);
@@ -181,6 +187,25 @@ public class GendaListener implements DocumentListener,KeyListener {
 			
 		}
 		catch(Exception exp){}
+		if(Window.Pattern==2){
+			try{
+				if(dazi.getText().length()==QQZaiwenListener.wenbenstr.length())return;
+				for(int y = F3Listener.EnglishType.length-1;y>=0;y--){
+					if(dazi.getText().length()>=F3Listener.EnglishType[y]){
+						String englishtemp = TipsFrame.bianma.get(F3Listener.Englishword[y]);
+						//System.out.println(dazi.getText().length()+":"+F3Listener.EnglishType[y]);
+						//System.out.println(F3Listener.Englishword[y]+":"+englishtemp);
+						Window.tips.setText(englishtemp);
+						TipsFrame.show.setText(F3Listener.Englishword[y]+"\n"+englishtemp);
+						break;
+					}
+				}
+			}
+			catch(Exception ex){	
+				JOptionPane.showMessageDialog(null,"载文必须在切换英打前进行");
+				ex.printStackTrace();
+			}
+		}
 	}
 	public void changedUpdate(DocumentEvent e) {
 		try{
@@ -202,7 +227,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 				if(Window.one.isVisible())
 					battleClient.send.send();	//发送服务器信息
 			}catch(Exception ex){System.out.println("发送对战消息失败gen227");}
-			if(str1.length()==str2.length()&&a.equals(b)&&!Window.Pattern)		//两文本长度相等且最后一字相同时执行
+			if(str1.length()==str2.length()&&a.equals(b)&&!(Window.Pattern==1))		//两文本长度相等且最后一字相同时执行
 			{
 				dazi.setEditable(false);		//设置不可打字状态
 				gendaSign = true;
@@ -301,7 +326,7 @@ public class GendaListener implements DocumentListener,KeyListener {
 			if(sign==0)n=0;
 			for(;n<last;n++){			//添加剩下字体
 //				System.out.print(n);
-				if(SetFramechangeListener.tipsign==0||Window.everydaySign||Window.Pattern){
+				if(SetFramechangeListener.tipsign==0||Window.everydaySign||(Window.Pattern==1)){
 					JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,String.valueOf(c2[n]),"灰",wenben);
 				}
 				else{

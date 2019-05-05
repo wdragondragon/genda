@@ -63,7 +63,7 @@ public class EveryDayRank extends JFrame {
 		int n = 0;
 		try{
 			socket = new Socket(Window.IP,Login.port);
-			socket.setSoTimeout(100);
+			socket.setSoTimeout(1000);
 			out = new DataOutputStream(socket.getOutputStream());
 			in = new DataInputStream(socket.getInputStream());
 		}catch (UnknownHostException e) {

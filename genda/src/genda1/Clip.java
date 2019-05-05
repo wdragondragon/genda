@@ -3,18 +3,21 @@ package genda1;
 import gendaClient.battleClient;
 
 import java.io.DataOutputStream;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 import lookplay.AchListener;
 
+import Acticle.SendWenben;
 import Login.Login;
 
 import SetWin.SetFrameJinduListener;
 import SetWin.SetFrameQianshuiListener;
 import Tips.*;
 public class Clip extends Thread{
+
 
 	/**
 	 * @param args
@@ -60,18 +63,29 @@ public class Clip extends Thread{
 		GendaListener.sign=2;
 		
 		
-		if(Window.Pattern){
-			if(QQZaiwenListener.wenbenstr.length()<=300)
-				Window.gendaListener.sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),4*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));//速度显示
-			else if(QQZaiwenListener.wenbenstr.length()<=600&&QQZaiwenListener.wenbenstr.length()>300)
-				Window.gendaListener.sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),3*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
-			else if(QQZaiwenListener.wenbenstr.length()<=1000&&QQZaiwenListener.wenbenstr.length()>600)
-				Window.gendaListener.sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),2*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
-			else if(QQZaiwenListener.wenbenstr.length()>1000)
-				Window.gendaListener.sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
+//		if(Window.Pattern==1){
+//			if(QQZaiwenListener.wenbenstr.length()<=300)
+//				Window.gendaListener.sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),4*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));//速度显示
+//			else if(QQZaiwenListener.wenbenstr.length()<=600&&QQZaiwenListener.wenbenstr.length()>300)
+//				Window.gendaListener.sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),3*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
+//			else if(QQZaiwenListener.wenbenstr.length()<=1000&&QQZaiwenListener.wenbenstr.length()>600)
+//				Window.gendaListener.sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),2*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
+//			else if(QQZaiwenListener.wenbenstr.length()>1000)
+//				Window.gendaListener.sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
+//		}
+//		else if(Window.Pattern==2){
+//			Window.gendaListener.sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(Window.gendaListener.mistake));		//速度显示
+//			
+//		}
+//		else
+//			Window.gendaListener.sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(Window.gendaListener.mistake));		//速度显示
+		if(Window.Pattern==2){
+			StringBuilder str = new StringBuilder();
+			for(int i=0;i<F3Listener.Englishword.length;i++){
+				str.append(F3Listener.Englishword[i]+"："+TipsFrame.bianma.get(F3Listener.Englishword[i])+"\n");
+			}
+			TipsFrame.show.setText(str.toString());
 		}
-		else
-			Window.gendaListener.sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(Window.gendaListener.mistake));		//速度显示
 		Window.gendaListener.zishu.setText("跟打完毕字数:"+Window.gendaListener.str2.length()+"/错"+Window.gendaListener.mistake);	//字数显示
 		Window.gendaListener.Keylength.setText(String.format("%.2f", Window.gendaListener.KeyNumber/Window.gendaListener.str2.length()));//码长显示
 		Window.gendaListener.deleteNumber = Window.gendaListener.deleteNumber-Window.gendaListener.deleteTextNumber;	//退格真实数量要减去回改数量

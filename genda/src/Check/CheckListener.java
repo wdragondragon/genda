@@ -18,8 +18,13 @@ public class CheckListener implements ActionListener {
 				JOptionPane.showMessageDialog(new JTextArea(),"真");
 			else
 				JOptionPane.showMessageDialog(new JTextArea(),"假");
-		else
+		else if(e.getActionCommand().equals("跟打校验"))
 			if(DoCheck.checkstr(checkstext.getText(),"genda"))
+				JOptionPane.showMessageDialog(new JTextArea(),"真");
+			else
+				JOptionPane.showMessageDialog(new JTextArea(),"假");
+		else if(e.getActionCommand().equals("英打校验"))
+			if(DoCheck.checkstr(checkstext.getText(),"yingda"))
 				JOptionPane.showMessageDialog(new JTextArea(),"真");
 			else
 				JOptionPane.showMessageDialog(new JTextArea(),"假");

@@ -25,13 +25,14 @@ public class EnlishRamdom implements ActionListener {
 		// TODO Auto-generated method stub
 		RamdomWord();
 	}
-	public static String readtext(){
-		File File = null;
+	public static String readtext(File File){
+//		File File = null;
 		FileInputStream fis;
 		String str = "";
 		try {
-			FileName = ChooseFile.getFileName();
-			File = new File(FileName);
+//			FileName = ChooseFile.getFileName();
+			if(File==null)return "";
+//			File = new File(FileName);
 			fis = new FileInputStream(File);
 			InputStreamReader read = new InputStreamReader(fis, "UTF-8");
 			BufferedReader  bufferRead = new BufferedReader(read);

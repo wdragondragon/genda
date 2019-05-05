@@ -81,6 +81,8 @@ public class Recordnum extends Thread{
 					banben.add("版本1."+String.valueOf(i));
 				for(int i = 600;i<605;i++)
 					banben.add("版本1."+String.valueOf(i));
+				for(int i = 700;i<705;i++)
+					banben.add("版本1."+String.valueOf(i));
 				if(banben.contains(what)){
 					out.writeUTF("版本正确"+what+"最新版本"+zxbb);
 					//新的线程
@@ -123,6 +125,7 @@ public class Recordnum extends Thread{
 				}
 				else{
 					out.writeUTF("版本强制更新：\n因为版本错误未能及时同步问题，进行同步版本\n自动跳转下载或加群号974172771");
+					socketclose(socket);
 				}
 			} catch (IOException e) {
 				try {

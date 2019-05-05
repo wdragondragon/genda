@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.io.DataOutputStream;
 
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import Login.*;
 import SetWin.SetFrameQianshuiListener;
@@ -24,10 +25,10 @@ public class SendWenben implements ActionListener{
 	static public int sendwenSign3 = 0;//1、词库练习发文
 	static public boolean sendwenSign4 = false;//英词
 	static public String title = "";
-	JTextPane wenben;
+	JTextArea wenben;
 	Window win;
 	private Acticle acticle;
-	SendWenben(JTextPane wenben){
+	SendWenben(JTextArea wenben){
 		this.wenben = wenben;
 	}
 	@Override
@@ -35,6 +36,7 @@ public class SendWenben implements ActionListener{
 		// TODO Auto-generated method stub
 		QQZaiwenListener.wenbenstr = wenben.getText();//固定文本框
 		QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText.huanfu(QQZaiwenListener.wenbenstr));
+		if(QQZaiwenListener.wenbenstr==null||QQZaiwenListener.wenbenstr.equals(""))return;
 		Window.f3listener.F3();
 		sendwenSign = 1;	//发文标志
 		RegexText.duan1 = 1;//设置段数

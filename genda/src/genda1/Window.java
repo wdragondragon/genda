@@ -25,6 +25,7 @@ import Tips.BuildChooseFile;
 import Tips.Noexit;
 import Tips.TheoryListener;
 import Tips.Tips;
+import Tips.TipsFrame;
 
 import java.awt.event.*;
 import java.io.ByteArrayOutputStream;
@@ -60,7 +61,7 @@ public class Window extends JFrame{
 	public static String family = "微软雅黑";
 //	public static String IP = "127.0.0.1";
 	public static String Email = "";
-	public static boolean Pattern =false;
+	public static int Pattern = 0;
 	Font ziti,zititip;
 	JLabel qqName;
 	static JLabel zishu;
@@ -119,6 +120,8 @@ public class Window extends JFrame{
 	ChangeQQWindow changeQQwindow;
 	TheoryListener theorylistener;
 	AchListener lookplaylistener;
+	public static TipsFrame tipsframe;
+	
 	
 	JScrollBar JSBwenben;
 	InputMap F3Key,zaiwenKey,qqzaiwenKey,sendChengji,readyKey,shareKey,changeQQButtonKey,setKey,fawenKey;
@@ -422,6 +425,7 @@ public class Window extends JFrame{
 		tipschange = new Tips(tips);
 		theorylistener = new TheoryListener();
 		lookplaylistener = new AchListener();
+		tipsframe = new TipsFrame();
 		
 		setGendajindu = new GendaJindutiao();
 		JSBwenben = wenben1.getVerticalScrollBar();
@@ -524,6 +528,7 @@ public class Window extends JFrame{
 		lilunma.addActionListener(theorylistener);
 		dinglilunma.addActionListener(theorylistener);
 		leftce.addActionListener(historylistener);
+		tips.addMouseListener(tipsframe);
 	}
 	//所有监视器设置。。。。。。
 	void gendaListenerset(){
@@ -1101,20 +1106,28 @@ public class Window extends JFrame{
 	}
 	ActionListener lookda = new ActionListener(){
 		public void actionPerformed(ActionEvent e){
-			if(Pattern){
-				Pattern=false;
-				System.out.println("跟打");
-				lookplayfinish.setText("跟打");
+			if(Pattern==1){
+				Pattern=2;
+				System.out.println("英打");
+				lookplayfinish.setText("英打");
 				JTextPaneChange.createStyle("黑",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.rightcolor);
 				JTextPaneChange.createStyle("红",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);
 			}
-			else{
-				Pattern=true;
+			else if(Pattern==0){
+				Pattern=1;
 				lookplayfinish.setText("看打");
 				System.out.println("看打");
 				JTextPaneChange.createStyle("黑",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,new Color(238,238,238));
 				JTextPaneChange.createStyle("红",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,new Color(238,238,238));
 			}
+			else if(Pattern==2){
+				Pattern=0;
+				System.out.println("跟打");
+				lookplayfinish.setText("跟打");
+				JTextPaneChange.createStyle("黑",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.rightcolor);
+				JTextPaneChange.createStyle("红",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);
+			}
+				
 		}
 	};
 	void Onsystem() {

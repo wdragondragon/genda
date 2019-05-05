@@ -83,7 +83,7 @@ public class winchange extends Thread implements ActionListener {
 					win.qqName.setBounds(jSplitPane1.getX()-5,jSplitPane1.getY()+jSplitPane1.getHeight()+10,120,40);
 					win.zishu.setBounds(jSplitPane1.getX()-5+win.qqName.getWidth()+5,jSplitPane1.getY()+jSplitPane1.getHeight()+10,(win.zishu.getText().length()-5)*7+5*12,40);
 					win.allnumber.setBounds(jSplitPane1.getX()-5+(win.qqName.getWidth()+win.zishu.getWidth()+10),jSplitPane1.getY()+jSplitPane1.getHeight()+10,(win.allnumber.getText().length()-4)*7+4*12,40);
-					win.tips.setBounds(jSplitPane1.getX()-5+(win.qqName.getWidth()+win.zishu.getWidth()+win.allnumber.getWidth()+15),jSplitPane1.getY()+jSplitPane1.getHeight()+10,80,40);
+					win.tips.setBounds(jSplitPane1.getX()-5+(win.qqName.getWidth()+win.zishu.getWidth()+win.allnumber.getWidth()+15),jSplitPane1.getY()+jSplitPane1.getHeight()+10,win.tips.getText().length()*15,40);
 					win.sendwen.setBounds(jSplitPane1.getX()-5+(win.qqName.getWidth()+win.zishu.getWidth()+win.allnumber.getWidth()+win.tips.getWidth()+20),jSplitPane1.getY()+jSplitPane1.getHeight()+10,win.sendwen.getText().length()*8,40);
 					win.dqbanben.setBounds(win.getWidth()-100,win.getHeight()-50,100,40);
 					win.zxbanben.setBounds(win.getWidth()-100,win.getHeight()-30,100,40);

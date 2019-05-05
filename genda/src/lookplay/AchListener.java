@@ -26,7 +26,7 @@ public class AchListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(!Window.Pattern)return;
+		if(!(Window.Pattern==1))return;
 		String mistakeall="";
 		mistake=0;duo=0;lou=0;
 		record = new ArrayList<String>();

@@ -7,8 +7,10 @@ import javax.swing.*;
 
 import gendaClient.battleClient;
 import gendaClient.battleSend;
+import Acticle.SendWenben;
 import SetWin.SetFrameJinduListener;
 import Tips.Tips;
+import Tips.TipsFrame;
 public class F3Listener extends AbstractAction{
 	JButton F3;
 	JLabel zishu;
@@ -17,6 +19,8 @@ public class F3Listener extends AbstractAction{
 	GendaJindutiao gendajindu;
 	GendaListener gendaListener;
 	JScrollBar JSB;
+	public static int [] EnglishType;
+	public static String []Englishword;
 	public void setDaziText(JTextArea t){
 		dazi = t;
 	}
@@ -83,6 +87,33 @@ public class F3Listener extends AbstractAction{
 		Window.dinglilunma.setText("标顶理论:"+String.format("%.2f", 1.0*Window.tipschange.dingalllength/QQZaiwenListener.wenbenstr.length()));
 		Window.zishu.setText("字数:"+QQZaiwenListener.wenbenstr.length()+"/已打:"+0+"/错"+0);
 		Window.tipschange.changeTips(QQZaiwenListener.wenbenstr.substring(0,1));//单字编码提示更改
+		
+		if(Window.Pattern==2){
+			Englishword = QQZaiwenListener.wenbenstr.split(" ");
+			EnglishType = new int[Englishword.length];
+//			System.out.println(Englishword.length);
+			for(int i = 0;i<Englishword.length;i++){
+				int sign = QQZaiwenListener.wenbenstr.indexOf(Englishword[i]);
+				if(i>0)
+					while(sign<EnglishType[i-1]){
+						sign = QQZaiwenListener.wenbenstr.indexOf(Englishword[i],sign+1);
+						if(sign==-1)break;
+					}
+//				System.out.println(sign);
+//				if(i!=0&&EnglishType[i-1]==sign)
+//					continue;
+				EnglishType[i] = sign;
+			}
+			Window.tips.setText(TipsFrame.bianma.get(Englishword[0]));
+			TipsFrame.show.setText(Englishword[0]+"："+TipsFrame.bianma.get(Englishword[0]));
+//			for(int i = 0;i<Englishword.length;i++){
+//				System.out.print(Englishword[i]+" ");
+//			}
+//			System.out.println("");
+//			for(int i = 0;i<Englishword.length;i++){
+//				System.out.print(EnglishType[i]+" ");
+//			}
+		}
 		dazi.requestFocusInWindow();
 	}
 }
