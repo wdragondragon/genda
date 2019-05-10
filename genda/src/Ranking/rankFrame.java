@@ -18,6 +18,7 @@ public class rankFrame extends JFrame {
 	JTable table;
 	DefaultTableModel tableM;
 	JScrollPane tableN;
+	Socket socket;
 //	JPanel p = new JPanel();
 	int i=0;
 //	public static void main(String args[]){
@@ -56,7 +57,7 @@ public class rankFrame extends JFrame {
 	}
 	void request(){
 		try {
-			Socket socket = new Socket(Window.IP,Login.Login.port);
+			socket = new Socket(Window.IP,Login.Login.port);
 			DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 			DataInputStream in = new DataInputStream(socket.getInputStream());
 			socket.setSoTimeout(2000);
@@ -144,9 +145,21 @@ public class rankFrame extends JFrame {
 			}
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
+			try {
+				socket.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			System.out.println("排名结束");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			try {
+				socket.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			System.out.println("排名结束");
 		}
 	}

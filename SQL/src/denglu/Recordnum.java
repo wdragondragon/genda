@@ -131,6 +131,7 @@ public class Recordnum extends Thread{
 				try {
 					socket.close();
 					socket = null;
+					this.stop();
 				} catch (IOException e1) {}
 			}
 		}
@@ -275,6 +276,7 @@ public class Recordnum extends Thread{
 				System.out.print("超时无法关闭socket\r");
 			}
 			System.out.print("连接后超时\r");
+			this.stop();
 		}
 //		void addfriend(String username){
 //			try{

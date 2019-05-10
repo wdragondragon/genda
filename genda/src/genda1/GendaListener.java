@@ -203,7 +203,8 @@ public class GendaListener implements DocumentListener,KeyListener {
 			}
 			catch(Exception ex){	
 				JOptionPane.showMessageDialog(null,"载文必须在切换英打前进行");
-				ex.printStackTrace();
+//				ex.printStackTrace();
+				System.out.println("mistake!!! GendaListener 207");
 			}
 		}
 	}

@@ -69,9 +69,21 @@ public class EveryDayRank extends JFrame {
 		}catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			System.out.println("赛文排行1");
+			try {
+				socket.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("赛文排行2");
+			try {
+				socket.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		try {
 			out.writeUTF("赛文排行");
