@@ -3,6 +3,7 @@ package denglu;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.Connection;
@@ -29,7 +30,7 @@ public class Recordnum extends Thread{
     
     public static String zxbb = "";
     public static int port = 1230;
-    public static HashMap<String,Socket> online = new HashMap<String,Socket>();
+//    public static HashMap<String,Socket> online = new HashMap<String,Socket>();
 	public static void main(String args[]){
 		Recordnum record = new Recordnum(); //接受登录，改变字数区
 		record.start();	//启动
@@ -51,7 +52,8 @@ public class Recordnum extends Thread{
 			System.out.print("速度平均成功\r");
 			while(true){
 				Socket socket = server.accept();//被动等待客户端的连接
-				socket.setSoTimeout(0);
+				System.out.println("连接");
+//				socket.setSoTimeout(0);
 				new ReadFirst(socket).start();
 			}
         }
@@ -64,31 +66,39 @@ public class Recordnum extends Thread{
 	    ptmt.execute();
 	}
 	class ReadFirst extends Thread{	//防止死锁
-//		Socket socket;
 		DataInputStream in;
 		DataOutputStream out;
+		Socket socket;
 		ReadFirst(Socket socket){
+			this.socket = socket;
+		}
+		public void run(){
 			try {
 				socket.setSoTimeout(1000);
 				in = new DataInputStream(socket.getInputStream());
 				out = new DataOutputStream(socket.getOutputStream());
+				InetAddress ip = socket.getInetAddress();
+				if(ip.toString().equals("/125.38.13.200")){
+					System.out.println(ip.toString());
+					socket.close();
+					return;
+				}
 				String what = in.readUTF();
 				socket.setSoTimeout(0);
 				System.out.println(what);
-				
+			
 				zxbb = getBanben();
-				for(int i = 502;i<507;i++)
-					banben.add("版本1."+String.valueOf(i));
-				for(int i = 600;i<605;i++)
-					banben.add("版本1."+String.valueOf(i));
-				for(int i = 700;i<705;i++)
+//				for(int i = 502;i<507;i++)
+//					banben.add("版本1."+String.valueOf(i));
+//				for(int i = 600;i<605;i++)
+//					banben.add("版本1."+String.valueOf(i));
+				for(int i = 705;i<709;i++)
 					banben.add("版本1."+String.valueOf(i));
 				if(banben.contains(what)){
 					out.writeUTF("版本正确"+what+"最新版本"+zxbb);
 					//新的线程
 					new RWThread148(socket).start();
 				}
-				
 				else if(what.equals("自连")){System.out.println("自连");socket.close();socket = null;}
 				else if(what.equals("排名1")){
 					System.out.println("排名1");
@@ -131,7 +141,6 @@ public class Recordnum extends Thread{
 				try {
 					socket.close();
 					socket = null;
-					this.stop();
 				} catch (IOException e1) {}
 			}
 		}
@@ -276,7 +285,6 @@ public class Recordnum extends Thread{
 				System.out.print("超时无法关闭socket\r");
 			}
 			System.out.print("连接后超时\r");
-			this.stop();
 		}
 //		void addfriend(String username){
 //			try{

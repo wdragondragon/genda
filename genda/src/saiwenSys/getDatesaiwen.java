@@ -44,7 +44,7 @@ public class getDatesaiwen implements ActionListener {
 					JOptionPane.showMessageDialog(new JTextArea(),"今日无赛文");return;
 				}
 				SendWenben.title = "拖拉机每日赛文-作者：随机生成";
-				QQZaiwenListener.wenbenstr = message;
+				QQZaiwenListener.wenbenstr = RegexText.huanfu( RegexText.qukong(message));
 				Window.everydaySign = true;
 				RegexText.duan1 = 0;
 //				Window.f3listener.f3caozuo();

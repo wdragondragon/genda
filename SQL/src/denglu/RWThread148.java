@@ -31,6 +31,7 @@ public class RWThread148 extends Thread{
 	public int recorddatenumlast = 0;
 	boolean saiwenSign = false;
 	String username;
+//	TimingIn timein;
 	public RWThread148(Socket socket){
 		this.socket = socket;
 	}
@@ -39,13 +40,14 @@ public class RWThread148 extends Thread{
 		try{
 			in = new DataInputStream(socket.getInputStream());
 			out = new DataOutputStream(socket.getOutputStream());
+//			timein = new TimingIn(this);
+//			timein.start();
 			System.out.print("用户进入\r");
 			while(true){
 				message = in.readUTF();//接收客户端发来的消息
-//				System.out.println(message);
 				message = KeyPassword.convertMD5(message);
-//				System.out.println(message);
 				if(message.equals("断开")){
+					out.close();
 					socket.close();
 					System.out.println("退出登录");
 					socket.sendUrgentData(0);
@@ -78,6 +80,10 @@ public class RWThread148 extends Thread{
 					System.out.println(message);
 					saiwenSys.getachievement(in);
 					saiwenSign = false;
+					continue;
+				}
+				else if(message.substring(0,6).endsWith("扣扣发送成绩")){
+					SendQQMessage.sendmessage(message.substring(6));
 					continue;
 				}
 				else if(message.substring(0,4).equals("绑定邮箱")){
@@ -136,13 +142,13 @@ public class RWThread148 extends Thread{
 //						recordNumlast = 0;
 					if(recordrightnum>0&&recordNumlast>0)
 						changeRecord(recordNumlast,recordrightnum,recordmisnum,recorddatenumlast);
+				
 					changeonline(0);
 					if(saiwenSign)
 						addchengji("无",1);
+					out.close();
 					socket.close();
 					socket = null;
-					Recordnum.online.remove(username);
-					this.stop();
 				}
 				catch (SQLException e1) {
 					System.out.print(username+"保存字数失败\r");}
@@ -374,13 +380,14 @@ public class RWThread148 extends Thread{
 	}
 	public void changeRecord(int recordnum,int recordrightnum,int recordmisnum,int recorddatenumlast) throws SQLException{
 		String sql="update client set num =?,rightnum=?,misnum=?,datenum=? where username=?";//搜索存在用户名，并改民字数
-        PreparedStatement ptmt=Recordnum.con.prepareStatement(sql);
+		PreparedStatement ptmt=Recordnum.con.prepareStatement(sql);
         ptmt.setInt(1,recordnum);
         ptmt.setInt(2,recordrightnum);
         ptmt.setInt(3,recordmisnum);
         ptmt.setInt(4,recorddatenumlast);
         ptmt.setString(5, username);
         ptmt.execute();
+        System.out.println(recordnum+" "+recordrightnum+" "+recordmisnum+" "+recorddatenumlast);
 	}
 	public void caozuo(int i,String username,String password,int recordnum) throws SQLException{
         switch(i){
@@ -474,7 +481,7 @@ public class RWThread148 extends Thread{
 					recorddatenumlast = datenum;
 					changeonline(1);
 					try{
-						Recordnum.online.put(username, socket);
+//						Recordnum.online.put(username, socket);
 					}catch(Exception e){e.printStackTrace();}
 					String message = "%1%"+String.valueOf(num)+"%"+String.valueOf(rightnum)+"%"+String.valueOf(misnum)+"%"+String.valueOf(datenum)+"%"+email;
 					System.out.println(message);

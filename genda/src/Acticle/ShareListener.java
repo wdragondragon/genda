@@ -27,7 +27,7 @@ public class ShareListener extends AbstractAction {
 //			JOptionPane.showMessageDialog(new JTextArea(),"发文功能只支持发文状态下使用");return;}
 		String share = "";
 		if(SendWenben.sendwenSign==1)
-			share = SendWenben.title+"\n"+QQZaiwenListener.wenbenstr+"\n-----"+"第"+String.valueOf(RegexText.duan1)+"段-余"+String.valueOf(ActicleListener.length-ActicleListener.fontweizhi-ActicleListener.fontnum)+"字";
+			share = SendWenben.title+"\n"+QQZaiwenListener.wenbenstr+"\n-----"+"第"+String.valueOf(RegexText.duan1)+"段-余"+(ActicleListener.length-ActicleListener.fontweizhi-ActicleListener.fontnum)+"字";
 		else if(SendWenben.sendwenSign2==1)
 			share = SendWenben.title+"：随机抽取发文模式"+"\n"+QQZaiwenListener.wenbenstr+"\n-----"+"第"+String.valueOf(RegexText.duan1)+"段";
 		else

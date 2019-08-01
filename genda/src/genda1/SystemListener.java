@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
 
+import Login.Login;
 import keep.*;
 public class SystemListener implements ActionListener,MouseListener,MouseMotionListener{
 	static Window win;
@@ -44,6 +45,7 @@ public class SystemListener implements ActionListener,MouseListener,MouseMotionL
 			if (n == JOptionPane.YES_OPTION) {
 				try {
 					readWrite.keep(win);//保存设置
+//					SendQQMessage.sendmessage(Login.zhanghao.getText()+"已下线，（上线消息只会发送到拖拉机交流群）");
 				} catch (IOException e1) {System.out.println("保存失败");}
 				System.exit(0);
 			}

@@ -14,14 +14,14 @@ public class qqNameButtonAction implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		if(getQQGroupSign==0){
-			getQQGroupSign = 1;
-			qqName.setText("切换到要跟打的群再次点击");
-		}
-		else {
-			getQQGroupSign = 0;
-			
-		}
+//		if(getQQGroupSign==0){
+//			getQQGroupSign = 1;
+//			qqName.setText("切换到要跟打的群再次点击");
+//		}
+//		else {
+//			getQQGroupSign = 0;
+//
+//		}
 	}
 	@Override
 	public void mouseEntered(MouseEvent arg0) {

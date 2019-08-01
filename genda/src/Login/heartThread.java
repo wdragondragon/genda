@@ -19,17 +19,18 @@ import javax.swing.UIManager;
 import keep.KeyPassword;
 
 public class heartThread extends Thread{
-	private DataOutputStream outputStream;
 	Date date1 = getdate(),date2 = getdate();
 	public void run(){
 		try{
-			outputStream = new DataOutputStream(Login.socket.getOutputStream());
+
 		}catch(Exception e){}
 		while(true){
             try {
-            	Thread.sleep(5*1000);datenum();
+            	Thread.sleep(5*1000);
+            	datenum();
             	String message = KeyPassword.convertMD5("心跳");
-				outputStream.writeUTF(message); 
+            	System.out.println("心跳");
+				Login.out.writeUTF(message); 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -37,7 +38,6 @@ public class heartThread extends Thread{
 						JOptionPane.showMessageDialog(new JTextArea(),"未知原因，账号下线");
 					 try {
 					 	Login.socket.close();
-					 	link();
 					 } catch (IOException e1) {
 					 	// TODO Auto-generated catch block
 					 	e1.printStackTrace();
@@ -46,39 +46,6 @@ public class heartThread extends Thread{
 					 Login.confirm.setText("登录");
 					 Window.denglu.setText("登录");
 			}//1s发送一次心跳
-		}
-	}
-	void link(){
-		try {
-			Login.socket = new Socket(Window.IP,Login.port);
-			Login.socket.setSoTimeout(1000);
-			DataOutputStream out = new DataOutputStream(Login.socket.getOutputStream());
-			DataInputStream in = new DataInputStream(Login.socket.getInputStream());
-			out.writeUTF(Login.banben);
-			String what = in.readUTF();
-			Login.socket.setSoTimeout(0);
-			if(!what.substring(0,4).equals("版本正确")){
-				UIManager.put("OptionPane.yesButtonText", "自动更新");
-				UIManager.put("OptionPane.noButtonText", "手动下载");
-				int n = JOptionPane.showConfirmDialog(null, what, "更新提示", JOptionPane.YES_NO_OPTION);
-				if (n == JOptionPane.YES_OPTION) {
-					// ......
-					Runtime.getRuntime().exec("更新.exe");
-					System.exit(0);
-				} else if (n == JOptionPane.NO_OPTION) {
-					// ......
-					Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://39.96.83.89/new.zip");
-					System.exit(0);
-				}
-			}
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-//			JOptionPane.showMessageDialog(new JTextArea(),"连接异常");
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-//			JOptionPane.showMessageDialog(new JTextArea(),"连接异常");
-			e.printStackTrace();
 		}
 	}
 	void datenum(){

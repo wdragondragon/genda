@@ -43,7 +43,9 @@ public class F3Listener extends AbstractAction{
 		gendajindu = t;
 	}
 	public void actionPerformed(ActionEvent e) {
-		F3();
+		try {
+			F3();
+		}catch (Exception ex){}
 	}
 	public void F3(){
 		if(Window.everydaySign)return;

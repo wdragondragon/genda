@@ -82,6 +82,7 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 				in.readFully(s);
 				all = new String(s);
 				all = RegexText.qukong(all);
+				length = all.length();
 				showwen();
 			}
 		}catch (Exception e) {}

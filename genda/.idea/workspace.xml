@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="genda:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0ca355e6-0c56-4b6a-b89b-6db56968b3a2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/genda.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SQL/SQL.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/Server.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genda.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Login/SendQQMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../update/update.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Acticle/ActicleListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Acticle/ActicleListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Acticle/EnlishRamdom.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Acticle/EnlishRamdom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Acticle/ShareListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Acticle/ShareListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Login/DengluListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Login/DengluListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Login/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Login/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/SetWin/Cirecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/SetWin/Cirecord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/AchievementListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/AchievementListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/F3Listener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/F3Listener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/Mix.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Mix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/MousePressedZaiwenText.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/MousePressedZaiwenText.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/RegexText.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/RegexText.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/SystemListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/SystemListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/genda1/qqNameButtonAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/qqNameButtonAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/saiwenSys/getDatesaiwen.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/saiwenSys/getDatesaiwen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Acticle/ActicleListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Acticle/ActicleListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Acticle/EnlishRamdom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Acticle/EnlishRamdom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Acticle/ShareListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Acticle/ShareListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login/DengluListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login/DengluListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SetWin/Cirecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SetWin/Cirecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genda1/AchievementListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/AchievementListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genda1/Example.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/Example.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genda1/F3Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/F3Listener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genda1/Mix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/Mix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genda1/MousePressedZaiwenText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/MousePressedZaiwenText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genda1/RegexText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/RegexText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genda1/SystemListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/SystemListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genda1/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genda1/qqNameButtonAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/qqNameButtonAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/saiwenSys/getDatesaiwen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/saiwenSys/getDatesaiwen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../set/lx.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../set/lx.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../set/num.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../set/num.ini" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/classes/" />
+    <ignored path="$PROJECT_DIR$/bin/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/RamdomOne/Load.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="22" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/saiwenSys/getDatesaiwen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="49" column="45" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Login/Login.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="902">
+              <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/SetWin/Cirecord.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-338">
+              <caret line="79" column="68" lean-forward="true" selection-start-line="79" selection-start-column="68" selection-end-line="79" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/RamdomOne/RamdomListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Login/SendQQMessage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" column="64" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>QQNameButtonACTION</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Login/SendMessage.java" />
+        <option value="$PROJECT_DIR$/src/genda1/Example.java" />
+        <option value="$PROJECT_DIR$/src/Acticle/ShareListener.java" />
+        <option value="$PROJECT_DIR$/src/Acticle/ActicleListener.java" />
+        <option value="$PROJECT_DIR$/src/genda1/RegexText.java" />
+        <option value="$PROJECT_DIR$/src/genda1/MousePressedZaiwenText.java" />
+        <option value="$PROJECT_DIR$/src/genda1/qqNameButtonAction.java" />
+        <option value="$PROJECT_DIR$/src/genda1/F3Listener.java" />
+        <option value="$PROJECT_DIR$/src/genda1/Window.java" />
+        <option value="$PROJECT_DIR$/src/Login/SendQQMessage.java" />
+        <option value="$PROJECT_DIR$/src/Login/DengluListener.java" />
+        <option value="$PROJECT_DIR$/src/genda1/AchievementListener.java" />
+        <option value="$PROJECT_DIR$/src/genda1/SystemListener.java" />
+        <option value="$PROJECT_DIR$/src/genda1/Mix.java" />
+        <option value="$PROJECT_DIR$/src/Acticle/EnlishRamdom.java" />
+        <option value="$PROJECT_DIR$/src/saiwenSys/getDatesaiwen.java" />
+        <option value="$PROJECT_DIR$/src/Login/Login.java" />
+        <option value="$PROJECT_DIR$/src/SetWin/Cirecord.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="14" />
+    <option name="y" value="79" />
+    <option name="width" value="1307" />
+    <option name="height" value="543" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="genda" type="b2602c69:ProjectViewProjectNode" />
+              <item name="genda" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="genda" type="b2602c69:ProjectViewProjectNode" />
+              <item name="genda" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="genda" type="b2602c69:ProjectViewProjectNode" />
+              <item name="genda" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="SetWin" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\Desktop\workspace\genda\genda\genda\文章\文章类" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Example" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="genda1.Example" />
+      <module name="genda" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="genda1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Example" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0ca355e6-0c56-4b6a-b89b-6db56968b3a2" name="Default Changelist" comment="" />
+      <created>1557488118680</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1557488118680</updated>
+      <workItem from="1557488131408" duration="383000" />
+      <workItem from="1557488604834" duration="328000" />
+      <workItem from="1557488943101" duration="855000" />
+      <workItem from="1557556176787" duration="1619000" />
+      <workItem from="1557598974817" duration="1477000" />
+      <workItem from="1557630125809" duration="3934000" />
+      <workItem from="1557661908159" duration="3627000" />
+      <workItem from="1557675794277" duration="670000" />
+      <workItem from="1557676526706" duration="1643000" />
+      <workItem from="1557678424030" duration="392000" />
+      <workItem from="1557721546266" duration="3307000" />
+      <workItem from="1557725043477" duration="7307000" />
+      <workItem from="1557834668882" duration="84000" />
+      <workItem from="1557834800386" duration="3483000" />
+      <workItem from="1557931538829" duration="29000" />
+      <workItem from="1558007824938" duration="3069000" />
+      <workItem from="1558058172605" duration="1619000" />
+      <workItem from="1558355956996" duration="355000" />
+      <workItem from="1558531992471" duration="761000" />
+      <workItem from="1558614608941" duration="25000" />
+      <workItem from="1558712056422" duration="1950000" />
+      <workItem from="1558845190562" duration="3718000" />
+      <workItem from="1558880371890" duration="92000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="40727000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="67" y="-8" width="1307" height="784" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24538894" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.18051118" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.399361" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.18530351" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3258786" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24939856" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" weight="0.329591" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/SetWin/Cirecord.java</url>
+          <line>62</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/genda1/HelpDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Server/src/GendaServer/AllServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Server/src/GendaServer/Start.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../update/src/Update/Load.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SQL/src/denglu/RWThread146.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SQL/src/denglu/Recordnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3212">
+          <caret line="160" column="33" selection-start-line="160" selection-start-column="33" selection-end-line="160" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SQL/src/denglu/Dateinit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/Login/Login.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="52" column="46" lean-forward="true" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#4657#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/SendMessage.java" />
+    <entry file="file://$PROJECT_DIR$/src/keep/readWrite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4246">
+          <caret line="215" selection-start-line="215" selection-end-line="215" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genda1/Example.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tips/Tips.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1892">
+          <caret line="106" column="38" selection-start-line="106" selection-start-column="38" selection-end-line="106" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/ForgetListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/FriendThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Acticle/SendWenben.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="36" column="47" lean-forward="true" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Acticle/Acticle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1703">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Acticle/orActicle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Acticle/ShareListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="34" column="65" lean-forward="true" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/QQ/QQ.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genda1/MoreListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-704">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genda1/QQZaiwenListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="37" column="51" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genda1/MousePressedZaiwenText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#235#236#0" expanded="true" />
+            <element signature="e#256#257#0" expanded="true" />
+            <element signature="e#301#302#0" expanded="true" />
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#377#378#0" expanded="true" />
+            <element signature="e#408#409#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genda1/qqNameButtonAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genda1/F3Listener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1369">
+          <caret line="50" column="38" lean-forward="true" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genda1/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-462">
+          <caret line="36" column="27" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Acticle/EnlishRamdom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genda1/AchievementListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4334">
+          <caret line="213" column="76" selection-start-line="213" selection-start-column="76" selection-end-line="213" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genda1/SystemListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genda1/Mix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SQL/src/denglu/RWThread148.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5984">
+          <caret line="288" column="88" selection-start-line="288" selection-start-column="81" selection-end-line="288" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genda1/Clip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1738">
+          <caret line="94" column="83" selection-start-line="94" selection-start-column="83" selection-end-line="94" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Acticle/ActicleListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="146" column="21" selection-start-line="146" selection-start-column="21" selection-end-line="146" selection-end-column="21" />
+          <folding>
+            <element signature="e#1079#1080#0" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gendaClient/Count.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/DengluListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-280">
+          <caret line="70" column="34" selection-start-line="70" selection-start-column="34" selection-end-line="70" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/genda1/RegexText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RamdomOne/Load.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/saiwenSys/getDatesaiwen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="49" column="45" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RamdomOne/RamdomListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/SendQQMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="64" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/jfreechart-1.0.19.jar!/org/jfree/data/category/CategoryDataset.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SetWin/Cirecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-338">
+          <caret line="79" column="68" lean-forward="true" selection-start-line="79" selection-start-column="68" selection-end-line="79" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>genda:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>genda</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

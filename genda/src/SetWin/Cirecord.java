@@ -78,7 +78,7 @@ public class Cirecord extends JFrame {
 		     defaultcategorydataset.addValue(Double.parseDouble(split[3])*20, 
 		     "击键*20",split[1]); 
 		     defaultcategorydataset.addValue(Double.parseDouble(split[4]), 
-			 "顺时速度",split[1]); 
+			 "瞬时速度",split[1]);
 		 }
 		 return defaultcategorydataset; 
 		 } 

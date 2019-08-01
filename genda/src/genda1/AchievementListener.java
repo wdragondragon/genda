@@ -98,17 +98,20 @@ public class AchievementListener extends AbstractAction{
 		String nomistakesudu = "";
 		String []temp = QQZaiwenListener.wenbenstr.split(" ");
 		int [] EnglishType = new int[temp.length];
-		
 		if(Window.Pattern==1){
 			if(QQZaiwenListener.wenbenstr.length()<=300)
-				sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),4*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));//速度显示
+				mistake = (int)4*(AchListener.duo+AchListener.lou+AchListener.mistake);
+//				sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),4*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));//速度显示
 			else if(QQZaiwenListener.wenbenstr.length()<=600&&QQZaiwenListener.wenbenstr.length()>300)
-				sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),3*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
+				mistake = (int)3*(AchListener.duo+AchListener.lou+AchListener.mistake);
+//				sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),3*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
 			else if(QQZaiwenListener.wenbenstr.length()<=1000&&QQZaiwenListener.wenbenstr.length()>600)
-				sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),2*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
+				mistake = (int)2*(AchListener.duo+AchListener.lou+AchListener.mistake);
+//				sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),2*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
 			else if(QQZaiwenListener.wenbenstr.length()>1000)
-				sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
-			
+//				sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(AchListener.duo+AchListener.lou+AchListener.mistake));		//速度显示
+				mistake = (int)(AchListener.duo+AchListener.lou+AchListener.mistake);
+			sudu = Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)mistake);		//速度显示
 		}
 		else if(Window.Pattern==2){
 			ArrayList<Integer> misType = new ArrayList<Integer>();
@@ -210,6 +213,11 @@ public class AchievementListener extends AbstractAction{
 		try{
 			if(Window.everydaySign){
 				sendsaiwen();
+				Login.out.writeUTF(
+						KeyPassword.convertMD5("扣扣发送成绩"+Login.zhanghao.getText()+"已打今日赛文\n成绩：速度"+String.format("%.2f", sudu)+
+						" 击键"+String.format("%.2f",KeyNumber/second)+
+						" 码长"+String.format("%.2f", KeyNumber/length)
+						));
 				win.setAlwaysOnTop(false);
 				Window.everydaySign = false;
 			}

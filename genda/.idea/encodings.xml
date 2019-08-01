@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="GBK">
+    <file url="file://$PROJECT_DIR$/../SQL/src/denglu/RWThread146.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/Login/DengluListener.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/genda1/Example.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/genda1/Window.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/../update/src/Update/Load.java" charset="GBK" />
+  </component>
+</project>

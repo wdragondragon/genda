@@ -34,12 +34,12 @@ public class Load extends JFrame{
 		File file;
 		boolean sign = true;
 		if(systemname.length()>7&&systemname.substring(0,7).equals("Windows")){
-			url = new URL("http://39.96.83.89/new.exe");
+			url = new URL("https://jdragon.club/upload/2019/7/tlj/new.exe");
 			file = new File("¸ú´òÆ÷.exe");
 			
 		}
 		else{
-			url = new URL("http://39.96.83.89/new.jar");
+			url = new URL("https://jdragon.club/upload/2019/7/tlj/new.jar");
 			file = new File("genda.jar");
 			sign = false;
 		}

@@ -14,8 +14,13 @@ public class MousePressedZaiwenText implements MouseListener {
 	public void mousePressed(MouseEvent arg0) {
 		zaiwenText.setText(null);
 	}
-	public void mouseEntered(MouseEvent arg0) {}
-	public void mouseExited(MouseEvent arg0) {
+	public void mouseEntered(MouseEvent arg0) {
+
 	}
-	public void mouseReleased(MouseEvent arg0) {}
+	public void mouseExited(MouseEvent arg0) {
+
+	}
+	public void mouseReleased(MouseEvent arg0) {
+
+	}
 }

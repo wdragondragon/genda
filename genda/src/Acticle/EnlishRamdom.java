@@ -56,6 +56,7 @@ public class EnlishRamdom implements ActionListener {
 		wordlist = new ArrayList<>();
 		Collections.shuffle(wordall);
 		for(int i = 0;i<Integer.parseInt(Acticle.number.getText());i++){
+			wordlist.add(wordall.get(i));
 			str+=wordall.get(i);
 			str+=" ";
 		}

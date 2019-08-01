@@ -63,6 +63,7 @@ public class Mix extends AbstractAction{
 			str+=EnlishRamdom.wordlist.get(i);
 			str+=" ";
 		}
+		System.out.println("wfvh:"+str);
 		return str.substring(0,str.length()-1);
 	}
 }

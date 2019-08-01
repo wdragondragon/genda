@@ -30,7 +30,7 @@ public class Login extends JFrame implements ActionListener{
 	JButton zhuce;
 	JButton wangmi;
 	JButton tuichu;
-	public static String banben = "版本1.700";
+	public static String banben = "版本1.706";
 	public static String zxbanben = "";
 	public static int port = 1230;
 	public static JTextField zhanghao;
@@ -45,7 +45,7 @@ public class Login extends JFrame implements ActionListener{
 	JPanel p = new JPanel();
 	public Login(Window win){
 		this.win = win;
-		link();
+//		link();
 		setTitle("登录");
 		Window.dqbanben.setText(Window.dqbanben.getText()+banben);
 //		com.sun.awt.AWTUtilities.setWindowOpaque(this,true);
@@ -59,7 +59,6 @@ public class Login extends JFrame implements ActionListener{
 		mima = new JPasswordField("密码");
 		mima.setBounds(20,70,190,30);
 		p.add(mima);
-		
 		
 		
 		confirm = new JButton("登录");
@@ -93,41 +92,7 @@ public class Login extends JFrame implements ActionListener{
 		
 		setVisible(true);
 	}
-	void link(){
-		try {
-//			socket.setSoTimeout(1000);
-			socket = new Socket(Window.IP,port);
-			socket.setSoTimeout(1000);
-			DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-			DataInputStream in = new DataInputStream(socket.getInputStream());
-			out.writeUTF(Login.banben);
-			String what = in.readUTF();
-			socket.setSoTimeout(0);
-			if(!what.substring(0,4).equals("版本正确")){
-				UIManager.put("OptionPane.yesButtonText", "自动更新");
-				UIManager.put("OptionPane.noButtonText", "手动下载");
-				int n = JOptionPane.showConfirmDialog(null, what, "更新提示", JOptionPane.YES_NO_OPTION);
-				if (n == JOptionPane.YES_OPTION) {
-					// ......
-					if(Example.systemname.length()>=7&&Example.systemname.substring(0,7).equals("Windows"))
-						Runtime.getRuntime().exec("更新.exe");
-					else
-						Runtime.getRuntime().exec("java -jar update.jar");
-					System.exit(0);
-				} else if (n == JOptionPane.NO_OPTION) {
-					// ......
-					Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://39.96.83.89/new.zip");
-					System.exit(0);
-				}
-			}
-			zxbanben = what.substring(what.indexOf("最新版本")+4);
-			Window.zxbanben.setText(Window.zxbanben.getText()+zxbanben);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(new JTextArea(),"连接异常");
-			e.printStackTrace();
-		}
-	}
+
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub

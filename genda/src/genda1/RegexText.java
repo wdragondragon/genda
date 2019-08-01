@@ -5,14 +5,11 @@ import SetWin.SetCharListener;
 import SetWin.SetspaceListener;
 
 public class RegexText {
-	int qi = 0;
-	int di = 0;
 	int gang = 0;
-	int make = 0;
 	int kong = 0;
-	int i,j,k,length,sign1=0,sign2=0,sign3=0;
+	int i,j,k,length,sign1=0,sign2=0;
 	char [] a;
-	String str,duan;
+	String duan;
 	public static int duan1;
 	String regetText(String str){
 		SendWenben.title = "";
@@ -69,6 +66,7 @@ public class RegexText {
 		str = str.replaceAll("#","");
 		str = qukong(str);
 		str = huanfu(str);
+
 		duan = duan.replaceAll(regex,"");
 		duan1 = Integer.valueOf(duan);
 		System.out.println("±ÍÃ‚:"+SendWenben.title+"\n"+str);
@@ -90,6 +88,7 @@ public class RegexText {
 	public static String qukong(String str){
 		if(SetspaceListener.spacesign==1)
 			str = str.replaceAll("\\s*", "");
+		str = str.replaceAll("°°","");
 		return str;
 	}
 	public static String biaoding(String str){

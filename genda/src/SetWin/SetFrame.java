@@ -50,7 +50,7 @@ public class SetFrame extends JFrame {
 	public void SetFrame1(){
 		setTitle("设置");
 //		setLayout(null);
-		setVisible(false);
+		setVisible(false);	
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		p.setLayout(null);
 //		com.sun.awt.AWTUtilities.setWindowOpaque(this,true);//取消透明

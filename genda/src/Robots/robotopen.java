@@ -33,14 +33,14 @@ public class robotopen extends Thread {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				if(machang<4&&num>10&&i>0&&c[i-1]!=32&&c[i]!=32&&c[i-1]!='.'&&c[i-1]!=','&&regex.indexOf(String.valueOf(c[i]))==-1&&regex.indexOf(String.valueOf(c[i-1]))==-1){
-					num=0;
-					i-=2;
-					robot.keyPress(0x08);
-	    			robot.keyRelease(0x08);
-	    			machang--;
-	    			continue;
-				}
+//				if(machang<4&&num>10&&i>0&&c[i-1]!=32&&c[i]!=32&&c[i-1]!='.'&&c[i-1]!=','&&regex.indexOf(String.valueOf(c[i]))==-1&&regex.indexOf(String.valueOf(c[i-1]))==-1){
+//					num=0;
+//					i-=2;
+//					robot.keyPress(0x08);
+//	    			robot.keyRelease(0x08);
+//	    			machang--;
+//	    			continue;
+//				}
 				if(c[i]>='a'&&c[i]<='z')
 					c[i]-=32;
 				if(c[i]=='_'||c[i]==','||c[i]=='.'||regex.indexOf(String.valueOf(c[i]))!=-1){

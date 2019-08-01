@@ -3,7 +3,7 @@ package keep;
 
 import genda1.GendaListener;
 import genda1.JTextPaneChange;
-import genda1.MoreListener;
+//import genda1.MoreListener;
 import genda1.Window;
 import genda1.winchange;
 
@@ -39,7 +39,7 @@ public class readWrite
 				+"%"+String.valueOf(win.getY())
 				+"%"+String.valueOf(Window.fontSize)
 				+"%"+String.valueOf(SetFrameJinduListener.jindusign)
-				+"%"+String.valueOf(MoreListener.MoreSign)
+				+"%"+String.valueOf(1)
 				+"%"+Login.zhanghao.getText()
 				+"%"+String.valueOf(win.jSplitPane1.getDividerLocation())
 				+"%"+String.valueOf(win.jSplitPane1.getDividerLocation())
@@ -206,7 +206,7 @@ public class readWrite
 			JTextPaneChange.createStyle("ÂÌÐ±",JTextPaneChange.styledDoc,fontSize,0,1,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
 			JTextPaneChange.createStyle("ÂÌ´ÖÐ±",JTextPaneChange.styledDoc,fontSize,1,1,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
 
-			MoreListener.MoreSign = moresign;
+//			MoreListener.MoreSign = moresign;
 			GendaListener.fenye = fenye;
 			
 			SetFrame.Splitenum.setText(String.valueOf(fenye));

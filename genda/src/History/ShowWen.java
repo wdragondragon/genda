@@ -11,6 +11,7 @@ public class ShowWen extends JFrame{
 		setBounds(100,100,550,550);
 		
 //		wenshow.setLineWrap(true);
+		wenshow.setLineWrap(true);
 		jswenshow.setBounds(0,0,500,500);
 		add(jswenshow);
 		setVisible(false);

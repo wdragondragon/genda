@@ -16,7 +16,7 @@ public class ChooseFile implements ActionListener{
         // TODO Auto-generated method stub 
 		cizufilename = getFileName();
 		if(cizufilename==null)
-			cizufilename = "编码文件/输入法编码/词组提示码表.txt";
+			return;
 		Window.tipschange = new Tips(Window.tips);
 	}
 	public static String getFileName(){

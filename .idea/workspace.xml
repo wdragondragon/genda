@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7e35d2df-7364-451f-863b-6fabfe8cb992" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/genda.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQL/SQL.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genda/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genda/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genda/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genda/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genda/genda.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genda/src/Login/SendQQMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/update/update.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Acticle/Acticle.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Acticle/Acticle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Acticle/ActicleListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Acticle/ActicleListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Acticle/EnlishRamdom.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Acticle/EnlishRamdom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Acticle/SendWenben.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Acticle/SendWenben.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Acticle/ShareListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Acticle/ShareListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Acticle/orActicle.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Acticle/orActicle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/BuildSai/BuildSaiListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/BuildSai/BuildSaiListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Check/Check.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Check/Check.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Check/CheckFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Check/CheckFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Check/CheckListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Check/CheckListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Check/DoCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Check/DoCheck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Communication/CommunicationListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Communication/CommunicationListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailCheck/Email.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/EmailCheck/Email.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailCheck/EmailCheckFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/EmailCheck/EmailCheckFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailCheck/SendEmailListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/EmailCheck/SendEmailListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailCheck/emailchecksend.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/EmailCheck/emailchecksend.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailSys/Email.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/EmailSys/Email.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailSys/EmailFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/EmailSys/EmailFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailSys/SendEmailListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/EmailSys/SendEmailListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailSys/emailsend.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/EmailSys/emailsend.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/FriendSys/FriendSys$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/FriendSys/FriendSys$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/FriendSys/FriendSys.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/FriendSys/FriendSys.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/FriendSys/FriendsSysListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/FriendSys/FriendsSysListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/FriendSys/addFriends.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/FriendSys/addFriends.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/ShowWen.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/History/ShowWen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historyFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/History/historyFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historyFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/History/historyFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/History/historyListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historyfanye.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/History/historyfanye.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historyselect.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/History/historyselect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historythis.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/History/historythis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historywenbenListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/History/historywenbenListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/DengluListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Login/DengluListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/ForgetListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Login/ForgetListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/FriendThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Login/FriendThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Login/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/QingkongListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Login/QingkongListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/RecordChange.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Login/RecordChange.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/ZhuceListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Login/ZhuceListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/heartThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Login/heartThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/EnglishWord.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Other/EnglishWord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/Example10_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Other/Example10_2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/FileAccept10_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Other/FileAccept10_2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/FullScreenTest2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Other/FullScreenTest2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/FullScreenTest2.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Other/FullScreenTest2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/ROBOT.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Other/ROBOT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/TestSysteTray$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Other/TestSysteTray$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/TestSysteTray$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Other/TestSysteTray$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/TestSysteTray.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Other/TestSysteTray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/QQ/ChangeQQWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/QQ/ChangeQQWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/QQ/ForegroundWinName.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/QQ/ForegroundWinName.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/QQ/GetAllWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/QQ/GetAllWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/QQ/GetQQWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/QQ/GetQQWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/QQ/QQ.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/QQ/QQ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/RamdomOne/Load.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/RamdomOne/Load.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/RamdomOne/RamdomListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/RamdomOne/RamdomListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Ranking/EveryDayRank$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Ranking/EveryDayRank$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Ranking/EveryDayRank.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Ranking/EveryDayRank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Ranking/RankListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Ranking/RankListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Ranking/rankFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Ranking/rankFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Ranking/rankFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Ranking/rankFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Robots/RobotListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Robots/RobotListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Robots/robotopen.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Robots/robotopen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/Cirecord$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/Cirecord$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/Cirecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/Cirecord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/CirecordListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/CirecordListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/FontFamilyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/FontFamilyListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/Set.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/Set.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetBackground.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/SetBackground.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetCharListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/SetCharListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFontSize.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/SetFontSize.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/SetFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/SetFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/SetFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrameJinduListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/SetFrameJinduListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrameKeyboardRecordListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/SetFrameKeyboardRecordListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrameQianshuiListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/SetFrameQianshuiListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrameSplitnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/SetFrameSplitnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFramechangeListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/SetFramechangeListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFramezhidingListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/SetFramezhidingListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetspaceListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/SetWin/SetspaceListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/BuildChooseFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Tips/BuildChooseFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/Changetxt.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Tips/Changetxt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/ChooseFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Tips/ChooseFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/LookChange.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Tips/LookChange.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/Noexit.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Tips/Noexit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/TheoryListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Tips/TheoryListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/Tips.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Tips/Tips.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/TipsFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/Tips/TipsFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/AchievementListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/AchievementListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/AcitiyComp.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/AcitiyComp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Clip.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/Clip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/ComputeSpeed.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/ComputeSpeed.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/ConectionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/ConectionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Example.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/Example.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/F3Listener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/F3Listener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/GendaJindutiao.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/GendaJindutiao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/GendaListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/GendaListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/HelpDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/HelpDialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/JTextPaneChange.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/JTextPaneChange.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/JianQieListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/JianQieListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Mix.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/Mix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/MoreListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/MoreListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/MousePressedZaiwenText.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/MousePressedZaiwenText.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/OnlineOorF.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/OnlineOorF.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/QQZaiwenListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/QQZaiwenListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/ReadyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/ReadyListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/RegexText.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/RegexText.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/SystemListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/SystemListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/TableAdd.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/TableAdd.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/Window$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/Window$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/Window$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/Window$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/Window$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/Window$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/Window$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/Window$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/Window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/qqNameButtonAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/qqNameButtonAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/returnJspListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/returnJspListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/winchange.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/genda1/winchange.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/BreakLinkListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/gendaClient/BreakLinkListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/Count.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/gendaClient/Count.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/LinkListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/gendaClient/LinkListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/RoomListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/gendaClient/RoomListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/audienceClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/gendaClient/audienceClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/battleClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/gendaClient/battleClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/battleReadThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/gendaClient/battleReadThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/battleSend.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/gendaClient/battleSend.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/keep/KeyPassword.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/keep/KeyPassword.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/keep/readWrite.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/keep/readWrite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/lookplay/AchListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/lookplay/AchListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/lookplay/ArticleMatch$DataType.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/lookplay/ArticleMatch$DataType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/lookplay/ArticleMatch.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/lookplay/ArticleMatch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/saiwenSys/CountSaiwen.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/saiwenSys/CountSaiwen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/saiwenSys/getDatesaiwen.class" beforeDir="false" afterPath="$PROJECT_DIR$/genda/bin/saiwenSys/getDatesaiwen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Acticle/ActicleListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/Acticle/ActicleListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Acticle/EnlishRamdom.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/Acticle/EnlishRamdom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Acticle/ShareListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/Acticle/ShareListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Login/DengluListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/Login/DengluListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/Login/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/AchievementListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/genda1/AchievementListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/Example.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/genda1/Example.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/F3Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/genda1/F3Listener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/Mix.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/genda1/Mix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/MousePressedZaiwenText.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/genda1/MousePressedZaiwenText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/RegexText.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/genda1/RegexText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/SystemListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/genda1/SystemListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/genda1/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/qqNameButtonAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/genda1/qqNameButtonAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/saiwenSys/getDatesaiwen.java" beforeDir="false" afterPath="$PROJECT_DIR$/genda/src/saiwenSys/getDatesaiwen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/set/lx.ini" beforeDir="false" afterPath="$PROJECT_DIR$/set/lx.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/set/num.ini" beforeDir="false" afterPath="$PROJECT_DIR$/set/num.ini" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="139" />
+    <option name="y" value="41" />
+    <option name="width" value="1307" />
+    <option name="height" value="784" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/genda" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7e35d2df-7364-451f-863b-6fabfe8cb992" name="Default Changelist" comment="" />
+      <created>1557488517172</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1557488517172</updated>
+      <workItem from="1557488520032" duration="83000" />
+      <workItem from="1558007792508" duration="27000" />
+      <workItem from="1558007843110" duration="15000" />
+      <workItem from="1558614597341" duration="17000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="142000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="67" y="-8" width="1307" height="784" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26142743" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24939856" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/genda/src/genda1/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genda/src/genda1/Example.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genda/src/genda1/AcitiyComp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genda/src/FriendSys/addFriends.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
