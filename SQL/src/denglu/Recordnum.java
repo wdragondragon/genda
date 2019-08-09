@@ -3,6 +3,8 @@ package denglu;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -88,10 +90,6 @@ public class Recordnum extends Thread{
 				System.out.println(what);
 			
 				zxbb = getBanben();
-//				for(int i = 502;i<507;i++)
-//					banben.add("版本1."+String.valueOf(i));
-//				for(int i = 600;i<605;i++)
-//					banben.add("版本1."+String.valueOf(i));
 				for(int i = 705;i<709;i++)
 					banben.add("版本1."+String.valueOf(i));
 				if(banben.contains(what)){
@@ -133,16 +131,45 @@ public class Recordnum extends Thread{
 					getRank();
 					socketclose(socket);
 				}
+				else if(what.equals("全部文本记录")){
+					System.out.println("获取全部文本记录");
+					ObjectOutputStream outputToClient = new ObjectOutputStream(out);
+		            ObjectInputStream inputByClient = new ObjectInputStream(in);
+					List<String> idlist = (List<String>) inputByClient.readObject();
+					
+					outputToClient.writeObject(getAllWenben(idlist));
+					inputByClient.close();
+					outputToClient.close();
+					socketclose(socket);
+				}
 				else{
 					out.writeUTF("版本强制更新：\n因为版本错误未能及时同步问题，进行同步版本\n自动跳转下载或加群号974172771");
 					socketclose(socket);
 				}
-			} catch (IOException e) {
+			} catch (IOException | ClassNotFoundException e) {
 				try {
 					socket.close();
 					socket = null;
 				} catch (IOException e1) {}
 			}
+		}
+		List<String> getAllWenben(List<String> idlist){
+			List<String> wenbenlist = new ArrayList<String>();
+			try{
+				int id;
+				String sql="select wenben from history where id=?";
+				PreparedStatement ptmt=Recordnum.con.prepareStatement(sql);
+				for(String i:idlist){
+					id = Integer.valueOf(i);
+					ptmt.setInt(1, id);
+					ResultSet rs=ptmt.executeQuery();
+				    if(rs.next()){
+				    	String wen = rs.getString(1);
+				    	wenbenlist.add(wen);
+				    }
+				}
+			}catch(Exception e){System.out.println("发送文本失败");e.printStackTrace();}
+			return wenbenlist;
 		}
 		String getBanben(){
 			try{

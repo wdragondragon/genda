@@ -129,6 +129,8 @@ public class RWThread148 extends Thread{
 					else{
 						recordNumlast = recordnum;//保存最后一次字数
 						recorddatenumlast = recorddatenum ;
+						if(recorddatenumlast%200==1)
+							changeRecord(recordNumlast,recordrightnum,recordmisnum,recorddatenumlast);
 					}
 				}
 			}

@@ -23,7 +23,7 @@ public class historyFrame extends JFrame implements ActionListener{
 	JTextField lookcow;
 	public static JTextField datef,suduf,dayf;
 	static JTextField dangqianye;
-	JButton shaixuandate,shaixuansudu,next,before,go,gofirst,golast;
+	JButton shaixuandate,shaixuansudu,next,before,go,gofirst,golast,keephistroy;
 	static JButton yemashow;
 	Socket socket;
 	DataOutputStream out;
@@ -71,6 +71,7 @@ public class historyFrame extends JFrame implements ActionListener{
 		go = new JButton("跳转");
 		gofirst = new JButton("跳到首页");
 		golast = new JButton("跳到尾页");
+		keephistroy = new JButton("保存记录");
 		yemashow = new JButton("");
 		before.setBounds(10, tableN.getY()+tableN.getHeight(), 120, 30);
 		yemashow.setBounds(140, tableN.getY()+tableN.getHeight(),60,30);
@@ -79,7 +80,7 @@ public class historyFrame extends JFrame implements ActionListener{
 		go.setBounds(410,  tableN.getY()+tableN.getHeight(), 60, 30);
 		gofirst.setBounds(480, tableN.getY()+tableN.getHeight(),100,30);
 		golast.setBounds(590, tableN.getY()+tableN.getHeight(),100,30);
-		
+		keephistroy.setBounds(700,tableN.getY()+tableN.getHeight(),100,30);
 		lookcow = new JTextField("要查看内容的行数");
 		lookcow.setBounds(10,  tableN.getY()+tableN.getHeight()+35, 120, 30);
 		lookwenben = new JButton("查看跟打内容");
@@ -106,6 +107,7 @@ public class historyFrame extends JFrame implements ActionListener{
 		historyselect historysl = new historyselect();
 		historyfanye historyfanye = new historyfanye();
 		
+		
 		shaixuandate.addActionListener(historysl);
 		shaixuansudu.addActionListener(historysl);
 		shaixuansaiwen.addActionListener(historysl);
@@ -115,6 +117,8 @@ public class historyFrame extends JFrame implements ActionListener{
 		golast.addActionListener(historyfanye);
 		go.addActionListener(historyfanye);
 		showall.addActionListener(this);
+		keephistroy.addActionListener(new WritehistoryListener());
+		
 		p.add(tableN);
 		p.add(lookwenben);
 		p.add(lookcow);
@@ -132,6 +136,7 @@ public class historyFrame extends JFrame implements ActionListener{
 		p.add(gofirst);
 		p.add(yemashow);
 		p.add(showall);
+		p.add(keephistroy);
 		request();
 		this.setResizable(false);
 	}

@@ -43,7 +43,8 @@ public class DengluListener implements ActionListener{
 				Login.socket.setSoTimeout(500);
 				Login.out = new DataOutputStream(Login.socket.getOutputStream());
 				Login.in = new DataInputStream(Login.socket.getInputStream());
-				
+//				ObjectOutputStream outputToServer = new ObjectOutputStream(Login.out);
+//				ObjectInputStream inputByServer = new ObjectInputStream(Login.in);
 				Login.out.writeUTF(Login.banben);
 				String what = Login.in.readUTF();
 				Login.socket.setSoTimeout(0);
@@ -105,7 +106,7 @@ public class DengluListener implements ActionListener{
 
 					Window.everydaySign = false;
 
-					heartThread = new heartThread();//心跳包发送
+					heartThread = new heartThread(this);//心跳包发送
 					heartThread.start();
 				} else if (i == 2)
 					JOptionPane.showMessageDialog(new JTextArea(), "密码错误");
