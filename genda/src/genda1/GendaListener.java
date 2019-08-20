@@ -3,6 +3,7 @@ package genda1;
 import gendaClient.battleClient;
 import gendaClient.battleSend;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import com.sun.jna.platform.win32.WinDef.CHAR;
 
 import Acticle.SendWenben;
 import Login.RecordChange;
+import SetWin.SetFrame;
 import SetWin.SetFrameJinduListener;
 import SetWin.SetFrameQianshuiListener;
 import SetWin.SetFramechangeListener;
@@ -325,11 +327,21 @@ public class GendaListener implements DocumentListener,KeyListener {
 				}
 			}catch(Exception e){n=0;System.out.println("wussssss");}
 			if(sign==0)n=0;
+			if(n>dangyenum*(fenye-1)+Integer.valueOf(SetFrame.readyFont.getText())){
+				int tempready = n+Integer.valueOf(SetFrame.readyFont.getText());
+				if(tempready>last)tempready = last;
+				for(;n<tempready;n++){
+					System.out.println("Ô¤¶Á");
+					JTextPaneChange.createStyle("Ô¤¶Á", JTextPaneChange.styledDoc, Window.fontSize,
+							0, 0, 0,wenben.getBackground(), Window.family, wenben.getBackground());
+					JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,String.valueOf(c2[n]),"Ô¤¶Á",wenben);
+				}
+			}
 			for(;n<last;n++){			//Ìí¼ÓÊ£ÏÂ×ÖÌå
 //				System.out.print(n);
 				if(SetFramechangeListener.tipsign==0||Window.everydaySign||(Window.Pattern==1)){
 					JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,String.valueOf(c2[n]),"»Ò",wenben);
-				}
+				} 
 				else{
 					int quanmanum = Tips.quanmacione.indexOf(n);
 					int ciquanmanum = Tips.ciquanmacione.indexOf(n);

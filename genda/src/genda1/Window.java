@@ -971,6 +971,8 @@ public class Window extends JFrame {
 		EnglishNext.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I,
 				KeyEvent.CTRL_MASK));
 
+		jqbzaiwen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,
+				KeyEvent.CTRL_MASK));
 		fawenmenu.add(luanxu);
 		fawenmenu.add(xiayiduan);
 		fawenmenu.add(chouquxiayiduan);

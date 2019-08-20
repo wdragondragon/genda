@@ -23,7 +23,7 @@ import javax.swing.JTextArea;
 
 public class WritehistoryToText extends Thread{
 	public void run(){
-		String name[]={"","日期","速度","击键","码长","字数","回改","退格","错字","选重","键准","键法","打词率","时间(秒)","段数","内容"};
+		String name[]={"序号","日期","速度","击键","码长","字数","回改","退格","错字","选重","键准","键法","打词率","时间(秒)","段数","内容"};
 		FileOutputStream fos;
 		StringBuilder all = new StringBuilder();
 		int n = 0;
@@ -49,17 +49,17 @@ public class WritehistoryToText extends Thread{
 			OutputStreamWriter writer;
 			writer = new OutputStreamWriter(fos, "UTF-8");
 			BufferedWriter  bufferWriter = new BufferedWriter(writer);
-			for(int i = 0;i<15;i++){
+			for(int i = 0;i<16;i++){
 				all.append(name[i]+"\t");
 			}
-			all.append("\n");
+			all.append("\r\n");
 			for(@SuppressWarnings("rawtypes") Vector v:historyFrame.allhistory){
-				for(int i = 0;i<14;i++){
+				for(int i = 0;i<15;i++){
 					all.append(v.get(i)+"\t");
 				}
-				all.append(wenbenlist.get(n++));
+				all.append(wenbenlist.get(n++)+"\r\n");
 			}
-			all.append("\n");
+			all.append("\r\n");
 			bufferWriter.write(all.toString());
 			bufferWriter.close();
 			writer.close();

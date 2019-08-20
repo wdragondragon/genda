@@ -123,6 +123,7 @@ public class DengluListener implements ActionListener{
 				Login.confirm.setText("µÇÂ¼");
 				Window.denglu.setText("µÇÂ¼");
 				Login.dengluSign = 0;
+				Login.in.close();
 				Login.out.close();
 				Login.socket.close();
 				heartThread.stop();

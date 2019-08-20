@@ -28,7 +28,7 @@ public class SetFrame extends JFrame {
 	SetFrameSplitnum setframesplitenum;
 	GendaListener gendalistener;
 	JLabel qianshui;
-	public static JTextField Splitenum,FontSize;
+	public static JTextField Splitenum,FontSize,readyFont;
 	public CirecordListener cirecordlistener;
 	JRadioButton qianshuiON;
 	JRadioButton qianshuiOFF;
@@ -169,8 +169,24 @@ public class SetFrame extends JFrame {
 		familyque.setBounds(family.getX()+family.getWidth()+10,FontSize.getY()+FontSize.getHeight()+10,90,30);
 		p.add(familyque);
 		
-		
-		
+		readyFont = new JTextField("0");
+		readyFont.setBounds(familyque.getX()+familyque.getWidth()+10,FontSize.getY()+FontSize.getHeight()+10,90,30);
+		readyFont.addKeyListener(		//只能输入数字
+				new KeyListener(){
+					@Override
+					public void keyPressed(KeyEvent arg0) {}
+					@Override
+					public void keyReleased(KeyEvent arg0) {}
+					@Override
+					public void keyTyped(KeyEvent e) {
+						// TODO Auto-generated method stub
+						int keyChar = e.getKeyChar();
+						if(keyChar>=KeyEvent.VK_0&&keyChar<=KeyEvent.VK_9){}
+						else e.consume();
+					}
+				}
+			);
+		p.add(readyFont);
 		
 		
 		FontFamilyListener fontfamilylistener = new FontFamilyListener(family);
