@@ -8,8 +8,8 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 
 public class SendQQMessage {
-    public static void sendmessage(String str) throws IOException {
-
+    public static void sendmessage(String str){
+    	try{
 //		String message = new String (str.getBytes("ISO-8859-1"),"utf8");
         String message = URLEncoder.encode(str,"utf8");
 
@@ -22,5 +22,8 @@ public class SendQQMessage {
         InputStreamReader in = new InputStreamReader(urlcon.getInputStream(), "utf-8");
         BufferedReader bufferRead = new BufferedReader(in);
         System.out.println(bufferRead.readLine());
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
     }
 }

@@ -16,8 +16,8 @@ public class ForgetListener implements ActionListener {
 		// TODO Auto-generated method stub
 
 		new EmailCheckFrame().setTitle("修改密码");
-		
-//		JOptionPane.showMessageDialog(new JTextArea(),"无自助改密\n点击协助作者来联系作者");
+
+		// JOptionPane.showMessageDialog(new JTextArea(),"无自助改密\n点击协助作者来联系作者");
 	}
 
 }

@@ -136,6 +136,7 @@ public class RWThread148 extends Thread{
 			}
 		}
 		catch(Exception e){ 		//退出时，将数据库里的字数修改
+			e.printStackTrace();
 			System.out.print(username+"用户退出\r");
 			if(dengluSign==1){
 				try {
@@ -148,6 +149,7 @@ public class RWThread148 extends Thread{
 					changeonline(0);
 					if(saiwenSign)
 						addchengji("无",1);
+					in.close();
 					out.close();
 					socket.close();
 					socket = null;

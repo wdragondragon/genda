@@ -90,8 +90,9 @@ public class Recordnum extends Thread{
 				System.out.println(what);
 			
 				zxbb = getBanben();
-				for(int i = 705;i<709;i++)
+				for(int i = 705;i<=709;i++)
 					banben.add("版本1."+String.valueOf(i));
+				
 				if(banben.contains(what)){
 					out.writeUTF("版本正确"+what+"最新版本"+zxbb);
 					//新的线程
@@ -305,7 +306,11 @@ public class Recordnum extends Thread{
 		}
 		void socketclose(Socket socket){
 			try {
+				in.close();
+				out.close();
 				socket.close();
+				in = null;
+				out = null;
 				socket = null;
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block

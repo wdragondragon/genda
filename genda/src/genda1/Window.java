@@ -238,7 +238,7 @@ public class Window extends JFrame {
 			System.out.println("读取总跟打字数失败");
 		}
 		setVisible(true);// 设置可见
-		setMinimumSize(new Dimension(850, 100));
+		setMinimumSize(new Dimension(100, 100));
 		init();// 初始化
 		setOpacity(0.95f);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// 设置关闭按钮

@@ -10,7 +10,7 @@ import javax.swing.*;
 import QQ.*;
 import SetWin.*;
 
-public class QQZaiwenListener extends AbstractAction{
+public class QQZaiwenListener extends AbstractAction {
 	/**
 	 * 
 	 */
@@ -23,40 +23,51 @@ public class QQZaiwenListener extends AbstractAction{
 	SetFrameJinduListener setframejinduListener;
 	int i;
 	public static int duan;
-	public static String str,dvbi;
+	public static String str, dvbi;
 	public static String wenbenstr = "";
 	public static boolean zaiwenSign = false;
 	QQ qq = new QQ();
 	static RegexText regexText = new RegexText();
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(SendWenben.sendwenSign==1){JOptionPane.showMessageDialog(new JTextArea(),"先结束发文");return;}
-		if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"请先结束每日赛文");return;}
+		if (SendWenben.sendwenSign == 1) {
+			JOptionPane.showMessageDialog(new JTextArea(), "先结束发文");
+			return;
+		}
+		if (Window.everydaySign) {
+			JOptionPane.showMessageDialog(new JTextArea(), "请先结束每日赛文");
+			return;
+		}
 		try {
-			if(Example.systemname.substring(0,7).equals("Windows"))
-				QQ.sendMessage(1,qqName.getText());
+			if (Example.systemname.substring(0, 7).equals("Windows"))
+				QQ.sendMessage(1, qqName.getText());
 		} catch (Exception ex) {
 			// TODO Auto-generated catch block
 			System.out.println("载文失败");
-//			ex.printStackTrace();
+			// ex.printStackTrace();
 		}
 		zaiwenSign = true;
 	}
-	public void setDaziText(JTextArea t){
+
+	public void setDaziText(JTextArea t) {
 		dazi = t;
 	}
-	
-	public void setWenbenText(JTextPane t){
+
+	public void setWenbenText(JTextPane t) {
 		wenben = t;
 	}
+
 	public void setQQName(JLabel qqName2) {
 		qqName = qqName2;
 	}
-	public void setGendaListener(GendaListener t){
+
+	public void setGendaListener(GendaListener t) {
 		gendalistener = t;
 	}
-	public void setJProgressBar(GendaJindutiao t){
+
+	public void setJProgressBar(GendaJindutiao t) {
 		gendajindu = t;
 	}
 }

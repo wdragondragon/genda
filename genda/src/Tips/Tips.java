@@ -1,26 +1,18 @@
 package Tips;
 
-import genda1.AchievementListener;
 import genda1.QQZaiwenListener;
 import genda1.RegexText;
-import genda1.Window;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+
 import java.util.Scanner;
 
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
-import SetWin.Set;
 
 public class Tips{
 	int i = 0;
@@ -79,7 +71,6 @@ public class Tips{
 			String ch = splited[0];
 			String bm = splited[1];
 			fuhao.put(ch, bm);
-//			System.out.println(ch+":"+bm);
 		}
 		bufferRead.close();
 		read.close();
@@ -108,7 +99,6 @@ public class Tips{
 	        InputStreamReader read = new InputStreamReader(fis, "UTF-8");
 			BufferedReader  bufferRead = new BufferedReader(read);
 			while((str=bufferRead.readLine())!=null){
-//				System.out.println(str);
 				boolean cixuanSign = false;
 				String[] splited = str.split("\\s+");
 				String ch = splited[0];
@@ -131,7 +121,6 @@ public class Tips{
 							i++;
 						}
 						else if(hashtable.get(splited[0]).length()==length){
-//							System.out.println(temp);
 							if(temp.equals("2")){
 								hashtable.put(ch, bm);
 								alltable.put(ch, length);
@@ -143,47 +132,9 @@ public class Tips{
 						hashtable.put(ch, bm);
 						i++;
 					}
-//					System.out.println(splited[0]+":"+splited[1]);
 			    }
-			    else if(chlength==2){
-//			    	System.out.println(ch+":"+bm);
-			    	i=0;
-			    }
-			    else if(chlength==3){
-//			    	System.out.println(ch+":"+bm);
-			    	i=1;
-			    }
-			    else if(chlength==4){
-//			    	System.out.println(ch+":"+bm);
-			    	i=2;
-			    }
-			    else if(chlength==5){
-//			    	System.out.println(ch+":"+bm);
-			    	i=3;
-			    }
-			    else if(chlength==6){
-//			    	System.out.println(ch+":"+bm);
-			    	i=4;
-			    }
-			    else if(chlength==7){
-//			    	System.out.println(ch+":"+bm);
-			    	i=5;
-			    }
-			    else if(chlength==8){
-//			    	System.out.println(ch+":"+bm);
-			    	i=6;
-			    }
-			    else if(chlength==9){
-//			    	System.out.println(ch+":"+bm);
-			    	i=7;
-			    }
-			    else if(chlength==10){
-//			    	System.out.println(ch+":"+bm);
-			    	i=8;
-			    }
-			    else if(chlength==11){
-//			    	System.out.println(ch+":"+bm);
-			    	i=9;
+			    else if(chlength>=2&&chlength<=11){
+			    	i = chlength - 2;
 			    }
 			    if(i!=-1){
 				    if(hashlist.get(i).containsKey(splited[0])){
@@ -231,13 +182,12 @@ public class Tips{
 		alllength = 0;
 		dingalllength = 0;
 		
-//		System.out.println(str);
-//		String str = Window.wenben.getText();
-		String str1,str2,temp;
+
+		String str1,str2;
 		int cixuansign = 0;
 		int length;
 		String bianmatemp;
-		char a[] = str.toCharArray();
+//		char a[] = str.toCharArray();
 		quanmaci.clear();
 		quanmacione.clear();
 		quanmacitwo.clear();
@@ -263,7 +213,7 @@ public class Tips{
 				if(str.length()<i+2)continue;
 				for(int j=0;j<str.length()-(i+1);j++){
 					cixuansign = 0;
-					str1 = str.substring(j,j+i+2);
+					str1 = str.substring(j,j+i+2);//获取判断是否为词的str
 					if(hashlist.get(i).containsKey(str1)){
 						if(!quanmaci.contains(j)&&!quanmaci.contains(j+i+1)&&!ciquanmaci.contains(j)&&!ciquanmaci.contains(j+i+1)&&
 								!ejianmaci.contains(j)&&!ejianmaci.contains(j+i+1)&&!ciejianmaci.contains(j)&&!ciejianmaci.contains(j+i+1)&&
@@ -271,13 +221,31 @@ public class Tips{
 						{
 							bianmatemp =  hashlist.get(i).get(str1);	//临时放入编码，往后加 _
 							length = bianmatemp.length();
+							//解决两码词最简 上身体 uhufti_ uh_ut_的冲突
+							if(i==0&&j<str.length()-2&&
+									hashtable.containsKey(str.substring(j,j+1))&&
+									hashtable.containsKey(str.substring(j+2,j+3))){
+								//当为两字词时，判断下一个词编码是否比当前更短
+								String strTemp = str.substring(j+1,j+3);
+								int danziLength1 = hashtable.get(str.substring(j+2,j+3)).length();//截取二字词后单字
+								int danziLength2 = hashtable.get(str.substring(j,j+1)).length();//截取二字词前单字
+								if(hashlist.get(0).containsKey(strTemp)){
+									String bianmatemp2 = hashlist.get(0).get(strTemp);
+									int length2 = bianmatemp2.length();
+									if(length2+danziLength2<length+danziLength1){
+										bianmatemp = bianmatemp2;
+										length = length2;
+										str1 = strTemp;
+										j += 1;
+									}
+								}
+							}
 							if(bianmatemp.substring(length-1,length).equals("_"))length -= 1;
 							str2 = hashlist.get(i).get(str1).substring(length-1,length);	//获取编码最后一个字符
 							if(regex.indexOf(str2)!=-1){		//判断最后一字符是否为多重
 								length = length-1;
 								cixuansign=1;
 							}
-//							System.out.print(length);
 							for(int k=j;k<j+i+2;k++){
 								if(length<3){
 									if(cixuansign==0)
@@ -368,14 +336,13 @@ public class Tips{
 	public static String weizhistr = "";
 	public void compalllength(){
 		String str = QQZaiwenListener.wenbenstr;
-		String regex = "234567890";
+//		String regex = "234567890";
 		String fu = "@#$%^&*,./;'\\\"——-+=_·| ";
 		weizhistr = "";
 		char c[] = str.toCharArray();
 		String bianmatemp;
 		System.out.println();
 		dingshowstr = "";
-//		showstr = "";
 		showstr = new StringBuilder();
 		for(int i=0;i<str.length();i++)
 			if(!quanmaci.contains(i)&&!ejianmaci.contains(i)&&!sjianmaci.contains(i)&&
@@ -417,7 +384,6 @@ public class Tips{
 		for(int i=0;i<c.length;i++){
 			if(Tips.bianma.containsKey(i)){
 				showstr.append(Tips.bianma.get(i));
-//				showstr += Tips.bianma.get(i);
 			}
 		}
 		dingshowstr = RegexText.biaoding(showstr.toString());
@@ -425,20 +391,6 @@ public class Tips{
 		alllength = showstr.length();
 		System.out.println("理论:"+alllength);
 		System.out.println("标定:"+dingalllength);
-//		dengji = (1*4*qmc+
-//				5*4*smc
-//				+3*3*emc
-//				+7*5*cqmc
-//				+11*4*csmc
-//				+7*3*cemc
-//				+7*2*edz
-//				+8*3*sdz
-//				+13*4*qdz
-//				+17*5*cqdz
-//				+20*weizhi
-//				+1*2*fh
-//				+szfh)
-//				/alllength;
 		dengji = (50*4*qmc+
 				55*4*smc
 				+60*3*emc
