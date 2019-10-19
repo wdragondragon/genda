@@ -7,7 +7,13 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.ToDoubleFunction;
+import java.util.function.ToIntFunction;
+import java.util.function.ToLongFunction;
 
 import javax.swing.event.*;
 import javax.swing.*;
@@ -346,8 +352,6 @@ public class GendaListener implements DocumentListener, KeyListener {
 				last = str2.length();
 			}
 			dazidangyestr = str1.substring(fenye * dangyenum);
-			// char [] b1 = dazidangyestr.toCharArray();
-			// char [] b2 = wenbendangyestr.toCharArray();
 			wenben.setText(""); // 清空文本框
 			// n = 0;
 			try {
@@ -385,122 +389,161 @@ public class GendaListener implements DocumentListener, KeyListener {
 							String.valueOf(c2[n]), "预读", wenben);
 				}
 			}
+			
+			/**
+			 * 因为字体上色必须正序放，然后粗细分布需要倒序计算才不会晃色（同一个词粗和细来回切换）
+			 * 将词的起始位置放入链表中进行倒序排放，判断词的起始位置在链表中的位置，用这个数余二判断是否加粗
+			 */
+			
+			List<Integer> quanmanum = new ArrayList<Integer>();
+			List<Integer> ciquanmanum = new ArrayList<Integer>();
+			List<Integer> ejianmanum = new ArrayList<Integer>();
+			List<Integer> ciejianmanum = new ArrayList<Integer>();
+			List<Integer> sjianmanum = new ArrayList<Integer>();
+			List<Integer> cisjianmanum = new ArrayList<Integer>();
+			int n2 = n;
 			for (; n < last; n++) { // 添加剩下字体
+				// System.out.print(n);
+				if (SetFramechangeListener.tipsign == 0 || Window.everydaySign
+						|| (Window.Pattern == 1)) {
+				} else {
+					if (Tips.ejianmaciOneAndTwo.get(n) != null) {
+						ejianmanum.add(n);
+						n = Tips.ejianmaciOneAndTwo.get(n);
+					} else if (Tips.ciejianmaciOneAndTwo.get(n) != null) {
+						ciejianmanum.add(n);
+						n = Tips.ciejianmaciOneAndTwo.get(n);
+					}else if (Tips.sjianmaciOneAndTwo.get(n) != null) {
+						sjianmanum.add(n);
+						n = Tips.sjianmaciOneAndTwo.get(n);
+					} else if (Tips.cisjianmaciOneAndTwo.get(n) != null) {
+						cisjianmanum.add(n);
+						n = Tips.cisjianmaciOneAndTwo.get(n);
+					} else if (Tips.quanmaciOneAndTwo.get(n) != null) {
+						quanmanum.add(n);
+						n = Tips.quanmaciOneAndTwo.get(n);
+					} else if (Tips.ciquanmaciOneAndTwo.get(n) != null) {
+						ciquanmanum.add(n);
+						n = Tips.ciquanmaciOneAndTwo.get(n);
+					}
+				}
+			}
+			/**
+		     * 从大到小判断几个链表
+		     */
+			Comparator<Integer> comparator = new Comparator<Integer>() {
+				@Override
+				public int compare(Integer a, Integer b) {
+					// TODO Auto-generated method stub
+					return b.compareTo(a);
+				}
+			};
+		    Collections.sort(ejianmanum, comparator);
+		    Collections.sort(ciejianmanum, comparator);
+		    Collections.sort(sjianmanum, comparator);
+		    Collections.sort(ciquanmanum, comparator);
+		    Collections.sort(cisjianmanum, comparator);
+		    Collections.sort(quanmanum, comparator);
+		    
+		    
+			for (n = n2; n < last; n++) { // 添加剩下字体
 			// System.out.print(n);
 				if (SetFramechangeListener.tipsign == 0 || Window.everydaySign
 						|| (Window.Pattern == 1)) {
 					JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,
 							String.valueOf(c2[n]), "灰", wenben);
 				} else {
-					int quanmanum = Tips.quanmacione.indexOf(n);
-					int ciquanmanum = Tips.ciquanmacione.indexOf(n);
-					int ejianmanum = Tips.ejianmacione.indexOf(n);
-					int ciejianmanum = Tips.ciejianmacione.indexOf(n);
-					int sjianmanum = Tips.sjianmacione.indexOf(n);
-					int cisjianmanum = Tips.cisjianmacione.indexOf(n);
-					if (quanmanum != -1) {
-						if (quanmanum % 2 == 0)
-							for (int k = Tips.quanmacione.get(quanmanum); k <= Tips.quanmacitwo
-									.get(quanmanum); k++) {
-								JTextPaneChange.insertDoc(
-										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "绿粗", wenben);
-							}
-						else {
-							for (int k = Tips.quanmacione.get(quanmanum); k <= Tips.quanmacitwo
-									.get(quanmanum); k++) {
-								JTextPaneChange.insertDoc(
-										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "绿", wenben);
-							}
-						}
-						n = Tips.quanmacitwo.get(quanmanum);
-					} else if (ejianmanum != -1) {
-						if (ejianmanum % 2 == 0)
-							for (int k = Tips.ejianmacione.get(ejianmanum); k <= Tips.ejianmacitwo
-									.get(ejianmanum); k++) {
+					if (Tips.ejianmaciOneAndTwo.get(n) != null) {
+						if (ejianmanum.indexOf(n) % 2 == 0)
+							for (int k = n; k <= Tips.ejianmaciOneAndTwo.get(n); k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "粉粗", wenben);
 							}
 						else {
-							for (int k = Tips.ejianmacione.get(ejianmanum); k <= Tips.ejianmacitwo
-									.get(ejianmanum); k++) {
+							for (int k = n; k <= Tips.ejianmaciOneAndTwo.get(n); k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "粉", wenben);
 							}
 						}
-						n = Tips.ejianmacitwo.get(ejianmanum);
-					} else if (sjianmanum != -1) {
-						if (sjianmanum % 2 == 0)
-							for (int k = Tips.sjianmacione.get(sjianmanum); k <= Tips.sjianmacitwo
-									.get(sjianmanum); k++) {
-								JTextPaneChange.insertDoc(
-										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "蓝粗", wenben);
-							}
-						else {
-							for (int k = Tips.sjianmacione.get(sjianmanum); k <= Tips.sjianmacitwo
-									.get(sjianmanum); k++) {
-								JTextPaneChange.insertDoc(
-										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "蓝", wenben);
-							}
-						}
-						n = Tips.sjianmacitwo.get(sjianmanum);
-					} else if (ciquanmanum != -1) {
-						if (ciquanmanum % 2 == 0)
-							for (int k = Tips.ciquanmacione.get(ciquanmanum); k <= Tips.ciquanmacitwo
-									.get(ciquanmanum); k++) {
-								JTextPaneChange.insertDoc(
-										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "绿粗斜", wenben);
-							}
-						else {
-							for (int k = Tips.ciquanmacione.get(ciquanmanum); k <= Tips.ciquanmacitwo
-									.get(ciquanmanum); k++) {
-								JTextPaneChange.insertDoc(
-										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "绿斜", wenben);
-							}
-						}
-						n = Tips.ciquanmacitwo.get(ciquanmanum);
-					} else if (ciejianmanum != -1) {
-						if (ciejianmanum % 2 == 0)
-							for (int k = Tips.ciejianmacione.get(ciejianmanum); k <= Tips.ciejianmacitwo
-									.get(ciejianmanum); k++) {
+						n = Tips.ejianmaciOneAndTwo.get(n);
+					} else if (Tips.ciejianmaciOneAndTwo.get(n) != null) {
+						if (ciejianmanum.indexOf(n) % 2 == 0)
+							for (int k = n; k <= Tips.ciejianmaciOneAndTwo.get(n); k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "粉粗斜", wenben);
 							}
 						else {
-							for (int k = Tips.ciejianmacione.get(ciejianmanum); k <= Tips.ciejianmacitwo
-									.get(ciejianmanum); k++) {
+							for (int k = n; k <= Tips.ciejianmaciOneAndTwo.get(n); k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "粉斜", wenben);
 							}
 						}
-						n = Tips.ciejianmacitwo.get(ciejianmanum);
-					} else if (cisjianmanum != -1) {
-						if (cisjianmanum % 2 == 0)
-							for (int k = Tips.cisjianmacione.get(cisjianmanum); k <= Tips.cisjianmacitwo
-									.get(cisjianmanum); k++) {
+						n = Tips.ciejianmaciOneAndTwo.get(n);
+					}else if (Tips.sjianmaciOneAndTwo.get(n) != null) {
+						if (sjianmanum.indexOf(n) % 2 == 0)
+							for (int k = n; k <= Tips.sjianmaciOneAndTwo.get(n); k++) {
+								JTextPaneChange.insertDoc(
+										JTextPaneChange.styledDoc,
+										String.valueOf(c2[k]), "蓝粗", wenben);
+							}
+						else {
+							for (int k = n; k <= Tips.sjianmaciOneAndTwo.get(n); k++) {
+								JTextPaneChange.insertDoc(
+										JTextPaneChange.styledDoc,
+										String.valueOf(c2[k]), "蓝", wenben);
+							}
+						}
+						n = Tips.sjianmaciOneAndTwo.get(n);
+					} else if (Tips.cisjianmaciOneAndTwo.get(n) != null) {
+						if (cisjianmanum.indexOf(n) % 2 == 0)
+							for (int k = n; k <= Tips.cisjianmaciOneAndTwo.get(n); k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "蓝粗斜", wenben);
 							}
 						else {
-							for (int k = Tips.cisjianmacione.get(cisjianmanum); k <= Tips.cisjianmacitwo
-									.get(cisjianmanum); k++) {
+							for (int k = n; k <= Tips.cisjianmaciOneAndTwo.get(n); k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "蓝斜", wenben);
 							}
 						}
-						n = Tips.cisjianmacitwo.get(cisjianmanum);
-					} else {
+						n = Tips.cisjianmaciOneAndTwo.get(n);
+					} else if (Tips.quanmaciOneAndTwo.get(n) != null) {
+						if (quanmanum.indexOf(n) % 2 == 0)
+							for (int k = n; k <= Tips.quanmaciOneAndTwo.get(n); k++) {
+								JTextPaneChange.insertDoc(
+										JTextPaneChange.styledDoc,
+										String.valueOf(c2[k]), "绿粗", wenben);
+							}
+						else {
+							for (int k = n; k <= Tips.quanmaciOneAndTwo.get(n); k++) {
+								JTextPaneChange.insertDoc(
+										JTextPaneChange.styledDoc,
+										String.valueOf(c2[k]), "绿", wenben);
+							}
+						}
+						n = Tips.quanmaciOneAndTwo.get(n);
+					} else if (Tips.ciquanmaciOneAndTwo.get(n) != null) {
+						if (ciquanmanum.indexOf(n) % 2 == 0)
+							for (int k = n; k <= Tips.ciquanmaciOneAndTwo.get(n); k++) {
+								JTextPaneChange.insertDoc(
+										JTextPaneChange.styledDoc,
+										String.valueOf(c2[k]), "绿粗斜", wenben);
+							}
+						else {
+							for (int k = n; k <= Tips.ciquanmaciOneAndTwo.get(n); k++) {
+								JTextPaneChange.insertDoc(
+										JTextPaneChange.styledDoc,
+										String.valueOf(c2[k]), "绿斜", wenben);
+							}
+						}
+						n = Tips.ciquanmaciOneAndTwo.get(n);
+					}  else {
 						JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,
 								String.valueOf(c2[n]), "灰", wenben);
 					}
