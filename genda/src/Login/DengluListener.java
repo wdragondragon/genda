@@ -113,6 +113,7 @@ public class DengluListener implements ActionListener{
 				else if (i == 3)
 					JOptionPane.showMessageDialog(new JTextArea(), "账户不存在");
 			} catch (Exception e1) {
+				e1.printStackTrace();
 				JOptionPane.showMessageDialog(new JTextArea(), "请检查网络2");
 			}
 		} else if (Login.dengluSign == 1) {

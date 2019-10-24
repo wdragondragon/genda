@@ -15,22 +15,28 @@ import Login.*;
 import Ranking.rankFrame;
 public class Example{
 	public static String systemname;
-	public static void main(String args[]) throws UnknownHostException{
+	public static void main(String args[]){
 //		int readsign;
-		Window win = new Window();
-		
-		win.setTitle("跟打");
-		win.setBounds(100,100,710,515);
-		
-		InetAddress addr = InetAddress.getLocalHost();
-        String ip = addr.getHostAddress().toString(); //获取本机ip
-        String hostName = addr.getHostName().toString(); //获取本机计算机名称
-        System.out.println("本机IP：" + ip + "\n本机名称:" + hostName);
-		Properties props = System.getProperties();
-		systemname = props.getProperty("os.name");
-		System.out.println("操作系统的名称：" + props.getProperty("os.name"));
-        System.out.println("操作系统的版本：" + props.getProperty("os.version"));
-		
+		Window win = null;
+		try{
+			win = new Window();
+			win.setTitle("跟打");
+			win.setBounds(100,100,710,515);
+		}catch(Exception e){e.printStackTrace();}
+		try {
+			InetAddress addr;
+			addr = InetAddress.getLocalHost();
+			String ip = addr.getHostAddress().toString(); //获取本机ip
+	        String hostName = addr.getHostName().toString(); //获取本机计算机名称
+	        System.out.println("本机IP：" + ip + "\n本机名称:" + hostName);
+			Properties props = System.getProperties();
+			systemname = props.getProperty("os.name");
+			System.out.println("操作系统的名称：" + props.getProperty("os.name"));
+	        System.out.println("操作系统的版本：" + props.getProperty("os.version"));
+		} catch (UnknownHostException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
 		try {
 			readWrite.read(win);//读取保存的设置
 		} catch (IOException e1) {System.out.println("读取设置失败");}

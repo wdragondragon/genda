@@ -90,7 +90,7 @@ public class Recordnum extends Thread{
 				System.out.println(what);
 			
 				zxbb = getBanben();
-				for(int i = 705;i<=709;i++)
+				for(int i = 800;i<=809;i++)
 					banben.add("°æ±¾1."+String.valueOf(i));
 				
 				if(banben.contains(what)){

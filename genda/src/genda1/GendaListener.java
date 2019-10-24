@@ -401,30 +401,103 @@ public class GendaListener implements DocumentListener, KeyListener {
 			List<Integer> ciejianmanum = new ArrayList<Integer>();
 			List<Integer> sjianmanum = new ArrayList<Integer>();
 			List<Integer> cisjianmanum = new ArrayList<Integer>();
+			
+			List<Integer> sulucinum = new ArrayList<Integer>();
 			int n2 = n;
 			for (; n < last; n++) { // Ìí¼ÓÊ£ÏÂ×ÖÌå
-				// System.out.print(n);
 				if (SetFramechangeListener.tipsign == 0 || Window.everydaySign
 						|| (Window.Pattern == 1)) {
 				} else {
-					if (Tips.ejianmaciOneAndTwo.get(n) != null) {
-						ejianmanum.add(n);
-						n = Tips.ejianmaciOneAndTwo.get(n);
-					} else if (Tips.ciejianmaciOneAndTwo.get(n) != null) {
-						ciejianmanum.add(n);
-						n = Tips.ciejianmaciOneAndTwo.get(n);
-					}else if (Tips.sjianmaciOneAndTwo.get(n) != null) {
-						sjianmanum.add(n);
-						n = Tips.sjianmaciOneAndTwo.get(n);
-					} else if (Tips.cisjianmaciOneAndTwo.get(n) != null) {
-						cisjianmanum.add(n);
-						n = Tips.cisjianmaciOneAndTwo.get(n);
-					} else if (Tips.quanmaciOneAndTwo.get(n) != null) {
-						quanmanum.add(n);
-						n = Tips.quanmaciOneAndTwo.get(n);
-					} else if (Tips.ciquanmaciOneAndTwo.get(n) != null) {
-						ciquanmanum.add(n);
-						n = Tips.ciquanmaciOneAndTwo.get(n);
+					List<Integer> SignList = new ArrayList<Integer>();
+					Integer cisjianSign = Tips.cisjianmaciOneAndTwo.get(n);
+					Integer sjianSign = Tips.sjianmaciOneAndTwo.get(n);
+					Integer ciquanmaSign = Tips.ciquanmaciOneAndTwo.get(n) ;
+					Integer ciejianmaSign = Tips.ciejianmaciOneAndTwo.get(n);
+					Integer ejianmaSign = Tips.ejianmaciOneAndTwo.get(n);
+					Integer quanmaSign = Tips.quanmaciOneAndTwo.get(n);
+					
+					SignList.add(cisjianSign);
+					SignList.add(sjianSign);
+					SignList.add(ciquanmaSign);
+					SignList.add(ciejianmaSign);
+					SignList.add(ejianmaSign);
+					SignList.add(quanmaSign);
+					if (RegexText.isMaxInt(ejianmaSign, SignList)) {
+						int endWord = Tips.ejianmaciOneAndTwo.get(n);
+						for(int quan = n+1;quan<endWord;quan++){
+							if(Tips.ejianmaciOneAndTwo.containsKey(quan)&&
+									(endWord-n)<(Tips.ejianmaciOneAndTwo.get(quan)-quan)){
+								endWord = Tips.ejianmaciOneAndTwo.get(quan);
+							}
+						}
+						if(endWord == Tips.ejianmaciOneAndTwo.get(n)){
+							ejianmanum.add(n);
+							n = Tips.ejianmaciOneAndTwo.get(n);
+						}
+					} else if (RegexText.isMaxInt(ciejianmaSign, SignList)) {
+						int endWord = Tips.ciejianmaciOneAndTwo.get(n);
+						for(int quan = n+1;quan<endWord;quan++){
+							if(Tips.ciejianmaciOneAndTwo.containsKey(quan)&&
+									(endWord-n)<(Tips.ciejianmaciOneAndTwo.get(quan)-quan)){
+								endWord = Tips.ciejianmaciOneAndTwo.get(quan);
+							}
+						}
+						if(endWord == Tips.ciejianmaciOneAndTwo.get(n)){
+							ciejianmanum.add(n);
+							n = Tips.ciejianmaciOneAndTwo.get(n);
+						}
+					} else if (RegexText.isMaxInt(cisjianSign, SignList)) {
+						int endWord = Tips.cisjianmaciOneAndTwo.get(n);
+						for(int quan = n+1;quan<endWord;quan++){
+							if(Tips.cisjianmaciOneAndTwo.containsKey(quan)&&
+									(endWord-n)<(Tips.cisjianmaciOneAndTwo.get(quan)-quan)){
+								endWord = Tips.cisjianmaciOneAndTwo.get(quan);
+							}
+						}
+						if(endWord == Tips.cisjianmaciOneAndTwo.get(n)){
+							cisjianmanum.add(n);
+							n = Tips.cisjianmaciOneAndTwo.get(n);
+						}
+					} else if (RegexText.isMaxInt(sjianSign, SignList)) {
+						int endWord = Tips.sjianmaciOneAndTwo.get(n);
+						for(int quan = n+1;quan<endWord;quan++){
+							if(Tips.sjianmaciOneAndTwo.containsKey(quan)&&
+									(endWord-n)<(Tips.sjianmaciOneAndTwo.get(quan)-quan)){
+								endWord = Tips.sjianmaciOneAndTwo.get(quan);
+							}
+						}
+						if(endWord == Tips.sjianmaciOneAndTwo.get(n)){
+							sjianmanum.add(n);
+							n = Tips.sjianmaciOneAndTwo.get(n);
+						}
+					} else  if (RegexText.isMaxInt(ciquanmaSign, SignList)) {
+						int endWord = Tips.ciquanmaciOneAndTwo.get(n);
+						for(int quan = n+1;quan<endWord;quan++){
+							if(Tips.ciquanmaciOneAndTwo.containsKey(quan)&&
+									(endWord-n)<(Tips.ciquanmaciOneAndTwo.get(quan)-quan)){
+								endWord = Tips.ciquanmaciOneAndTwo.get(quan);
+							}
+						}
+						if(endWord == Tips.ciquanmaciOneAndTwo.get(n)){
+							ciquanmanum.add(n);
+							n = Tips.ciquanmaciOneAndTwo.get(n);
+						}
+					}else if (RegexText.isMaxInt(quanmaSign, SignList)) {
+						int endWord = Tips.quanmaciOneAndTwo.get(n);
+						for(int quan = n+1;quan<=endWord;quan++){
+							if(Tips.quanmaciOneAndTwo.containsKey(quan)&&
+									(endWord-n)<(Tips.quanmaciOneAndTwo.get(quan)-quan)){
+								endWord = Tips.quanmaciOneAndTwo.get(quan);
+							}
+						}
+						if(endWord == Tips.quanmaciOneAndTwo.get(n)){
+							quanmanum.add(n);
+							n = Tips.quanmaciOneAndTwo.get(n);
+						}
+					} else if (Tips.suluciOneAndTwo.get(n)!=null){
+						sulucinum.add(n);
+						n = Tips.suluciOneAndTwo.get(n);
+						
 					}
 				}
 			}
@@ -444,8 +517,7 @@ public class GendaListener implements DocumentListener, KeyListener {
 		    Collections.sort(ciquanmanum, comparator);
 		    Collections.sort(cisjianmanum, comparator);
 		    Collections.sort(quanmanum, comparator);
-		    
-		    
+		    Collections.sort(sulucinum, comparator);
 			for (n = n2; n < last; n++) { // Ìí¼ÓÊ£ÏÂ×ÖÌå
 			// System.out.print(n);
 				if (SetFramechangeListener.tipsign == 0 || Window.everydaySign
@@ -453,97 +525,118 @@ public class GendaListener implements DocumentListener, KeyListener {
 					JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,
 							String.valueOf(c2[n]), "»Ò", wenben);
 				} else {
-					if (Tips.ejianmaciOneAndTwo.get(n) != null) {
+					Integer cisjianSign = Tips.cisjianmaciOneAndTwo.get(n);
+					Integer sjianSign = Tips.sjianmaciOneAndTwo.get(n);
+					Integer ciquanmaSign = Tips.ciquanmaciOneAndTwo.get(n) ;
+					Integer ciejianmaSign = Tips.ciejianmaciOneAndTwo.get(n);
+					Integer ejianmaSign = Tips.ejianmaciOneAndTwo.get(n);
+					Integer quanmaSign = Tips.quanmaciOneAndTwo.get(n);
+					if (ejianmanum.indexOf(n)!= -1) {
 						if (ejianmanum.indexOf(n) % 2 == 0)
-							for (int k = n; k <= Tips.ejianmaciOneAndTwo.get(n); k++) {
+							for (int k = n; k <= ejianmaSign; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "·Û´Ö", wenben);
 							}
 						else {
-							for (int k = n; k <= Tips.ejianmaciOneAndTwo.get(n); k++) {
+							for (int k = n; k <= ejianmaSign; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "·Û", wenben);
 							}
 						}
-						n = Tips.ejianmaciOneAndTwo.get(n);
-					} else if (Tips.ciejianmaciOneAndTwo.get(n) != null) {
+						n = ejianmaSign;
+					} else if (ciejianmanum.indexOf(n)!= -1) {
 						if (ciejianmanum.indexOf(n) % 2 == 0)
-							for (int k = n; k <= Tips.ciejianmaciOneAndTwo.get(n); k++) {
+							for (int k = n; k <= ciejianmaSign; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "·Û´ÖÐ±", wenben);
 							}
 						else {
-							for (int k = n; k <= Tips.ciejianmaciOneAndTwo.get(n); k++) {
+							for (int k = n; k <= ciejianmaSign; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "·ÛÐ±", wenben);
 							}
 						}
-						n = Tips.ciejianmaciOneAndTwo.get(n);
-					}else if (Tips.sjianmaciOneAndTwo.get(n) != null) {
-						if (sjianmanum.indexOf(n) % 2 == 0)
-							for (int k = n; k <= Tips.sjianmaciOneAndTwo.get(n); k++) {
-								JTextPaneChange.insertDoc(
-										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "À¶´Ö", wenben);
-							}
-						else {
-							for (int k = n; k <= Tips.sjianmaciOneAndTwo.get(n); k++) {
-								JTextPaneChange.insertDoc(
-										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "À¶", wenben);
-							}
-						}
-						n = Tips.sjianmaciOneAndTwo.get(n);
-					} else if (Tips.cisjianmaciOneAndTwo.get(n) != null) {
+						n = ciejianmaSign;
+					}else if (cisjianmanum.indexOf(n)!= -1) {
 						if (cisjianmanum.indexOf(n) % 2 == 0)
-							for (int k = n; k <= Tips.cisjianmaciOneAndTwo.get(n); k++) {
+							for (int k = n; k <= cisjianSign; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "À¶´ÖÐ±", wenben);
 							}
 						else {
-							for (int k = n; k <= Tips.cisjianmaciOneAndTwo.get(n); k++) {
+							for (int k = n; k <= cisjianSign; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "À¶Ð±", wenben);
 							}
 						}
-						n = Tips.cisjianmaciOneAndTwo.get(n);
-					} else if (Tips.quanmaciOneAndTwo.get(n) != null) {
-						if (quanmanum.indexOf(n) % 2 == 0)
-							for (int k = n; k <= Tips.quanmaciOneAndTwo.get(n); k++) {
+						n = cisjianSign;
+					}else if (sjianmanum.indexOf(n)!= -1) {
+						if (sjianmanum.indexOf(n) % 2 == 0)
+							for (int k = n; k <= sjianSign; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "ÂÌ´Ö", wenben);
+										String.valueOf(c2[k]), "À¶´Ö", wenben);
 							}
 						else {
-							for (int k = n; k <= Tips.quanmaciOneAndTwo.get(n); k++) {
+							for (int k = n; k <= sjianSign; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "ÂÌ", wenben);
+										String.valueOf(c2[k]), "À¶", wenben);
 							}
 						}
-						n = Tips.quanmaciOneAndTwo.get(n);
-					} else if (Tips.ciquanmaciOneAndTwo.get(n) != null) {
+						n = sjianSign;
+					} else if (ciquanmanum.indexOf(n)!= -1) {
 						if (ciquanmanum.indexOf(n) % 2 == 0)
-							for (int k = n; k <= Tips.ciquanmaciOneAndTwo.get(n); k++) {
+							for (int k = n; k <= ciquanmaSign; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "ÂÌ´ÖÐ±", wenben);
 							}
 						else {
-							for (int k = n; k <= Tips.ciquanmaciOneAndTwo.get(n); k++) {
+							for (int k = n; k <= ciquanmaSign; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
 										String.valueOf(c2[k]), "ÂÌÐ±", wenben);
 							}
 						}
-						n = Tips.ciquanmaciOneAndTwo.get(n);
-					}  else {
+						n = ciquanmaSign;
+					}else if (quanmanum.indexOf(n) != -1) {
+						if (quanmanum.indexOf(n) % 2 == 0)
+							for (int k = n; k <= quanmaSign; k++) {
+								JTextPaneChange.insertDoc(
+										JTextPaneChange.styledDoc,
+										String.valueOf(c2[k]), "ÂÌ´Ö", wenben);
+							}
+						else {
+							for (int k = n; k <= quanmaSign; k++) {
+								JTextPaneChange.insertDoc(
+										JTextPaneChange.styledDoc,
+										String.valueOf(c2[k]), "ÂÌ", wenben);
+							}
+						}
+						n = quanmaSign;
+					}else if(sulucinum.contains(n)&&Tips.suluciOneAndTwo.containsKey(n)){
+						if (sulucinum.indexOf(n) % 2 == 0)
+							for (int k = n; k <= Tips.suluciOneAndTwo.get(n); k++) {
+								JTextPaneChange.insertDoc(
+										JTextPaneChange.styledDoc,
+										String.valueOf(c2[k]), "·Û´Ö", wenben);
+							}
+						else {
+							for (int k = n; k <= Tips.suluciOneAndTwo.get(n); k++) {
+								JTextPaneChange.insertDoc(
+										JTextPaneChange.styledDoc,
+										String.valueOf(c2[k]), "·Û", wenben);
+							}
+						}
+						n = Tips.suluciOneAndTwo.get(n);
+					}else {
 						JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,
 								String.valueOf(c2[n]), "»Ò", wenben);
 					}

@@ -59,6 +59,9 @@ public class Tips{
 	public static HashMap<Integer,Integer> cisjianmaciOneAndTwo = new HashMap<Integer,Integer>();
 	public static HashMap<Integer,Integer> sjianmaciOneAndTwo = new HashMap<Integer,Integer>();
 	
+	public static ArrayList<String> suluList = new ArrayList<String>();
+	public static HashMap<Integer,Integer> suluciOneAndTwo = new HashMap<Integer,Integer>();
+	
 	public static ArrayList<Integer> danzi = new ArrayList<Integer>();
 	public static HashMap<Integer,String> bianma = new HashMap<Integer,String>();
 	public static String dingshowstr;
@@ -69,6 +72,7 @@ public class Tips{
 	File FuhaoFile = new File("编码文件/符号文件/符号文件.txt");
 	Scanner sc = null;
 	String str = null;
+	boolean sulu = false;//速录标志
 	public void Fuhao() throws IOException{
 		FileInputStream fis = new FileInputStream(FuhaoFile); 
         InputStreamReader read = new InputStreamReader(fis, "UTF-8");
@@ -107,6 +111,7 @@ public class Tips{
 			BufferedReader  bufferRead = new BufferedReader(read);
 			while((str=bufferRead.readLine())!=null){
 				boolean cixuanSign = false;
+				if(str.equals("速录编码")){sulu=true;break;}
 				String[] splited = str.split("\\s+");
 				String ch = splited[0];
 				String bm = splited[1];
@@ -165,6 +170,12 @@ public class Tips{
 			    	}
 			    }
 			}
+			
+			if(sulu){//速录码表读取
+				while((str=bufferRead.readLine())!=null){
+					suluList.add(str);
+				}
+			}
 			bufferRead.close();
 			read.close();
 			fis.close();
@@ -213,96 +224,141 @@ public class Tips{
 		emc=0;cemc=0;smc=0;csmc=0;qmc=0;cqmc=0;qdz=0;sdz=0;edz=0;cqdz=0;fh=0;weizhi=0;szfh=0;
 		try{
 			for(int i=9;i>=0;i--){
+				if(sulu)break;//判断是否为速录码表
 				if(str.length()<i+2)continue;
+				int best = -1;//跳出分词步骤
+				int back = -1;//跳出分隔单字步骤
 				for(int j=0;j<str.length()-(i+1);j++){
 					cixuansign = 0;
 					str1 = str.substring(j,j+i+2);//获取判断是否为词的str
 					if(hashlist.get(i).containsKey(str1)){
+						if((!ejianmaci.contains(j)&&ejianmaci.contains(j+i+1))
+								||(!ciejianmaci.contains(j)&&ciejianmaci.contains(j+i+1))
+								||(!sjianmaci.contains(j)&&sjianmaci.contains(j+i+1))
+								||(!cisjianmaci.contains(j)&&cisjianmaci.contains(j+i+1))
+								||(!quanmaci.contains(j)&&quanmaci.contains(j+i+1))
+								||(!ciquanmaci.contains(j)&&ciquanmaci.contains(j+i+1))){
+							continue;
+						}
+						//解决两码词最简 上身体 uhufti_ uh_ut_的冲突，
+						if(j>best-(i+1)&&j<best&&best!=-1)continue;
+						if(j>best&&j>back&&i==0){
+							//动态叠词奇数安排分隔单字
+							HashMap<Integer,String> twoWordsContinuity = new HashMap<>();
+							HashMap<Integer,String> oneWord = new HashMap<>();
+							for(int k=j;k<str.length()-(i+1);k++){
+								String continuityTemp = str.substring(k,k+i+2);
+								String oneWordTemp = str.substring(k,k+1);
+								if(hashlist.get(i).containsKey(continuityTemp)){
+									if(hashtable.containsKey(oneWordTemp))
+										oneWord.put(k, oneWordTemp);
+									twoWordsContinuity.put(k,continuityTemp);
+								}else break;
+							}
+							//如果出现了词的话，将最后一个单字添加进动态单字链表中
+							if(twoWordsContinuity.size()>0){
+								int lastOneWordIndex = j+twoWordsContinuity.size();
+								String lastOneWord = str.substring(lastOneWordIndex,lastOneWordIndex+1);
+								oneWord.put(lastOneWordIndex,lastOneWord);
+							}
+							System.out.println(twoWordsContinuity+":"+oneWord);
+							//如果组成词的字为两个，则可以直接组满词，如果为奇数，则需要拆字
+							if(twoWordsContinuity.size()>=2&&oneWord.size()%2!=0){
+								int minlength = 0;
+								for(int conti=j;conti<j+oneWord.size();conti+=2){
+									String twoWords = "";
+									for(int contj=j;contj<j+oneWord.size();){
+										if(contj==conti){
+											twoWords+=hashtable.get(oneWord.get(contj));
+											contj+=1;
+										}
+										else{
+											twoWords+=hashlist.get(i).get(twoWordsContinuity.get(contj));
+											contj+=2;
+										}
+									}
+									if(minlength==0||minlength>=twoWords.length()){
+										best = conti;
+//										if(minlength==0)best=j+oneWord.size()-1;
+										minlength = twoWords.length();
+									}
+									System.out.println(twoWords);
+								}
+								System.out.println(best);
+							}else if(twoWordsContinuity.size()>=2)back=j+oneWord.size();
+						}
+						if(best==j)continue;
+						//
 						bianmatemp =  hashlist.get(i).get(str1);	//临时放入编码，往后加 _
 						length = bianmatemp.length();
-						//解决两码词最简 上身体 uhufti_ uh_ut_的冲突
-						if(i==0&&j<str.length()-2&&
-								hashtable.containsKey(str.substring(j,j+1))&&
-								hashtable.containsKey(str.substring(j+2,j+3))){
-							//当为两字词时，判断下一个词编码是否比当前更短
-							String strTemp = str.substring(j+1,j+3);
-							int danziLength1 = hashtable.get(str.substring(j+2,j+3)).length();//截取二字词后单字
-							int danziLength2 = hashtable.get(str.substring(j,j+1)).length();//截取二字词前单字
-							if(hashlist.get(0).containsKey(strTemp)){
-								String bianmatemp2 = hashlist.get(0).get(strTemp);
-								int length2 = bianmatemp2.length();
-								if(length2+danziLength2<length+danziLength1){
-									bianmatemp = bianmatemp2;
-									length = length2;
-									str1 = strTemp;
-									j += 1;
-								}
-							}
-						}
 						if(bianmatemp.substring(length-1,length).equals("_"))length -= 1;
 						str2 = hashlist.get(i).get(str1).substring(length-1,length);	//获取编码最后一个字符
-						if(!(quanmaciOneAndTwo.containsKey(j)&&length==4)&&
-								!(ciquanmaciOneAndTwo.containsKey(j)&&length==5)&&
-								!(ejianmaciOneAndTwo.containsKey(j)&&length==2)&&
-								!(ciejianmaciOneAndTwo.containsKey(j)&&length==3)&&
-								!(sjianmaciOneAndTwo.containsKey(j)&&length==3)&&
-								!(cisjianmaciOneAndTwo.containsKey(j)&&length==4)){
+						if(!quanmaciOneAndTwo.containsKey(j)&&
+								!ciquanmaciOneAndTwo.containsKey(j)&&
+								!ejianmaciOneAndTwo.containsKey(j)&&
+								!ciejianmaciOneAndTwo.containsKey(j)&&
+								!sjianmaciOneAndTwo.containsKey(j)&&
+								!cisjianmaciOneAndTwo.containsKey(j)){
 							if(regex.indexOf(str2)!=-1){		//判断最后一字符是否为多重
 								length = length-1;
 								cixuansign=1;
 							}
-							for(int k=j;k<j+i+2;k++){
+							if(!ejianmaci.contains(j)&&!ciejianmaci.contains(j)
+									&&!sjianmaci.contains(j)&&!cisjianmaci.contains(j)
+									&&!quanmaci.contains(j)&&!ciquanmaci.contains(j)){
 								if(length<3){
-									if(cixuansign==0)
-										ejianmaci.add(k);
-									else
-										ciejianmaci.add(k);
-									
+									if(cixuansign==0){
+										for(int k=j;k<j+i+2;k++)
+											ejianmaci.add(k);
+										emc++;
+									}
+									else{
+										for(int k=j;k<j+i+2;k++)
+											ciejianmaci.add(k);
+										cemc++;
+									}
 								}
 								else if(length<4){
-									if(cixuansign==0)
-										sjianmaci.add(k);
-									else
-										cisjianmaci.add(k);
+									if(cixuansign==0){
+										for(int k=j;k<j+i+2;k++)
+											sjianmaci.add(k);
+										smc++;
+									}
+									else{
+										for(int k=j;k<j+i+2;k++)
+											cisjianmaci.add(k);
+										csmc++;
+									}
 								}
 								else {
-									if(cixuansign==0)
-										quanmaci.add(k);
-									else
-										ciquanmaci.add(k);
+									if(cixuansign==0){
+										for(int k=j;k<j+i+2;k++)
+											quanmaci.add(k);
+										qmc++;
+									}
+									else{
+										for(int k=j;k<j+i+2;k++)
+											ciquanmaci.add(k);
+										cqmc++;
+									}
 								}
+								bianma.put(j, bianmatemp);
 							}
-							if(length<3){
-								if(cixuansign==0){
+							if(length<3)
+								if(cixuansign==0)
 									ejianmaciOneAndTwo.put(j,j+i+1);
-									emc++;
-								}
-								else{
+								else
 									ciejianmaciOneAndTwo.put(j,j+i+1);
-									cemc++;
-								}
-							}
-							else if(length<4){
-								if(cixuansign==0){
+							else if(length<4)
+								if(cixuansign==0)
 									sjianmaciOneAndTwo.put(j,j+i+1);
-									smc++;
-								}
-								else{
+								else
 									cisjianmaciOneAndTwo.put(j,j+i+1);
-									csmc++;
-								}
-							}
-							else{
-								if(cixuansign==0){
+							else
+								if(cixuansign==0)
 									quanmaciOneAndTwo.put(j,j+i+1);
-									qmc++;
-								}
-								else{
+								else
 									ciquanmaciOneAndTwo.put(j,j+i+1);
-									cqmc++;
-								}
-							}
-							bianma.put(j, bianmatemp);
 						}
 					}
 				}
@@ -315,18 +371,29 @@ public class Tips{
 			Collections.sort(ciquanmaci);
 			Collections.sort(ciejianmaci);
 			Collections.sort(cisjianmaci);
-			
+
+			//速录码表情况下的词提
+			if(sulu){
+				for(int i=4;i>0;i--){
+					if(str.length()<i)continue;
+					for(int j=0;j<=str.length()-i;j++){
+						str1 = str.substring(j,j+i);
+						if(suluList.contains(str1)&&!suluciOneAndTwo.containsKey(j)){
+							suluciOneAndTwo.put(j, j+i-1);
+						}
+					}
+				}
+			}
 		}catch(Exception e){System.out.print("000");}
 	}
 	public static String weizhistr = "";
 	public void compalllength(){
+		if(sulu)return;
 		String str = QQZaiwenListener.wenbenstr;
-//		String regex = "234567890";
 		String fu = "@#$%^&*,./;'\\\"——-+=_·| ";
 		weizhistr = "";
 		char c[] = str.toCharArray();
 		String bianmatemp;
-		System.out.println();
 		dingshowstr = "";
 		showstr = new StringBuilder();
 		for(int i=0;i<str.length();i++)

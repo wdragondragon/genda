@@ -1,5 +1,7 @@
 package genda1;
 
+import java.util.List;
+
 import Acticle.SendWenben;
 import SetWin.SetCharListener;
 import SetWin.SetspaceListener;
@@ -102,5 +104,14 @@ public class RegexText {
 		str = new String(a);
 		str = str.replaceAll("#","");
 		return str;
+	}
+	public static boolean isMaxInt(Integer num,List<Integer> a){
+		Integer max = 0;
+		if(num==null)return false;
+		for(Integer i:a){
+			if(i!=null&&i>max)max=i;
+		}
+		if(num==max)return true;
+		else return false;
 	}
 }

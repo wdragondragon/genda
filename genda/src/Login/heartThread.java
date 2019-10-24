@@ -31,7 +31,7 @@ public class heartThread extends Thread{
             	Thread.sleep(5*1000);
             	datenum();
             	String message = KeyPassword.convertMD5("ĞÄÌø");
-            	System.out.println("ĞÄÌø");
+//            	System.out.println("ĞÄÌø");
 				Login.out.writeUTF(message); 
 			}
 		} catch (Exception e) {

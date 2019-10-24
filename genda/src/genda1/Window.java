@@ -240,7 +240,7 @@ public class Window extends JFrame {
 		setVisible(true);// 设置可见
 		setMinimumSize(new Dimension(100, 100));
 		init();// 初始化
-		setOpacity(0.95f);
+//		setOpacity(0.95f);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// 设置关闭按钮
 		dazi.setBackground(new Color(238, 238, 238));// 设置打字框颜色
 		wenben.setBackground(new Color(238, 238, 238));// 设置文本框颜色
