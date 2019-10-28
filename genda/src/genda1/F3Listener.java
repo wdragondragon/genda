@@ -95,8 +95,6 @@ public class F3Listener extends AbstractAction {
 		gendaListener.daci = 0;
 		// 理论码长
 		Window.tipschange.compalllength();
-		// QQZaiwenListener.lilun =
-		// 1.0*Window.tipschange.compalllength()/QQZaiwenListener.wenbenstr.length();
 
 		Window.lilunma.setText("理论码长:"
 				+ String.format("%.2f", 1.0 * Window.tipschange.alllength
@@ -113,7 +111,6 @@ public class F3Listener extends AbstractAction {
 		if (Window.Pattern == 2) {
 			Englishword = QQZaiwenListener.wenbenstr.split(" ");
 			EnglishType = new int[Englishword.length];
-			// System.out.println(Englishword.length);
 			for (int i = 0; i < Englishword.length; i++) {
 				int sign = QQZaiwenListener.wenbenstr.indexOf(Englishword[i]);
 				if (i > 0)
@@ -123,21 +120,11 @@ public class F3Listener extends AbstractAction {
 						if (sign == -1)
 							break;
 					}
-				// System.out.println(sign);
-				// if(i!=0&&EnglishType[i-1]==sign)
-				// continue;
 				EnglishType[i] = sign;
 			}
 			Window.tips.setText(TipsFrame.bianma.get(Englishword[0]));
 			TipsFrame.show.setText(Englishword[0] + "："
 					+ TipsFrame.bianma.get(Englishword[0]));
-			// for(int i = 0;i<Englishword.length;i++){
-			// System.out.print(Englishword[i]+" ");
-			// }
-			// System.out.println("");
-			// for(int i = 0;i<Englishword.length;i++){
-			// System.out.print(EnglishType[i]+" ");
-			// }
 		}
 		dazi.requestFocusInWindow();
 	}

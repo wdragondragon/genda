@@ -30,25 +30,16 @@ public class Tips{
 	public static HashMap<String,String> fuhao = new HashMap<String,String>();
 	
 	public static ArrayList<HashMap<String,String>> hashlist;
-	public static ArrayList<Integer> userci = new ArrayList<Integer>();
-//	public static ArrayList<Integer> quanmaci = new ArrayList<Integer>();
-//	public static ArrayList<Integer> ciquanmaci = new ArrayList<Integer>();
-//	public static ArrayList<Integer> ejianmaci= new ArrayList<Integer>();
-//	public static ArrayList<Integer> ciejianmaci= new ArrayList<Integer>();
-//	public static ArrayList<Integer> sjianmaci= new ArrayList<Integer>();
-//	public static ArrayList<Integer> cisjianmaci= new ArrayList<Integer>();
-	public static HashMap<Integer,Integer> quanmaciOneAndTwo = new HashMap<Integer,Integer>();
-	public static HashMap<Integer,Integer> ciquanmaciOneAndTwo = new HashMap<Integer,Integer>();
-	public static HashMap<Integer,Integer> ejianmaciOneAndTwo = new HashMap<Integer,Integer>();
-	public static HashMap<Integer,Integer> ciejianmaciOneAndTwo = new HashMap<Integer,Integer>();
-	public static HashMap<Integer,Integer> cisjianmaciOneAndTwo = new HashMap<Integer,Integer>();
-	public static HashMap<Integer,Integer> sjianmaciOneAndTwo = new HashMap<Integer,Integer>();
+
+	public static Integer[] codeWordHeadAndTail;
+	public static Integer[] type;//0单 1全 2次全 3三简 4 次三简 5二简  6次二简
+	public static boolean[] userSign;
+	public static String[] code;
 	
 	public static ArrayList<String> suluList = new ArrayList<String>();
 	public static HashMap<Integer,Integer> suluciOneAndTwo = new HashMap<Integer,Integer>();
 	
 	public static ArrayList<Integer> danzi = new ArrayList<Integer>();
-	public static HashMap<Integer,String> bianma = new HashMap<Integer,String>();
 	public static String dingshowstr;
 	public static StringBuilder showstr = new StringBuilder();
 	
@@ -155,7 +146,6 @@ public class Tips{
 			    	}
 			    }
 			}
-			
 			if(sulu){//速录码表读取
 				while((str=bufferRead.readLine())!=null){
 					suluList.add(str);
@@ -185,28 +175,16 @@ public class Tips{
 		alllength = 0;
 		dingalllength = 0;
 		
-
 		String str1,str2;
 		int cixuansign = 0;
 		int length;
 		String bianmatemp;
-//		char a[] = str.toCharArray();
-//		quanmaci.clear();
-//		ciquanmaci.clear();
-//		ejianmaci.clear();
-//		ciejianmaci.clear();
-//		sjianmaci.clear();
-//
-//		cisjianmaci.clear();
-		userci.clear();
+
+		codeWordHeadAndTail = new Integer[str.length()];
+		type = new Integer[str.length()];
+		userSign = new boolean[str.length()];
+		code = new String[str.length()];
 		
-		quanmaciOneAndTwo.clear();
-		ciquanmaciOneAndTwo.clear();
-		ejianmaciOneAndTwo.clear();
-		ciejianmaciOneAndTwo.clear();
-		cisjianmaciOneAndTwo.clear();
-		sjianmaciOneAndTwo.clear();
-		bianma.clear();
 		emc=0;cemc=0;smc=0;csmc=0;qmc=0;cqmc=0;qdz=0;sdz=0;edz=0;cqdz=0;fh=0;weizhi=0;szfh=0;
 		try{
 			for(int i=9;i>=0;i--){
@@ -218,13 +196,7 @@ public class Tips{
 					cixuansign = 0;
 					str1 = str.substring(j,j+i+2);//获取判断是否为词的str
 					if(hashlist.get(i).containsKey(str1)){
-//						if((!ejianmaci.contains(j)&&ejianmaci.contains(j+i+1))
-//								||(!ciejianmaci.contains(j)&&ciejianmaci.contains(j+i+1))
-//								||(!sjianmaci.contains(j)&&sjianmaci.contains(j+i+1))
-//								||(!cisjianmaci.contains(j)&&cisjianmaci.contains(j+i+1))
-//								||(!quanmaci.contains(j)&&quanmaci.contains(j+i+1))
-//								||(!ciquanmaci.contains(j)&&ciquanmaci.contains(j+i+1))){
-						if(!userci.contains(j)&&userci.contains(j+i+1)){
+						if(!userSign[j]&&userSign[j+i+1]){
 							continue;
 						}
 						//解决两码词最简 上身体 uhufti_ uh_ut_的冲突，
@@ -279,92 +251,75 @@ public class Tips{
 						length = bianmatemp.length();
 						if(bianmatemp.substring(length-1,length).equals("_"))length -= 1;
 						str2 = hashlist.get(i).get(str1).substring(length-1,length);	//获取编码最后一个字符
-						if(!quanmaciOneAndTwo.containsKey(j)&&
-								!ciquanmaciOneAndTwo.containsKey(j)&&
-								!ejianmaciOneAndTwo.containsKey(j)&&
-								!ciejianmaciOneAndTwo.containsKey(j)&&
-								!sjianmaciOneAndTwo.containsKey(j)&&
-								!cisjianmaciOneAndTwo.containsKey(j)){
+						if(codeWordHeadAndTail[j]==null){
 							if(regex.indexOf(str2)!=-1){		//判断最后一字符是否为多重
 								length = length-1;
 								cixuansign=1;
 							}
-//							if(!ejianmaci.contains(j)&&!ciejianmaci.contains(j)
-//									&&!sjianmaci.contains(j)&&!cisjianmaci.contains(j)
-//									&&!quanmaci.contains(j)&&!ciquanmaci.contains(j)){
-							if(!userci.contains(j)){
+							if(!userSign[j]){
 								if(length<3){
 									if(cixuansign==0){
 										for(int k=j;k<j+i+2;k++)
-//											ejianmaci.add(k);
-											userci.add(k);
+											userSign[k] = true;
 										emc++;
 									}
 									else{
 										for(int k=j;k<j+i+2;k++)
-//											ciejianmaci.add(k);
-											userci.add(k);
+											userSign[k] = true;
 										cemc++;
 									}
 								}
 								else if(length<4){
 									if(cixuansign==0){
 										for(int k=j;k<j+i+2;k++)
-//											sjianmaci.add(k);
-											userci.add(k);
+											userSign[k] = true;
 										smc++;
 									}
 									else{
 										for(int k=j;k<j+i+2;k++)
-//											cisjianmaci.add(k);
-											userci.add(k);
+											userSign[k] = true;
 										csmc++;
 									}
 								}
 								else {
 									if(cixuansign==0){
 										for(int k=j;k<j+i+2;k++)
-//											quanmaci.add(k);
-											userci.add(k);
+											userSign[k] = true;
 										qmc++;
 									}
 									else{
 										for(int k=j;k<j+i+2;k++)
-//											ciquanmaci.add(k);
-											userci.add(k);
+											userSign[k] = true;
 										cqmc++;
 									}
 								}
-								bianma.put(j, bianmatemp);
+								code[j] = bianmatemp;
 							}
-							if(length<3)
-								if(cixuansign==0)
-									ejianmaciOneAndTwo.put(j,j+i+1);
-								else
-									ciejianmaciOneAndTwo.put(j,j+i+1);
-							else if(length<4)
-								if(cixuansign==0)
-									sjianmaciOneAndTwo.put(j,j+i+1);
-								else
-									cisjianmaciOneAndTwo.put(j,j+i+1);
-							else
-								if(cixuansign==0)
-									quanmaciOneAndTwo.put(j,j+i+1);
-								else
-									ciquanmaciOneAndTwo.put(j,j+i+1);
+							codeWordHeadAndTail[j] = j+i+1;
+							if(length<3){//0单 1全 2次全 3三简 4 次三简 5二简  6次二简
+								if(cixuansign==0){
+									type[j] = 5;
+								}else{
+									type[j] = 6;
+								}
+							}else if(length<4){
+								if(cixuansign==0){
+									type[j] = 3;
+								}else{
+									type[j] = 4;
+								}
+							}
+							else{
+								if(cixuansign==0){
+									type[j] = 1;
+								}else{
+									type[j] = 2;
+								}
+							}
 						}
 					}
 				}
 			}
-//			Collections.sort(quanmaci);
-//			Collections.sort(ejianmaci);
-//			Collections.sort(sjianmaci);
-//			
-//			
-//			Collections.sort(ciquanmaci);
-//			Collections.sort(ciejianmaci);
-//			Collections.sort(cisjianmaci);
-
 			//速录码表情况下的词提
 			if(sulu){
 				for(int i=4;i>0;i--){
@@ -390,9 +345,8 @@ public class Tips{
 		dingshowstr = "";
 		showstr = new StringBuilder();
 		for(int i=0;i<str.length();i++)
-//			if(!quanmaci.contains(i)&&!ejianmaci.contains(i)&&!sjianmaci.contains(i)&&
-//					!ciquanmaci.contains(i)&&!ciejianmaci.contains(i)&&!cisjianmaci.contains(i)){	//判断是否在已用索引中
-			if(!userci.contains(i)){	
+			//判断是否在已用索引中
+			if(!userSign[i]){	
 				danzi.add(i);		//单字索引添加
 				if(hashtable.containsKey(String.valueOf(c[i]))){ 	//查询单字链表中是否存在该单字
 					bianmatemp = hashtable.get(String.valueOf(c[i]));		//放入编码中
@@ -425,11 +379,11 @@ public class Tips{
 						weizhi++;
 					}
 				}
-				bianma.put(i, bianmatemp);
+				code[i] = bianmatemp;
 			}
 		for(int i=0;i<c.length;i++){
-			if(Tips.bianma.containsKey(i)){
-				showstr.append(Tips.bianma.get(i));
+			if(code[i]!=null){
+				showstr.append(code[i]);
 			}
 		}
 		dingshowstr = RegexText.biaoding(showstr.toString());

@@ -37,7 +37,7 @@ public class SendWenben implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		QQZaiwenListener.wenbenstr = wenben.getText();// 固定文本框
+		QQZaiwenListener.wenbenstr = ActicleListener.wen;// 固定文本框
 		QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText
 				.huanfu(QQZaiwenListener.wenbenstr));
 		if (QQZaiwenListener.wenbenstr == null

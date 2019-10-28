@@ -104,7 +104,7 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 			wen = all.substring(fontweizhi, all.length());
 		else
 			wen = all.substring(fontweizhi, fontweizhi + fontnum);
-		wenben.setText(wen);
+		wenben.setText(wen.substring(0,500));
 		// fontweizhi += fontnum;
 		win.sendwen.setText(String.valueOf(fontweizhi)
 				+ "/"
