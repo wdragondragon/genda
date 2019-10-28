@@ -15,9 +15,13 @@ import Login.*;
 import Ranking.rankFrame;
 public class Example{
 	public static String systemname;
+	public static Window win;
+	public static Window getWindow(){
+		return win;
+	}
 	public static void main(String args[]){
 //		int readsign;
-		Window win = null;
+		win = null;
 		try{
 			win = new Window();
 			win.setTitle("¸ú´ò");

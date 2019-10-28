@@ -20,7 +20,10 @@ public class Mix extends AbstractAction{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 //		Window.wenben.setText(mix(Window.wenben.getText()));
-		if(e.getActionCommand().equals("该段乱序")){
+		mixButton(e.getActionCommand());
+	}
+	public void mixButton(String model){
+		if(model.equals("该段乱序")){
 			if(SendWenben.sendwenSign3==1)
 				QQZaiwenListener.wenbenstr = mixstr(ActicleListener.chouqubufenlist,ActicleListener.y);
 			else if(SendWenben.sendwenSign4)
@@ -29,12 +32,11 @@ public class Mix extends AbstractAction{
 				QQZaiwenListener.wenbenstr = mix(QQZaiwenListener.wenbenstr);
 			Window.f3listener.F3();
 		}
-		else if(e.getActionCommand().equals("全局乱序")){
+		else if(model.equals("全局乱序")){
 			ActicleListener.all = mix(ActicleListener.all);
 			if(ActicleListener.all==null)return;
 			ActicleListener.showwen();
 		}
-		
 	}
 	public static String mix(String str){
 		if(str==null)return null;

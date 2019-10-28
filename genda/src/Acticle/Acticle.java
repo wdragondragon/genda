@@ -22,12 +22,14 @@ public class Acticle extends JFrame {
 	public static JTextField number, cikuchouqucanshu;
 	JButton send, next, mix, chouqu, cikuchouqu, English;
 	JPanel p = new JPanel();
+	public JSpinner spinnerSpeed,spinnerKey,spinnerKeyLength;
+	public JRadioButton luanxu;
 	int i;
 
 	public Acticle(Window win) {
 		this.win = win;
 		setTitle("发文");
-		setBounds(100, 100, 605, 340);
+		setBounds(100, 100, 605, 380);
 		// setLayout(null);
 		p.setLayout(null);
 		add(p);
@@ -49,6 +51,7 @@ public class Acticle extends JFrame {
 		addchouqu();
 		addcikuchouqu();
 		addEnglish();
+		automaticDisruption();
 	}
 
 	void addEnglish() {
@@ -112,7 +115,37 @@ public class Acticle extends JFrame {
 		wenben1.setBounds(191, 0, 400, 270);
 		p.add(wenben1);
 	}
-
+	void automaticDisruption() {
+		JLabel lable1 = new JLabel("速度");
+		JLabel lable2 = new JLabel("击键");
+		JLabel lable3 = new JLabel("码长");
+		
+		lable1.setBounds(5, 310, 30, 30);
+	    spinnerSpeed = new JSpinner();
+		spinnerSpeed.setModel(new SpinnerNumberModel(0, 0, 999, 0.1));
+		spinnerSpeed.setBounds(45, 310, 50, 30);
+		
+		lable2.setBounds(105, 310, 30, 30);
+		spinnerKey = new JSpinner();
+		spinnerKey.setModel(new SpinnerNumberModel(0, 0, 30, 0.1));
+		spinnerKey.setBounds(145, 310, 50, 30);
+		
+		lable3.setBounds(205, 310, 30, 30);
+		spinnerKeyLength = new JSpinner();
+		spinnerKeyLength.setModel(new SpinnerNumberModel(0, 0, 7, 0.1));
+		spinnerKeyLength.setBounds(245, 310, 50, 30);
+		
+		luanxu = new JRadioButton("未达到条件是否乱序");
+		luanxu.setBounds(305, 310, 150, 30);
+		
+		p.add(spinnerSpeed);
+		p.add(spinnerKey);
+		p.add(spinnerKeyLength);
+		p.add(luanxu);
+		p.add(lable1);
+		p.add(lable2);
+		p.add(lable3);
+	}
 	void Articlelist() {
 		root = new DefaultMutableTreeNode("练习");
 		danzilei = new DefaultMutableTreeNode("单字类");

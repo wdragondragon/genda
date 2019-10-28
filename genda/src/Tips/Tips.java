@@ -30,28 +30,13 @@ public class Tips{
 	public static HashMap<String,String> fuhao = new HashMap<String,String>();
 	
 	public static ArrayList<HashMap<String,String>> hashlist;
-	public static ArrayList<Integer> quanmaci = new ArrayList<Integer>();
-//	public static ArrayList<Integer> quanmacitwo = new ArrayList<Integer>();
-//	public static ArrayList<Integer> quanmacione = new ArrayList<Integer>();
-	public static ArrayList<Integer> ciquanmaci = new ArrayList<Integer>();
-//	public static ArrayList<Integer> ciquanmacitwo = new ArrayList<Integer>();
-//	public static ArrayList<Integer> ciquanmacione = new ArrayList<Integer>();
-	
-	public static ArrayList<Integer> ejianmaci= new ArrayList<Integer>();
-//	public static ArrayList<Integer> ejianmacitwo= new ArrayList<Integer>();
-//	public static ArrayList<Integer> ejianmacione = new ArrayList<Integer>();
-	public static ArrayList<Integer> ciejianmaci= new ArrayList<Integer>();
-//	public static ArrayList<Integer> ciejianmacitwo= new ArrayList<Integer>();
-//	public static ArrayList<Integer> ciejianmacione = new ArrayList<Integer>();
-	
-	public static ArrayList<Integer> sjianmaci= new ArrayList<Integer>();
-//	public static ArrayList<Integer> sjianmacitwo= new ArrayList<Integer>();
-//	public static ArrayList<Integer> sjianmacione = new ArrayList<Integer>();
-	
-	public static ArrayList<Integer> cisjianmaci= new ArrayList<Integer>();
-//	public static ArrayList<Integer> cisjianmacitwo= new ArrayList<Integer>();
-//	public static ArrayList<Integer> cisjianmacione = new ArrayList<Integer>();
-	
+	public static ArrayList<Integer> userci = new ArrayList<Integer>();
+//	public static ArrayList<Integer> quanmaci = new ArrayList<Integer>();
+//	public static ArrayList<Integer> ciquanmaci = new ArrayList<Integer>();
+//	public static ArrayList<Integer> ejianmaci= new ArrayList<Integer>();
+//	public static ArrayList<Integer> ciejianmaci= new ArrayList<Integer>();
+//	public static ArrayList<Integer> sjianmaci= new ArrayList<Integer>();
+//	public static ArrayList<Integer> cisjianmaci= new ArrayList<Integer>();
 	public static HashMap<Integer,Integer> quanmaciOneAndTwo = new HashMap<Integer,Integer>();
 	public static HashMap<Integer,Integer> ciquanmaciOneAndTwo = new HashMap<Integer,Integer>();
 	public static HashMap<Integer,Integer> ejianmaciOneAndTwo = new HashMap<Integer,Integer>();
@@ -206,14 +191,15 @@ public class Tips{
 		int length;
 		String bianmatemp;
 //		char a[] = str.toCharArray();
-		quanmaci.clear();
-		ciquanmaci.clear();
-		ejianmaci.clear();
-		ciejianmaci.clear();
-		sjianmaci.clear();
-
-		cisjianmaci.clear();
-
+//		quanmaci.clear();
+//		ciquanmaci.clear();
+//		ejianmaci.clear();
+//		ciejianmaci.clear();
+//		sjianmaci.clear();
+//
+//		cisjianmaci.clear();
+		userci.clear();
+		
 		quanmaciOneAndTwo.clear();
 		ciquanmaciOneAndTwo.clear();
 		ejianmaciOneAndTwo.clear();
@@ -232,12 +218,13 @@ public class Tips{
 					cixuansign = 0;
 					str1 = str.substring(j,j+i+2);//获取判断是否为词的str
 					if(hashlist.get(i).containsKey(str1)){
-						if((!ejianmaci.contains(j)&&ejianmaci.contains(j+i+1))
-								||(!ciejianmaci.contains(j)&&ciejianmaci.contains(j+i+1))
-								||(!sjianmaci.contains(j)&&sjianmaci.contains(j+i+1))
-								||(!cisjianmaci.contains(j)&&cisjianmaci.contains(j+i+1))
-								||(!quanmaci.contains(j)&&quanmaci.contains(j+i+1))
-								||(!ciquanmaci.contains(j)&&ciquanmaci.contains(j+i+1))){
+//						if((!ejianmaci.contains(j)&&ejianmaci.contains(j+i+1))
+//								||(!ciejianmaci.contains(j)&&ciejianmaci.contains(j+i+1))
+//								||(!sjianmaci.contains(j)&&sjianmaci.contains(j+i+1))
+//								||(!cisjianmaci.contains(j)&&cisjianmaci.contains(j+i+1))
+//								||(!quanmaci.contains(j)&&quanmaci.contains(j+i+1))
+//								||(!ciquanmaci.contains(j)&&ciquanmaci.contains(j+i+1))){
+						if(!userci.contains(j)&&userci.contains(j+i+1)){
 							continue;
 						}
 						//解决两码词最简 上身体 uhufti_ uh_ut_的冲突，
@@ -279,7 +266,6 @@ public class Tips{
 									}
 									if(minlength==0||minlength>=twoWords.length()){
 										best = conti;
-//										if(minlength==0)best=j+oneWord.size()-1;
 										minlength = twoWords.length();
 									}
 									System.out.println(twoWords);
@@ -303,42 +289,49 @@ public class Tips{
 								length = length-1;
 								cixuansign=1;
 							}
-							if(!ejianmaci.contains(j)&&!ciejianmaci.contains(j)
-									&&!sjianmaci.contains(j)&&!cisjianmaci.contains(j)
-									&&!quanmaci.contains(j)&&!ciquanmaci.contains(j)){
+//							if(!ejianmaci.contains(j)&&!ciejianmaci.contains(j)
+//									&&!sjianmaci.contains(j)&&!cisjianmaci.contains(j)
+//									&&!quanmaci.contains(j)&&!ciquanmaci.contains(j)){
+							if(!userci.contains(j)){
 								if(length<3){
 									if(cixuansign==0){
 										for(int k=j;k<j+i+2;k++)
-											ejianmaci.add(k);
+//											ejianmaci.add(k);
+											userci.add(k);
 										emc++;
 									}
 									else{
 										for(int k=j;k<j+i+2;k++)
-											ciejianmaci.add(k);
+//											ciejianmaci.add(k);
+											userci.add(k);
 										cemc++;
 									}
 								}
 								else if(length<4){
 									if(cixuansign==0){
 										for(int k=j;k<j+i+2;k++)
-											sjianmaci.add(k);
+//											sjianmaci.add(k);
+											userci.add(k);
 										smc++;
 									}
 									else{
 										for(int k=j;k<j+i+2;k++)
-											cisjianmaci.add(k);
+//											cisjianmaci.add(k);
+											userci.add(k);
 										csmc++;
 									}
 								}
 								else {
 									if(cixuansign==0){
 										for(int k=j;k<j+i+2;k++)
-											quanmaci.add(k);
+//											quanmaci.add(k);
+											userci.add(k);
 										qmc++;
 									}
 									else{
 										for(int k=j;k<j+i+2;k++)
-											ciquanmaci.add(k);
+//											ciquanmaci.add(k);
+											userci.add(k);
 										cqmc++;
 									}
 								}
@@ -363,14 +356,14 @@ public class Tips{
 					}
 				}
 			}
-			Collections.sort(quanmaci);
-			Collections.sort(ejianmaci);
-			Collections.sort(sjianmaci);
-			
-			
-			Collections.sort(ciquanmaci);
-			Collections.sort(ciejianmaci);
-			Collections.sort(cisjianmaci);
+//			Collections.sort(quanmaci);
+//			Collections.sort(ejianmaci);
+//			Collections.sort(sjianmaci);
+//			
+//			
+//			Collections.sort(ciquanmaci);
+//			Collections.sort(ciejianmaci);
+//			Collections.sort(cisjianmaci);
 
 			//速录码表情况下的词提
 			if(sulu){
@@ -397,8 +390,9 @@ public class Tips{
 		dingshowstr = "";
 		showstr = new StringBuilder();
 		for(int i=0;i<str.length();i++)
-			if(!quanmaci.contains(i)&&!ejianmaci.contains(i)&&!sjianmaci.contains(i)&&
-					!ciquanmaci.contains(i)&&!ciejianmaci.contains(i)&&!cisjianmaci.contains(i)){	//判断是否在已用索引中
+//			if(!quanmaci.contains(i)&&!ejianmaci.contains(i)&&!sjianmaci.contains(i)&&
+//					!ciquanmaci.contains(i)&&!ciejianmaci.contains(i)&&!cisjianmaci.contains(i)){	//判断是否在已用索引中
+			if(!userci.contains(i)){	
 				danzi.add(i);		//单字索引添加
 				if(hashtable.containsKey(String.valueOf(c[i]))){ 	//查询单字链表中是否存在该单字
 					bianmatemp = hashtable.get(String.valueOf(c[i]));		//放入编码中

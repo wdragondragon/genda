@@ -6,7 +6,7 @@ public class AcitiyComp extends Thread {
 		while (true) {
 			try {
 				sleep(100);
-				if (GendaListener.sign == 1) {
+				if (GendaListener.sign == 1&&!GendaListener.stop) {
 					GendaListener.comp.setTimeTwo();
 
 					Window.gendaListener.sudu = GendaListener.comp.getSpeed(

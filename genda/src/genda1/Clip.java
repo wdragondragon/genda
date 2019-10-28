@@ -69,36 +69,6 @@ public class Clip extends Thread {
 		GendaListener.gendaSign = false;
 		sleep(100);
 		GendaListener.sign = 2;
-
-		// if(Window.Pattern==1){
-		// if(QQZaiwenListener.wenbenstr.length()<=300)
-		// Window.gendaListener.sudu =
-		// Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),4*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));//速度显示
-		// else
-		// if(QQZaiwenListener.wenbenstr.length()<=600&&QQZaiwenListener.wenbenstr.length()>300)
-		// Window.gendaListener.sudu =
-		// Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),3*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));
-		// //速度显示
-		// else
-		// if(QQZaiwenListener.wenbenstr.length()<=1000&&QQZaiwenListener.wenbenstr.length()>600)
-		// Window.gendaListener.sudu =
-		// Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),2*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));
-		// //速度显示
-		// else if(QQZaiwenListener.wenbenstr.length()>1000)
-		// Window.gendaListener.sudu =
-		// Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(AchListener.duo+AchListener.lou+AchListener.mistake));
-		// //速度显示
-		// }
-		// else if(Window.Pattern==2){
-		// Window.gendaListener.sudu =
-		// Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(Window.gendaListener.mistake));
-		// //速度显示
-		//
-		// }
-		// else
-		// Window.gendaListener.sudu =
-		// Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(Window.gendaListener.mistake));
-		// //速度显示
 		if (Window.Pattern == 2) {
 			StringBuilder str = new StringBuilder();
 			for (int i = 0; i < F3Listener.Englishword.length; i++) {
@@ -131,6 +101,31 @@ public class Clip extends Thread {
 			Window.gendaListener.gendajindu.jindu(Window.gendaListener.dazi
 					.getText().length() + 1);
 		Window.gendaListener.ChangeAllColor();
+		//自动下一段判断
+		double nextSpeed = Double.valueOf(String.valueOf(Window.acticle.spinnerSpeed.getValue()));
+		double nextKey = Double.valueOf(String.valueOf(Window.acticle.spinnerKey.getValue()));
+		double nextKeyLength = Double.valueOf(String.valueOf(Window.acticle.spinnerKeyLength.getValue()));
+		double speed = Window.gendaListener.getKeyNumber();
+		double keySpeed = Window.gendaListener.KeyNumber
+				/ GendaListener.comp.getSecond();
+		double keyLength = Window.gendaListener.KeyNumber
+				/ GendaListener.str1.length();
+		if((nextSpeed==0||speed>=nextSpeed)&&
+				(nextKey==0||keySpeed>=nextKey)&&
+				(nextKeyLength==0||keyLength<=nextKeyLength)){
+			if(SendWenben.sendwenSign2==1){
+				Window.acticle.treeListener.chouqu("抽取下一段");
+			}else if(SendWenben.sendwenSign==1){
+				Window.acticle.treeListener.nextOrder();
+			}else if(SendWenben.sendwenSign3==1){
+				Window.acticle.treeListener.ciku();
+			}else if(SendWenben.sendwenSign4){
+				Window.acticle.treeListener.enlighWord("英词下一段");
+			}
+		}else if(!(nextSpeed==0&&nextKey==0&&nextKeyLength==0)&&
+				Window.acticle.luanxu.isSelected()){
+			Example.getWindow().mixlistener.mixButton("该段乱序");
+		}
 
 	}
 }

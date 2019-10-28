@@ -64,7 +64,8 @@ public class GendaListener implements DocumentListener, KeyListener {
 	String a, b, leftstr = "qazwsxedcrfvtgb", rightstr = ";/.,。，；、plokmijnuhy";
 	String dazidangyestr, wenbendangyestr;
 	char[] c1, c2;
-	public static int sign = 0;
+	public static int sign = 0;//开始标记
+	public static boolean stop = false;//暂停标记
 	int i = 160;
 	int number = 116;
 	int n;
@@ -125,9 +126,9 @@ public class GendaListener implements DocumentListener, KeyListener {
 					&& e.getKeyChar() == '\b') {// 触发按键时如果打字框长度减小并且按键为BackSpace，即为回改
 				deleteTextNumber++;
 				// System.out.println("回改+");
-				comphvgd.time2 = comphvgd.time1;
+				comphvgd.setTimeTwo(comphvgd.getTimeOne());
 				comphvgd.setTimeOne();
-				if (comphvgd.time1 - comphvgd.time2 < 100) {
+				if (comphvgd.getTimeOne() - comphvgd.getTimeTwo() < 100) {
 					deleteNumber++;
 					// System.out.println("退格+");
 					lianhvgdsign++;
@@ -285,9 +286,9 @@ public class GendaListener implements DocumentListener, KeyListener {
 
 	public void compdaci(char c) {
 		if (str1 != "" && str1.length() >= length) {
-			compdazi.time2 = compdazi.time1;
+			compdazi.setTimeTwo(compdazi.getTimeOne());
 			compdazi.setTimeOne();
-			if (compdazi.time1 - compdazi.time2 < 50) {
+			if (compdazi.getTimeOne() - compdazi.getTimeTwo() < 50) {
 				daci++;
 				citime = comp.getSecond();
 			} else if (daci != 0) {

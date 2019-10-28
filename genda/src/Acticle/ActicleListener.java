@@ -129,266 +129,279 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 			e.printStackTrace();
 		}
 	}
+	public void nextOrder(){
+		try {
+			if (fontweizhi >= all.length()) {
+				JOptionPane.showMessageDialog(new JTextArea(), "发文结束");
+				win.sendwen.setVisible(false);
+				SendWenben.sendwenSign = 0;
+				return;
+			}
+			if (fontweizhi + fontnum >= all.length()) {
+				wen = all.substring(fontweizhi, all.length());
+				fontweizhi = all.length();
+			} else {
+				wen = all.substring(fontweizhi, fontweizhi + fontnum);
+				fontweizhi += fontnum;
+			}
+			QQZaiwenListener.wenbenstr = wen;
+			QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText
+					.huanfu(QQZaiwenListener.wenbenstr));
+			Window.f3listener.F3();
 
+			RegexText.duan1++; // 发文增段
+			win.sendwen.setText(String.valueOf(fontweizhi)
+					+ "/"
+					+ String.valueOf(all.length())
+					+ ":"
+					+ String.format("%.2f", (double) fontweizhi * 100
+							/ all.length()) + "%");
+			try {
+				DataOutputStream out = new DataOutputStream(
+						battleClient.socket.getOutputStream());
+				out.writeUTF("%" + ReadyListener.BeganSign + "%" + "%"
+						+ RegexText.duan1 + "#"
+						+ Window.wenben.getText() + "%0" + "%"
+						+ Login.zhanghao.getText());
+			} catch (Exception ex) {
+				System.out.println("无法发送文本内容acticlelistner,121");
+			}
+			if (SetFrameQianshuiListener.qianshui == 0)
+				ShareListener.send();
+		} catch (Exception ex) {
+			System.out.println("发文处失败");
+		}
+	}
+	public void save(){
+		try {
+			String jindufile = "跟打进度" + SendWenben.title + ".txt";
+			open = new File("文章//文章类", jindufile);
+			FileOutputStream testfile = new FileOutputStream(open);
+			testfile.write(new String("").getBytes());
+			byte baocun[] = (SendWenben.title + "\r\n" + String
+					.valueOf(fontweizhi - fontnum)).getBytes();
+			testfile.write(baocun);
+			testfile.close();
+			JOptionPane.showMessageDialog(new JTextArea(), "已保存当前跟打进度");
+		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(new JTextArea(), "保存进度失败");
+		}
+	}
+	public void chouqu(String model){
+		if (SendWenben.sendwenSign3 == 1) {
+			chouqubufenlist.clear();
+			Collections.shuffle(chouqulist);
+			String str = "";
+			for (int i = 0; i < (chouqulist.size() < y ? chouqulist.size()
+					: y); i++) {
+				str += chouqulist.get(i);
+				chouqubufenlist.add(chouqulist.get(i));
+			}
+			QQZaiwenListener.wenbenstr = str;
+			Window.f3listener.F3();
+			RegexText.duan1++;
+			if (SetFrameQianshuiListener.qianshui == 0)
+				ShareListener.send();
+		} else if (model.equals("抽取模式发文")
+				|| SendWenben.sendwenSign2 == 1) {
+			getNumber();
+			QQZaiwenListener.wenbenstr = randomCommon(all, fontnum);
+			if (QQZaiwenListener.wenbenstr == null)
+				return;
+			Window.f3listener.F3();
+			if (SendWenben.sendwenSign2 == 0) {
+				acticle.setVisible(false);
+				RegexText.duan1 = 1;
+				SendWenben.sendwenSign2 = 1;
+			} else
+				RegexText.duan1++; // 发文增段
+			if (SetFrameQianshuiListener.qianshui == 0)
+				ShareListener.send();
+		}
+	}
+	public void enlighWord(String model){
+		SendWenben.title = "英文单词抽取练习";
+		if (!SendWenben.sendwenSign4) {
+			acticle.setVisible(false);
+			RegexText.duan1 = 1;
+		} else
+			RegexText.duan1++;
+		if (model.equals("英词练习"))
+			QQZaiwenListener.wenbenstr = EnlishRamdom.readtext(open);
+		else
+			QQZaiwenListener.wenbenstr = EnlishRamdom.RamdomWord();
+		if (QQZaiwenListener.wenbenstr.equals(""))
+			return;
+		Window.f3listener.F3();
+		SendWenben.sendwenSign4 = true;
+		if (SetFrameQianshuiListener.qianshui == 0)
+			ShareListener.send();
+	}
+	public void ciku(){
+		String temp = "";
+		chouqulist.clear();
+		chouqubufenlist.clear();
+		SendWenben.title = "词库练习";
+		try {
+			String num[] = win.acticle.cikuchouqucanshu.getText()
+					.split(":");
+			int x = Integer.parseInt(num[0]);
+			y = Integer.parseInt(num[1]);
+			if (num[3].equals("0")) {
+				if (num[2].length() == 1) {
+					int cinum = Integer.parseInt(num[2]);
+					if (cinum == 0) {
+						for (String str : Tips.alltable.keySet())
+							if (Tips.alltable.get(str) == x)
+								chouqulist.add(str);
+					} else
+						for (String str : Tips.alltable.keySet())
+							if (str.length() == cinum)
+								if (Tips.alltable.get(str) == x)
+									chouqulist.add(str);
+				} else if (num[2].length() == 2) {
+					int cinum = Integer.parseInt(num[2].substring(1));
+					String chfuhao = num[2].substring(0, 1);
+					if (chfuhao.equals(">")) {
+						for (String str : Tips.alltable.keySet())
+							if (str.length() > cinum)
+								if (Tips.alltable.get(str) == x)
+									chouqulist.add(str);
+					} else if (chfuhao.equals("<")) {
+						for (String str : Tips.alltable.keySet())
+							if (str.length() < cinum)
+								if (Tips.alltable.get(str) == x)
+									chouqulist.add(str);
+					} else if (chfuhao.equals("-")) {
+						for (String str : Tips.alltable.keySet())
+							if (str.length() != cinum)
+								if (Tips.alltable.get(str) == x)
+									chouqulist.add(str);
+					}
+				} else if (num[2].length() == 3
+						&& num[2].substring(1, 2).equals("<")) {
+					int cimin = Integer.parseInt(num[2].substring(0, 1));
+					int cimax = Integer.parseInt(num[2].substring(2));
+					for (String str : Tips.alltable.keySet())
+						if (str.length() > cimin && str.length() < cimax)
+							if (Tips.alltable.get(str) == x)
+								chouqulist.add(str);
+				}
+			} else if (num[3].equals("s")) {
+				if (num[2].length() == 1) {
+					int cinum = Integer.parseInt(num[2]);
+					if (cinum == 0) {
+						for (String str : Tips.shoutable.keySet())
+							if (Tips.shoutable.get(str) == x)
+								chouqulist.add(str);
+					} else
+						for (String str : Tips.shoutable.keySet())
+							if (str.length() == cinum)
+								if (Tips.shoutable.get(str) == x)
+									chouqulist.add(str);
+				} else if (num[2].length() == 2) {
+					int cinum = Integer.parseInt(num[2].substring(1));
+					String chfuhao = num[2].substring(0, 1);
+					if (chfuhao.equals(">")) {
+						for (String str : Tips.shoutable.keySet())
+							if (str.length() > cinum)
+								if (Tips.shoutable.get(str) == x)
+									chouqulist.add(str);
+					} else if (chfuhao.equals("<")) {
+						for (String str : Tips.shoutable.keySet())
+							if (str.length() < cinum)
+								if (Tips.shoutable.get(str) == x)
+									chouqulist.add(str);
+					} else if (chfuhao.equals("-")) {
+						for (String str : Tips.shoutable.keySet())
+							if (str.length() != cinum)
+								if (Tips.shoutable.get(str) == x)
+									chouqulist.add(str);
+					}
+				} else if (num[2].length() == 3
+						&& num[2].substring(1, 2).equals("<")) {
+					int cimin = Integer.parseInt(num[2].substring(0, 1));
+					int cimax = Integer.parseInt(num[2].substring(2));
+					for (String str : Tips.shoutable.keySet())
+						if (str.length() > cimin && str.length() < cimax)
+							if (Tips.shoutable.get(str) == x)
+								chouqulist.add(str);
+				}
+			} else if (num[3].equals("c")) {
+				if (num[2].length() == 1) {
+					int cinum = Integer.parseInt(num[2]);
+					if (cinum == 0) {
+						for (String str : Tips.citable.keySet())
+							if (Tips.citable.get(str) == x)
+								chouqulist.add(str);
+					} else
+						for (String str : Tips.citable.keySet())
+							if (str.length() == cinum)
+								if (Tips.citable.get(str) == x)
+									chouqulist.add(str);
+				} else if (num[2].length() == 2) {
+					int cinum = Integer.parseInt(num[2].substring(1));
+					String chfuhao = num[2].substring(0, 1);
+					if (chfuhao.equals(">")) {
+						for (String str : Tips.citable.keySet())
+							if (str.length() > cinum)
+								if (Tips.citable.get(str) == x)
+									chouqulist.add(str);
+					} else if (chfuhao.equals("<")) {
+						for (String str : Tips.citable.keySet())
+							if (str.length() < cinum)
+								if (Tips.citable.get(str) == x)
+									chouqulist.add(str);
+					} else if (chfuhao.equals("-")) {
+						for (String str : Tips.citable.keySet())
+							if (str.length() != cinum)
+								if (Tips.citable.get(str) == x)
+									chouqulist.add(str);
+					}
+				} else if (num[2].length() == 3
+						&& num[2].substring(1, 2).equals("<")) {
+					int cimin = Integer.parseInt(num[2].substring(0, 1));
+					int cimax = Integer.parseInt(num[2].substring(2));
+					for (String str : Tips.citable.keySet())
+						if (str.length() > cimin && str.length() < cimax)
+							if (Tips.citable.get(str) == x)
+								chouqulist.add(str);
+				}
+			}
+			Collections.shuffle(chouqulist);
+			// System.out.println(chouqulist.size()+" "+y);
+			for (int i = 0; i < (chouqulist.size() < y ? chouqulist.size()
+					: y); i++) {
+				temp += chouqulist.get(i);
+				chouqubufenlist.add(chouqulist.get(i));
+			}
+			QQZaiwenListener.wenbenstr = temp;
+			win.f3listener.F3();
+			RegexText.duan1 = 1;
+			SendWenben.sendwenSign3 = 1;
+			acticle.setVisible(false);
+		} catch (Exception ex) {
+			// ex.printStackTrace();
+		}
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-
 		if (SendWenben.sendwenSign == 1) {
 			if (e.getActionCommand() == "下一段"
 					|| e.getActionCommand() == "顺序下一段") {
-				try {
-					if (fontweizhi >= all.length()) {
-						JOptionPane.showMessageDialog(new JTextArea(), "发文结束");
-						win.sendwen.setVisible(false);
-						SendWenben.sendwenSign = 0;
-						return;
-					}
-					if (fontweizhi + fontnum >= all.length()) {
-						wen = all.substring(fontweizhi, all.length());
-						fontweizhi = all.length();
-					} else {
-						wen = all.substring(fontweizhi, fontweizhi + fontnum);
-						fontweizhi += fontnum;
-					}
-					QQZaiwenListener.wenbenstr = wen;
-					QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText
-							.huanfu(QQZaiwenListener.wenbenstr));
-					Window.f3listener.F3();
-
-					RegexText.duan1++; // 发文增段
-					win.sendwen.setText(String.valueOf(fontweizhi)
-							+ "/"
-							+ String.valueOf(all.length())
-							+ ":"
-							+ String.format("%.2f", (double) fontweizhi * 100
-									/ all.length()) + "%");
-					try {
-						DataOutputStream out = new DataOutputStream(
-								battleClient.socket.getOutputStream());
-						out.writeUTF("%" + ReadyListener.BeganSign + "%" + "%"
-								+ RegexText.duan1 + "#"
-								+ Window.wenben.getText() + "%0" + "%"
-								+ Login.zhanghao.getText());
-					} catch (Exception ex) {
-						System.out.println("无法发送文本内容acticlelistner,121");
-					}
-					if (SetFrameQianshuiListener.qianshui == 0)
-						ShareListener.send();
-				} catch (Exception ex) {
-					System.out.println("发文处失败");
-				}
+				nextOrder();
 			} else if (e.getActionCommand() == "保存跟打进度") {
-				try {
-					String jindufile = "跟打进度" + SendWenben.title + ".txt";
-					open = new File("文章//文章类", jindufile);
-					FileOutputStream testfile = new FileOutputStream(open);
-					testfile.write(new String("").getBytes());
-					byte baocun[] = (SendWenben.title + "\r\n" + String
-							.valueOf(fontweizhi - fontnum)).getBytes();
-					testfile.write(baocun);
-					testfile.close();
-					JOptionPane.showMessageDialog(new JTextArea(), "已保存当前跟打进度");
-				} catch (Exception ex) {
-					JOptionPane.showMessageDialog(new JTextArea(), "保存进度失败");
-				}
+				save();
 			}
 		} else if (e.getActionCommand().equals("抽取模式发文")
 				|| e.getActionCommand().equals("抽取下一段")) {
-			if (SendWenben.sendwenSign3 == 1) {
-				chouqubufenlist.clear();
-				Collections.shuffle(chouqulist);
-				String str = "";
-				for (int i = 0; i < (chouqulist.size() < y ? chouqulist.size()
-						: y); i++) {
-					str += chouqulist.get(i);
-					chouqubufenlist.add(chouqulist.get(i));
-				}
-				QQZaiwenListener.wenbenstr = str;
-				Window.f3listener.F3();
-				RegexText.duan1++;
-				if (SetFrameQianshuiListener.qianshui == 0)
-					ShareListener.send();
-			} else if (e.getActionCommand().equals("抽取模式发文")
-					|| SendWenben.sendwenSign2 == 1) {
-				getNumber();
-				QQZaiwenListener.wenbenstr = randomCommon(all, fontnum);
-				if (QQZaiwenListener.wenbenstr == null)
-					return;
-				Window.f3listener.F3();
-				if (SendWenben.sendwenSign2 == 0) {
-					acticle.setVisible(false);
-					RegexText.duan1 = 1;
-					SendWenben.sendwenSign2 = 1;
-				} else
-					RegexText.duan1++; // 发文增段
-				if (SetFrameQianshuiListener.qianshui == 0)
-					ShareListener.send();
-			}
+			chouqu(e.getActionCommand());
 		} else if (e.getActionCommand().equals("英词练习")
 				|| e.getActionCommand().endsWith("英词下一段")) {
-			SendWenben.title = "英文单词抽取练习";
-			if (!SendWenben.sendwenSign4) {
-				acticle.setVisible(false);
-				RegexText.duan1 = 1;
-			} else
-				RegexText.duan1++;
-			if (e.getActionCommand().equals("英词练习"))
-				QQZaiwenListener.wenbenstr = EnlishRamdom.readtext(open);
-			else
-				QQZaiwenListener.wenbenstr = EnlishRamdom.RamdomWord();
-			if (QQZaiwenListener.wenbenstr.equals(""))
-				return;
-			Window.f3listener.F3();
-			SendWenben.sendwenSign4 = true;
-			if (SetFrameQianshuiListener.qianshui == 0)
-				ShareListener.send();
+			enlighWord(e.getActionCommand());
 		} else if (e.getActionCommand().equals("词库练习")) {
-			String temp = "";
-			chouqulist.clear();
-			chouqubufenlist.clear();
-			SendWenben.title = "词库练习";
-			try {
-				String num[] = win.acticle.cikuchouqucanshu.getText()
-						.split(":");
-				int x = Integer.parseInt(num[0]);
-				y = Integer.parseInt(num[1]);
-				if (num[3].equals("0")) {
-					if (num[2].length() == 1) {
-						int cinum = Integer.parseInt(num[2]);
-						if (cinum == 0) {
-							for (String str : Tips.alltable.keySet())
-								if (Tips.alltable.get(str) == x)
-									chouqulist.add(str);
-						} else
-							for (String str : Tips.alltable.keySet())
-								if (str.length() == cinum)
-									if (Tips.alltable.get(str) == x)
-										chouqulist.add(str);
-					} else if (num[2].length() == 2) {
-						int cinum = Integer.parseInt(num[2].substring(1));
-						String chfuhao = num[2].substring(0, 1);
-						if (chfuhao.equals(">")) {
-							for (String str : Tips.alltable.keySet())
-								if (str.length() > cinum)
-									if (Tips.alltable.get(str) == x)
-										chouqulist.add(str);
-						} else if (chfuhao.equals("<")) {
-							for (String str : Tips.alltable.keySet())
-								if (str.length() < cinum)
-									if (Tips.alltable.get(str) == x)
-										chouqulist.add(str);
-						} else if (chfuhao.equals("-")) {
-							for (String str : Tips.alltable.keySet())
-								if (str.length() != cinum)
-									if (Tips.alltable.get(str) == x)
-										chouqulist.add(str);
-						}
-					} else if (num[2].length() == 3
-							&& num[2].substring(1, 2).equals("<")) {
-						int cimin = Integer.parseInt(num[2].substring(0, 1));
-						int cimax = Integer.parseInt(num[2].substring(2));
-						for (String str : Tips.alltable.keySet())
-							if (str.length() > cimin && str.length() < cimax)
-								if (Tips.alltable.get(str) == x)
-									chouqulist.add(str);
-					}
-				} else if (num[3].equals("s")) {
-					if (num[2].length() == 1) {
-						int cinum = Integer.parseInt(num[2]);
-						if (cinum == 0) {
-							for (String str : Tips.shoutable.keySet())
-								if (Tips.shoutable.get(str) == x)
-									chouqulist.add(str);
-						} else
-							for (String str : Tips.shoutable.keySet())
-								if (str.length() == cinum)
-									if (Tips.shoutable.get(str) == x)
-										chouqulist.add(str);
-					} else if (num[2].length() == 2) {
-						int cinum = Integer.parseInt(num[2].substring(1));
-						String chfuhao = num[2].substring(0, 1);
-						if (chfuhao.equals(">")) {
-							for (String str : Tips.shoutable.keySet())
-								if (str.length() > cinum)
-									if (Tips.shoutable.get(str) == x)
-										chouqulist.add(str);
-						} else if (chfuhao.equals("<")) {
-							for (String str : Tips.shoutable.keySet())
-								if (str.length() < cinum)
-									if (Tips.shoutable.get(str) == x)
-										chouqulist.add(str);
-						} else if (chfuhao.equals("-")) {
-							for (String str : Tips.shoutable.keySet())
-								if (str.length() != cinum)
-									if (Tips.shoutable.get(str) == x)
-										chouqulist.add(str);
-						}
-					} else if (num[2].length() == 3
-							&& num[2].substring(1, 2).equals("<")) {
-						int cimin = Integer.parseInt(num[2].substring(0, 1));
-						int cimax = Integer.parseInt(num[2].substring(2));
-						for (String str : Tips.shoutable.keySet())
-							if (str.length() > cimin && str.length() < cimax)
-								if (Tips.shoutable.get(str) == x)
-									chouqulist.add(str);
-					}
-				} else if (num[3].equals("c")) {
-					if (num[2].length() == 1) {
-						int cinum = Integer.parseInt(num[2]);
-						if (cinum == 0) {
-							for (String str : Tips.citable.keySet())
-								if (Tips.citable.get(str) == x)
-									chouqulist.add(str);
-						} else
-							for (String str : Tips.citable.keySet())
-								if (str.length() == cinum)
-									if (Tips.citable.get(str) == x)
-										chouqulist.add(str);
-					} else if (num[2].length() == 2) {
-						int cinum = Integer.parseInt(num[2].substring(1));
-						String chfuhao = num[2].substring(0, 1);
-						if (chfuhao.equals(">")) {
-							for (String str : Tips.citable.keySet())
-								if (str.length() > cinum)
-									if (Tips.citable.get(str) == x)
-										chouqulist.add(str);
-						} else if (chfuhao.equals("<")) {
-							for (String str : Tips.citable.keySet())
-								if (str.length() < cinum)
-									if (Tips.citable.get(str) == x)
-										chouqulist.add(str);
-						} else if (chfuhao.equals("-")) {
-							for (String str : Tips.citable.keySet())
-								if (str.length() != cinum)
-									if (Tips.citable.get(str) == x)
-										chouqulist.add(str);
-						}
-					} else if (num[2].length() == 3
-							&& num[2].substring(1, 2).equals("<")) {
-						int cimin = Integer.parseInt(num[2].substring(0, 1));
-						int cimax = Integer.parseInt(num[2].substring(2));
-						for (String str : Tips.citable.keySet())
-							if (str.length() > cimin && str.length() < cimax)
-								if (Tips.citable.get(str) == x)
-									chouqulist.add(str);
-					}
-				}
-				Collections.shuffle(chouqulist);
-				// System.out.println(chouqulist.size()+" "+y);
-				for (int i = 0; i < (chouqulist.size() < y ? chouqulist.size()
-						: y); i++) {
-					temp += chouqulist.get(i);
-					chouqubufenlist.add(chouqulist.get(i));
-				}
-				QQZaiwenListener.wenbenstr = temp;
-				win.f3listener.F3();
-				RegexText.duan1 = 1;
-				SendWenben.sendwenSign3 = 1;
-				acticle.setVisible(false);
-			} catch (Exception ex) {
-				// ex.printStackTrace();
-			}
+			ciku();
 		} else
 			win.dazi.requestFocusInWindow();
 

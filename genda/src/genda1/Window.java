@@ -123,7 +123,7 @@ public class Window extends JFrame {
 	InputMap F3Key, zaiwenKey, qqzaiwenKey, sendChengji, readyKey, shareKey,
 			changeQQButtonKey, setKey, fawenKey;
 
-	public Acticle acticle;
+	public static Acticle acticle;
 	Login login;
 
 	TableAdd tableAdd;
@@ -193,18 +193,7 @@ public class Window extends JFrame {
 			// TODO Auto-generated catch block
 			// e1.printStackTrace();
 		}
-		addWindowFocusListener(new WindowFocusListener() {
-
-			@Override
-			public void windowGainedFocus(WindowEvent e) {
-			}
-
-			@Override
-			public void windowLostFocus(WindowEvent e) {
-				if (qqNamebuttonlistener.getQQGroupSign == 1)
-					setwinName.setQQGroupName();
-			}
-		});
+		addWindowFocusListener(new StopListener());
 		// 设置无边框，用鼠标控制窗体移动
 		getContentPane().setLayout(null);
 		setLocationRelativeTo(null);
