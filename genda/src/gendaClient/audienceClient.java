@@ -2,7 +2,4 @@ package gendaClient;
 
 import javax.swing.*;
 
-public class audienceClient extends JFrame{
-	
-	
-}
+public class audienceClient extends JFrame {}

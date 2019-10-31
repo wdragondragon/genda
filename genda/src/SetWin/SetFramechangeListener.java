@@ -7,23 +7,22 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 
 public class SetFramechangeListener implements ActionListener {
-	public static int tipsign = 1;
-	public static JButton change;
-	SetFramechangeListener(JButton change){
-		this.change = change;
-	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if(tipsign == 0){
-			tipsign = 1;
-			change.setText("词语提示\"已开\"");
-			change.setForeground(SetFrame.open);
-		}
-		else{
-			tipsign = 0;
-			change.setText("词语提示\"已关\"");
-			change.setForeground(SetFrame.close);
-		}
-	}
+  public static int tipsign = 1;
+  public static JButton change;
+  SetFramechangeListener(JButton change) {
+    this.change = change;
+  }
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    // TODO Auto-generated method stub
+    if (tipsign == 0) {
+      tipsign = 1;
+      change.setText("词语提示\"已开\"");
+      change.setForeground(SetFrame.open);
+    } else {
+      tipsign = 0;
+      change.setText("词语提示\"已关\"");
+      change.setForeground(SetFrame.close);
+    }
+  }
 }

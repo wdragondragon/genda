@@ -8,20 +8,20 @@ import java.awt.Font;
 import javax.swing.*;
 
 public class LookChange extends JFrame {
-	JTextArea look = new JTextArea();
-	public static JLabel jindu = new JLabel();
+  JTextArea look = new JTextArea();
+  public static JLabel jindu = new JLabel();
 
-	LookChange() {
-		init();
-		setVisible(true);
-		setTitle("正在转换");
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 200, 150);
-	}
+  LookChange() {
+    init();
+    setVisible(true);
+    setTitle("正在转换");
+    setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    setBounds(100, 100, 200, 150);
+  }
 
-	void init() {
-		setLayout(new FlowLayout());
-		jindu.setFont(new Font(Window.family, 0, Window.fontSize));
-		add(jindu);
-	}
+  void init() {
+    setLayout(new FlowLayout());
+    jindu.setFont(new Font(Window.family, 0, Window.fontSize));
+    add(jindu);
+  }
 }

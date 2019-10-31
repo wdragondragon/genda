@@ -8,19 +8,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 public class FriendThread extends Thread {
-
-	public void run() {
-		while (true) {
-			try {
-				String message = Login.in.readUTF();
-				if (message.substring(0, 4).equals("添加好友")) {
-					JOptionPane.showMessageDialog(new JTextArea(),
-							message.substring(4));
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
+  public void run() {
+    while (true) {
+      try {
+        String message = Login.in.readUTF();
+        if (message.substring(0, 4).equals("添加好友")) {
+          JOptionPane.showMessageDialog(new JTextArea(), message.substring(4));
+        }
+      } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    }
+  }
 }

@@ -7,10 +7,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 public class Email implements ActionListener {
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		new EmailCheckFrame().setTitle("ĞŞ¸ÄÃÜÂë");
-	}
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    // TODO Auto-generated method stub
+    new EmailCheckFrame().setTitle("ĞŞ¸ÄÃÜÂë");
+  }
 }

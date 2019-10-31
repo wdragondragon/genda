@@ -11,184 +11,180 @@ import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 public class Acticle extends JFrame {
-	public static ActicleListener treeListener;
-	JTree tree;
-	JScrollPane tree1;
-	DefaultMutableTreeNode root;
-	DefaultMutableTreeNode danzilei, wenzhanglei, yingwenlei;
-	Window win;
-	JTextArea wenben;
-	JScrollPane wenben1;
-	public static JTextField number, cikuchouqucanshu;
-	JButton send, next, mix, chouqu, cikuchouqu, English;
-	JPanel p = new JPanel();
-	public JSpinner spinnerSpeed,spinnerKey,spinnerKeyLength;
-	public JRadioButton luanxu;
-	int i;
+  public static ActicleListener treeListener;
+  JTree tree;
+  JScrollPane tree1;
+  DefaultMutableTreeNode root;
+  DefaultMutableTreeNode danzilei, wenzhanglei, yingwenlei;
+  Window win;
+  JTextArea wenben;
+  JScrollPane wenben1;
+  public static JTextField number, cikuchouqucanshu;
+  JButton send, next, mix, chouqu, cikuchouqu, English;
+  JPanel p = new JPanel();
+  public JSpinner spinnerSpeed, spinnerKey, spinnerKeyLength;
+  public JRadioButton luanxu;
+  int i;
 
-	public Acticle(Window win) {
-		this.win = win;
-		setTitle("·¢ÎÄ");
-		setBounds(100, 100, 605, 380);
-		// setLayout(null);
-		p.setLayout(null);
-		add(p);
-		init();
-		setVisible(false);
-		setAlwaysOnTop(true);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+  public Acticle(Window win) {
+    this.win = win;
+    setTitle("å‘æ–‡");
+    setBounds(100, 100, 605, 380);
+    // setLayout(null);
+    p.setLayout(null);
+    add(p);
+    init();
+    setVisible(false);
+    setAlwaysOnTop(true);
+    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+  }
 
-	}
+  void init() {
+    addinArea();
+    addnumber();
+    Sendwenben();
+    Articlelist();
+    addNext();
+    addluanxu();
+    addchouqu();
+    addcikuchouqu();
+    addEnglish();
+    automaticDisruption();
+  }
 
-	void init() {
+  void addEnglish() {
+    English = new JButton("è‹±è¯ç»ƒä¹ ");
+    English.setBounds(490, 270, 90, 30);
+    English.addActionListener(treeListener);
+    p.add(English);
+  }
 
-		addinArea();
-		addnumber();
-		Sendwenben();
-		Articlelist();
-		addNext();
-		addluanxu();
-		addchouqu();
-		addcikuchouqu();
-		addEnglish();
-		automaticDisruption();
-	}
+  void addcikuchouqu() {
+    cikuchouqu = new JButton("è¯åº“ç»ƒä¹ ");
+    cikuchouqucanshu = new JTextField("a:b:c:d");
+    cikuchouqu.setBounds(350, 270, 70, 30);
+    cikuchouqucanshu.setBounds(425, 270, 60, 30);
+    cikuchouqu.addActionListener(treeListener);
+    p.add(cikuchouqu);
+    p.add(cikuchouqucanshu);
+  }
 
-	void addEnglish() {
-		English = new JButton("Ó¢´ÊÁ·Ï°");
-		English.setBounds(490, 270, 90, 30);
-		English.addActionListener(treeListener);
-		p.add(English);
-	}
+  void addchouqu() {
+    chouqu = new JButton("æŠ½å–æ¨¡å¼å‘æ–‡");
+    chouqu.setBounds(245, 270, 100, 30);
+    p.add(chouqu);
+    chouqu.addActionListener(treeListener);
+  }
 
-	void addcikuchouqu() {
-		cikuchouqu = new JButton("´Ê¿âÁ·Ï°");
-		cikuchouqucanshu = new JTextField("a:b:c:d");
-		cikuchouqu.setBounds(350, 270, 70, 30);
-		cikuchouqucanshu.setBounds(425, 270, 60, 30);
-		cikuchouqu.addActionListener(treeListener);
-		p.add(cikuchouqu);
-		p.add(cikuchouqucanshu);
-	}
+  void addluanxu() {
+    mix = new JButton("å…¨å±€ä¹±åº");
+    mix.setBounds(170, 270, 70, 30);
+    p.add(mix);
+    mix.addActionListener(win.mixlistener);
+  }
 
-	void addchouqu() {
-		chouqu = new JButton("³éÈ¡Ä£Ê½·¢ÎÄ");
-		chouqu.setBounds(245, 270, 100, 30);
-		p.add(chouqu);
-		chouqu.addActionListener(treeListener);
-	}
+  void addNext() {
+    next = new JButton("ä¸‹ä¸€æ®µ");
+    next.setBounds(240, 270, 70, 30);
+    // add(next);
+    next.addActionListener(treeListener);
+  }
 
-	void addluanxu() {
-		mix = new JButton("È«¾ÖÂÒĞò");
-		mix.setBounds(170, 270, 70, 30);
-		p.add(mix);
-		mix.addActionListener(win.mixlistener);
-	}
+  void Sendwenben() {
+    send = new JButton("é¡ºåºæ¨¡å¼å‘æ–‡");
+    send.setBounds(65, 270, 100, 30);
+    p.add(send);
+    SendWenben sendwenben = new SendWenben(wenben);
+    sendwenben.setwin(win, this);
+    send.addActionListener(sendwenben);
+  }
 
-	void addNext() {
-		next = new JButton("ÏÂÒ»¶Î");
-		next.setBounds(240, 270, 70, 30);
-		// add(next);
-		next.addActionListener(treeListener);
+  void addnumber() {
+    number = new JTextField("100");
+    number.setBounds(5, 270, 50, 30);
+    p.add(number);
+  }
 
-	}
+  void addinArea() {
+    wenben = new JTextArea();
+    wenben1 = new JScrollPane(wenben);
+    wenben.setLineWrap(true);
+    wenben1.setBounds(191, 0, 400, 270);
+    p.add(wenben1);
+  }
+  void automaticDisruption() {
+    JLabel lable1 = new JLabel("é€Ÿåº¦");
+    JLabel lable2 = new JLabel("å‡»é”®");
+    JLabel lable3 = new JLabel("ç é•¿");
 
-	void Sendwenben() {
-		send = new JButton("Ë³ĞòÄ£Ê½·¢ÎÄ");
-		send.setBounds(65, 270, 100, 30);
-		p.add(send);
-		SendWenben sendwenben = new SendWenben(wenben);
-		sendwenben.setwin(win, this);
-		send.addActionListener(sendwenben);
-	}
+    lable1.setBounds(5, 310, 30, 30);
+    spinnerSpeed = new JSpinner();
+    spinnerSpeed.setModel(new SpinnerNumberModel(0, 0, 999, 0.1));
+    spinnerSpeed.setBounds(45, 310, 50, 30);
 
-	void addnumber() {
-		number = new JTextField("100");
-		number.setBounds(5, 270, 50, 30);
-		p.add(number);
-	}
+    lable2.setBounds(105, 310, 30, 30);
+    spinnerKey = new JSpinner();
+    spinnerKey.setModel(new SpinnerNumberModel(0, 0, 30, 0.1));
+    spinnerKey.setBounds(145, 310, 50, 30);
 
-	void addinArea() {
-		wenben = new JTextArea();
-		wenben1 = new JScrollPane(wenben);
-		wenben.setLineWrap(true);
-		wenben1.setBounds(191, 0, 400, 270);
-		p.add(wenben1);
-	}
-	void automaticDisruption() {
-		JLabel lable1 = new JLabel("ËÙ¶È");
-		JLabel lable2 = new JLabel("»÷¼ü");
-		JLabel lable3 = new JLabel("Âë³¤");
-		
-		lable1.setBounds(5, 310, 30, 30);
-	    spinnerSpeed = new JSpinner();
-		spinnerSpeed.setModel(new SpinnerNumberModel(0, 0, 999, 0.1));
-		spinnerSpeed.setBounds(45, 310, 50, 30);
-		
-		lable2.setBounds(105, 310, 30, 30);
-		spinnerKey = new JSpinner();
-		spinnerKey.setModel(new SpinnerNumberModel(0, 0, 30, 0.1));
-		spinnerKey.setBounds(145, 310, 50, 30);
-		
-		lable3.setBounds(205, 310, 30, 30);
-		spinnerKeyLength = new JSpinner();
-		spinnerKeyLength.setModel(new SpinnerNumberModel(0, 0, 7, 0.1));
-		spinnerKeyLength.setBounds(245, 310, 50, 30);
-		
-		luanxu = new JRadioButton("Î´´ïµ½Ìõ¼şÊÇ·ñÂÒĞò");
-		luanxu.setBounds(305, 310, 150, 30);
-		
-		p.add(spinnerSpeed);
-		p.add(spinnerKey);
-		p.add(spinnerKeyLength);
-		p.add(luanxu);
-		p.add(lable1);
-		p.add(lable2);
-		p.add(lable3);
-	}
-	void Articlelist() {
-		root = new DefaultMutableTreeNode("Á·Ï°");
-		danzilei = new DefaultMutableTreeNode("µ¥×ÖÀà");
-		wenzhanglei = new DefaultMutableTreeNode("ÎÄÕÂÀà");
-		yingwenlei = new DefaultMutableTreeNode("Ó¢´òÀà");
-		File danziDir = new File("ÎÄÕÂ//µ¥×ÖÀà"), wenzhangDir = new File("ÎÄÕÂ//ÎÄÕÂÀà"), yingwenDir = new File(
-				"ÎÄÕÂ//Ó¢´òÀà");
+    lable3.setBounds(205, 310, 30, 30);
+    spinnerKeyLength = new JSpinner();
+    spinnerKeyLength.setModel(new SpinnerNumberModel(0, 0, 7, 0.1));
+    spinnerKeyLength.setBounds(245, 310, 50, 30);
 
-		File[] danziFile = danziDir.listFiles(), wenzhangFile = wenzhangDir
-				.listFiles(), yingwenFile = yingwenDir.listFiles();
-		String[] danziFileName = danziDir.list(), wenzhangFileName = wenzhangDir
-				.list(), yingwenFileName = yingwenDir.list();
-		for (i = 0; i < danziFileName.length; i++)
-			if (danziFile[i].isFile()) {
-				danzilei.add(new DefaultMutableTreeNode(danziFileName[i]));
-			}
-		for (i = 0; i < wenzhangFileName.length; i++)
-			if (wenzhangFile[i].isFile())
-				wenzhanglei
-						.add(new DefaultMutableTreeNode(wenzhangFileName[i]));
-		for (i = 0; i < yingwenFileName.length; i++) {
-			if (yingwenFile[i].isFile())
-				yingwenlei.add(new DefaultMutableTreeNode(yingwenFileName[i]));
-		}
-		root.add(danzilei);
-		root.add(wenzhanglei);
-		root.add(yingwenlei);
+    luanxu = new JRadioButton("æœªè¾¾åˆ°æ¡ä»¶æ˜¯å¦ä¹±åº");
+    luanxu.setBounds(305, 310, 150, 30);
 
-		tree = new JTree(root);
-		tree1 = new JScrollPane(tree);
+    p.add(spinnerSpeed);
+    p.add(spinnerKey);
+    p.add(spinnerKeyLength);
+    p.add(luanxu);
+    p.add(lable1);
+    p.add(lable2);
+    p.add(lable3);
+  }
+  void Articlelist() {
+    root = new DefaultMutableTreeNode("ç»ƒä¹ ");
+    danzilei = new DefaultMutableTreeNode("å•å­—ç±»");
+    wenzhanglei = new DefaultMutableTreeNode("æ–‡ç« ç±»");
+    yingwenlei = new DefaultMutableTreeNode("è‹±æ‰“ç±»");
+    File danziDir = new File("æ–‡ç« //å•å­—ç±»"), wenzhangDir = new File("æ–‡ç« //æ–‡ç« ç±»"),
+         yingwenDir = new File("æ–‡ç« //è‹±æ‰“ç±»");
 
-		treeListener = new ActicleListener();
-		treeListener.setActicle(this);
-		treeListener.setTree(tree);
-		treeListener.setDanziFileName(danziFileName);
-		treeListener.setWenzhangFileName(wenzhangFileName);
-		treeListener.setWin(win);
-		tree.addTreeSelectionListener(treeListener);
-		tree1.setBounds(0, 0, 190, 270);
-		treeListener.setWenbenText(wenben);
+    File[] danziFile = danziDir.listFiles(), wenzhangFile = wenzhangDir.listFiles(),
+           yingwenFile = yingwenDir.listFiles();
+    String[] danziFileName = danziDir.list(), wenzhangFileName = wenzhangDir.list(),
+             yingwenFileName = yingwenDir.list();
+    for (i = 0; i < danziFileName.length; i++)
+      if (danziFile[i].isFile()) {
+        danzilei.add(new DefaultMutableTreeNode(danziFileName[i]));
+      }
+    for (i = 0; i < wenzhangFileName.length; i++)
+      if (wenzhangFile[i].isFile())
+        wenzhanglei.add(new DefaultMutableTreeNode(wenzhangFileName[i]));
+    for (i = 0; i < yingwenFileName.length; i++) {
+      if (yingwenFile[i].isFile())
+        yingwenlei.add(new DefaultMutableTreeNode(yingwenFileName[i]));
+    }
+    root.add(danzilei);
+    root.add(wenzhanglei);
+    root.add(yingwenlei);
 
-		treeListener.setNumber(number);
+    tree = new JTree(root);
+    tree1 = new JScrollPane(tree);
 
-		p.add(tree1);
-	}
+    treeListener = new ActicleListener();
+    treeListener.setActicle(this);
+    treeListener.setTree(tree);
+    treeListener.setDanziFileName(danziFileName);
+    treeListener.setWenzhangFileName(wenzhangFileName);
+    treeListener.setWin(win);
+    tree.addTreeSelectionListener(treeListener);
+    tree1.setBounds(0, 0, 190, 270);
+    treeListener.setWenbenText(wenben);
+
+    treeListener.setNumber(number);
+
+    p.add(tree1);
+  }
 }

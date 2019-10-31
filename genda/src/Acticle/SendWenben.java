@@ -21,49 +21,46 @@ import Login.*;
 import SetWin.SetFrameQianshuiListener;
 
 public class SendWenben implements ActionListener {
-	static public int sendwenSign = 0;
-	static public int sendwenSign2 = 0;// ³éÈ¡Ä£Ê½·¢ÎÄ
-	static public int sendwenSign3 = 0;// 1¡¢´Ê¿âÁ·Ï°·¢ÎÄ
-	static public boolean sendwenSign4 = false;// Ó¢´Ê
-	static public String title = "";
-	JTextArea wenben;
-	Window win;
-	private Acticle acticle;
+  static public int sendwenSign = 0;
+  static public int sendwenSign2 = 0; // æŠ½å–æ¨¡å¼å‘æ–‡
+  static public int sendwenSign3 = 0; // 1ã€è¯åº“ç»ƒä¹ å‘æ–‡
+  static public boolean sendwenSign4 = false; // è‹±è¯
+  static public String title = "";
+  JTextArea wenben;
+  Window win;
+  private Acticle acticle;
 
-	SendWenben(JTextArea wenben) {
-		this.wenben = wenben;
-	}
+  SendWenben(JTextArea wenben) {
+    this.wenben = wenben;
+  }
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		QQZaiwenListener.wenbenstr = ActicleListener.wen;// ¹Ì¶¨ÎÄ±¾¿ò
-		QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText
-				.huanfu(QQZaiwenListener.wenbenstr));
-		if (QQZaiwenListener.wenbenstr == null
-				|| QQZaiwenListener.wenbenstr.equals(""))
-			return;
-		Window.f3listener.F3();
-		sendwenSign = 1; // ·¢ÎÄ±êÖ¾
-		RegexText.duan1 = 1;// ÉèÖÃ¶ÎÊı
-		ActicleListener.fontweizhi += ActicleListener.fontnum;
-		win.sendwen.setVisible(true);
-		try {
-			DataOutputStream out = new DataOutputStream(
-					battleClient.socket.getOutputStream());
-			out.writeUTF("%" + ReadyListener.BeganSign + "%" + "%"
-					+ RegexText.duan1 + "#" + wenben.getText() + "%0" + "%"
-					+ Login.zhanghao.getText());
-		} catch (Exception ex) {
-			System.out.println("ÎŞ·¨·¢ËÍÎÄ±¾ÄÚÈİ");
-		}
-		acticle.setVisible(false);
-		if (SetFrameQianshuiListener.qianshui == 0)
-			ShareListener.send();
-	}
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    // TODO Auto-generated method stub
+    QQZaiwenListener.wenbenstr = ActicleListener.wen; // å›ºå®šæ–‡æœ¬æ¡†
+    QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText.huanfu(QQZaiwenListener.wenbenstr));
+    if (QQZaiwenListener.wenbenstr == null || QQZaiwenListener.wenbenstr.equals(""))
+      return;
+    Window.f3listener.F3();
+    sendwenSign = 1; // å‘æ–‡æ ‡å¿—
+    RegexText.duan1 = 1; // è®¾ç½®æ®µæ•°
+    ActicleListener.fontweizhi += ActicleListener.fontnum;
+    win.sendwen.setVisible(true);
+    try {
+      DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
+      out.writeUTF("%" + ReadyListener.BeganSign + "%"
+          + "%" + RegexText.duan1 + "#" + wenben.getText() + "%0"
+          + "%" + Login.zhanghao.getText());
+    } catch (Exception ex) {
+      System.out.println("æ— æ³•å‘é€æ–‡æœ¬å†…å®¹");
+    }
+    acticle.setVisible(false);
+    if (SetFrameQianshuiListener.qianshui == 0)
+      ShareListener.send();
+  }
 
-	public void setwin(Window t, Acticle acticle) {
-		win = t;
-		this.acticle = acticle;
-	}
+  public void setwin(Window t, Acticle acticle) {
+    win = t;
+    this.acticle = acticle;
+  }
 }

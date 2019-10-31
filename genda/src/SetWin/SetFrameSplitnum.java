@@ -9,22 +9,20 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class SetFrameSplitnum implements ActionListener{
+public class SetFrameSplitnum implements ActionListener {
+  JTextField splitenum;
+  public SetFrameSplitnum(JTextField splitenum) {
+    // TODO Auto-generated constructor stub
+    this.splitenum = splitenum;
+  }
 
-	JTextField splitenum;
-	public SetFrameSplitnum(JTextField splitenum) {
-		// TODO Auto-generated constructor stub
-		this.splitenum = splitenum;
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		try{
-			GendaListener.fenye = Integer.parseInt(splitenum.getText());
-		}
-		catch(Exception e){
-			JOptionPane.showMessageDialog(new JTextArea(),"设置分页字数只能为数字");
-		}
-	}
+  @Override
+  public void actionPerformed(ActionEvent arg0) {
+    // TODO Auto-generated method stub
+    try {
+      GendaListener.fenye = Integer.parseInt(splitenum.getText());
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(new JTextArea(), "设置分页字数只能为数字");
+    }
+  }
 }
