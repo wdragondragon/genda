@@ -202,7 +202,7 @@ public class AchievementListener extends AbstractAction {
 						Window.gendaListener.str1.length(), 0));
 
 		Keyaccuracy = (KeyNumber - deleteNumber * 2 - deleteTextNumber
-				* (1.0 * Window.tipschange.alllength / QQZaiwenListener.wenbenstr
+				* (1.0 * Window.tipschange.allCodeLength / QQZaiwenListener.wenbenstr
 						.length()))
 				/ KeyNumber;
 		dacilv = ((double) (gendaListener.daciall) / (QQZaiwenListener.wenbenstr
@@ -218,9 +218,8 @@ public class AchievementListener extends AbstractAction {
 					+ " 码长"
 					+ String.format("%.2f", KeyNumber / length)
 					+ " 标顶理论"
-					+ String.format("%.2f", Tips.dingalllength
-							/ QQZaiwenListener.wenbenstr.length()) + " 文章难度"
-					+ String.format("%.2f", Tips.dengji) + " 字数"
+					+ String.format("%.2f", Tips.allCodeLength
+							/ QQZaiwenListener.wenbenstr.length()) + " 字数"
 					+ (int) (length) + " 回改" + (int) (deleteTextNumber) + " 退格"
 					+ (int) (deleteNumber) + " 错字" + (int) (mistake) + " 键数"
 					+ (int) (KeyNumber) + " 选重" + (int) (repeat) + " 键准"
@@ -243,9 +242,8 @@ public class AchievementListener extends AbstractAction {
 					+ " 码长"
 					+ String.format("%.2f", KeyNumber / length)
 					+ " 标顶理论"
-					+ String.format("%.2f", Tips.dingalllength
-							/ QQZaiwenListener.wenbenstr.length()) + " 文章难度"
-					+ String.format("%.2f", Tips.dengji) + " 字数"
+					+ String.format("%.2f", Tips.allCodeLength
+							/ QQZaiwenListener.wenbenstr.length()) + " 字数"
 					+ (int) (length) + " 回改" + (int) (deleteTextNumber) + " 退格"
 					+ (int) (deleteNumber) + " 错字" + (int) (mistake) + " 键数"
 					+ (int) (KeyNumber) + " 选重" + (int) (repeat) + " 键准"
@@ -326,7 +324,7 @@ public class AchievementListener extends AbstractAction {
 					+ String.format("%.2f", Keymethod * 100) + "%"
 					+ String.format("%.2f", dacilv * 100) + "%"
 					+ String.valueOf(GendaListener.comp.getSecond()) + "%"
-					+ String.format("%.2f", Tips.dengji);
+					+ String.format("%.2f", 0.0);
 			message = KeyPassword.convertMD5(message);
 			try {
 				Login.out.writeUTF(message);
@@ -352,7 +350,7 @@ public class AchievementListener extends AbstractAction {
 					+ String.valueOf(GendaListener.comp.getSecond()) + "%"
 					+ QQZaiwenListener.wenbenstr + "%"
 					+ String.valueOf(RegexText.duan1) + "%"
-					+ String.format("%.2f", Tips.dengji);// 14
+					+ String.format("%.2f", 0.0);// 14
 			message = KeyPassword.convertMD5(message);
 			try {
 				Login.out.writeUTF(message);

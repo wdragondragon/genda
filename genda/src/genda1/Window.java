@@ -95,7 +95,7 @@ public class Window extends JFrame {
 
 	JButton lookplayfinish;
 
-	public static JButton lilunma;
+//	public static JButton lilunma;
 	public static JButton dinglilunma;
 	JTable table;
 
@@ -394,7 +394,7 @@ public class Window extends JFrame {
 		suduButton = new JButton("速度");
 		KeySuduButton = new JButton("击键");
 		Keylength = new JButton("码长");
-		lilunma = new JButton("理论码长");
+//		lilunma = new JButton("理论码长");
 		dinglilunma = new JButton("标顶理论");
 		achievementButton = new JButton("生成成绩");
 		QQzaiwenButton = new JButton("QQ群载文");
@@ -504,7 +504,7 @@ public class Window extends JFrame {
 		add(share);
 		add(sendwen);
 		add(tips);
-		add(lilunma);
+//		add(lilunma);
 		add(dinglilunma);
 		add(reducesudu);
 		add(chouqu);
@@ -539,7 +539,7 @@ public class Window extends JFrame {
 		acticlebutton.addActionListener(orActicle);
 		mix.addActionListener(mixlistener);
 		share.addActionListener(sharelistener);
-		lilunma.addActionListener(theorylistener);
+//		lilunma.addActionListener(theorylistener);
 		dinglilunma.addActionListener(theorylistener);
 		leftce.addActionListener(historylistener);
 		tips.addMouseListener(tipsframe);
@@ -624,8 +624,8 @@ public class Window extends JFrame {
 		suduButton.setBounds(57, F3.getY(), 150, 30);
 		KeySuduButton.setBounds(217, F3.getY(), 150, 30);
 		Keylength.setBounds(377, F3.getY(), 150, 30);
-		lilunma.setBounds(537, F3.getY(), 150, 30);
-		dinglilunma.setBounds(697, F3.getY(), 150, 30);
+		dinglilunma.setBounds(537, F3.getY(), 150, 30);
+//		dinglilunma.setBounds(697, F3.getY(), 150, 30);
 
 		zaiwen.setBounds(353, F3.getY(), 0, 0);// 剪切版载文按钮大小位置
 		more.setBounds(458, F3.getY(), 0, 0);// 文本载文按钮大小位置

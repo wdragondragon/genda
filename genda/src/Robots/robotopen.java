@@ -9,8 +9,7 @@ import Tips.Tips;
 public class robotopen extends Thread {
 
 	public void run(){
-		char[]c = Tips.dingshowstr.toCharArray();
-		System.out.println(Tips.dingshowstr);
+		char[]c = Tips.allCode.toString().toCharArray();
 		int num = 0;
 //		char a = 'A';
 		String regex = "234567890";

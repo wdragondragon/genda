@@ -409,8 +409,8 @@ public class GendaListener implements DocumentListener, KeyListener {
 				if (SetFramechangeListener.tipsign == 0 || Window.everydaySign
 						|| (Window.Pattern == 1)) {
 				} else {
-					Integer type = Tips.type[n];
-					Integer tail = Tips.codeWordHeadAndTail[n];
+					Integer type = Tips.subscriptInstances[n].getType();
+					Integer tail = Tips.subscriptInstances[n].getNext();
 					if(tail!=null)
 						if (type==5) {
 							ejianmanum.add(n);
@@ -430,9 +430,6 @@ public class GendaListener implements DocumentListener, KeyListener {
 						}else if (type==1) {
 							quanmanum.add(n);
 							n = tail;
-						} else if (Tips.suluciOneAndTwo.get(n)!=null){
-							sulucinum.add(n);
-							n = Tips.suluciOneAndTwo.get(n);
 						}
 				}
 			}
@@ -460,7 +457,7 @@ public class GendaListener implements DocumentListener, KeyListener {
 					JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,
 							String.valueOf(c2[n]), "»Ò", wenben);
 				} else {
-					Integer tail = Tips.codeWordHeadAndTail[n];
+					Integer tail = Tips.subscriptInstances[n].getNext();
 					if (ejianmanum.indexOf(n)!= -1) {
 						if (ejianmanum.indexOf(n) % 2 == 0)
 							for (int k = n; k <= tail; k++) {
@@ -551,21 +548,6 @@ public class GendaListener implements DocumentListener, KeyListener {
 							}
 						}
 						n = tail;
-					}else if(sulucinum.contains(n)&&Tips.suluciOneAndTwo.containsKey(n)){
-						if (sulucinum.indexOf(n) % 2 == 0)
-							for (int k = n; k <= Tips.suluciOneAndTwo.get(n); k++) {
-								JTextPaneChange.insertDoc(
-										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "·Û´Ö", wenben);
-							}
-						else {
-							for (int k = n; k <= Tips.suluciOneAndTwo.get(n); k++) {
-								JTextPaneChange.insertDoc(
-										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "·Û", wenben);
-							}
-						}
-						n = Tips.suluciOneAndTwo.get(n);
 					}else {
 						JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,
 								String.valueOf(c2[n]), "»Ò", wenben);

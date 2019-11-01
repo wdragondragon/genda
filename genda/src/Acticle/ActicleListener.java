@@ -93,6 +93,7 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 				all = new String(s);
 				all = RegexText.qukong(all);
 				length = all.length();
+				
 				showwen();
 			}
 		} catch (Exception e) {
@@ -104,7 +105,10 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 			wen = all.substring(fontweizhi, all.length());
 		else
 			wen = all.substring(fontweizhi, fontweizhi + fontnum);
-		wenben.setText(wen.substring(0,500));
+		if(wen.length()>500)
+			wenben.setText(wen.substring(0,500));
+		else
+			wenben.setText(wen);
 		// fontweizhi += fontnum;
 		win.sendwen.setText(String.valueOf(fontweizhi)
 				+ "/"

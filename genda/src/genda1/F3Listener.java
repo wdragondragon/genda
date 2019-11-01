@@ -96,12 +96,11 @@ public class F3Listener extends AbstractAction {
 		// 理论码长
 		Window.tipschange.compalllength();
 
-		Window.lilunma.setText("理论码长:"
-				+ String.format("%.2f", 1.0 * Window.tipschange.alllength
-						/ QQZaiwenListener.wenbenstr.length()) + " *"
-				+ String.format("%.2f", Tips.dengji));
+//		Window.lilunma.setText("理论码长:"
+//				+ String.format("%.2f", 1.0 * Window.tipschange.alllength
+//						/ QQZaiwenListener.wenbenstr.length()));
 		Window.dinglilunma.setText("标顶理论:"
-				+ String.format("%.2f", 1.0 * Window.tipschange.dingalllength
+				+ String.format("%.2f", 1.0 * Window.tipschange.allCodeLength
 						/ QQZaiwenListener.wenbenstr.length()));
 		Window.zishu.setText("字数:" + QQZaiwenListener.wenbenstr.length()
 				+ "/已打:" + 0 + "/错" + 0);

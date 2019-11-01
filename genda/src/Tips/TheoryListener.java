@@ -25,9 +25,9 @@ public class TheoryListener extends JFrame implements ActionListener {
 //		System.out.println(e.getActionCommand());
 //		System.out.println(e.getActionCommand().substring(0, 4));
 		if(e.getActionCommand().substring(0,4).equals("理论码长"))
-			show.setText(Tips.showstr.toString());
+			show.setText(Tips.allCode.toString());
 		else if(e.getActionCommand().substring(0,4).equals("标顶理论"))
-			show.setText(Tips.dingshowstr);
+			show.setText(Tips.allCode.toString());
 		
 //		Tips.bianma.size();
 	}

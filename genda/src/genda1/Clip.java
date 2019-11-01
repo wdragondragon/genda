@@ -105,14 +105,16 @@ public class Clip extends Thread {
 		double nextSpeed = Double.valueOf(String.valueOf(Window.acticle.spinnerSpeed.getValue()));
 		double nextKey = Double.valueOf(String.valueOf(Window.acticle.spinnerKey.getValue()));
 		double nextKeyLength = Double.valueOf(String.valueOf(Window.acticle.spinnerKeyLength.getValue()));
-		double speed = Window.gendaListener.getKeyNumber();
+		double speed = Window.gendaListener.getSudu();
 		double keySpeed = Window.gendaListener.KeyNumber
 				/ GendaListener.comp.getSecond();
 		double keyLength = Window.gendaListener.KeyNumber
 				/ GendaListener.str1.length();
-		if((nextSpeed==0||speed>=nextSpeed)&&
-				(nextKey==0||keySpeed>=nextKey)&&
-				(nextKeyLength==0||keyLength<=nextKeyLength)){
+		if(!(nextSpeed==0&&nextKey==0&&nextKeyLength==0)
+				&&(nextSpeed==0||speed>=nextSpeed)
+				&&(nextKey==0||keySpeed>=nextKey)
+				&&(nextKeyLength==0||keyLength<=nextKeyLength)
+				){
 			if(SendWenben.sendwenSign2==1){
 				Window.acticle.treeListener.chouqu("³éÈ¡ÏÂÒ»¶Î");
 			}else if(SendWenben.sendwenSign==1){
