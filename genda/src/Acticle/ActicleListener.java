@@ -68,7 +68,7 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 		try {
 			fontnum = Integer.parseInt(number.getText());
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(new JTextArea(), "字数框输入数字");
+//			JOptionPane.showMessageDialog(new JTextArea(), "字数框输入数字");
 		}
 	}
 
@@ -93,7 +93,7 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 				all = new String(s);
 				all = RegexText.qukong(all);
 				length = all.length();
-				
+				acticle.setTitle("文章总长度:"+length);
 				showwen();
 			}
 		} catch (Exception e) {

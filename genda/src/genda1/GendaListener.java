@@ -409,6 +409,8 @@ public class GendaListener implements DocumentListener, KeyListener {
 				if (SetFramechangeListener.tipsign == 0 || Window.everydaySign
 						|| (Window.Pattern == 1)) {
 				} else {
+					System.out.println(n+";"+last+":"+str2.length());
+					if(n>=Tips.subscriptInstances.length)break;
 					Integer type = Tips.subscriptInstances[n].getType();
 					Integer tail = Tips.subscriptInstances[n].getNext();
 					if(tail!=null)
@@ -452,6 +454,7 @@ public class GendaListener implements DocumentListener, KeyListener {
 		    Collections.sort(sulucinum, comparator);
 			for (n = n2; n < last; n++) { // Ìí¼ÓÊ£ÏÂ×ÖÌå
 			// System.out.print(n);
+				if(n>=Tips.subscriptInstances.length)break;
 				if (SetFramechangeListener.tipsign == 0 || Window.everydaySign
 						|| (Window.Pattern == 1)) {
 					JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,

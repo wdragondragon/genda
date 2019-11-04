@@ -12,6 +12,7 @@ import javax.swing.JTextArea;
 
 import QQ.QQ;
 
+
 public class ShareListener extends AbstractAction {
 	static JLabel qqName;
 	public ShareListener(JLabel qqName){

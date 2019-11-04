@@ -5,9 +5,13 @@ import genda1.Window;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 public class Acticle extends JFrame {
@@ -23,7 +27,7 @@ public class Acticle extends JFrame {
 	JButton send, next, mix, chouqu, cikuchouqu, English;
 	JPanel p = new JPanel();
 	public JSpinner spinnerSpeed,spinnerKey,spinnerKeyLength;
-	public JRadioButton luanxu;
+	public JComboBox<String> caozuo;
 	int i;
 
 	public Acticle(Window win) {
@@ -103,7 +107,30 @@ public class Acticle extends JFrame {
 	}
 
 	void addnumber() {
-		number = new JTextField("100");
+		number = new JTextField("10");
+		number.addKeyListener(new KeyListener() {
+					@Override
+					public void keyPressed(KeyEvent e) {
+						
+					}
+					@Override
+					public void keyReleased(KeyEvent e) {
+//						keyTyped(e);
+						int keyChar = e.getKeyChar();
+						if (keyChar >= KeyEvent.VK_0
+								&& keyChar <= KeyEvent.VK_9|| keyChar == '\b') {
+							treeListener.getNumber();
+							treeListener.showwen();
+						} 
+						else
+							e.consume();
+					}
+					@Override
+					public void keyTyped(KeyEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+		});
 		number.setBounds(5, 270, 50, 30);
 		p.add(number);
 	}
@@ -116,35 +143,43 @@ public class Acticle extends JFrame {
 		p.add(wenben1);
 	}
 	void automaticDisruption() {
-		JLabel lable1 = new JLabel("速度");
-		JLabel lable2 = new JLabel("击键");
-		JLabel lable3 = new JLabel("码长");
-		
-		lable1.setBounds(5, 310, 30, 30);
+		JLabel lable1 = new JLabel("速度≥");
+		JLabel lable2 = new JLabel("击键≥");
+		JLabel lable3 = new JLabel("键准≥");
+		JLabel lable4 = new JLabel("未达标时");
+		lable1.setBounds(5, 310, 40, 30);
 	    spinnerSpeed = new JSpinner();
 		spinnerSpeed.setModel(new SpinnerNumberModel(0, 0, 999, 0.1));
-		spinnerSpeed.setBounds(45, 310, 50, 30);
+		spinnerSpeed.setBounds(lable1.getX()+lable1.getWidth()+10, 310, 50, 30);
 		
-		lable2.setBounds(105, 310, 30, 30);
+		lable2.setBounds(spinnerSpeed.getX()+spinnerSpeed.getWidth()+10, 310, 40, 30);
 		spinnerKey = new JSpinner();
 		spinnerKey.setModel(new SpinnerNumberModel(0, 0, 30, 0.1));
-		spinnerKey.setBounds(145, 310, 50, 30);
+		spinnerKey.setBounds(lable2.getX()+lable2.getWidth()+10, 310, 50, 30);
 		
-		lable3.setBounds(205, 310, 30, 30);
+		lable3.setBounds(spinnerKey.getX()+spinnerKey.getWidth()+10, 310, 40, 30);
 		spinnerKeyLength = new JSpinner();
 		spinnerKeyLength.setModel(new SpinnerNumberModel(0, 0, 7, 0.1));
-		spinnerKeyLength.setBounds(245, 310, 50, 30);
+		spinnerKeyLength.setBounds(lable3.getX()+lable3.getWidth()+10, 310, 50, 30);
 		
-		luanxu = new JRadioButton("未达到条件是否乱序");
-		luanxu.setBounds(305, 310, 150, 30);
+		
+		lable4.setBounds(spinnerKeyLength.getX()+spinnerKeyLength.getWidth()+10,310,50,30);
+		caozuo = new JComboBox<String>();
+		caozuo.addItem("不操作");
+		caozuo.addItem("乱序");
+		caozuo.addItem("重打");
+		caozuo.setBounds(lable4.getX()+lable4.getWidth()+10, 310, 100, 30);
+		
+		
 		
 		p.add(spinnerSpeed);
 		p.add(spinnerKey);
 		p.add(spinnerKeyLength);
-		p.add(luanxu);
+		p.add(caozuo);
 		p.add(lable1);
 		p.add(lable2);
 		p.add(lable3);
+		p.add(lable4);
 	}
 	void Articlelist() {
 		root = new DefaultMutableTreeNode("练习");

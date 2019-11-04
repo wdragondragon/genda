@@ -26,6 +26,7 @@ public class orActicle extends AbstractAction{
 			if (n == JOptionPane.YES_OPTION) {
 				// ......
 //				a.setVisible(true);
+				ActicleListener.fontweizhi = 0;
 				win.sendwen.setVisible(false);
 				SendWenben.sendwenSign = 0;
 				SendWenben.sendwenSign2 = 0;

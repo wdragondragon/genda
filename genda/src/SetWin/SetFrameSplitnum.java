@@ -16,7 +16,7 @@ public class SetFrameSplitnum implements ActionListener{
 		// TODO Auto-generated constructor stub
 		this.splitenum = splitenum;
 	}
-
+	public SetFrameSplitnum(){}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub

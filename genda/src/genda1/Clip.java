@@ -104,16 +104,15 @@ public class Clip extends Thread {
 		//自动下一段判断
 		double nextSpeed = Double.valueOf(String.valueOf(Window.acticle.spinnerSpeed.getValue()));
 		double nextKey = Double.valueOf(String.valueOf(Window.acticle.spinnerKey.getValue()));
-		double nextKeyLength = Double.valueOf(String.valueOf(Window.acticle.spinnerKeyLength.getValue()));
+		double nextKeyaccuracy = Double.valueOf(String.valueOf(Window.acticle.spinnerKeyLength.getValue()));
 		double speed = Window.gendaListener.getSudu();
 		double keySpeed = Window.gendaListener.KeyNumber
 				/ GendaListener.comp.getSecond();
-		double keyLength = Window.gendaListener.KeyNumber
-				/ GendaListener.str1.length();
-		if(!(nextSpeed==0&&nextKey==0&&nextKeyLength==0)
+		double keyaccuracy = AchievementListener.Keyaccuracy;
+		if(!(nextSpeed==0&&nextKey==0&&nextKeyaccuracy==0)
 				&&(nextSpeed==0||speed>=nextSpeed)
 				&&(nextKey==0||keySpeed>=nextKey)
-				&&(nextKeyLength==0||keyLength<=nextKeyLength)
+				&&(nextKeyaccuracy==0||keyaccuracy>=nextKeyaccuracy)
 				){
 			if(SendWenben.sendwenSign2==1){
 				Window.acticle.treeListener.chouqu("抽取下一段");
@@ -124,9 +123,13 @@ public class Clip extends Thread {
 			}else if(SendWenben.sendwenSign4){
 				Window.acticle.treeListener.enlighWord("英词下一段");
 			}
-		}else if(!(nextSpeed==0&&nextKey==0&&nextKeyLength==0)&&
-				Window.acticle.luanxu.isSelected()){
-			Example.getWindow().mixlistener.mixButton("该段乱序");
+		}else if(!(nextSpeed==0&&nextKey==0&&nextKeyaccuracy==0)){
+			String caozuo = Window.acticle.caozuo.getSelectedItem().toString();
+			switch(caozuo){
+				case "不操作":break;
+				case "乱序":Example.getWindow().mixlistener.mixButton("该段乱序");break;
+				case "重打":Window.f3listener.F3();break;
+			}
 		}
 
 	}

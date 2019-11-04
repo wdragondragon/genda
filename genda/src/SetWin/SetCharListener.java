@@ -1,5 +1,7 @@
 package SetWin;
 
+import genda1.Window;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,9 +10,10 @@ import javax.swing.JButton;
 public class SetCharListener implements ActionListener{
 	public static int charsign = 0;
 	public static JButton charset;
-	SetCharListener(JButton space){
-		this.charset = space;
+	public SetCharListener(JButton space){
+		charset = space;
 	}
+	public SetCharListener(){}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -18,13 +21,13 @@ public class SetCharListener implements ActionListener{
 			charsign = 1;
 			charset.setText("·ûºÅÌæ»»\"ÒÑ¿ª\"");
 			charset.setForeground(SetFrame.open);
+			Window.charchange.setSelected(true);
 		}
 		else{
 			charsign = 0;
 			charset.setText("·ûºÅÌæ»»\"ÒÑ¹Ø\"");
 			charset.setForeground(SetFrame.close);
+			Window.charchange.setSelected(false);
 		}
-		
 	}
-
 }

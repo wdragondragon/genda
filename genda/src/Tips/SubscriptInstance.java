@@ -15,9 +15,10 @@ public class SubscriptInstance {
 	private boolean useWordSign;
 	private int codeLengthTemp;
 	public class PreInfo{
+		//同长度不同上跳表，用于动态词提
 		private HashMap<Integer,Integer> preAndType = new HashMap<Integer,Integer>();
-		private String wordsCode;//编码
-		private String words;//词条
+		private String wordsCode;//最短编码路径的编码
+		private String words;//最短编码路径的词条
 		PreInfo(int pre,String words,String wordsCode,int type){
 			this.preAndType.put(pre, type);
 			this.words = words;

@@ -224,41 +224,52 @@ public class readWrite
 			if(qianshui == 1){
 				SetFrameQianshuiListener.qianshui1.setText("潜水跟打\"已开\"");
 				SetFrameQianshuiListener.qianshui1.setForeground(SetFrame.open);
+				Window.qianshui.setSelected(true);
 			}
 			else{
 				SetFrameQianshuiListener.qianshui1.setText("潜水跟打\"已关\"");
+				Window.qianshui.setSelected(false);
 			}
 			SetFramechangeListener.tipsign = tip;
 			if(tip == 1){
 				SetFramechangeListener.change.setForeground(SetFrame.open);
 				SetFramechangeListener.change.setText("词语提示\"已开\"");
+				Window.wordTips.setSelected(true);
 			}
 			else{
 				SetFramechangeListener.change.setText("词语提示\"已关\"");
+				Window.wordTips.setSelected(false);
 			}
 			SetspaceListener.spacesign = space;
 			if(space ==1){
 				SetspaceListener.space.setForeground(SetFrame.open);
 				SetspaceListener.space.setText("去除空格\"已开\"");
+				Window.space.setSelected(true);
 			}
 			else{
 				SetspaceListener.space.setText("去除空格\"已关\"");
+				Window.space.setSelected(false);
 			}
 			SetCharListener.charsign = Charset;
 			if(Charset ==1){
 				SetCharListener.charset.setForeground(SetFrame.open);
 				SetCharListener.charset.setText("符号替换\"已开\"");
+				Window.charchange.setSelected(true);
 			}
 			else{
 				SetCharListener.charset.setText("符号替换\"已关\"");
+				Window.charchange.setSelected(false);
 			}
 			SetFrameJinduListener.jindusign = jindusign;
 			if(jindusign ==1){
 				SetFrameJinduListener.jindu.setForeground(SetFrame.open);
 				SetFrameJinduListener.jindu.setText("进度条显示\"已开\"");
+				Window.jindu.setSelected(true);
 			}
-			else
+			else{
 				SetFrameJinduListener.jindu.setText("进度条显示\"已关\"");
+				Window.jindu.setSelected(false);
+			}
 		}catch(Exception ex){System.out.println("文本格式不对");}
 	}
 	public static void readfontnum() throws IOException{

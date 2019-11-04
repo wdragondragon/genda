@@ -1,6 +1,5 @@
 package Login;
 
-import com.sun.xml.internal.ws.resources.SenderMessages;
 
 import genda1.Example;
 import genda1.Window;
@@ -10,9 +9,7 @@ import java.awt.event.ActionListener;
 
 import java.io.*;
 import java.net.Socket;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
+
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -21,7 +18,6 @@ import javax.swing.UIManager;
 import keep.KeyPassword;
 import keep.readWrite;
 
-import static java.net.URLEncoder.encode;
 
 public class DengluListener implements ActionListener{
 	Login login;

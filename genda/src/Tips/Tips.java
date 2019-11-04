@@ -33,6 +33,7 @@ public class Tips{
 	public static ArrayList<String> symbolEntry;
 	public static ArrayList<HashMap<String,String>> wordsCodeList;
 	public static StringBuilder allCode;
+	public int max = 0;
 	enum Type{
 		//0单 1全 2次全 3三简 4 次三简 5二简  6次二简
 		dan(0),q(1),cq(2),sj(3),csj(4),ej(5),cej(6);
@@ -203,7 +204,7 @@ public class Tips{
 					}
 				}else if(articleLength>i+1
 						&&codeTemp.substring(codeTemp.length()-1).equals("_")
-						&&symbol.indexOf(subscriptInstances[i+1].getWord())!=-1
+						&&symbol.contains(subscriptInstances[i+1].getWord())
 						&&!(articleLength>i+2
 								&&symbolEntry.contains(subscriptInstances[i+1].getWord()
 										+subscriptInstances[i+2].getWord())))
@@ -215,7 +216,6 @@ public class Tips{
 			}
 			subscriptInstances[0].setCodeLengthTemp(subscriptInstances[0].getWordCode().length());
 			for(int j=0;j<articleLength;j++){
-
 				//获取前一字符的最短编码长度。
 				int preCodeLengthTemp = j==0?0:subscriptInstances[j-1].getCodeLengthTemp();
 				//判断每个长度是否有词
@@ -234,7 +234,7 @@ public class Tips{
 						codeTemp = wordsCodeList.get(i).get(strTemp);	
 						
 						if(articleLength>j+i+2&&codeTemp.substring(codeTemp.length()-1).equals("_")
-								&&symbol.indexOf(subscriptInstances[j+i+2].getWord())!=-1
+								&&symbol.contains(subscriptInstances[j+i+2].getWord())
 								&&!(articleLength>j+i+3
 									&&symbolEntry.contains(subscriptInstances[j+i+2].getWord()
 											+subscriptInstances[j+i+3].getWord())))
@@ -258,13 +258,18 @@ public class Tips{
 					 * 		是->说明上一跳的词不为最短编码，将上一跳删除，并将该处最短编码设置为后者。
 					 */
 					if(j>0){
-						int wordCodeLength = subscriptInstances[j].getWordCode().length();
+						String word = subscriptInstances[j].getWord();
+						String wordCode = subscriptInstances[j].getWordCode();
+						int wordCodeLength = wordCode.length();
 						int thisCodeLength = subscriptInstances[j].getCodeLengthTemp();
+						int nextCodeLengthTemp = preCodeLengthTemp+wordCodeLength;
 						if(thisCodeLength==0){
-							subscriptInstances[j].setCodeLengthTemp(preCodeLengthTemp+wordCodeLength);
-						}else if(preCodeLengthTemp+wordCodeLength<thisCodeLength){
-							subscriptInstances[j].removePre(thisCodeLength);
-							subscriptInstances[j].setCodeLengthTemp(preCodeLengthTemp+wordCodeLength);
+							subscriptInstances[j].setCodeLengthTemp(nextCodeLengthTemp);
+						}else if(thisCodeLength>nextCodeLengthTemp){
+							subscriptInstances[j].addPre(thisCodeLength, j,word , wordCode, 0);
+							subscriptInstances[j].getShortCodePreInfo().setWords(word);
+							subscriptInstances[j].getShortCodePreInfo().setWordsCode(wordCode);
+							subscriptInstances[j].setCodeLengthTemp(nextCodeLengthTemp);
 						}
 					}
 				}
@@ -281,13 +286,18 @@ public class Tips{
 			 * 直接将遍历提前到bestPre
 			 */
 			for(int i = article.length()-1;i>=0;i--){
+				boolean sign = true;
 				SubscriptInstance subscriptInstance = subscriptInstances[i];
 				int codeLengthTemp = subscriptInstance.getCodeLengthTemp();
 				PreInfo preInfo = subscriptInstance.getPreInfoMap().get(codeLengthTemp);
-				if(preInfo==null||preInfo.getPre().size()==0)continue;
-				int pre = preInfo.getMinPre();
-				if(!subscriptInstances[pre].isUseWordSign()
-						&&!(!subscriptInstances[pre].isUseSign()&&subscriptInstances[i].isUseSign())
+				int pre = 0;
+				if(preInfo==null||preInfo.getPre().size()==0)
+					sign = false;
+				else
+					pre= preInfo.getMinPre();
+				if(sign&&!subscriptInstances[pre].isUseWordSign()
+						&&!(!subscriptInstances[pre].isUseSign()
+						&&subscriptInstances[i].isUseSign())
 						){
 					strTemp = preInfo.getWords();
 					codeTemp = preInfo.getWordsCode();
@@ -302,15 +312,13 @@ public class Tips{
 					PreInfo preinfo = subscriptInstances[i].getPreInfoMap().get(key);
 					for(int preTemp:preinfo.getPre().keySet()){
 						if(preTemp>pre&&!subscriptInstances[preTemp].isUseWordSign()){
-							strTemp = preInfo.getWords();
-							codeTemp = preInfo.getWordsCode();
 							subscriptInstances[preTemp].setNext(i);
-							subscriptInstances[preTemp].setUseWordSign(true);
 							subscriptInstances[preTemp].setType(preinfo.getType(preTemp));
 						}
 					}
 				}
-				i = pre;
+				if(sign)
+					i = pre;
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -341,11 +349,12 @@ public class Tips{
 		}
 	}
 	public void compalllength(){
-		String str = QQZaiwenListener.wenbenstr;
 		allCode = new StringBuilder();
-		for(int i=0;i<str.length();i++){
+		for(int i=0;i<subscriptInstances.length;i++){
 			if(subscriptInstances[i].isUseWordSign()){
+				System.out.println(i+":"+subscriptInstances[i].getNext());
 				i=subscriptInstances[i].getNext();
+				
 				allCode.append(subscriptInstances[i].getShortCodePreInfo().getWordsCode());
 			}
 			else

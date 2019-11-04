@@ -39,7 +39,6 @@ public class SetFrame extends JFrame {
 	
 	ButtonGroup setqianshui ;
 	ButtonGroup setchange;
-	JButton zhiding;
 	
 	Window win;
 	JLabel setjindutiao = new JLabel("设置动态进度条",JLabel.LEFT);
@@ -47,6 +46,12 @@ public class SetFrame extends JFrame {
 	public static Color close,open = new Color(255,117,90);
 	public static JPanel p = new JPanel();
 	public static JComboBox<String> family ;
+	public SetCharListener setcharlistener;
+	public SetspaceListener setspacelistener;
+	public SetFrameJinduListener setframeJindulistener;
+	public SetFrameQianshuiListener setFrameQianshuiListener;
+	public SetFramechangeListener tiplistener;
+	public SetFramezhidingListener setframezhidinglistener;
 	public void SetFrame1(){
 		setTitle("设置");
 //		setLayout(null);
@@ -145,14 +150,14 @@ public class SetFrame extends JFrame {
 		JButton splitebutton = new JButton("保存");
 		splitebutton.setBounds(Splitenum.getX()+Splitenum.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,60,30);
 		p.add(splitebutton);
-		
+
 		JButton mabiao = new JButton("全码表选择");
 		mabiao.setBounds(splitebutton.getX()+splitebutton.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,100,30);
 		p.add(mabiao);
 		
 		JButton zhiding = new JButton("置顶跟打\"关\"");
 		p.add(zhiding);
-		SetFramezhidingListener setframezhidinglistener = new SetFramezhidingListener(zhiding,win);
+		setframezhidinglistener = new SetFramezhidingListener(zhiding,win);
 		zhiding.addActionListener(setframezhidinglistener);
 		zhiding.setBounds(mabiao.getX()+mabiao.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,100,30);
 		
@@ -209,7 +214,7 @@ public class SetFrame extends JFrame {
 		splitebutton.addActionListener(setframesplitenum);
 		mabiao.addActionListener(chosefilelistener);
 		
-		
+
 		
 	}
 	public void setGendaListener(GendaListener t){
@@ -222,7 +227,7 @@ public class SetFrame extends JFrame {
 		JButton charchange = new JButton("符号替换\"已关\"");
 		charchange.setBounds(460,10,110,20);
 		p.add(charchange);
-		SetCharListener setcharlistener = new SetCharListener(charchange);
+		setcharlistener = new SetCharListener(charchange);
 		charchange.addActionListener(setcharlistener);
 		close = charchange.getForeground();
 	}
@@ -230,30 +235,31 @@ public class SetFrame extends JFrame {
 		JButton space = new JButton("去除空格\"已关\"");
 		space.setBounds(350,10,110,20);
 		p.add(space);
-		SetspaceListener setspacelistener = new SetspaceListener(space);
+		setspacelistener = new SetspaceListener(space);
 		space.addActionListener(setspacelistener);
 	}
 	void addJinduON_Off(){
 		JButton jindu = new JButton("显示进度条\"已开\"");
 		jindu.setBounds(10,10,120,20);
 		p.add(jindu);
-		SetFrameJinduListener setframeJindulistener = new SetFrameJinduListener(jindu);
+		setframeJindulistener = new SetFrameJinduListener(jindu);
 		jindu.addActionListener(setframeJindulistener);
 	}
 	void addChangetxt(){	
 		JButton changetxt = new JButton("词语提示\"已开\"");
 		changetxt.setBounds(240,10,110,20);
 		p.add(changetxt);
-		SetFramechangeListener tiplistener = new SetFramechangeListener(changetxt);
+		tiplistener = new SetFramechangeListener(changetxt);
 		changetxt.addActionListener(tiplistener);
 	}
 	void addQianshu(){
 		JButton qianshui = new JButton("潜水跟打\"已关\"");
 		qianshui.setBounds(130,10,110,20);
 		p.add(qianshui);
-		SetFrameQianshuiListener setframeQianshuilistener = new SetFrameQianshuiListener(qianshui);
-		qianshui.addActionListener(setframeQianshuilistener);
+		setFrameQianshuiListener = new SetFrameQianshuiListener(qianshui);
+		qianshui.addActionListener(setFrameQianshuiListener);
 	}
+	
 	void addKeyboardRecord(){
 		JButton KeyboardRecord = new JButton("提取本次跟打击键记录");
 		JTextArea Keyboarddisplay = new JTextArea("提取文本在此显示");

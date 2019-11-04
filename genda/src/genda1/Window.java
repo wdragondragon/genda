@@ -14,6 +14,7 @@ import EmailSys.Email;
 import FriendSys.FriendsSysListener;
 import History.historyListener;
 import Login.Login;
+import Login.UpdateListener;
 import QQ.ChangeQQWindow;
 import QQ.ForegroundWinName;
 import RamdomOne.RamdomListener;
@@ -92,7 +93,14 @@ public class Window extends JFrame {
 	JButton share;
 	JButton chouqu;
 	JButton Englishnew;
-
+	//快捷设置按钮组
+	public static JButton charchange;
+	public static JButton space;
+	public static JButton jindu;
+	public static JButton wordTips;
+	public static JButton qianshui;
+	public static JButton zhiding;
+	
 	JButton lookplayfinish;
 
 //	public static JButton lilunma;
@@ -364,7 +372,6 @@ public class Window extends JFrame {
 							e.consume();
 					}
 				});
-
 		wenben1 = new JScrollPane(wenben);
 		dazi1 = new JScrollPane(dazi);
 		chengji1 = new JScrollPane(chengji);
@@ -387,6 +394,13 @@ public class Window extends JFrame {
 		dqbanben = new JLabel("当前");
 		zxbanben = new JLabel("最新");
 
+		charchange = new JButton("");
+		space = new JButton("");
+		jindu = new JButton("");
+		wordTips = new JButton("");
+		qianshui = new JButton("");
+		zhiding = new JButton("");
+		
 		F3 = new JButton("重打");
 		zaiwen = new JButton("剪切板载文");
 		more = new JButton("菜单模式");
@@ -419,6 +433,8 @@ public class Window extends JFrame {
 		lookplayfinish = new JButton("跟打");
 		lookplayfinish.setToolTipText("看打算法由英打群群主“凌风”友情优化");
 
+		
+		
 		gendaListener = new GendaListener();// 打字框监视器
 		f3listener = new F3Listener();// F3按钮监视器
 		zaiwenlistener = new JianQieListener();
@@ -512,6 +528,12 @@ public class Window extends JFrame {
 		add(zxbanben);
 		add(dqbanben);
 		add(lookplayfinish);
+		add(charchange);
+		add(space);
+		add(jindu);
+		add(wordTips);
+		add(qianshui);
+		add(zhiding);
 	}
 
 	// 给所有组件设置监视器
@@ -543,6 +565,20 @@ public class Window extends JFrame {
 		dinglilunma.addActionListener(theorylistener);
 		leftce.addActionListener(historylistener);
 		tips.addMouseListener(tipsframe);
+		
+		SetCharListener setcharlistener = new SetCharListener();
+		SetspaceListener setspacelistener = new SetspaceListener();
+		SetFrameJinduListener setframeJindulistener = new SetFrameJinduListener();
+		SetFrameQianshuiListener setFrameQianshuiListener = new SetFrameQianshuiListener();
+		SetFramechangeListener tiplistener = new SetFramechangeListener();
+		SetFramezhidingListener setframezhidinglistener = new SetFramezhidingListener();
+		
+		zhiding.addActionListener(setframezhidinglistener);
+		charchange.addActionListener(setcharlistener);
+		space.addActionListener(setspacelistener);
+		jindu.addActionListener(setframeJindulistener);
+		wordTips.addActionListener(tiplistener);
+		qianshui.addActionListener(setFrameQianshuiListener);
 	}
 
 	// 所有监视器设置。。。。。。
@@ -620,6 +656,13 @@ public class Window extends JFrame {
 	void setAllBounds() {
 		// TODO
 		// 上排按钮
+		jindu.setBounds(50,0,20,10);
+		qianshui.setBounds(jindu.getX()+jindu.getWidth()+10,0,20,10);
+		wordTips.setBounds(qianshui.getX()+qianshui.getWidth()+10,0,20,10);
+		space.setBounds(wordTips.getX()+wordTips.getWidth()+10,0,20,10);
+		charchange.setBounds(space.getX()+space.getWidth()+10,0,20,10);
+		zhiding.setBounds(charchange.getX()+charchange.getWidth()+10,0,20,10);
+		
 		F3.setBounds(57, 10, 0, 0); // 重打设置按钮大小位置 190
 		suduButton.setBounds(57, F3.getY(), 150, 30);
 		KeySuduButton.setBounds(217, F3.getY(), 150, 30);
@@ -638,6 +681,8 @@ public class Window extends JFrame {
 		acticlebutton.setBounds(1058, F3.getY(), 0, 0);
 		online.setBounds(773, 10, 0, 0);
 		// mix.setBounds(400,400,300,300);
+		
+		
 	}
 
 	// 设置文本框字体
@@ -821,6 +866,7 @@ public class Window extends JFrame {
 	JMenuItem lookplay;
 	JMenuItem check;
 	JMenuItem EnglishNext;
+	JMenuItem update;
 	RankListener ranklistener = new RankListener();
 	BuildChooseFile changetxt = new BuildChooseFile();
 	historyListener historylistener = new historyListener();
@@ -894,6 +940,8 @@ public class Window extends JFrame {
 		chexit = new JMenuItem("检查编码");
 		kaiG = new JMenuItem("隐藏功能");
 		resert = new JMenuItem("错位复位");
+		update = new JMenuItem("更新");
+		
 		lookplay = new JMenuItem("成绩提交");
 		check = new JMenuItem("看打检验");
 
@@ -943,6 +991,8 @@ public class Window extends JFrame {
 		resert.addActionListener(rnjsp);
 		check.addActionListener(checklistener);
 
+		update.addActionListener(new UpdateListener());
+		
 		EnglishNext.addActionListener(Acticle.treeListener);
 
 		luanxu.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L,
@@ -1007,6 +1057,7 @@ public class Window extends JFrame {
 		menu.add(gengduo);
 		menu.add(kaiG);
 		menu.add(resert);
+		menu.add(update);
 		// menu.setFont(); //设置字体
 		menubar.setBorder(BorderFactory.createEtchedBorder());
 		menubar.add(menu);
