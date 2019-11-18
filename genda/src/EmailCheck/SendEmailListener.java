@@ -19,20 +19,20 @@ public class SendEmailListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getActionCommand().equals("»ñÈ¡ÑéÖ¤Âë")){
+		if(e.getActionCommand().equals("è·å–éªŒè¯ç ")){
 			try {
-				String message = "ÑéÖ¤ÓÊÏä"+EmailCheckFrame.zhanghao.getText()+"%"+EmailCheckFrame.email.getText();
+				String message = "éªŒè¯é‚®ç®±"+EmailCheckFrame.zhanghao.getText()+"%"+EmailCheckFrame.email.getText();
 				message = KeyPassword.convertMD5(message);
 				Login.out.writeUTF(message);
-				if(Login.in.readUTF().equals("ÑéÖ¤³É¹¦")){
+				if(Login.in.readUTF().equals("éªŒè¯æˆåŠŸ")){
 					if(Window.Email.equals(EmailCheckFrame.email.getText())){
 						emailchecksend d = new emailchecksend();
 						d.start();
 					}
-					JOptionPane.showMessageDialog(null,"ÒÑ·¢ËÍ");
+					JOptionPane.showMessageDialog(null,"å·²å‘é€");
 				}
 				else{
-					JOptionPane.showMessageDialog(null,"¸ÃÓÊÏä²»ÊÇÕËºÅ°ó¶¨ÓÊÏä");
+					JOptionPane.showMessageDialog(null,"è¯¥é‚®ç®±ä¸æ˜¯è´¦å·ç»‘å®šé‚®ç®±");
 				}
 			
 				
@@ -41,23 +41,23 @@ public class SendEmailListener implements ActionListener {
 				ex.printStackTrace();
 			}
 		}
-		else if(e.getActionCommand().equals("È·¶¨")){
+		else if(e.getActionCommand().equals("ç¡®å®š")){
 			if(emailchecksend.str.equals(EmailCheckFrame.yanzhengma.getText())){
-				JOptionPane.showMessageDialog(null,"ÑéÖ¤ÂëÕıÈ·");
+				JOptionPane.showMessageDialog(null,"éªŒè¯ç æ­£ç¡®");
 			}
 		}
-		else if(e.getActionCommand().equals("ĞŞ¸Ä")){
+		else if(e.getActionCommand().equals("ä¿®æ”¹")){
 //			if(EmailCheckFrame.zhanghao)
 			if(emailchecksend.str.equals(EmailCheckFrame.yanzhengma.getText())){
 				try {
 					Login.in =  new DataInputStream(Login.socket.getInputStream());
-					String message = "ĞŞ¸ÄÃÜÂë"+EmailCheckFrame.zhanghao.getText()+"%"+EmailCheckFrame.xgmima.getText();
+					String message = "ä¿®æ”¹å¯†ç "+EmailCheckFrame.zhanghao.getText()+"%"+EmailCheckFrame.xgmima.getText();
 					message = KeyPassword.convertMD5(message);
 					Login.out.writeUTF(message);
-					if(Login.in.readUTF().equals("ĞŞ¸Ä³É¹¦"))
-						JOptionPane.showMessageDialog(null,"ĞŞ¸ÄÃÜÂë³É¹¦");
+					if(Login.in.readUTF().equals("ä¿®æ”¹æˆåŠŸ"))
+						JOptionPane.showMessageDialog(null,"ä¿®æ”¹å¯†ç æˆåŠŸ");
 					else
-						JOptionPane.showMessageDialog(null,"ĞŞ¸ÄÃÜÂëÊ§°Ü");
+						JOptionPane.showMessageDialog(null,"ä¿®æ”¹å¯†ç å¤±è´¥");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

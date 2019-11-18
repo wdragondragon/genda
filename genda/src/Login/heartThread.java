@@ -30,8 +30,8 @@ public class heartThread extends Thread{
 			while(true){
             	Thread.sleep(5*1000);
             	datenum();
-            	String message = KeyPassword.convertMD5("ĞÄÌø");
-//            	System.out.println("ĞÄÌø");
+            	String message = KeyPassword.convertMD5("å¿ƒè·³");
+//            	System.out.println("å¿ƒè·³");
 				Login.out.writeUTF(message); 
 			}
 		} catch (Exception e) {
@@ -45,14 +45,14 @@ public class heartThread extends Thread{
 				 	e1.printStackTrace();
 				 }
 				 Login.dengluSign = 0;
-				 Login.confirm.setText("µÇÂ¼");
-				 Window.denglu.setText("µÇÂ¼");
-				 int n = JOptionPane.showConfirmDialog(null, "Î´ÖªÔ­Òò£¬ÕËºÅÏÂÏß£¬ÊÇ·ñÖØĞÂµÇÂ¼", "µôÏßÌáÊ¾", JOptionPane.YES_NO_OPTION);
+				 Login.confirm.setText("ç™»å½•");
+				 Window.denglu.setText("ç™»å½•");
+				 int n = JOptionPane.showConfirmDialog(null, "æœªçŸ¥åŸå› ï¼Œè´¦å·ä¸‹çº¿ï¼Œæ˜¯å¦é‡æ–°ç™»å½•", "æ‰çº¿æç¤º", JOptionPane.YES_NO_OPTION);
 					if (n == JOptionPane.YES_OPTION) {
 						denglu.denglu();
 					}
 			 }
-		}//1s·¢ËÍÒ»´ÎĞÄÌø
+		}//1så‘é€ä¸€æ¬¡å¿ƒè·³
 	}
 	void datenum(){
 		date2 = date1;

@@ -21,45 +21,45 @@ import java.util.List;
 
 public class Recordnum extends Thread{
 	   /**
-     * ÓÃÒÔÊµÏÖÓÃ»§µÄ×¢²áºÍµÇÂ¼
+     * ç”¨ä»¥å®ç°ç”¨æˆ·çš„æ³¨å†Œå’Œç™»å½•
      */
-    public static String url="jdbc:mysql://localhost:3306/students?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull";//Á¬½ÓÊı¾İ¿âµÄurl£¬testÊÇÎÒ×Ô¼ºµÄÒ»¸öÊı¾İ¿â°¡±¦±¦ÃÇ¡£
-    public  static String user="root";//mysqlµÇÂ¼Ãû
-    public  static String pass="951753";//mysqlµÇÂ¼ÃÜÂë
+    public static String url="jdbc:mysql://localhost:3306/students?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull";//è¿æ¥æ•°æ®åº“çš„urlï¼Œtestæ˜¯æˆ‘è‡ªå·±çš„ä¸€ä¸ªæ•°æ®åº“å•Šå®å®ä»¬ã€‚
+    public  static String user="root";//mysqlç™»å½•å
+    public  static String pass="951753";//mysqlç™»å½•å¯†ç 
     public static Connection con;//
-    public  static ServerSocket server;//·şÎñÆ÷
+    public  static ServerSocket server;//æœåŠ¡å™¨
     public static ArrayList<String> banben = new ArrayList<String>();
     
     public static String zxbb = "";
     public static int port = 1230;
 //    public static HashMap<String,Socket> online = new HashMap<String,Socket>();
 	public static void main(String args[]){
-		Recordnum record = new Recordnum(); //½ÓÊÜµÇÂ¼£¬¸Ä±ä×ÖÊıÇø
-		record.start();	//Æô¶¯
+		Recordnum record = new Recordnum(); //æ¥å—ç™»å½•ï¼Œæ”¹å˜å­—æ•°åŒº
+		record.start();	//å¯åŠ¨
 		LinkMyself linkmyself = new LinkMyself();
-		linkmyself.start();	//×ÔÁ¬ÓëÊı¾İ¿âÖØÁ¬
+		linkmyself.start();	//è‡ªè¿ä¸æ•°æ®åº“é‡è¿
 	}
 	public void run() {
 		try{
 			server = new ServerSocket(port);
-			System.out.print("SQL·şÎñ¶Ë¿Ú¿ªÆô\r");
+			System.out.print("SQLæœåŠ¡ç«¯å£å¼€å¯\r");
 			Class.forName("com.mysql.jdbc.Driver");
 			con=DriverManager.getConnection(url,user,pass);
-			System.out.print("Êı¾İ¿âÁ¬½Ó³É¹¦\r");
+			System.out.print("æ•°æ®åº“è¿æ¥æˆåŠŸ\r");
 			
 			Dateinit dateinit = new Dateinit();
-			dateinit.start();	//Ã¿ÈÕ¸ú´ò¶¯Ì¬ÖØÖÃ
-			InitAll.getaver();//ÖØĞÂ¼ÆËãÒ»´ÎÆ½¾ùËÙ¶È
-			resertonline();//ÖØÖÃµÇÂ¼×´Ì¬
-			System.out.print("ËÙ¶ÈÆ½¾ù³É¹¦\r");
+			dateinit.start();	//æ¯æ—¥è·Ÿæ‰“åŠ¨æ€é‡ç½®
+			InitAll.getaver();//é‡æ–°è®¡ç®—ä¸€æ¬¡å¹³å‡é€Ÿåº¦
+			resertonline();//é‡ç½®ç™»å½•çŠ¶æ€
+			System.out.print("é€Ÿåº¦å¹³å‡æˆåŠŸ\r");
 			while(true){
-				Socket socket = server.accept();//±»¶¯µÈ´ı¿Í»§¶ËµÄÁ¬½Ó
-				System.out.println("Á¬½Ó");
+				Socket socket = server.accept();//è¢«åŠ¨ç­‰å¾…å®¢æˆ·ç«¯çš„è¿æ¥
+				System.out.println("è¿æ¥");
 //				socket.setSoTimeout(0);
 				new ReadFirst(socket).start();
 			}
         }
-		catch(Exception e){System.out.print("Êı¾İ¿âÊ§°Ü\r");e.printStackTrace();}  
+		catch(Exception e){System.out.print("æ•°æ®åº“å¤±è´¥\r");e.printStackTrace();}  
 	}
 	void resertonline() throws SQLException{
 		String sql="update client set online=?";
@@ -67,7 +67,7 @@ public class Recordnum extends Thread{
 	    ptmt.setInt(1,0);
 	    ptmt.execute();
 	}
-	class ReadFirst extends Thread{	//·ÀÖ¹ËÀËø
+	class ReadFirst extends Thread{	//é˜²æ­¢æ­»é”
 		DataInputStream in;
 		DataOutputStream out;
 		Socket socket;
@@ -91,49 +91,49 @@ public class Recordnum extends Thread{
 			
 				zxbb = getBanben();
 				for(int i = 800;i<=809;i++)
-					banben.add("°æ±¾1."+String.valueOf(i));
+					banben.add("ç‰ˆæœ¬1."+String.valueOf(i));
 				
 				if(banben.contains(what)){
-					out.writeUTF("°æ±¾ÕıÈ·"+what+"×îĞÂ°æ±¾"+zxbb);
-					//ĞÂµÄÏß³Ì
+					out.writeUTF("ç‰ˆæœ¬æ­£ç¡®"+what+"æœ€æ–°ç‰ˆæœ¬"+zxbb);
+					//æ–°çš„çº¿ç¨‹
 					new RWThread148(socket).start();
 				}
-				else if(what.equals("×ÔÁ¬")){System.out.println("×ÔÁ¬");socket.close();socket = null;}
-				else if(what.equals("ÅÅÃû1")){
-					System.out.println("ÅÅÃû1");
+				else if(what.equals("è‡ªè¿")){System.out.println("è‡ªè¿");socket.close();socket = null;}
+				else if(what.equals("æ’å1")){
+					System.out.println("æ’å1");
 					getAll(1);
 					socketclose(socket);
 				}
-				else if(what.equals("ÅÅÃû2")){
-					System.out.println("ÅÅÃû2");
+				else if(what.equals("æ’å2")){
+					System.out.println("æ’å2");
 					getAll(2);
 					socketclose(socket);
 				}
-				else if(what.equals("ÅÅÃû3")){
-					System.out.println("ÅÅÃû3");
+				else if(what.equals("æ’å3")){
+					System.out.println("æ’å3");
 					getAll(3);
 					socketclose(socket);
 				}
-				else if(what.substring(0,2).equals("Ìí¼ÓºÃÓÑ")){
+				else if(what.substring(0,2).equals("æ·»åŠ å¥½å‹")){
 //					addfriend(what.substring(2));
 				}
-				else if(what.substring(0,2).equals("ÄÚÈİ")){
-					System.out.println("ÄÚÈİ");
+				else if(what.substring(0,2).equals("å†…å®¹")){
+					System.out.println("å†…å®¹");
 					sendwenben(what);
 					socketclose(socket);
 				}
-				else if(what.equals("¸ú´ò¼ÇÂ¼")){
-					System.out.println("¸ú´ò¼ÇÂ¼");
+				else if(what.equals("è·Ÿæ‰“è®°å½•")){
+					System.out.println("è·Ÿæ‰“è®°å½•");
 					getAllhistory();
 					socketclose(socket);
 				}
-				else if(what.equals("ÈüÎÄÅÅĞĞ")){
-					System.out.println("ÈüÎÄÅÅĞĞ");
+				else if(what.equals("èµ›æ–‡æ’è¡Œ")){
+					System.out.println("èµ›æ–‡æ’è¡Œ");
 					getRank();
 					socketclose(socket);
 				}
-				else if(what.equals("È«²¿ÎÄ±¾¼ÇÂ¼")){
-					System.out.println("»ñÈ¡È«²¿ÎÄ±¾¼ÇÂ¼");
+				else if(what.equals("å…¨éƒ¨æ–‡æœ¬è®°å½•")){
+					System.out.println("è·å–å…¨éƒ¨æ–‡æœ¬è®°å½•");
 					ObjectOutputStream outputToClient = new ObjectOutputStream(out);
 		            ObjectInputStream inputByClient = new ObjectInputStream(in);
 					List<String> idlist = (List<String>) inputByClient.readObject();
@@ -144,7 +144,7 @@ public class Recordnum extends Thread{
 					socketclose(socket);
 				}
 				else{
-					out.writeUTF("°æ±¾Ç¿ÖÆ¸üĞÂ£º\nÒòÎª°æ±¾´íÎóÎ´ÄÜ¼°Ê±Í¬²½ÎÊÌâ£¬½øĞĞÍ¬²½°æ±¾\n×Ô¶¯Ìø×ªÏÂÔØ»ò¼ÓÈººÅ974172771");
+					out.writeUTF("ç‰ˆæœ¬å¼ºåˆ¶æ›´æ–°ï¼š\nå› ä¸ºç‰ˆæœ¬é”™è¯¯æœªèƒ½åŠæ—¶åŒæ­¥é—®é¢˜ï¼Œè¿›è¡ŒåŒæ­¥ç‰ˆæœ¬\nè‡ªåŠ¨è·³è½¬ä¸‹è½½æˆ–åŠ ç¾¤å·974172771");
 					socketclose(socket);
 				}
 			} catch (IOException | ClassNotFoundException e) {
@@ -169,7 +169,7 @@ public class Recordnum extends Thread{
 				    	wenbenlist.add(wen);
 				    }
 				}
-			}catch(Exception e){System.out.println("·¢ËÍÎÄ±¾Ê§°Ü");e.printStackTrace();}
+			}catch(Exception e){System.out.println("å‘é€æ–‡æœ¬å¤±è´¥");e.printStackTrace();}
 			return wenbenlist;
 		}
 		String getBanben(){
@@ -194,7 +194,7 @@ public class Recordnum extends Thread{
 				PreparedStatement ptmt=Recordnum.con.prepareStatement(sql);
 				ptmt.setDate(1,Dateinit.getdate());
 				ResultSet rs=ptmt.executeQuery();
-				System.out.println("»ñÈ¡ÈüÎÄÅÅÃû"+Dateinit.getdate().toString());
+				System.out.println("è·å–èµ›æ–‡æ’å"+Dateinit.getdate().toString());
 				while(rs.next()){
 					out.writeUTF(String.valueOf(rs.getString(1)));
 	        		out.writeUTF(String.valueOf(rs.getDouble(3)));
@@ -210,7 +210,7 @@ public class Recordnum extends Thread{
 	        		out.writeUTF(String.valueOf(rs.getDouble(13)));
 	        		out.writeUTF(String.valueOf(rs.getDouble(14)));
 				}
-			}catch(Exception e){System.out.println("·¢ËÍÎÄ±¾Ê§°Ü");e.printStackTrace();}
+			}catch(Exception e){System.out.println("å‘é€æ–‡æœ¬å¤±è´¥");e.printStackTrace();}
 		}
 		void sendwenben(String message){
 			try{
@@ -226,7 +226,7 @@ public class Recordnum extends Thread{
 			    	out.writeUTF(wen);
 			    	System.out.println(wen);
 			    }
-			}catch(Exception e){System.out.println("·¢ËÍÎÄ±¾Ê§°Ü");e.printStackTrace();}
+			}catch(Exception e){System.out.println("å‘é€æ–‡æœ¬å¤±è´¥");e.printStackTrace();}
 		}
 
 		void getAll(int i){
@@ -241,9 +241,9 @@ public class Recordnum extends Thread{
 			try {
 				ptmt = con.prepareStatement(sql);
 				ResultSet rs=ptmt.executeQuery();
-				System.out.println("»ñÈ¡ÅÅÃû");
+				System.out.println("è·å–æ’å");
 				while(rs.next()){					
-					//¼ì²âÓÃ»§ÃûÊÇ·ñ±»Ê¹ÓÃ¹ı
+					//æ£€æµ‹ç”¨æˆ·åæ˜¯å¦è¢«ä½¿ç”¨è¿‡
 		        	try {
 		        		out.writeUTF(rs.getString(1));
 		        		out.writeUTF(String.valueOf(rs.getInt(3)));
@@ -254,11 +254,11 @@ public class Recordnum extends Thread{
 		        		out.writeUTF(String.valueOf(rs.getInt(7)));
 		        		Date last = rs.getDate(11);
 		        		if(last==null)
-		        			out.writeUTF("²»Ïê");
+		        			out.writeUTF("ä¸è¯¦");
 		        		else
 		        			out.writeUTF(last.toString());
 		        		out.writeUTF(rs.getDate(10).toString());
-					} catch (IOException e) {System.out.print("·¢ËÍÅÅÃûÊ§°Ür");}
+					} catch (IOException e) {System.out.print("å‘é€æ’åå¤±è´¥r");}
 		        }
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -277,7 +277,7 @@ public class Recordnum extends Thread{
 					ptmt.setString(1, name);
 					ResultSet rs=ptmt.executeQuery();
 					while(rs.next()){			
-						//¼ì²âÓÃ»§ÃûÊÇ·ñ±»Ê¹ÓÃ¹ı
+						//æ£€æµ‹ç”¨æˆ·åæ˜¯å¦è¢«ä½¿ç”¨è¿‡
 			        	try {
 			        		out.writeUTF(String.valueOf(rs.getDate(2)));
 			        		out.writeUTF(String.valueOf(rs.getDouble(3)));
@@ -294,7 +294,7 @@ public class Recordnum extends Thread{
 			        		out.writeUTF(String.valueOf(rs.getDouble(14)));
 			        		out.writeUTF(String.valueOf(rs.getInt(16)));
 			        		out.writeUTF(String.valueOf(rs.getInt(18)));
-						} catch (IOException e) {System.out.print("·¢ËÍÅÅÃûÊ§°Ür");}
+						} catch (IOException e) {System.out.print("å‘é€æ’åå¤±è´¥r");}
 			        }
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -314,9 +314,9 @@ public class Recordnum extends Thread{
 				socket = null;
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
-				System.out.print("³¬Ê±ÎŞ·¨¹Ø±Õsocket\r");
+				System.out.print("è¶…æ—¶æ— æ³•å…³é—­socket\r");
 			}
-			System.out.print("Á¬½Óºó³¬Ê±\r");
+			System.out.print("è¿æ¥åè¶…æ—¶\r");
 		}
 //		void addfriend(String username){
 //			try{
@@ -326,13 +326,13 @@ public class Recordnum extends Thread{
 //				ptmt = Recordnum.con.prepareStatement(sql);
 //				ptmt.setString(1, addfriendname);
 //				ResultSet rs=ptmt.executeQuery();
-//				if(!rs.next()){out.writeUTF("²»´æÔÚ");return;}
-//				if(!Recordnum.online.containsKey(addfriendname)){out.writeUTF("²»ÔÚÏß");return;}
+//				if(!rs.next()){out.writeUTF("ä¸å­˜åœ¨");return;}
+//				if(!Recordnum.online.containsKey(addfriendname)){out.writeUTF("ä¸åœ¨çº¿");return;}
 //				else{
 //					Socket addsocket = Recordnum.online.get(addfriendname);
 //					DataInputStream innotice = new DataInputStream(addsocket.getInputStream());
 //					DataOutputStream outnotice = out = new DataOutputStream(addsocket.getOutputStream());
-//					outnotice.writeUTF("Ìí¼ÓºÃÓÑ"+username+"ÒªÌí¼ÓÄãÎªºÃÓÑ");
+//					outnotice.writeUTF("æ·»åŠ å¥½å‹"+username+"è¦æ·»åŠ ä½ ä¸ºå¥½å‹");
 //				}
 //				sql="select * from client where username=?";
 //			}

@@ -11,12 +11,12 @@ public class historyListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getActionCommand().equals("¸ú´ò¼ÇÂ¼"))
+		if(e.getActionCommand().equals("è·Ÿæ‰“è®°å½•"))
 			if(Login.Login.dengluSign==1)
-				new historyFrame().setTitle("×Ü¸ú´ò¼ÇÂ¼");
+				new historyFrame().setTitle("æ€»è·Ÿæ‰“è®°å½•");
 			else
-				JOptionPane.showMessageDialog(new JTextArea(),"ÇëÏÈµÇÂ¼");
+				JOptionPane.showMessageDialog(new JTextArea(),"è¯·å…ˆç™»å½•");
 		else
-			new historythis().setTitle("±¾´Î¸ú´ò¼ÇÂ¼");
+			new historythis().setTitle("æœ¬æ¬¡è·Ÿæ‰“è®°å½•");
 	}
 }

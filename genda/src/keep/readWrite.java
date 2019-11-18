@@ -186,25 +186,25 @@ public class readWrite
 			Window.family = family;
 			Window.dazi.setFont(new Font(Window.family,0,fontSize));
 			Window.accept.setFont(new Font(Window.family,0,fontSize));
-			JTextPaneChange.createStyle("ºÚ",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,Window.family,Window.rightcolor);
-			JTextPaneChange.createStyle("ºì",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);
+			JTextPaneChange.createStyle("é»‘",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,Window.family,Window.rightcolor);
+			JTextPaneChange.createStyle("çº¢",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);
 			
-			JTextPaneChange.createStyle("»Ò",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);//GRAY
+			JTextPaneChange.createStyle("ç°",JTextPaneChange.styledDoc,fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);//GRAY
 			
-			JTextPaneChange.createStyle("À¶´Ö",JTextPaneChange.styledDoc,fontSize,1,0,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("À¶",JTextPaneChange.styledDoc,fontSize,0,0,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("À¶Ğ±",JTextPaneChange.styledDoc,fontSize,0,1,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("À¶´ÖĞ±",JTextPaneChange.styledDoc,fontSize,1,1,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("è“ç²—",JTextPaneChange.styledDoc,fontSize,1,0,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("è“",JTextPaneChange.styledDoc,fontSize,0,0,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("è“æ–œ",JTextPaneChange.styledDoc,fontSize,0,1,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("è“ç²—æ–œ",JTextPaneChange.styledDoc,fontSize,1,1,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
 			
-			JTextPaneChange.createStyle("·Û´Ö",JTextPaneChange.styledDoc,fontSize,1,0,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("·Û",JTextPaneChange.styledDoc,fontSize,0,0,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("·ÛĞ±",JTextPaneChange.styledDoc,fontSize,0,1,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("·Û´ÖĞ±",JTextPaneChange.styledDoc,fontSize,1,1,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("ç²‰ç²—",JTextPaneChange.styledDoc,fontSize,1,0,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("ç²‰",JTextPaneChange.styledDoc,fontSize,0,0,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("ç²‰æ–œ",JTextPaneChange.styledDoc,fontSize,0,1,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("ç²‰ç²—æ–œ",JTextPaneChange.styledDoc,fontSize,1,1,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
 			
-			JTextPaneChange.createStyle("ÂÌ´Ö",JTextPaneChange.styledDoc,fontSize,1,0,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("ÂÌ",JTextPaneChange.styledDoc,fontSize,0,0,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("ÂÌĞ±",JTextPaneChange.styledDoc,fontSize,0,1,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
-			JTextPaneChange.createStyle("ÂÌ´ÖĞ±",JTextPaneChange.styledDoc,fontSize,1,1,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("ç»¿ç²—",JTextPaneChange.styledDoc,fontSize,1,0,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("ç»¿",JTextPaneChange.styledDoc,fontSize,0,0,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("ç»¿æ–œ",JTextPaneChange.styledDoc,fontSize,0,1,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
+			JTextPaneChange.createStyle("ç»¿ç²—æ–œ",JTextPaneChange.styledDoc,fontSize,1,1,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
 
 //			MoreListener.MoreSign = moresign;
 			GendaListener.fenye = fenye;
@@ -212,7 +212,7 @@ public class readWrite
 			SetFrame.Splitenum.setText(String.valueOf(fenye));
 			SetFrame.FontSize.setText(String.valueOf(fontSize));
 			ChooseFile.cizufilename = cizufilename;
-			System.out.println("¶ÁÅäÖÃ:"+cizufilename);
+			System.out.println("è¯»é…ç½®:"+cizufilename);
 			Window.tipschange = new Tips(Window.tips);
 
 			Window.jSplitPane1.setSize(sp1width,sp1height);
@@ -222,55 +222,55 @@ public class readWrite
 	
 			SetFrameQianshuiListener.qianshui = qianshui;
 			if(qianshui == 1){
-				SetFrameQianshuiListener.qianshui1.setText("Ç±Ë®¸ú´ò\"ÒÑ¿ª\"");
+				SetFrameQianshuiListener.qianshui1.setText("æ½œæ°´è·Ÿæ‰“\"å·²å¼€\"");
 				SetFrameQianshuiListener.qianshui1.setForeground(SetFrame.open);
 				Window.qianshui.setSelected(true);
 			}
 			else{
-				SetFrameQianshuiListener.qianshui1.setText("Ç±Ë®¸ú´ò\"ÒÑ¹Ø\"");
+				SetFrameQianshuiListener.qianshui1.setText("æ½œæ°´è·Ÿæ‰“\"å·²å…³\"");
 				Window.qianshui.setSelected(false);
 			}
 			SetFramechangeListener.tipsign = tip;
 			if(tip == 1){
 				SetFramechangeListener.change.setForeground(SetFrame.open);
-				SetFramechangeListener.change.setText("´ÊÓïÌáÊ¾\"ÒÑ¿ª\"");
+				SetFramechangeListener.change.setText("è¯è¯­æç¤º\"å·²å¼€\"");
 				Window.wordTips.setSelected(true);
 			}
 			else{
-				SetFramechangeListener.change.setText("´ÊÓïÌáÊ¾\"ÒÑ¹Ø\"");
+				SetFramechangeListener.change.setText("è¯è¯­æç¤º\"å·²å…³\"");
 				Window.wordTips.setSelected(false);
 			}
 			SetspaceListener.spacesign = space;
 			if(space ==1){
 				SetspaceListener.space.setForeground(SetFrame.open);
-				SetspaceListener.space.setText("È¥³ı¿Õ¸ñ\"ÒÑ¿ª\"");
+				SetspaceListener.space.setText("å»é™¤ç©ºæ ¼\"å·²å¼€\"");
 				Window.space.setSelected(true);
 			}
 			else{
-				SetspaceListener.space.setText("È¥³ı¿Õ¸ñ\"ÒÑ¹Ø\"");
+				SetspaceListener.space.setText("å»é™¤ç©ºæ ¼\"å·²å…³\"");
 				Window.space.setSelected(false);
 			}
 			SetCharListener.charsign = Charset;
 			if(Charset ==1){
 				SetCharListener.charset.setForeground(SetFrame.open);
-				SetCharListener.charset.setText("·ûºÅÌæ»»\"ÒÑ¿ª\"");
+				SetCharListener.charset.setText("ç¬¦å·æ›¿æ¢\"å·²å¼€\"");
 				Window.charchange.setSelected(true);
 			}
 			else{
-				SetCharListener.charset.setText("·ûºÅÌæ»»\"ÒÑ¹Ø\"");
+				SetCharListener.charset.setText("ç¬¦å·æ›¿æ¢\"å·²å…³\"");
 				Window.charchange.setSelected(false);
 			}
 			SetFrameJinduListener.jindusign = jindusign;
 			if(jindusign ==1){
 				SetFrameJinduListener.jindu.setForeground(SetFrame.open);
-				SetFrameJinduListener.jindu.setText("½ø¶ÈÌõÏÔÊ¾\"ÒÑ¿ª\"");
+				SetFrameJinduListener.jindu.setText("è¿›åº¦æ¡æ˜¾ç¤º\"å·²å¼€\"");
 				Window.jindu.setSelected(true);
 			}
 			else{
-				SetFrameJinduListener.jindu.setText("½ø¶ÈÌõÏÔÊ¾\"ÒÑ¹Ø\"");
+				SetFrameJinduListener.jindu.setText("è¿›åº¦æ¡æ˜¾ç¤º\"å·²å…³\"");
 				Window.jindu.setSelected(false);
 			}
-		}catch(Exception ex){System.out.println("ÎÄ±¾¸ñÊ½²»¶Ô");}
+		}catch(Exception ex){System.out.println("æ–‡æœ¬æ ¼å¼ä¸å¯¹");}
 	}
 	public static void readfontnum() throws IOException{
 		Reader rReader = new FileReader("../set/num.ini");
@@ -295,7 +295,7 @@ public class readWrite
 			Window.datenum = date;
 			rStream.close();
 			rReader.close();
-		}catch(Exception e){System.out.println("¶ÁÈ¡×ÖÊıÎÄ¼şÊ§°Ü");}
+		}catch(Exception e){System.out.println("è¯»å–å­—æ•°æ–‡ä»¶å¤±è´¥");}
 	}
 	public static void keepfontnum(int num,int rightnum,int misnum) throws IOException{
 		Writer fWrite=new FileWriter("../set/num.ini",false);

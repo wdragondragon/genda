@@ -12,17 +12,17 @@ public class EmailCheckFrame extends JFrame {
 		init();
 		setVisible(true);
 		
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//ÉèÖÃ¹Ø±Õ°´Å¥
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//è®¾ç½®å…³é—­æŒ‰é’®
 	}
 	void init(){
-		con = new JButton("»ñÈ¡ÑéÖ¤Âë");
-		confire = new JButton("È·¶¨");
-		email = new JTextField("°ó¶¨ÓÊÏä");
-		yanzhengma = new JTextField("ÑéÖ¤Âë");
+		con = new JButton("è·å–éªŒè¯ç ");
+		confire = new JButton("ç¡®å®š");
+		email = new JTextField("ç»‘å®šé‚®ç®±");
+		yanzhengma = new JTextField("éªŒè¯ç ");
 		
-		zhanghao = new JTextField("ÕËºÅ");
-		xgmima = new JTextField("ĞŞ¸ÄĞÂÃÜÂë");
-		mimabutton = new JButton("ĞŞ¸Ä");
+		zhanghao = new JTextField("è´¦å·");
+		xgmima = new JTextField("ä¿®æ”¹æ–°å¯†ç ");
+		mimabutton = new JButton("ä¿®æ”¹");
 		
 		email.setBounds(20,20,120,30);
 		con.setBounds(150,20,80,30);

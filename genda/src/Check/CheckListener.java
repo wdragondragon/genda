@@ -13,20 +13,20 @@ public class CheckListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getActionCommand().equals("¿´´òĞ£Ñé"))
+		if(e.getActionCommand().equals("çœ‹æ‰“æ ¡éªŒ"))
 			if(DoCheck.checkstr(checkstext.getText(),"kanda"))
-				JOptionPane.showMessageDialog(new JTextArea(),"Õæ");
+				JOptionPane.showMessageDialog(new JTextArea(),"çœŸ");
 			else
-				JOptionPane.showMessageDialog(new JTextArea(),"¼Ù");
-		else if(e.getActionCommand().equals("¸ú´òĞ£Ñé"))
+				JOptionPane.showMessageDialog(new JTextArea(),"å‡");
+		else if(e.getActionCommand().equals("è·Ÿæ‰“æ ¡éªŒ"))
 			if(DoCheck.checkstr(checkstext.getText(),"genda"))
-				JOptionPane.showMessageDialog(new JTextArea(),"Õæ");
+				JOptionPane.showMessageDialog(new JTextArea(),"çœŸ");
 			else
-				JOptionPane.showMessageDialog(new JTextArea(),"¼Ù");
-		else if(e.getActionCommand().equals("Ó¢´òĞ£Ñé"))
+				JOptionPane.showMessageDialog(new JTextArea(),"å‡");
+		else if(e.getActionCommand().equals("è‹±æ‰“æ ¡éªŒ"))
 			if(DoCheck.checkstr(checkstext.getText(),"yingda"))
-				JOptionPane.showMessageDialog(new JTextArea(),"Õæ");
+				JOptionPane.showMessageDialog(new JTextArea(),"çœŸ");
 			else
-				JOptionPane.showMessageDialog(new JTextArea(),"¼Ù");
+				JOptionPane.showMessageDialog(new JTextArea(),"å‡");
 	}
 }

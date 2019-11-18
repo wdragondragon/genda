@@ -61,11 +61,11 @@ public class GendaListener implements DocumentListener, KeyListener {
 	public double repeat = 0;
 	double citime;
 	public int space = 0;
-	String a, b, leftstr = "qazwsxedcrfvtgb", rightstr = ";/.,¡££¬£»¡¢plokmijnuhy";
+	String a, b, leftstr = "qazwsxedcrfvtgb", rightstr = ";/.,ã€‚ï¼Œï¼›ã€plokmijnuhy";
 	String dazidangyestr, wenbendangyestr;
 	char[] c1, c2;
-	public static int sign = 0;//¿ªÊ¼±ê¼Ç
-	public static boolean stop = false;//ÔİÍ£±ê¼Ç
+	public static int sign = 0;//å¼€å§‹æ ‡è®°
+	public static boolean stop = false;//æš‚åœæ ‡è®°
 	int i = 160;
 	int number = 116;
 	int n;
@@ -89,8 +89,8 @@ public class GendaListener implements DocumentListener, KeyListener {
 			if (str1.length() > 0 && sign == 1) {
 				if (e.getKeyChar() == '\b') {
 					deleteNumber++;
-					// System.out.println("ÍË¸ñ+");
-					record = record + "¡û";
+					// System.out.println("é€€æ ¼+");
+					record = record + "â†";
 				} else if (e.getKeyChar() == ' ') {
 					record = record + "_";
 					space++;
@@ -110,11 +110,11 @@ public class GendaListener implements DocumentListener, KeyListener {
 			}
 			if (str1.length() == 0 && e.getKeyChar() == '\b') {
 				deleteNumber++;
-				// System.out.println("ÍË¸ñ+");
-				record = record + "¡û";
+				// System.out.println("é€€æ ¼+");
+				record = record + "â†";
 			}
 		} catch (Exception ex) {
-			System.out.println("¸ú´ò¿òÎŞ×Ö1");
+			System.out.println("è·Ÿæ‰“æ¡†æ— å­—1");
 		}
 	}
 
@@ -123,27 +123,27 @@ public class GendaListener implements DocumentListener, KeyListener {
 		// TODO Auto-generated method stub
 		try {
 			if (str1.length() > 0 && str1.length() <= length
-					&& e.getKeyChar() == '\b') {// ´¥·¢°´¼üÊ±Èç¹û´ò×Ö¿ò³¤¶È¼õĞ¡²¢ÇÒ°´¼üÎªBackSpace£¬¼´Îª»Ø¸Ä
+					&& e.getKeyChar() == '\b') {// è§¦å‘æŒ‰é”®æ—¶å¦‚æœæ‰“å­—æ¡†é•¿åº¦å‡å°å¹¶ä¸”æŒ‰é”®ä¸ºBackSpaceï¼Œå³ä¸ºå›æ”¹
 				deleteTextNumber++;
-				// System.out.println("»Ø¸Ä+");
+				// System.out.println("å›æ”¹+");
 				comphvgd.setTimeTwo(comphvgd.getTimeOne());
 				comphvgd.setTimeOne();
 				if (comphvgd.getTimeOne() - comphvgd.getTimeTwo() < 100) {
 					deleteNumber++;
-					// System.out.println("ÍË¸ñ+");
+					// System.out.println("é€€æ ¼+");
 					lianhvgdsign++;
 				} else if (lianhvgdsign != 0) {
-					// System.out.println("ÍË¸ñ+2");
+					// System.out.println("é€€æ ¼+2");
 					deleteNumber += 2;
 					lianhvgdsign = 0;
 				}
 			} else if (lianhvgdsign != 0) {
-				System.out.println("ÍË¸ñ+2");
+				System.out.println("é€€æ ¼+2");
 				deleteNumber += 2;
 				lianhvgdsign = 0;
 			}
 		} catch (Exception ex) {
-			System.out.println("¸ú´ò¿òÎŞ×Ö2");
+			System.out.println("è·Ÿæ‰“æ¡†æ— å­—2");
 		}
 	}
 
@@ -168,43 +168,43 @@ public class GendaListener implements DocumentListener, KeyListener {
 				Window.fontallnum++;
 				Window.datenum++;
 			}
-			// ¼ÆËã´ò´ÊÂÊ
+			// è®¡ç®—æ‰“è¯ç‡
 			try {
-				compdaci(e.getKeyChar());// ¼ÆËã´ò´Ê
+				compdaci(e.getKeyChar());// è®¡ç®—æ‰“è¯
 			} catch (Exception ex) {
-				System.out.println("´ò´Ê¼ÆËãÊ§°Ü180genda");
+				System.out.println("æ‰“è¯è®¡ç®—å¤±è´¥180genda");
 			}
-			mistake = 0; // ´íÎó×ÖÊıÇåÁã
-			length = str1.length();// ¼ÆËãµ±Ç°´ò×Ö¿ò³¤¶È
-			for (n = 0; n < str1.length(); n++) { // Í³¼Æ´íÎó×ÖÊı£¬ÏòÎÄ±¾¿òÌí¼Ó×ÖÌå
+			mistake = 0; // é”™è¯¯å­—æ•°æ¸…é›¶
+			length = str1.length();// è®¡ç®—å½“å‰æ‰“å­—æ¡†é•¿åº¦
+			for (n = 0; n < str1.length(); n++) { // ç»Ÿè®¡é”™è¯¯å­—æ•°ï¼Œå‘æ–‡æœ¬æ¡†æ·»åŠ å­—ä½“
 				if (c1[n] != c2[n]) {
 					mistake++;
-					String mistakeStr = "\"" + String.valueOf(c2[n]) + "\"ÔÚµÚ"
-							+ String.valueOf(n + 1) + "¸ö×Ö\n";
+					String mistakeStr = "\"" + String.valueOf(c2[n]) + "\"åœ¨ç¬¬"
+							+ String.valueOf(n + 1) + "ä¸ªå­—\n";
 					mistakelist.add(mistakeStr);
 					missign.add(n);
 				}
 			}
 			if (sign == 1)
-				ChangeFontColor(); // ¸Ä±ä×ÖÌåÑÕÉ«
-			tipschange.changeTips(String.valueOf(c2[str1.length()]));// µ¥×Ö±àÂëÌáÊ¾¸ü¸Ä
+				ChangeFontColor(); // æ”¹å˜å­—ä½“é¢œè‰²
+			tipschange.changeTips(String.valueOf(c2[str1.length()]));// å•å­—ç¼–ç æç¤ºæ›´æ”¹
 
-			zishu.setText("×ÖÊı:" + str2.length() + "/ÒÑ´ò:" + str1.length() + "/´í"
+			zishu.setText("å­—æ•°:" + str2.length() + "/å·²æ‰“:" + str1.length() + "/é”™"
 					+ (int) (mistake));
-			allnumber.setText("×Ü:" + String.valueOf(Window.fontallnum) + " ¶Ô:"
-					+ String.valueOf(Window.rightnum) + " ´í:"
-					+ String.valueOf(Window.misnum) + " ½ñ:"
+			allnumber.setText("æ€»:" + String.valueOf(Window.fontallnum) + " å¯¹:"
+					+ String.valueOf(Window.rightnum) + " é”™:"
+					+ String.valueOf(Window.misnum) + " ä»Š:"
 					+ String.valueOf(Window.datenum));
 			readWrite.keepfontnum(Window.fontallnum, Window.rightnum,
 					Window.misnum);
 			try {
 				RecordChange.recordChange();
 			} catch (Exception ex) {
-				System.out.println("·¢ËÍ¸ú´ò×ÖÊıÊ§°Ü196genda");
+				System.out.println("å‘é€è·Ÿæ‰“å­—æ•°å¤±è´¥196genda");
 			}
-			if (SetFrameJinduListener.jindusign == 1)// ÅĞ¶ÏÊÇ·ñ¿ªÁË½ø¶ÈÌõ
+			if (SetFrameJinduListener.jindusign == 1)// åˆ¤æ–­æ˜¯å¦å¼€äº†è¿›åº¦æ¡
 				gendajindu.jindu(dazi.getText().length() + 1 - (int) (mistake));
-			ChangePosition();// ÎÄ±¾×Ô¶¯·­Ò³
+			ChangePosition();// æ–‡æœ¬è‡ªåŠ¨ç¿»é¡µ
 
 		} catch (Exception exp) {
 		}
@@ -226,7 +226,7 @@ public class GendaListener implements DocumentListener, KeyListener {
 					}
 				}
 			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(null, "ÔØÎÄ±ØĞëÔÚÇĞ»»Ó¢´òÇ°½øĞĞ");
+				JOptionPane.showMessageDialog(null, "è½½æ–‡å¿…é¡»åœ¨åˆ‡æ¢è‹±æ‰“å‰è¿›è¡Œ");
 				// ex.printStackTrace();
 				System.out.println("mistake!!! GendaListener 207");
 			}
@@ -238,26 +238,26 @@ public class GendaListener implements DocumentListener, KeyListener {
 			str1 = dazi.getText();
 			str2 = QQZaiwenListener.wenbenstr;
 			if (sign == 0 && str1.length() > 0) {
-				comp.setTimeOne(); // ¼ÆËãµÚÒ»¼üÊ±¼ä
-				record = ""; // »÷¼üÇå¿Õ
-				sign = 1; // ÉèÖÃ±ê¼Çºó²»ÔÙ¼ÆËã£¬±ê¼ÇÒÑ¿ªÊ¼¸ú´ò
-				dacilist.clear(); // Çå³ıÉÏ´Î¸ú´òÁôÏÂµÄdaciÁ´±í
+				comp.setTimeOne(); // è®¡ç®—ç¬¬ä¸€é”®æ—¶é—´
+				record = ""; // å‡»é”®æ¸…ç©º
+				sign = 1; // è®¾ç½®æ ‡è®°åä¸å†è®¡ç®—ï¼Œæ ‡è®°å·²å¼€å§‹è·Ÿæ‰“
+				dacilist.clear(); // æ¸…é™¤ä¸Šæ¬¡è·Ÿæ‰“ç•™ä¸‹çš„dacié“¾è¡¨
 				shushisudu.clear();
-				length = 0; // Çå³ıÉÏ´Î¸ú´òÁôÏÂµÄLength
+				length = 0; // æ¸…é™¤ä¸Šæ¬¡è·Ÿæ‰“ç•™ä¸‹çš„Length
 			} else
-				comp.setTimeTwo(); // ¼ÆËã×îºóÒ»¼üÊ±¼ä
+				comp.setTimeTwo(); // è®¡ç®—æœ€åä¸€é”®æ—¶é—´
 			a = String.valueOf(str1.charAt(str1.length() - 1));
-			b = String.valueOf(str2.charAt(str2.length() - 1)); // È¡Á½ÎÄ±¾×îºóÒ»¸ö×Ö
+			b = String.valueOf(str2.charAt(str2.length() - 1)); // å–ä¸¤æ–‡æœ¬æœ€åä¸€ä¸ªå­—
 			try {
 				if (Window.one.isVisible())
-					battleClient.send.send(); // ·¢ËÍ·şÎñÆ÷ĞÅÏ¢
+					battleClient.send.send(); // å‘é€æœåŠ¡å™¨ä¿¡æ¯
 			} catch (Exception ex) {
-				System.out.println("·¢ËÍ¶ÔÕ½ÏûÏ¢Ê§°Ügen227");
+				System.out.println("å‘é€å¯¹æˆ˜æ¶ˆæ¯å¤±è´¥gen227");
 			}
 			if (str1.length() == str2.length() && a.equals(b)
-					&& !(Window.Pattern == 1)) // Á½ÎÄ±¾³¤¶ÈÏàµÈÇÒ×îºóÒ»×ÖÏàÍ¬Ê±Ö´ĞĞ
+					&& !(Window.Pattern == 1)) // ä¸¤æ–‡æœ¬é•¿åº¦ç›¸ç­‰ä¸”æœ€åä¸€å­—ç›¸åŒæ—¶æ‰§è¡Œ
 			{
-				dazi.setEditable(false); // ÉèÖÃ²»¿É´ò×Ö×´Ì¬
+				dazi.setEditable(false); // è®¾ç½®ä¸å¯æ‰“å­—çŠ¶æ€
 				gendaSign = true;
 			}
 		} catch (Exception exp) {
@@ -297,9 +297,9 @@ public class GendaListener implements DocumentListener, KeyListener {
 				for (int k = str1.length() - daci - 2; k <= str1.length() - 2; k++) {
 					temp += String.valueOf(c2[k]);
 				}
-				daci = 0; // µ±Ç°´Ê³¤¶ÈÇåÁã
+				daci = 0; // å½“å‰è¯é•¿åº¦æ¸…é›¶
 				String s[] = dacilist.get(dacilist.size() - 1).split(":");
-				if (s[0].equals(temp.substring(0, 1))) // µ¥×Ö¶Ô±È
+				if (s[0].equals(temp.substring(0, 1))) // å•å­—å¯¹æ¯”
 					dacilist.remove(dacilist.get(dacilist.size() - 1));
 				dacilist.add(temp + ":" + citime + ":"
 						+ String.format("%.2f", sudu) + ":"
@@ -316,22 +316,22 @@ public class GendaListener implements DocumentListener, KeyListener {
 
 	public void ChangeAllColor() {
 		try {
-			wenben.setText(""); // Çå¿ÕÎÄ±¾¿ò
+			wenben.setText(""); // æ¸…ç©ºæ–‡æœ¬æ¡†
 			try {
-				for (n = 0; n < str2.length(); n++) { // Í³¼Æ´íÎó×ÖÊı£¬ÏòÎÄ±¾¿òÌí¼Ó×ÖÌå
+				for (n = 0; n < str2.length(); n++) { // ç»Ÿè®¡é”™è¯¯å­—æ•°ï¼Œå‘æ–‡æœ¬æ¡†æ·»åŠ å­—ä½“
 					if (c1[n] != c2[n])
 						JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,
-								String.valueOf(c2[n]), "ºì", wenben);
+								String.valueOf(c2[n]), "çº¢", wenben);
 					else
 						JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,
-								String.valueOf(c2[n]), "ºÚ", wenben);
+								String.valueOf(c2[n]), "é»‘", wenben);
 				}
 			} catch (Exception e) {
 				n = 0;
 				System.out.println("wussssss");
 			}
 		} catch (Exception ex) {
-			System.out.println("¸ú´ò¿òÎŞ×Ö3");
+			System.out.println("è·Ÿæ‰“æ¡†æ— å­—3");
 			ex.printStackTrace();
 		}
 	}
@@ -353,20 +353,20 @@ public class GendaListener implements DocumentListener, KeyListener {
 				last = str2.length();
 			}
 			dazidangyestr = str1.substring(fenye * dangyenum);
-			wenben.setText(""); // Çå¿ÕÎÄ±¾¿ò
+			wenben.setText(""); // æ¸…ç©ºæ–‡æœ¬æ¡†
 			// n = 0;
 			try {
 				if (dangyenum > 0)
 					n = dangyenum * fenye - (heng + 1) / 3;
 				else
 					n = dangyenum * fenye;
-				for (; n < str1.length(); n++) { // Í³¼Æ´íÎó×ÖÊı£¬ÏòÎÄ±¾¿òÌí¼Ó×ÖÌå
+				for (; n < str1.length(); n++) { // ç»Ÿè®¡é”™è¯¯å­—æ•°ï¼Œå‘æ–‡æœ¬æ¡†æ·»åŠ å­—ä½“
 					if (c1[n] != c2[n] && sign == 1) {
 						JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,
-								String.valueOf(c2[n]), "ºì", wenben);
+								String.valueOf(c2[n]), "çº¢", wenben);
 					} else if (sign == 1)
 						JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,
-								String.valueOf(c2[n]), "ºÚ", wenben);
+								String.valueOf(c2[n]), "é»‘", wenben);
 				}
 			} catch (Exception e) {
 				n = 0;
@@ -381,19 +381,19 @@ public class GendaListener implements DocumentListener, KeyListener {
 				if (tempready > last)
 					tempready = last;
 				for (; n < tempready; n++) {
-					System.out.println("Ô¤¶Á");
-					JTextPaneChange.createStyle("Ô¤¶Á",
+					System.out.println("é¢„è¯»");
+					JTextPaneChange.createStyle("é¢„è¯»",
 							JTextPaneChange.styledDoc, Window.fontSize, 0, 0,
 							0, wenben.getBackground(), Window.family,
 							wenben.getBackground());
 					JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,
-							String.valueOf(c2[n]), "Ô¤¶Á", wenben);
+							String.valueOf(c2[n]), "é¢„è¯»", wenben);
 				}
 			}
 			
 			/**
-			 * ÒòÎª×ÖÌåÉÏÉ«±ØĞëÕıĞò·Å£¬È»ºó´ÖÏ¸·Ö²¼ĞèÒªµ¹Ğò¼ÆËã²Å²»»á»ÎÉ«£¨Í¬Ò»¸ö´Ê´ÖºÍÏ¸À´»ØÇĞ»»£©
-			 * ½«´ÊµÄÆğÊ¼Î»ÖÃ·ÅÈëÁ´±íÖĞ½øĞĞµ¹ĞòÅÅ·Å£¬ÅĞ¶Ï´ÊµÄÆğÊ¼Î»ÖÃÔÚÁ´±íÖĞµÄÎ»ÖÃ£¬ÓÃÕâ¸öÊıÓà¶şÅĞ¶ÏÊÇ·ñ¼Ó´Ö
+			 * å› ä¸ºå­—ä½“ä¸Šè‰²å¿…é¡»æ­£åºæ”¾ï¼Œç„¶åç²—ç»†åˆ†å¸ƒéœ€è¦å€’åºè®¡ç®—æ‰ä¸ä¼šæ™ƒè‰²ï¼ˆåŒä¸€ä¸ªè¯ç²—å’Œç»†æ¥å›åˆ‡æ¢ï¼‰
+			 * å°†è¯çš„èµ·å§‹ä½ç½®æ”¾å…¥é“¾è¡¨ä¸­è¿›è¡Œå€’åºæ’æ”¾ï¼Œåˆ¤æ–­è¯çš„èµ·å§‹ä½ç½®åœ¨é“¾è¡¨ä¸­çš„ä½ç½®ï¼Œç”¨è¿™ä¸ªæ•°ä½™äºŒåˆ¤æ–­æ˜¯å¦åŠ ç²—
 			 */
 			
 			List<Integer> quanmanum = new ArrayList<Integer>();
@@ -405,7 +405,7 @@ public class GendaListener implements DocumentListener, KeyListener {
 			
 			List<Integer> sulucinum = new ArrayList<Integer>();
 			int n2 = n;
-			for (; n < last; n++) { // Ìí¼ÓÊ£ÏÂ×ÖÌå
+			for (; n < last; n++) { // æ·»åŠ å‰©ä¸‹å­—ä½“
 				if (SetFramechangeListener.tipsign == 0 || Window.everydaySign
 						|| (Window.Pattern == 1)) {
 				} else {
@@ -436,7 +436,7 @@ public class GendaListener implements DocumentListener, KeyListener {
 				}
 			}
 			/**
-		     * ´Ó´óµ½Ğ¡ÅĞ¶Ï¼¸¸öÁ´±í
+		     * ä»å¤§åˆ°å°åˆ¤æ–­å‡ ä¸ªé“¾è¡¨
 		     */
 			Comparator<Integer> comparator = new Comparator<Integer>() {
 				@Override
@@ -452,13 +452,13 @@ public class GendaListener implements DocumentListener, KeyListener {
 		    Collections.sort(cisjianmanum, comparator);
 		    Collections.sort(quanmanum, comparator);
 		    Collections.sort(sulucinum, comparator);
-			for (n = n2; n < last; n++) { // Ìí¼ÓÊ£ÏÂ×ÖÌå
+			for (n = n2; n < last; n++) { // æ·»åŠ å‰©ä¸‹å­—ä½“
 			// System.out.print(n);
 				if(n>=Tips.subscriptInstances.length)break;
 				if (SetFramechangeListener.tipsign == 0 || Window.everydaySign
 						|| (Window.Pattern == 1)) {
 					JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,
-							String.valueOf(c2[n]), "»Ò", wenben);
+							String.valueOf(c2[n]), "ç°", wenben);
 				} else {
 					Integer tail = Tips.subscriptInstances[n].getNext();
 					if (ejianmanum.indexOf(n)!= -1) {
@@ -466,13 +466,13 @@ public class GendaListener implements DocumentListener, KeyListener {
 							for (int k = n; k <= tail; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "·Û´Ö", wenben);
+										String.valueOf(c2[k]), "ç²‰ç²—", wenben);
 							}
 						else {
 							for (int k = n; k <= tail; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "·Û", wenben);
+										String.valueOf(c2[k]), "ç²‰", wenben);
 							}
 						}
 						n = tail;
@@ -481,13 +481,13 @@ public class GendaListener implements DocumentListener, KeyListener {
 							for (int k = n; k <= tail; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "·Û´ÖĞ±", wenben);
+										String.valueOf(c2[k]), "ç²‰ç²—æ–œ", wenben);
 							}
 						else {
 							for (int k = n; k <= tail; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "·ÛĞ±", wenben);
+										String.valueOf(c2[k]), "ç²‰æ–œ", wenben);
 							}
 						}
 						n = tail;
@@ -496,13 +496,13 @@ public class GendaListener implements DocumentListener, KeyListener {
 							for (int k = n; k <= tail; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "À¶´ÖĞ±", wenben);
+										String.valueOf(c2[k]), "è“ç²—æ–œ", wenben);
 							}
 						else {
 							for (int k = n; k <= tail; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "À¶Ğ±", wenben);
+										String.valueOf(c2[k]), "è“æ–œ", wenben);
 							}
 						}
 						n = tail;
@@ -511,13 +511,13 @@ public class GendaListener implements DocumentListener, KeyListener {
 							for (int k = n; k <= tail; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "À¶´Ö", wenben);
+										String.valueOf(c2[k]), "è“ç²—", wenben);
 							}
 						else {
 							for (int k = n; k <= tail; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "À¶", wenben);
+										String.valueOf(c2[k]), "è“", wenben);
 							}
 						}
 						n = tail;
@@ -526,13 +526,13 @@ public class GendaListener implements DocumentListener, KeyListener {
 							for (int k = n; k <= tail; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "ÂÌ´ÖĞ±", wenben);
+										String.valueOf(c2[k]), "ç»¿ç²—æ–œ", wenben);
 							}
 						else {
 							for (int k = n; k <= tail; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "ÂÌĞ±", wenben);
+										String.valueOf(c2[k]), "ç»¿æ–œ", wenben);
 							}
 						}
 						n = tail;
@@ -541,36 +541,36 @@ public class GendaListener implements DocumentListener, KeyListener {
 							for (int k = n; k <= tail; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "ÂÌ´Ö", wenben);
+										String.valueOf(c2[k]), "ç»¿ç²—", wenben);
 							}
 						else {
 							for (int k = n; k <= tail; k++) {
 								JTextPaneChange.insertDoc(
 										JTextPaneChange.styledDoc,
-										String.valueOf(c2[k]), "ÂÌ", wenben);
+										String.valueOf(c2[k]), "ç»¿", wenben);
 							}
 						}
 						n = tail;
 					}else {
 						JTextPaneChange.insertDoc(JTextPaneChange.styledDoc,
-								String.valueOf(c2[n]), "»Ò", wenben);
+								String.valueOf(c2[n]), "ç°", wenben);
 					}
 				}
 			}
 		} catch (Exception ex) {
-			System.out.println("¸ú´ò¿òÎŞ×Ö3");
+			System.out.println("è·Ÿæ‰“æ¡†æ— å­—3");
 			ex.printStackTrace();
 		}
 	}
 
 	int heng;
 
-	void ChangePosition() {// ×Ô¶¯¹ö¶¯Ìõ·­Ò³·½·¨
-		int hengsize = Window.fontSize + 59; // Ò»¸ö×Öºá·Ö±æÂÊ
-		int shusize = Window.fontSize + 14;// Ò»¸ö×ÖÊú·Ö±æÂÊ
-		int shu = winchange.shuweizhi / shusize; // ĞĞÊı
+	void ChangePosition() {// è‡ªåŠ¨æ»šåŠ¨æ¡ç¿»é¡µæ–¹æ³•
+		int hengsize = Window.fontSize + 59; // ä¸€ä¸ªå­—æ¨ªåˆ†è¾¨ç‡
+		int shusize = Window.fontSize + 14;// ä¸€ä¸ªå­—ç«–åˆ†è¾¨ç‡
+		int shu = winchange.shuweizhi / shusize; // è¡Œæ•°
 		int tem = 0;
-		heng = (winchange.hengweizhi - hengsize) / Window.fontSize; // Ò»ĞĞ×ÖÊı
+		heng = (winchange.hengweizhi - hengsize) / Window.fontSize; // ä¸€è¡Œå­—æ•°
 		number = number % (fenye + (heng + 1) / 3);
 		if (dangyenum == 0)
 			while (dazidangyestr.length() > number) {
@@ -582,7 +582,7 @@ public class GendaListener implements DocumentListener, KeyListener {
 					number = fenye - 1;
 				else
 					number = number + tem;
-				System.out.println("ÎÄÕÂ¹â±ê:" + number);
+				System.out.println("æ–‡ç« å…‰æ ‡:" + number);
 			}
 		else
 			while (dazidangyestr.length() + (heng + 1) / 3 > number) {
@@ -594,7 +594,7 @@ public class GendaListener implements DocumentListener, KeyListener {
 					number = fenye + (heng + 1) / 3 - 1;
 				else
 					number = number + tem;
-				System.out.println("ÎÄÕÂ¹â±ê:" + number);
+				System.out.println("æ–‡ç« å…‰æ ‡:" + number);
 			}
 		if (dazidangyestr.length() == 1) {
 			if (shu > 1) {

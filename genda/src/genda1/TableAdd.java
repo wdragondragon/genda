@@ -34,9 +34,9 @@ public class TableAdd {
 		vRow1.add(String.format("%.2f",AchievementListener.dacilv*100)+"%");
 		vRow1.add(time);
 		tableM.addRow(vRow1);
-		//移动光标
-		int row = table.getRowCount() - 1;//这里获取的是最后一行，当然也可以根据不同的需要获取到不同的行
-//		table.setRowSelectionInterval(row, row); //显示当前成绩高亮
+		//绉诲姩鍏夋爣
+		int row = table.getRowCount() - 1;//杩欓噷鑾峰彇鐨勬槸鏈�鍚庝竴琛岋紝褰撶劧涔熷彲浠ユ牴鎹笉鍚岀殑闇�瑕佽幏鍙栧埌涓嶅悓鐨勮
+//		table.setRowSelectionInterval(row, row); //鏄剧ず褰撳墠鎴愮哗楂樹寒
 		table.scrollRectToVisible(table.getCellRect(row, 0, true));
 	}
 	public void init(DefaultTableModel t,GendaListener t1,JTable t2){

@@ -24,9 +24,9 @@ public class TheoryListener extends JFrame implements ActionListener {
 		if(!this.isVisible())setVisible(true);
 //		System.out.println(e.getActionCommand());
 //		System.out.println(e.getActionCommand().substring(0, 4));
-		if(e.getActionCommand().substring(0,4).equals("理论码长"))
+		if(e.getActionCommand().substring(0,4).equals("鐞嗚鐮侀暱"))
 			show.setText(Tips.allCode.toString());
-		else if(e.getActionCommand().substring(0,4).equals("标顶理论"))
+		else if(e.getActionCommand().substring(0,4).equals("鏍囬《鐞嗚"))
 			show.setText(Tips.allCode.toString());
 		
 //		Tips.bianma.size();
@@ -34,15 +34,15 @@ public class TheoryListener extends JFrame implements ActionListener {
 	public TheoryListener(){
 		init();
 		setVisible(false);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//设置关闭按钮
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//璁剧疆鍏抽棴鎸夐挳
 		setBounds(10,10,500,300);
 	}
 	void init(){
-		setTitle("文章理论编码");
+		setTitle("鏂囩珷鐞嗚缂栫爜");
 		show = new JTextArea();
 		show1 = new JScrollPane(show);
 		show.setLineWrap(true);
-		show.setFont(new Font("微软雅黑",0,20));
+		show.setFont(new Font("寰蒋闆呴粦",0,20));
 		add(show1);
 	}
 }

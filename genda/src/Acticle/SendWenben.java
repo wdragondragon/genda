@@ -22,9 +22,9 @@ import SetWin.SetFrameQianshuiListener;
 
 public class SendWenben implements ActionListener {
 	static public int sendwenSign = 0;
-	static public int sendwenSign2 = 0;// ³éÈ¡Ä£Ê½·¢ÎÄ
-	static public int sendwenSign3 = 0;// 1¡¢´Ê¿âÁ·Ï°·¢ÎÄ
-	static public boolean sendwenSign4 = false;// Ó¢´Ê
+	static public int sendwenSign2 = 0;// æŠ½å–æ¨¡å¼å‘æ–‡
+	static public int sendwenSign3 = 0;// 1ã€è¯åº“ç»ƒä¹ å‘æ–‡
+	static public boolean sendwenSign4 = false;// è‹±è¯
 	static public String title = "";
 	JTextArea wenben;
 	Window win;
@@ -37,15 +37,15 @@ public class SendWenben implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		QQZaiwenListener.wenbenstr = ActicleListener.wen;// ¹Ì¶¨ÎÄ±¾¿ò
+		QQZaiwenListener.wenbenstr = ActicleListener.wen;// å›ºå®šæ–‡æœ¬æ¡†
 		QQZaiwenListener.wenbenstr = RegexText.qukong(RegexText
 				.huanfu(QQZaiwenListener.wenbenstr));
 		if (QQZaiwenListener.wenbenstr == null
 				|| QQZaiwenListener.wenbenstr.equals(""))
 			return;
 		Window.f3listener.F3();
-		sendwenSign = 1; // ·¢ÎÄ±êÖ¾
-		RegexText.duan1 = 1;// ÉèÖÃ¶ÎÊı
+		sendwenSign = 1; // å‘æ–‡æ ‡å¿—
+		RegexText.duan1 = 1;// è®¾ç½®æ®µæ•°
 		ActicleListener.fontweizhi += ActicleListener.fontnum;
 		win.sendwen.setVisible(true);
 		try {
@@ -55,7 +55,7 @@ public class SendWenben implements ActionListener {
 					+ RegexText.duan1 + "#" + wenben.getText() + "%0" + "%"
 					+ Login.zhanghao.getText());
 		} catch (Exception ex) {
-			System.out.println("ÎŞ·¨·¢ËÍÎÄ±¾ÄÚÈİ");
+			System.out.println("æ— æ³•å‘é€æ–‡æœ¬å†…å®¹");
 		}
 		acticle.setVisible(false);
 		if (SetFrameQianshuiListener.qianshui == 0)
@@ -65,5 +65,8 @@ public class SendWenben implements ActionListener {
 	public void setwin(Window t, Acticle acticle) {
 		win = t;
 		this.acticle = acticle;
+	}
+	public static boolean isSendWen(){
+		return sendwenSign==1||sendwenSign2==1||sendwenSign3==1||sendwenSign4;
 	}
 }

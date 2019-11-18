@@ -34,7 +34,7 @@ public class Clip extends Thread {
 					setgendaSign();
 			} catch (Exception e) {
 				e.printStackTrace();
-				System.out.println("Clip´íÎó");
+				System.out.println("Clipé”™è¯¯");
 			}
 			// System.out.println(wenbenstr);
 			// AchievementListener.setClipboardString(AchievementListener.getClipboardString());
@@ -56,7 +56,7 @@ public class Clip extends Thread {
 						+ RegexText.duan1 + "#" + QQZaiwenListener.wenbenstr
 						+ "%0" + "%" + Login.zhanghao.getText());
 			} catch (Exception ex) {
-				System.out.println("ÎŞ·¨·¢ËÍÎÄ±¾ÄÚÈİ");
+				System.out.println("æ— æ³•å‘é€æ–‡æœ¬å†…å®¹");
 			}
 
 			// System.out.println(QQZaiwenListener.zaiwenSign);
@@ -72,65 +72,66 @@ public class Clip extends Thread {
 		if (Window.Pattern == 2) {
 			StringBuilder str = new StringBuilder();
 			for (int i = 0; i < F3Listener.Englishword.length; i++) {
-				str.append(F3Listener.Englishword[i] + "£º"
+				str.append(F3Listener.Englishword[i] + "ï¼š"
 						+ TipsFrame.bianma.get(F3Listener.Englishword[i])
 						+ "\n");
 			}
 			TipsFrame.show.setText(str.toString());
 		}
-		Window.gendaListener.zishu.setText("¸ú´òÍê±Ï×ÖÊı:"
-				+ Window.gendaListener.str2.length() + "/´í"
-				+ Window.gendaListener.mistake); // ×ÖÊıÏÔÊ¾
+		Window.gendaListener.zishu.setText("è·Ÿæ‰“å®Œæ¯•å­—æ•°:"
+				+ Window.gendaListener.str2.length() + "/é”™"
+				+ Window.gendaListener.mistake); // å­—æ•°æ˜¾ç¤º
 		Window.gendaListener.Keylength.setText(String.format(
 				"%.2f",
 				Window.gendaListener.KeyNumber
-						/ Window.gendaListener.str2.length()));// Âë³¤ÏÔÊ¾
+						/ Window.gendaListener.str2.length()));// ç é•¿æ˜¾ç¤º
 		Window.gendaListener.deleteNumber = Window.gendaListener.deleteNumber
-				- Window.gendaListener.deleteTextNumber; // ÍË¸ñÕæÊµÊıÁ¿Òª¼õÈ¥»Ø¸ÄÊıÁ¿
+				- Window.gendaListener.deleteTextNumber; // é€€æ ¼çœŸå®æ•°é‡è¦å‡å»å›æ”¹æ•°é‡
 		if (Window.gendaListener.deleteNumber < 0)
-			Window.gendaListener.deleteNumber = 0; // ±£Ö¤ÍË¸ñĞ¡ÓÚÁã
-		ReadyListener.BeganSign = 0; // ×¼±¸±êÖ¾
+			Window.gendaListener.deleteNumber = 0; // ä¿è¯é€€æ ¼å°äºé›¶
+		ReadyListener.BeganSign = 0; // å‡†å¤‡æ ‡å¿—
 		Window.suduButton.setText(String.format("%.2f",
 				Window.gendaListener.sudu));
 		AchievementListener
 				.setClipboardString(Window.gendaListener.achievementlistener
-						.getGeshi()); // ½«³É¼¨·ÅÈë¼ôÌù°å
-		if (SetFrameQianshuiListener.qianshui == 0) // ²»ÎªÇ±Ë®¸ú´òµÄ»°·¢ËÍ³É¼¨
+						.getGeshi()); // å°†æˆç»©æ”¾å…¥å‰ªè´´æ¿
+		if (SetFrameQianshuiListener.qianshui == 0) // ä¸ä¸ºæ½œæ°´è·Ÿæ‰“çš„è¯å‘é€æˆç»©
 			Window.gendaListener.achievementlistener.sendchengji();
-		if (SetFrameJinduListener.jindusign == 1)// ÅĞ¶ÏÊÇ·ñ¿ªÁË½ø¶ÈÌõ
+		if (SetFrameJinduListener.jindusign == 1)// åˆ¤æ–­æ˜¯å¦å¼€äº†è¿›åº¦æ¡
 			Window.gendaListener.gendajindu.jindu(Window.gendaListener.dazi
 					.getText().length() + 1);
 		Window.gendaListener.ChangeAllColor();
-		//×Ô¶¯ÏÂÒ»¶ÎÅĞ¶Ï
+		//è‡ªåŠ¨ä¸‹ä¸€æ®µåˆ¤æ–­
 		double nextSpeed = Double.valueOf(String.valueOf(Window.acticle.spinnerSpeed.getValue()));
 		double nextKey = Double.valueOf(String.valueOf(Window.acticle.spinnerKey.getValue()));
 		double nextKeyaccuracy = Double.valueOf(String.valueOf(Window.acticle.spinnerKeyLength.getValue()));
 		double speed = Window.gendaListener.getSudu();
 		double keySpeed = Window.gendaListener.KeyNumber
 				/ GendaListener.comp.getSecond();
-		double keyaccuracy = AchievementListener.Keyaccuracy;
-		if(!(nextSpeed==0&&nextKey==0&&nextKeyaccuracy==0)
-				&&(nextSpeed==0||speed>=nextSpeed)
-				&&(nextKey==0||keySpeed>=nextKey)
-				&&(nextKeyaccuracy==0||keyaccuracy>=nextKeyaccuracy)
-				){
-			if(SendWenben.sendwenSign2==1){
-				Window.acticle.treeListener.chouqu("³éÈ¡ÏÂÒ»¶Î");
-			}else if(SendWenben.sendwenSign==1){
-				Window.acticle.treeListener.nextOrder();
-			}else if(SendWenben.sendwenSign3==1){
-				Window.acticle.treeListener.ciku();
-			}else if(SendWenben.sendwenSign4){
-				Window.acticle.treeListener.enlighWord("Ó¢´ÊÏÂÒ»¶Î");
+		double keyaccuracy = AchievementListener.Keyaccuracy*100;
+		if(SendWenben.isSendWen())
+			if(!(nextSpeed==0&&nextKey==0&&nextKeyaccuracy==0)
+					&&(nextSpeed==0||speed>=nextSpeed)
+					&&(nextKey==0||keySpeed>=nextKey)
+					&&(nextKeyaccuracy==0||keyaccuracy>=nextKeyaccuracy)
+					){
+				if(SendWenben.sendwenSign2==1){
+					Window.acticle.treeListener.chouqu("æŠ½å–ä¸‹ä¸€æ®µ");
+				}else if(SendWenben.sendwenSign==1){
+					Window.acticle.treeListener.nextOrder();
+				}else if(SendWenben.sendwenSign3==1){
+					Window.acticle.treeListener.ciku();
+				}else if(SendWenben.sendwenSign4){
+					Window.acticle.treeListener.enlighWord("è‹±è¯ä¸‹ä¸€æ®µ");
+				}
+			}else if(!(nextSpeed==0&&nextKey==0&&nextKeyaccuracy==0)){
+				String caozuo = Window.acticle.caozuo.getSelectedItem().toString();
+				switch(caozuo){
+					case "ä¸æ“ä½œ":break;
+					case "ä¹±åº":Example.getWindow().mixlistener.mixButton("è¯¥æ®µä¹±åº");break;
+					case "é‡æ‰“":Window.f3listener.F3();break;
+				}
 			}
-		}else if(!(nextSpeed==0&&nextKey==0&&nextKeyaccuracy==0)){
-			String caozuo = Window.acticle.caozuo.getSelectedItem().toString();
-			switch(caozuo){
-				case "²»²Ù×÷":break;
-				case "ÂÒĞò":Example.getWindow().mixlistener.mixButton("¸Ã¶ÎÂÒĞò");break;
-				case "ÖØ´ò":Window.f3listener.F3();break;
-			}
-		}
 
 	}
 }

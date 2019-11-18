@@ -18,9 +18,9 @@ public class ROBOT {
 	public static void main(String[] args){
 		// TODO Auto-generated method stub
 		try{
-			String message = URLEncoder.encode("Ë¾·¨Ìü","utf-8");
+			String message = URLEncoder.encode("å¸æ³•å…","utf-8");
 			URL url = new URL("http://jdragon.club:5700/send_private_msg?message="+message+"&user_id=1061917196");
-			URLConnection urlcon = url.openConnection(); //Ä£Äâä¯ÀÀÆ÷·¢³öÇëÇó
+			URLConnection urlcon = url.openConnection(); //æ¨¡æ‹Ÿæµè§ˆå™¨å‘å‡ºè¯·æ±‚
 	//		urlcon.setRequestProperty("User-agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36");
 			urlcon.setRequestProperty("User-Agent","Mozilla/5.0 (Windows NT 10.0; WOW64; rv:46.0) Gecko/20100101 Firefox/46.0");
 			InputStreamReader in = new InputStreamReader(urlcon.getInputStream(),"utf-8");

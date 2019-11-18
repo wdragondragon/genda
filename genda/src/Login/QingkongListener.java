@@ -21,6 +21,6 @@ public class QingkongListener implements ActionListener {
 			mima.setText("");
 			zhanghao.setText("");
 		} else
-			JOptionPane.showMessageDialog(new JTextArea(), "ÄãÒÑµÇÂ¼");
+			JOptionPane.showMessageDialog(new JTextArea(), "ä½ å·²ç™»å½•");
 	}
 }

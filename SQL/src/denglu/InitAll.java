@@ -21,13 +21,13 @@ public class InitAll {
 			ResultSet rs=Recordnum.con.createStatement().executeQuery(sql);
 			while(rs.next()){
 				username = rs.getString(1);
-				if((date=rs.getDate(2))==null)	//ÅĞ¶Ï×¢²áÈÕÆÚÊÇ·ñÎª¿Õ
+				if((date=rs.getDate(2))==null)	//åˆ¤æ–­æ³¨å†Œæ—¥æœŸæ˜¯å¦ä¸ºç©º
 					zhucesign=1;
 				ptmt.setString(1, username);
 				ResultSet rs1=ptmt.executeQuery();
 				Double aver = 0.0,temp = 0.0;
 				int n = 0,duan;
-				while(rs1.next()){			//¼ÆËãÈüÎÄ³É¼¨Ö®ºÍ£¬¼ÆËã³É¼¨ÊıÁ¿
+				while(rs1.next()){			//è®¡ç®—èµ›æ–‡æˆç»©ä¹‹å’Œï¼Œè®¡ç®—æˆç»©æ•°é‡
 					temp = rs1.getDouble(1);
 					duan = rs1.getInt(2);
 					if(duan==999||duan==0){
@@ -35,15 +35,15 @@ public class InitAll {
 						n++;
 					}
 				}
-				if(n!=0)			//¼ÆËãÈüÎÄ³É¼¨Æ½¾ù
+				if(n!=0)			//è®¡ç®—èµ›æ–‡æˆç»©å¹³å‡
 					aver /= n;
 				ptmt2.setDouble(1, aver);
 				ptmt2.setInt(2, n);
-				if(zhucesign==1){			//ÈÕÆÚÎª¿Õ£¬ĞèÒª×¢²á±ê¼Ç
+				if(zhucesign==1){			//æ—¥æœŸä¸ºç©ºï¼Œéœ€è¦æ³¨å†Œæ ‡è®°
 					ptmt2.setDate(3, Dateinit.getdate());
 					zhucesign=0;
 				}
-				else			//ÈÕÆÚ²»Îª¿Õ£¬Ö±½Ó·ÅÈë
+				else			//æ—¥æœŸä¸ä¸ºç©ºï¼Œç›´æ¥æ”¾å…¥
 					ptmt2.setDate(3, date);
 				ptmt2.setString(4, username);
 				ptmt2.execute();

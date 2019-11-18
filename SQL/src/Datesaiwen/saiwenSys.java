@@ -25,7 +25,7 @@ public class saiwenSys {
 			ResultSet rs=ptmt.executeQuery();
 			if(rs.next()){
 				try {
-					out.writeUTF("ÒÑ´ò¹ı");
+					out.writeUTF("å·²æ‰“è¿‡");
 					return 0;
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -37,7 +37,7 @@ public class saiwenSys {
 			rs=ptmt.executeQuery();
 			if(rs.next()){
 				String saiwen = rs.getString(2);
-				System.out.print(username+"»ñÈ¡ÈüÎÄ\r");
+				System.out.print(username+"è·å–èµ›æ–‡\r");
 				try {
 					out.writeUTF(saiwen);
 				} catch (IOException e) {
@@ -47,8 +47,8 @@ public class saiwenSys {
 			}
 			else{
 				try {
-					System.out.print("ÎŞÈüÎÄ\r");
-					out.writeUTF("ÎŞÈüÎÄ");
+					System.out.print("æ— èµ›æ–‡\r");
+					out.writeUTF("æ— èµ›æ–‡");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

@@ -10,7 +10,7 @@ public class AcitiyComp extends Thread {
 					GendaListener.comp.setTimeTwo();
 
 					Window.gendaListener.sudu = GendaListener.comp.getSpeed(
-							GendaListener.str1.length(), 0); // 速度计算算法
+							GendaListener.str1.length(), 0); // 閫熷害璁＄畻绠楁硶
 					Window.suduButton.setText(String.format("%.2f",
 							Window.gendaListener.sudu));
 					Window.gendaListener.KeysuduButton.setText(String.format(

@@ -44,16 +44,16 @@ public class historyFrame extends JFrame implements ActionListener {
 
 		init();
 		setVisible(true);
-		// setTitle("¸ú´ò¼ÇÂ¼");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);// ÉèÖÃ¹Ø±Õ°´Å¥
+		// setTitle("è·Ÿæ‰“è®°å½•");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);// è®¾ç½®å…³é—­æŒ‰é’®
 	}
 
 	void init() {
 		// setLayout(null);
 		p.setLayout(null);
 		add(p);
-		Object name[] = { "", "ÈÕÆÚ", "ËÙ¶È", "»÷¼ü", "Âë³¤", "×ÖÊı", "»Ø¸Ä", "ÍË¸ñ", "´í×Ö",
-				"Ñ¡ÖØ", "¼ü×¼", "¼ü·¨", "´ò´ÊÂÊ", "Ê±¼ä(Ãë)", "¶ÎÊı" }, a[][] = null;
+		Object name[] = { "", "æ—¥æœŸ", "é€Ÿåº¦", "å‡»é”®", "ç é•¿", "å­—æ•°", "å›æ”¹", "é€€æ ¼", "é”™å­—",
+				"é€‰é‡", "é”®å‡†", "é”®æ³•", "æ‰“è¯ç‡", "æ—¶é—´(ç§’)", "æ®µæ•°" }, a[][] = null;
 		tableM = new DefaultTableModel(a, name) {
 			private static final long serialVersionUID = 1L;
 
@@ -69,13 +69,13 @@ public class historyFrame extends JFrame implements ActionListener {
 
 		tableN.setBounds(0, 0, 840, this.getHeight() - 105);
 
-		before = new JButton("ÉÏÒ»Ò³");
-		next = new JButton("ÏÂÒ»Ò³");
-		dangqianye = new JTextField("Ìø×ª");
-		go = new JButton("Ìø×ª");
-		gofirst = new JButton("Ìøµ½Ê×Ò³");
-		golast = new JButton("Ìøµ½Î²Ò³");
-		keephistroy = new JButton("±£´æ¼ÇÂ¼");
+		before = new JButton("ä¸Šä¸€é¡µ");
+		next = new JButton("ä¸‹ä¸€é¡µ");
+		dangqianye = new JTextField("è·³è½¬");
+		go = new JButton("è·³è½¬");
+		gofirst = new JButton("è·³åˆ°é¦–é¡µ");
+		golast = new JButton("è·³åˆ°å°¾é¡µ");
+		keephistroy = new JButton("ä¿å­˜è®°å½•");
 		yemashow = new JButton("");
 		before.setBounds(10, tableN.getY() + tableN.getHeight(), 120, 30);
 		yemashow.setBounds(140, tableN.getY() + tableN.getHeight(), 60, 30);
@@ -85,18 +85,18 @@ public class historyFrame extends JFrame implements ActionListener {
 		gofirst.setBounds(480, tableN.getY() + tableN.getHeight(), 100, 30);
 		golast.setBounds(590, tableN.getY() + tableN.getHeight(), 100, 30);
 		keephistroy.setBounds(700, tableN.getY() + tableN.getHeight(), 100, 30);
-		lookcow = new JTextField("Òª²é¿´ÄÚÈİµÄĞĞÊı");
+		lookcow = new JTextField("è¦æŸ¥çœ‹å†…å®¹çš„è¡Œæ•°");
 		lookcow.setBounds(10, tableN.getY() + tableN.getHeight() + 35, 120, 30);
-		lookwenben = new JButton("²é¿´¸ú´òÄÚÈİ");
+		lookwenben = new JButton("æŸ¥çœ‹è·Ÿæ‰“å†…å®¹");
 		lookwenben.setBounds(140, tableN.getY() + tableN.getHeight() + 35, 120,
 				30);
-		datef = new JTextField("¾ßÌåÈÕÆÚ");
-		suduf = new JTextField("ËÙ¶È´óÓÚ");
+		datef = new JTextField("å…·ä½“æ—¥æœŸ");
+		suduf = new JTextField("é€Ÿåº¦å¤§äº");
 		dayf = new JTextField("");
-		shaixuandate = new JButton("É¸Ñ¡ÈÕÆÚ");
-		shaixuansudu = new JButton("É¸Ñ¡ËÙ¶È");
-		shaixuansaiwen = new JButton("É¸Ñ¡ÈüÎÄ³É¼¨");
-		showall = new JButton("È«");
+		shaixuandate = new JButton("ç­›é€‰æ—¥æœŸ");
+		shaixuansudu = new JButton("ç­›é€‰é€Ÿåº¦");
+		shaixuansaiwen = new JButton("ç­›é€‰èµ›æ–‡æˆç»©");
+		showall = new JButton("å…¨");
 		datef.setBounds(270, tableN.getY() + tableN.getHeight() + 35, 60, 30);
 		suduf.setBounds(450, tableN.getY() + tableN.getHeight() + 35, 60, 30);
 
@@ -172,13 +172,13 @@ public class historyFrame extends JFrame implements ActionListener {
 			in = new DataInputStream(socket.getInputStream());
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
-			System.out.println("¸ú´ò¼ÇÂ¼ÍøÂç´íÎó1");
+			System.out.println("è·Ÿæ‰“è®°å½•ç½‘ç»œé”™è¯¯1");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("¸ú´ò¼ÇÂ¼ÍøÂç´íÎó2");
+			System.out.println("è·Ÿæ‰“è®°å½•ç½‘ç»œé”™è¯¯2");
 		}
 		try {
-			out.writeUTF("¸ú´ò¼ÇÂ¼");
+			out.writeUTF("è·Ÿæ‰“è®°å½•");
 			out.writeUTF(Login.zhanghao.getText());
 
 			clearall();
@@ -201,7 +201,7 @@ public class historyFrame extends JFrame implements ActionListener {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			System.out.println("ÅÅÃû½áÊø");
+			System.out.println("æ’åç»“æŸ");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			try {
@@ -210,7 +210,7 @@ public class historyFrame extends JFrame implements ActionListener {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			System.out.println("ÅÅÃû½áÊø");
+			System.out.println("æ’åç»“æŸ");
 		}
 		aver();
 		showtable();
@@ -222,7 +222,7 @@ public class historyFrame extends JFrame implements ActionListener {
 	public static void showtable() {
 		Vector vRow1 = new Vector();
 		vRow1.add("0");
-		vRow1.add("Æ½¾ù³É¼¨");
+		vRow1.add("å¹³å‡æˆç»©");
 		vRow1.add(String.format("%.2f", aversudu));
 		vRow1.add(String.format("%.2f", averkey));
 		vRow1.add(String.format("%.2f", averkeylength));
@@ -240,133 +240,133 @@ public class historyFrame extends JFrame implements ActionListener {
 		case 0:
 		case 1:
 		case 2:
-			duanwei = "Ò»¼¶";
+			duanwei = "ä¸€çº§";
 			break;
 		case 3:
-			duanwei = "¶ş¼¶";
+			duanwei = "äºŒçº§";
 			break;
 		case 4:
-			duanwei = "Èı¼¶";
+			duanwei = "ä¸‰çº§";
 			break;
 		case 5:
-			duanwei = "ËÄ¼¶";
+			duanwei = "å››çº§";
 			break;
 		case 6:
 		case 7:
-			duanwei = "Îå¼¶";
+			duanwei = "äº”çº§";
 			break;
 		case 8:
-			duanwei = "Áù¼¶";
+			duanwei = "å…­çº§";
 			break;
 		case 9:
-			duanwei = "Æß¼¶";
+			duanwei = "ä¸ƒçº§";
 			break;
 		case 10:
-			duanwei = "°Ë¼¶";
+			duanwei = "å…«çº§";
 			break;
 		case 11:
-			duanwei = "¾Å¼¶";
+			duanwei = "ä¹çº§";
 			break;
 		case 12:
-			duanwei = "Ò»¶Î";
+			duanwei = "ä¸€æ®µ";
 			break;
 		case 13:
-			duanwei = "¶ş¶Î";
+			duanwei = "äºŒæ®µ";
 			break;
 		case 14:
-			duanwei = "Èı¶Î";
+			duanwei = "ä¸‰æ®µ";
 			break;
 		case 15:
-			duanwei = "ËÄ¶Î";
+			duanwei = "å››æ®µ";
 			break;
 		case 16:
-			duanwei = "Îå¶Î";
+			duanwei = "äº”æ®µ";
 			break;
 		case 17:
-			duanwei = "Áù¶Î";
+			duanwei = "å…­æ®µ";
 			break;
 		case 18:
-			duanwei = "Æß¶Î";
+			duanwei = "ä¸ƒæ®µ";
 			break;
 		case 19:
-			duanwei = "°Ë¶Î";
+			duanwei = "å…«æ®µ";
 			break;
 		case 20:
-			duanwei = "¾Å¶Î";
+			duanwei = "ä¹æ®µ";
 			break;
 		case 21:
-			duanwei = "Ò»ĞÇ";
+			duanwei = "ä¸€æ˜Ÿ";
 			break;
 		case 22:
-			duanwei = "¶şĞÇ";
+			duanwei = "äºŒæ˜Ÿ";
 			break;
 		case 23:
-			duanwei = "ÈıĞÇ";
+			duanwei = "ä¸‰æ˜Ÿ";
 			break;
 		case 24:
-			duanwei = "ËÄĞÇ";
+			duanwei = "å››æ˜Ÿ";
 			break;
 		case 25:
-			duanwei = "ÎåĞÇ";
+			duanwei = "äº”æ˜Ÿ";
 			break;
 		case 26:
-			duanwei = "ÁùĞÇ";
+			duanwei = "å…­æ˜Ÿ";
 			break;
 		case 27:
-			duanwei = "ÆßĞÇ";
+			duanwei = "ä¸ƒæ˜Ÿ";
 			break;
 		case 28:
-			duanwei = "°ËĞÇ";
+			duanwei = "å…«æ˜Ÿ";
 			break;
 		case 29:
-			duanwei = "¾ÅĞÇ";
+			duanwei = "ä¹æ˜Ÿ";
 			break;
 		case 30:
-			duanwei = "Ò»ÖØ";
+			duanwei = "ä¸€é‡";
 			break;
 		case 31:
-			duanwei = "¶şÖØ";
+			duanwei = "äºŒé‡";
 			break;
 		case 32:
-			duanwei = "ÈıÖØ";
+			duanwei = "ä¸‰é‡";
 			break;
 		case 33:
-			duanwei = "ËÄÖØ";
+			duanwei = "å››é‡";
 			break;
 		case 34:
-			duanwei = "ÎåÖØ";
+			duanwei = "äº”é‡";
 			break;
 		case 35:
-			duanwei = "ÁùÖØ";
+			duanwei = "å…­é‡";
 			break;
 		case 36:
-			duanwei = "ÆßÖØ";
+			duanwei = "ä¸ƒé‡";
 			break;
 		case 37:
-			duanwei = "°ËÖØ";
+			duanwei = "å…«é‡";
 			break;
 		case 38:
-			duanwei = "¾ÅÖØ";
+			duanwei = "ä¹é‡";
 			break;
 		case 39:
-			duanwei = "Ê®ÖØ";
+			duanwei = "åé‡";
 			break;
 		case 40:
 		case 41:
 		case 42:
 		case 43:
 		case 44:
-			duanwei = "µØÊÖ";
+			duanwei = "åœ°æ‰‹";
 			break;
 		case 45:
 		case 46:
 		case 47:
 		case 48:
 		case 49:
-			duanwei = "ÌìÊÖ";
+			duanwei = "å¤©æ‰‹";
 			break;
 		default:
-			duanwei = "¼«ÊÖ";
+			duanwei = "ææ‰‹";
 			break;
 		}
 		vRow1.add(duanwei);
@@ -375,7 +375,7 @@ public class historyFrame extends JFrame implements ActionListener {
 			try {
 				tableM.addRow(allhistory.get(i));
 			} catch (Exception e) {
-				System.out.println("ÏÔÊ¾¸ú´òÀúÊ·½áÊø");
+				System.out.println("æ˜¾ç¤ºè·Ÿæ‰“å†å²ç»“æŸ");
 				break;
 			}
 	}

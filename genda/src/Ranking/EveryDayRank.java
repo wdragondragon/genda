@@ -35,12 +35,12 @@ public class EveryDayRank extends JFrame {
 		setBounds(10,10,855,screenSize.height*2/4);
 		init();
 		setVisible(true);
-		setTitle("Ã¿ÈÕÈüÎÄÅÅĞĞ");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//ÉèÖÃ¹Ø±Õ°´Å¥
+		setTitle("æ¯æ—¥èµ›æ–‡æ’è¡Œ");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//è®¾ç½®å…³é—­æŒ‰é’®
 //		setResizable(false);
 	}
 	void init(){
-		Object name[]={"","ÓÃ»§Ãû","ËÙ¶È","»÷¼ü","Âë³¤","×ÖÊı","»Ø¸Ä","ÍË¸ñ","´í×Ö","Ñ¡ÖØ","¼ü×¼","¼ü·¨","´ò´ÊÂÊ","Ê±¼ä(Ãë)"},a[][] = null;
+		Object name[]={"","ç”¨æˆ·å","é€Ÿåº¦","å‡»é”®","ç é•¿","å­—æ•°","å›æ”¹","é€€æ ¼","é”™å­—","é€‰é‡","é”®å‡†","é”®æ³•","æ‰“è¯ç‡","æ—¶é—´(ç§’)"},a[][] = null;
 		tableM = new DefaultTableModel(a,name) {
             private static final long serialVersionUID = 1L;
             @Override
@@ -68,7 +68,7 @@ public class EveryDayRank extends JFrame {
 			in = new DataInputStream(socket.getInputStream());
 		}catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
-			System.out.println("ÈüÎÄÅÅĞĞ1");
+			System.out.println("èµ›æ–‡æ’è¡Œ1");
 			try {
 				socket.close();
 			} catch (IOException e1) {
@@ -77,7 +77,7 @@ public class EveryDayRank extends JFrame {
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("ÈüÎÄÅÅĞĞ2");
+			System.out.println("èµ›æ–‡æ’è¡Œ2");
 			try {
 				socket.close();
 			} catch (IOException e1) {
@@ -86,7 +86,7 @@ public class EveryDayRank extends JFrame {
 			}
 		}
 		try {
-			out.writeUTF("ÈüÎÄÅÅĞĞ");
+			out.writeUTF("èµ›æ–‡æ’è¡Œ");
 			while(true){
 				vRow1 = new Vector();
 				vRow1.add(++n);
@@ -103,7 +103,7 @@ public class EveryDayRank extends JFrame {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			System.out.println("ÅÅÃû½áÊø");
+			System.out.println("æ’åç»“æŸ");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			try {
@@ -112,8 +112,8 @@ public class EveryDayRank extends JFrame {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			System.out.println("ÅÅÃû½áÊø");
+			System.out.println("æ’åç»“æŸ");
 		}
-		if(n==0)JOptionPane.showMessageDialog(new JTextArea(),"½ñÈÕÔİÎŞ³É¼¨");
+		if(n==0)JOptionPane.showMessageDialog(new JTextArea(),"ä»Šæ—¥æš‚æ— æˆç»©");
 	}
 }

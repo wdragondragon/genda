@@ -4,13 +4,13 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
-/*·şÎñÆ÷Àà*/
+/*æœåŠ¡å™¨ç±»*/
 public class CopyOfServer {
-	 public List<Socket> socketList = new ArrayList<Socket>();//´æ·ÅËùÓĞÁ¬½ÓµÄ¿Í»§¶ËµÄ¼¯ºÏ
-	 public ServerSocket server;//·şÎñÆ÷
-	 public int portNum;//¶Ë¿ÚºÅ
+	 public List<Socket> socketList = new ArrayList<Socket>();//å­˜æ”¾æ‰€æœ‰è¿æ¥çš„å®¢æˆ·ç«¯çš„é›†åˆ
+	 public ServerSocket server;//æœåŠ¡å™¨
+	 public int portNum;//ç«¯å£å·
 	 public static void main(String[] args) {
-		  int portNum = 8888;//´´½¨·şÎñÆ÷µÄ¶Ë¿ÚºÅ
+		  int portNum = 8888;//åˆ›å»ºæœåŠ¡å™¨çš„ç«¯å£å·
 		  CopyOfServer server = new CopyOfServer(portNum);
 		  server.innit();
 	 }
@@ -20,22 +20,22 @@ public class CopyOfServer {
 	 public void innit(){
 		 try {
 			   server = new ServerSocket(portNum);
-			   System.out.println("·şÎñÆ÷¿ªÆô³É¹¦£¡");
+			   System.out.println("æœåŠ¡å™¨å¼€å¯æˆåŠŸï¼");
 			   int socketNum = 0;
 			   while(true){
-				   Socket socket = server.accept();//±»¶¯µÈ´ı¿Í»§¶ËµÄÁ¬½Ó
+				   Socket socket = server.accept();//è¢«åŠ¨ç­‰å¾…å®¢æˆ·ç«¯çš„è¿æ¥
 				   socketNum++;
-				   System.out.println("µÚ"+socketNum+"¸ö¿Í»§¶ËÁ¬½Ó³É¹¦£¡£¡");
-				   socketList.add(socket);//Á¬½ÓµÄ¿Í»§¶Ë´æ·Åµ½¼¯ºÏÀïÃæ
+				   System.out.println("ç¬¬"+socketNum+"ä¸ªå®¢æˆ·ç«¯è¿æ¥æˆåŠŸï¼ï¼");
+				   socketList.add(socket);//è¿æ¥çš„å®¢æˆ·ç«¯å­˜æ”¾åˆ°é›†åˆé‡Œé¢
 				   new RWThread(socket,socketNum-1).start();
 			   }
 	
 		  } catch (IOException e) {
 //		   e.printStackTrace();
-			  System.out.println("¿Í»§¶Ï¿ª");
+			  System.out.println("å®¢æˆ·æ–­å¼€");
 		  }
 	 }
-	 class RWThread extends Thread{//½ÓÊÕºÍ·¢ËÍÏûÏ¢µÄÏß³Ì
+	 class RWThread extends Thread{//æ¥æ”¶å’Œå‘é€æ¶ˆæ¯çš„çº¿ç¨‹
 		  public Socket socket;
 		  public int socketNum;
 		  PrintWriter pw;
@@ -48,8 +48,8 @@ public class CopyOfServer {
 			  try {
 				  BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(),"utf-8"));
 				  while(true){
-					  String message = br.readLine();//½ÓÊÕ¿Í»§¶Ë·¢À´µÄÏûÏ¢
-					  for(int i=0;i<socketList.size();i++){//·¢ËÍ¸øËùÓĞÁ¬½ÓµÄ¿Í»§¶Ë
+					  String message = br.readLine();//æ¥æ”¶å®¢æˆ·ç«¯å‘æ¥çš„æ¶ˆæ¯
+					  for(int i=0;i<socketList.size();i++){//å‘é€ç»™æ‰€æœ‰è¿æ¥çš„å®¢æˆ·ç«¯
 						  if(i!=socketNum){
 							  pw = new PrintWriter(new OutputStreamWriter(socketList.get(i).getOutputStream()));
 							  pw.println(message);
@@ -58,18 +58,18 @@ public class CopyOfServer {
 					  }
 				  }
 			  } catch (IOException e) {
-				  for(int i=0;i<socketList.size();i++){//·¢ËÍ¸øËùÓĞÁ¬½ÓµÄ¿Í»§¶Ë
+				  for(int i=0;i<socketList.size();i++){//å‘é€ç»™æ‰€æœ‰è¿æ¥çš„å®¢æˆ·ç«¯
 					  if(i!=socketNum){
 						try {
 							pw = new PrintWriter(new OutputStreamWriter(socketList.get(i).getOutputStream(),"utf-8"));
-							pw.println("µÚ"+(socketNum+1)+"¿Í»§"+"¶Ï¿ª");
+							pw.println("ç¬¬"+(socketNum+1)+"å®¢æˆ·"+"æ–­å¼€");
 							pw.flush();
 						} catch (IOException e1) {
-							System.out.println("ÎŞ·¨Ïò¿Í»§"+i+"·¢ËÍ¿Í»§"+socketNum+"¶Ï¿ªĞÅÏ¢");
+							System.out.println("æ— æ³•å‘å®¢æˆ·"+i+"å‘é€å®¢æˆ·"+socketNum+"æ–­å¼€ä¿¡æ¯");
 						}
 					  }
 				  }
-				  System.out.println("µÚ"+(socketNum+1)+"¿Í»§"+"¶Ï¿ª");
+				  System.out.println("ç¬¬"+(socketNum+1)+"å®¢æˆ·"+"æ–­å¼€");
 			  }
 		  }
 	 }

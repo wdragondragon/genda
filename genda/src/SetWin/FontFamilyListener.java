@@ -20,25 +20,25 @@ public class FontFamilyListener implements ActionListener{
 		// TODO Auto-generated method stub
 		
 		String familyfont = family.getSelectedItem().toString();
-		if(familyfont.substring(0,2).equals("µ±«∞"))return;
+		if(familyfont.substring(0,2).equals("ÂΩìÂâç"))return;
 		Window.family = familyfont;
-		JTextPaneChange.createStyle("ª“",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);
-		JTextPaneChange.createStyle("∫⁄",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.rightcolor);
-		JTextPaneChange.createStyle("∫Ï",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);
+		JTextPaneChange.createStyle("ÁÅ∞",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);
+		JTextPaneChange.createStyle("Èªë",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.rightcolor);
+		JTextPaneChange.createStyle("Á∫¢",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);
 		
-		JTextPaneChange.createStyle("¿∂¥÷",JTextPaneChange.styledDoc,Window.fontSize,1,0,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
-		JTextPaneChange.createStyle("¿∂",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
-		JTextPaneChange.createStyle("¿∂–±",JTextPaneChange.styledDoc,Window.fontSize,0,1,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
-		JTextPaneChange.createStyle("¿∂¥÷–±",JTextPaneChange.styledDoc,Window.fontSize,1,1,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
-		JTextPaneChange.createStyle("∑€¥÷",JTextPaneChange.styledDoc,Window.fontSize,1,0,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
-		JTextPaneChange.createStyle("∑€",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
-		JTextPaneChange.createStyle("∑€–±",JTextPaneChange.styledDoc,Window.fontSize,0,1,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
-		JTextPaneChange.createStyle("∑€¥÷–±",JTextPaneChange.styledDoc,Window.fontSize,1,1,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
+		JTextPaneChange.createStyle("ËìùÁ≤ó",JTextPaneChange.styledDoc,Window.fontSize,1,0,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
+		JTextPaneChange.createStyle("Ëìù",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
+		JTextPaneChange.createStyle("ËìùÊñú",JTextPaneChange.styledDoc,Window.fontSize,0,1,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
+		JTextPaneChange.createStyle("ËìùÁ≤óÊñú",JTextPaneChange.styledDoc,Window.fontSize,1,1,0,Window.smacicolor,Window.family,Window.rightcolor);//GRAY
+		JTextPaneChange.createStyle("Á≤âÁ≤ó",JTextPaneChange.styledDoc,Window.fontSize,1,0,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
+		JTextPaneChange.createStyle("Á≤â",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
+		JTextPaneChange.createStyle("Á≤âÊñú",JTextPaneChange.styledDoc,Window.fontSize,0,1,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
+		JTextPaneChange.createStyle("Á≤âÁ≤óÊñú",JTextPaneChange.styledDoc,Window.fontSize,1,1,0,Window.emacicolor,Window.family,Window.rightcolor);//GRAY
 		
-		JTextPaneChange.createStyle("¬Ã¥÷",JTextPaneChange.styledDoc,Window.fontSize,1,0,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
-		JTextPaneChange.createStyle("¬Ã",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
-		JTextPaneChange.createStyle("¬Ã¥÷–±",JTextPaneChange.styledDoc,Window.fontSize,1,1,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
-		JTextPaneChange.createStyle("¬Ã–±",JTextPaneChange.styledDoc,Window.fontSize,0,1,0,Window.qmacicolor,Window.family,Window.mistakecolor);//GRAY
+		JTextPaneChange.createStyle("ÁªøÁ≤ó",JTextPaneChange.styledDoc,Window.fontSize,1,0,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
+		JTextPaneChange.createStyle("Áªø",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
+		JTextPaneChange.createStyle("ÁªøÁ≤óÊñú",JTextPaneChange.styledDoc,Window.fontSize,1,1,0,Window.qmacicolor,Window.family,Window.rightcolor);//GRAY
+		JTextPaneChange.createStyle("ÁªøÊñú",JTextPaneChange.styledDoc,Window.fontSize,0,1,0,Window.qmacicolor,Window.family,Window.mistakecolor);//GRAY
 		
 		Window.dazi.setFont(new Font(Window.family,0,Window.fontSize));
 		Window.accept.setFont(new Font(Window.family,0,Window.fontSize));

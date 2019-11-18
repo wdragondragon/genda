@@ -7,23 +7,23 @@ import java.util.*;
 public class Client {
 
     /**
-     * ÓÃÒÔÊµÏÖÓÃ»§µÄ×¢²áºÍµÇÂ¼
+     * ç”¨ä»¥å®ç°ç”¨æˆ·çš„æ³¨å†Œå’Œç™»å½•
      */
-    private static String username;//ÓÃ»§µÇÂ¼×¢²áµÄĞÕÃû
-    private static String password;//ÓÃ»§ÃÜÂë
-    private static String url="jdbc:mysql://localhost:3306/students?useUnicode=true&characterEncoding=utf-8";//Á¬½ÓÊı¾İ¿âµÄurl£¬testÊÇÎÒ×Ô¼ºµÄÒ»¸öÊı¾İ¿â°¡±¦±¦ÃÇ¡£
-    private static String user="root";//mysqlµÇÂ¼Ãû
-    private static String pass="951753";//mysqlµÇÂ¼ÃÜÂë£¨Ğ´×Ô¼ºÖ®Ç°ÉèÖÃµÄ£©
+    private static String username;//ç”¨æˆ·ç™»å½•æ³¨å†Œçš„å§“å
+    private static String password;//ç”¨æˆ·å¯†ç 
+    private static String url="jdbc:mysql://localhost:3306/students?useUnicode=true&characterEncoding=utf-8";//è¿æ¥æ•°æ®åº“çš„urlï¼Œtestæ˜¯æˆ‘è‡ªå·±çš„ä¸€ä¸ªæ•°æ®åº“å•Šå®å®ä»¬ã€‚
+    private static String user="root";//mysqlç™»å½•å
+    private static String pass="951753";//mysqlç™»å½•å¯†ç ï¼ˆå†™è‡ªå·±ä¹‹å‰è®¾ç½®çš„ï¼‰
     private static Connection con;//
     static Scanner input =new Scanner(System.in);
  
     public static void main(String[] args) throws Exception {
-        //¼ÓÔØÊı¾İ¿âÁ¬½ÓÇı¶¯²¢Á¬½Ó
+        //åŠ è½½æ•°æ®åº“è¿æ¥é©±åŠ¨å¹¶è¿æ¥
         Class.forName("com.mysql.jdbc.Driver");
         con=DriverManager.getConnection(url,user,pass);
 
-        System.out.println("********ÓÃ»§½çÃæ********");
-        System.out.println("ÇëÑ¡Ôñ£º\n 1:ÓÃ»§µÇÂ¼\n 2£ºÓÃ»§×¢²á");
+        System.out.println("********ç”¨æˆ·ç•Œé¢********");
+        System.out.println("è¯·é€‰æ‹©ï¼š\n 1:ç”¨æˆ·ç™»å½•\n 2ï¼šç”¨æˆ·æ³¨å†Œ");
         System.out.println("**********************");
 
         int i=input.nextInt();
@@ -35,39 +35,39 @@ public class Client {
             zhuce();
             break;
         default :
-            System.out.println("ÊäÈëÓĞÎó£¡");
+            System.out.println("è¾“å…¥æœ‰è¯¯ï¼");
             System.exit(0);
         }
 
     }
-    //ÓÃ»§×¢²á
+    //ç”¨æˆ·æ³¨å†Œ
     public static void zhuce() throws SQLException{
-        System.out.println("ÇëÊäÈëÄãµÄĞÕÃû£º");
+        System.out.println("è¯·è¾“å…¥ä½ çš„å§“åï¼š");
         username=input.next();
-        System.out.println("ÇëÊäÈëÄãµÄµÇÂ¼ÃÜÂë£º");
+        System.out.println("è¯·è¾“å…¥ä½ çš„ç™»å½•å¯†ç ï¼š");
         String p1=input.next();
-        System.out.println("ÇëÔÙ´ÎÊäÈëÄãµÄÈ·ÈÏÃÜÂë£º");
+        System.out.println("è¯·å†æ¬¡è¾“å…¥ä½ çš„ç¡®è®¤å¯†ç ï¼š");
         String p2=input.next();
         if(p1.equals(p2)){
-            //Á½´ÎÊäÈëµÄÃÜÂëÏàÍ¬²Å¿ÉÒÔ×¢²á
+            //ä¸¤æ¬¡è¾“å…¥çš„å¯†ç ç›¸åŒæ‰å¯ä»¥æ³¨å†Œ
             password=p1;
             String sql="insert into client (username,password) values(?,?)";
             PreparedStatement ptmt=con.prepareStatement(sql);
             ptmt.setString(1, username);
             ptmt.setString(2, password);
             ptmt.execute();
-            System.out.println("×¢²á³É¹¦£¡\nÇëµÇÂ¼£º");
+            System.out.println("æ³¨å†ŒæˆåŠŸï¼\nè¯·ç™»å½•ï¼š");
             denglu();
         }else{
-            System.out.println("ÄãÊäÈëµÄÃÜÂëÓëÈ·ÈÏÃÜÂë²»Ïà·û£¬ÇëÖØĞÂ×¢²á£º");
+            System.out.println("ä½ è¾“å…¥çš„å¯†ç ä¸ç¡®è®¤å¯†ç ä¸ç›¸ç¬¦ï¼Œè¯·é‡æ–°æ³¨å†Œï¼š");
             zhuce();
         }
     }
-    //ÓÃ»§µÇÂ¼
+    //ç”¨æˆ·ç™»å½•
     public static void denglu() throws SQLException{
-        System.out.println("ÇëÊäÈëÄãµÄĞÕÃû£º");
+        System.out.println("è¯·è¾“å…¥ä½ çš„å§“åï¼š");
         username=input.next();
-        System.out.println("ÇëÊäÈëÄãµÄÃÜÂë£º");
+        System.out.println("è¯·è¾“å…¥ä½ çš„å¯†ç ï¼š");
         password=input.next();
 
         String sql="select username,password from client where username=? and password=?";
@@ -75,11 +75,11 @@ public class Client {
         ptmt.setString(1, username);
         ptmt.setString(2, password);
         ResultSet rs=ptmt.executeQuery();
-        //´ÓµÇÂ¼ÓÃ»§¸ø³öµÄÕËºÅÃÜÂëÀ´¼ì²â²éÑ¯ÔÚÊı¾İ¿â±íÖĞÊÇ·ñ´æÔÚÏàÍ¬µÄÕËºÅÃÜÂë
+        //ä»ç™»å½•ç”¨æˆ·ç»™å‡ºçš„è´¦å·å¯†ç æ¥æ£€æµ‹æŸ¥è¯¢åœ¨æ•°æ®åº“è¡¨ä¸­æ˜¯å¦å­˜åœ¨ç›¸åŒçš„è´¦å·å¯†ç 
         if(rs.next()){
-            System.out.println("µÇÂ¼³É¹¦£¡");
+            System.out.println("ç™»å½•æˆåŠŸï¼");
         }else{
-            System.out.println("ĞÕÃû»òÃÜÂë´íÎó£¡\nÇëÖØĞÂµÇÂ¼£º");
+            System.out.println("å§“åæˆ–å¯†ç é”™è¯¯ï¼\nè¯·é‡æ–°ç™»å½•ï¼š");
             denglu();
         }
     }

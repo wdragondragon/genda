@@ -12,7 +12,7 @@ public class UpdateListener implements ActionListener{
 		// TODO Auto-generated method stub
 		try{
 			if(Example.systemname.length()>=7&&Example.systemname.substring(0,7).equals("Windows"))
-				Runtime.getRuntime().exec("¸üÐÂ.exe");
+				Runtime.getRuntime().exec("æ›´æ–°.exe");
 			else
 				Runtime.getRuntime().exec("java -jar update.jar");
 			System.exit(0);

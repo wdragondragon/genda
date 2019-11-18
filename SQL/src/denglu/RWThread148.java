@@ -14,6 +14,7 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.sql.Date;
 
+import Datesaiwen.addDatesaiwen;
 import Datesaiwen.saiwenSys;
 
 public class RWThread148 extends Thread{
@@ -42,65 +43,66 @@ public class RWThread148 extends Thread{
 			out = new DataOutputStream(socket.getOutputStream());
 //			timein = new TimingIn(this);
 //			timein.start();
-			System.out.print("ÓÃ»§½øÈë\r");
+			System.out.print("ç”¨æˆ·è¿›å…¥\r");
 			while(true){
-				message = in.readUTF();//½ÓÊÕ¿Í»§¶Ë·¢À´µÄÏûÏ¢
+				message = in.readUTF();//æ¥æ”¶å®¢æˆ·ç«¯å‘æ¥çš„æ¶ˆæ¯
 				message = KeyPassword.convertMD5(message);
-				if(message.equals("¶Ï¿ª")){
+				if(message.equals("æ–­å¼€")){
 					out.close();
 					socket.close();
-					System.out.println("ÍË³öµÇÂ¼");
+					System.out.println("é€€å‡ºç™»å½•");
 					socket.sendUrgentData(0);
 				}
-				if(message.equals("ĞÄÌø")){
+				if(message.equals("å¿ƒè·³")){
 					continue;
 				}
-				else if(message.equals("ºÃÓÑ")){
+				else if(message.equals("å¥½å‹")){
 //					getfriend();
 					continue;
 				}
-				else if(message.substring(0,2).equals("ÀúÊ·")){
+				else if(message.substring(0,2).equals("å†å²")){
 //					System.out.println(message);
 					addhistory(message);
 					continue;
 				}
-				else if(message.substring(0,2).equals("³É¼¨")){
+				else if(message.substring(0,2).equals("æˆç»©")){
 					System.out.println(message);
 					if(saiwenSign)addchengji(message,0);
 					saiwenSign = false;
 					continue;
 				}
-				else if(message.equals("»ñÈ¡½ñÈÕÈüÎÄ")){
+				else if(message.equals("è·å–ä»Šæ—¥èµ›æ–‡")){
 					System.out.println(message);
+					addDatesaiwen.adddatesaiwen();
 					int n = saiwenSys.everydaysaiwen(out,username);
 					if(n==1)saiwenSign=true;
 					continue;
 				}
-				else if(message.equals("Ìá½»ÈüÎÄ³É¼¨")){
+				else if(message.equals("æäº¤èµ›æ–‡æˆç»©")){
 					System.out.println(message);
 					saiwenSys.getachievement(in);
 					saiwenSign = false;
 					continue;
 				}
-				else if(message.substring(0,6).endsWith("¿Û¿Û·¢ËÍ³É¼¨")){
+				else if(message.substring(0,6).endsWith("æ‰£æ‰£å‘é€æˆç»©")){
 					SendQQMessage.sendmessage(message.substring(6));
 					continue;
 				}
-				else if(message.substring(0,4).equals("°ó¶¨ÓÊÏä")){
+				else if(message.substring(0,4).equals("ç»‘å®šé‚®ç®±")){
 					addbangemail(message.substring(4));
 					continue;
 				}
-				else if(message.substring(0,4).equals("ÑéÖ¤ÓÊÏä")){
+				else if(message.substring(0,4).equals("éªŒè¯é‚®ç®±")){
 					checkemail(message.substring(4));
 					continue;
 				}
-				else if(message.substring(0,4).equals("ĞŞ¸ÄÃÜÂë")){
+				else if(message.substring(0,4).equals("ä¿®æ”¹å¯†ç ")){
 					xgmima(message.substring(4));
 					continue;
 				}
 				else{
 					int pos = 0;
-					for(int i=0;i<7;i++){				//·ÖÎöÊÕµ½ĞÅÏ¢,·Ö¿é»¯
+					for(int i=0;i<7;i++){				//åˆ†ææ”¶åˆ°ä¿¡æ¯,åˆ†å—åŒ–
 						pos =  message.indexOf('%',pos)+1;
 						if(pos!=-1)
 							num[i] = pos;
@@ -114,20 +116,20 @@ public class RWThread148 extends Thread{
 					String rightnum = message.substring(num[4],num[5]-1);
 					String misnum = message.substring(num[5],num[6]-1);
 					String datenum = message.substring(num[6]);
-					if(!record.equals("ÎŞ")&&!record.equals("-999"))
+					if(!record.equals("æ— ")&&!record.equals("-999"))
 						recordnum = Integer.parseInt(record);
-					if(!rightnum.equals("ÎŞ"))
+					if(!rightnum.equals("æ— "))
 						recordrightnum =Integer.parseInt(rightnum);
-					if(!misnum.equals("ÎŞ"))
+					if(!misnum.equals("æ— "))
 						recordmisnum =Integer.parseInt(misnum);
-					if(!datenum.equals("ÎŞ"))
+					if(!datenum.equals("æ— "))
 						recorddatenum =Integer.parseInt(datenum);
 					if(dengluSign==0){
-						System.out.print(username+"½øÈë²Ù×÷\r");
+						System.out.print(username+"è¿›å…¥æ“ä½œ\r");
 						caozuo(caozuohao,username,password,recordnum);
 					}
 					else{
-						recordNumlast = recordnum;//±£´æ×îºóÒ»´Î×ÖÊı
+						recordNumlast = recordnum;//ä¿å­˜æœ€åä¸€æ¬¡å­—æ•°
 						recorddatenumlast = recorddatenum ;
 						if(recorddatenumlast%200==1)
 							changeRecord(recordNumlast,recordrightnum,recordmisnum,recorddatenumlast);
@@ -135,12 +137,12 @@ public class RWThread148 extends Thread{
 				}
 			}
 		}
-		catch(Exception e){ 		//ÍË³öÊ±£¬½«Êı¾İ¿âÀïµÄ×ÖÊıĞŞ¸Ä
+		catch(Exception e){ 		//é€€å‡ºæ—¶ï¼Œå°†æ•°æ®åº“é‡Œçš„å­—æ•°ä¿®æ”¹
 			e.printStackTrace();
-			System.out.print(username+"ÓÃ»§ÍË³ö\r");
+			System.out.print(username+"ç”¨æˆ·é€€å‡º\r");
 			if(dengluSign==1){
 				try {
-					System.out.println("×îºó×ÖÊı:"+recordNumlast+":"+recordrightnum+":"+recordmisnum+":"+recorddatenumlast);
+					System.out.println("æœ€åå­—æ•°:"+recordNumlast+":"+recordrightnum+":"+recordmisnum+":"+recorddatenumlast);
 //					if(recordNumlast<0)
 //						recordNumlast = 0;
 					if(recordrightnum>0&&recordNumlast>0)
@@ -148,14 +150,14 @@ public class RWThread148 extends Thread{
 				
 					changeonline(0);
 					if(saiwenSign)
-						addchengji("ÎŞ",1);
+						addchengji("æ— ",1);
 					in.close();
 					out.close();
 					socket.close();
 					socket = null;
 				}
 				catch (SQLException e1) {
-					System.out.print(username+"±£´æ×ÖÊıÊ§°Ü\r");}
+					System.out.print(username+"ä¿å­˜å­—æ•°å¤±è´¥\r");}
 				catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -173,8 +175,8 @@ public class RWThread148 extends Thread{
 	    ptmt.setString(1, c[0]);
 	    ptmt.setString(2, c[1]);
 		ResultSet rs=ptmt.executeQuery();
-		if(rs.next())out.writeUTF("ÑéÖ¤³É¹¦");
-		else out.writeUTF("ÑéÖ¤Ê§°Ü");
+		if(rs.next())out.writeUTF("éªŒè¯æˆåŠŸ");
+		else out.writeUTF("éªŒè¯å¤±è´¥");
 	}
 	public void xgmima(String mess) throws IOException{
 		String sql="update client set password=? where username=?";
@@ -186,13 +188,13 @@ public class RWThread148 extends Thread{
 			ptmt.setString(1, c[1]);
 			ptmt.setString(2, c[0]);
 			ptmt.execute();
-			out.writeUTF("ĞŞ¸Ä³É¹¦");
+			out.writeUTF("ä¿®æ”¹æˆåŠŸ");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		System.out.println("°ó¶¨ÃÜÂë³É¹¦");
+		System.out.println("ç»‘å®šå¯†ç æˆåŠŸ");
 	}
 	public void addbangemail(String email){
 		String sql="update client set email=? where username=?";
@@ -208,7 +210,7 @@ public class RWThread148 extends Thread{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("°ó¶¨ÓÊÏä³É¹¦");
+		System.out.println("ç»‘å®šé‚®ç®±æˆåŠŸ");
 	}
 	public void addchengji(String message,int n){
 		String sql="insert into saiwenchengji values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,default)";
@@ -220,11 +222,11 @@ public class RWThread148 extends Thread{
 			m=cal.get(Calendar.MONTH); 
 			d=cal.get(Calendar.DATE);
 			date = new Date(y-1900,m,d);
-		}catch(Exception e){System.out.println("»ñÈ¡Ê±¼ä´íÎó");return;}
+		}catch(Exception e){System.out.println("è·å–æ—¶é—´é”™è¯¯");return;}
 		PreparedStatement ptmt;
 		if(n==0){
 			int pos = 0;
-			for(int i=0;i<14;i++){				//·ÖÎöÊÕµ½ĞÅÏ¢,·Ö¿é»¯
+			for(int i=0;i<14;i++){				//åˆ†ææ”¶åˆ°ä¿¡æ¯,åˆ†å—åŒ–
 				pos =  message.indexOf('%',pos)+1;
 				if(pos!=-1)
 					hisnum[i] = pos;
@@ -288,7 +290,7 @@ public class RWThread148 extends Thread{
 				ptmt.setDouble(14, 0);
 				ptmt.setDouble(15, 0);
 				ptmt.execute();
-				System.out.println("ÈüÎÄ×÷·Ï");
+				System.out.println("èµ›æ–‡ä½œåºŸ");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -305,10 +307,10 @@ public class RWThread148 extends Thread{
 			m=cal.get(Calendar.MONTH); 
 			d=cal.get(Calendar.DATE);
 			date = new Date(y-1900,m,d);
-		}catch(Exception e){System.out.println("»ñÈ¡Ê±¼ä´íÎó");return;}
+		}catch(Exception e){System.out.println("è·å–æ—¶é—´é”™è¯¯");return;}
 		
 		int pos = 0;
-		for(int i=0;i<16;i++){				//·ÖÎöÊÕµ½ĞÅÏ¢,·Ö¿é»¯
+		for(int i=0;i<16;i++){				//åˆ†ææ”¶åˆ°ä¿¡æ¯,åˆ†å—åŒ–
 			pos =  message.indexOf('%',pos)+1;
 			if(pos!=-1)
 				hisnum[i] = pos;
@@ -354,7 +356,7 @@ public class RWThread148 extends Thread{
 		    ptmt.setDouble(17, nandu);
 		    ptmt.execute();
 //		    System.out.println(date);
-		    //999¶ÎÌí¼ÓÆ½¾ù³É¼¨
+		    //999æ®µæ·»åŠ å¹³å‡æˆç»©
 		    if(duan==999||duan==0){
 			    sql = "SELECT aver,n FROM client WHERE username=?";
 			    ptmt = Recordnum.con.prepareStatement(sql);
@@ -383,7 +385,7 @@ public class RWThread148 extends Thread{
 		}
 	}
 	public void changeRecord(int recordnum,int recordrightnum,int recordmisnum,int recorddatenumlast) throws SQLException{
-		String sql="update client set num =?,rightnum=?,misnum=?,datenum=? where username=?";//ËÑË÷´æÔÚÓÃ»§Ãû£¬²¢¸ÄÃñ×ÖÊı
+		String sql="update client set num =?,rightnum=?,misnum=?,datenum=? where username=?";//æœç´¢å­˜åœ¨ç”¨æˆ·åï¼Œå¹¶æ”¹æ°‘å­—æ•°
 		PreparedStatement ptmt=Recordnum.con.prepareStatement(sql);
         ptmt.setInt(1,recordnum);
         ptmt.setInt(2,recordrightnum);
@@ -404,16 +406,16 @@ public class RWThread148 extends Thread{
         }
 	}
     public void zhuce(String username,String password) throws SQLException{
-    	System.out.print(username+"ÕıÔÚ×¢²á\r");
-    	String sql="select username from client where username=?";//¼ì²âÓÃ»§ÃûÊÇ·ñ±»Ê¹ÓÃ¹ı
+    	System.out.print(username+"æ­£åœ¨æ³¨å†Œ\r");
+    	String sql="select username from client where username=?";//æ£€æµ‹ç”¨æˆ·åæ˜¯å¦è¢«ä½¿ç”¨è¿‡
         PreparedStatement ptmt=Recordnum.con.prepareStatement(sql);
         ptmt.setString(1, username);
         ResultSet rs=ptmt.executeQuery();
-        if(rs.next()){						//¼ì²âÓÃ»§ÃûÊÇ·ñ±»Ê¹ÓÃ¹ı
-        	System.out.print(username+"ÓÃ»§ÃûÒÑ±»×¢²á\r");
+        if(rs.next()){						//æ£€æµ‹ç”¨æˆ·åæ˜¯å¦è¢«ä½¿ç”¨è¿‡
+        	System.out.print(username+"ç”¨æˆ·åå·²è¢«æ³¨å†Œ\r");
         	try {
 				out.writeUTF("2");
-			} catch (IOException e) {System.out.print(username+"Í¨ÖªÏàÍ¬ÓÃ»§ÃûÊ§°Ü\r");}
+			} catch (IOException e) {System.out.print(username+"é€šçŸ¥ç›¸åŒç”¨æˆ·åå¤±è´¥\r");}
         }
         else{
 	        sql="insert into client values(?,?,?,?,?,?,?,?,?,?,?,default)";
@@ -431,12 +433,12 @@ public class RWThread148 extends Thread{
 	        ptmt.setDate(11, Dateinit.getdate());
 	        ptmt.execute();
 	        try {
-	        	System.out.print(username+"×¢²á³É¹¦£¡\r");
+	        	System.out.print(username+"æ³¨å†ŒæˆåŠŸï¼\r");
 				out.writeUTF("1");
-			} catch (IOException e) {System.out.print(username+"Í¨Öª×¢²á³É¹¦Ê§°Ü\r");}
+			} catch (IOException e) {System.out.print(username+"é€šçŸ¥æ³¨å†ŒæˆåŠŸå¤±è´¥\r");}
         }
     }
-    //ÓÃ»§µÇÂ¼
+    //ç”¨æˆ·ç™»å½•
     public void denglu(String username,String password,int recordnum,Thread thread){
     	int num = 0;
     	int misnum = 0;
@@ -444,7 +446,7 @@ public class RWThread148 extends Thread{
     	int datenum = 0;
     	String email;
     	Date date;
-    	System.out.print(username+"ÕıÔÚµÇÂ¼\r");
+    	System.out.print(username+"æ­£åœ¨ç™»å½•\r");
     	try{
 	        String sql="select * from client where username=? and password=?";
 	        String sql1="select * from client where username=?";
@@ -452,20 +454,20 @@ public class RWThread148 extends Thread{
 	        PreparedStatement ptmt=Recordnum.con.prepareStatement(sql1);
 	        ptmt.setString(1, username);
 	        ResultSet rs=ptmt.executeQuery();
-	        if(!rs.next()){		//¼ìÑéÕËºÅÊÇ·ñ´æÔÚ
-	        	 System.out.print(username+"ÕË»§²»´æÔÚ£¡\nÇëÖØĞÂµÇÂ¼£º\r");
+	        if(!rs.next()){		//æ£€éªŒè´¦å·æ˜¯å¦å­˜åœ¨
+	        	 System.out.print(username+"è´¦æˆ·ä¸å­˜åœ¨ï¼\nè¯·é‡æ–°ç™»å½•ï¼š\r");
 	            String message = "%3%0%0%0%0%0";
 	            try {
 					out.writeUTF(message);
-				} catch (IOException e) {System.out.print(username+"·¢ËÍµÇÂ¼Ê§°ÜÊ§°Ü\r");}
+				} catch (IOException e) {System.out.print(username+"å‘é€ç™»å½•å¤±è´¥å¤±è´¥\r");}
 	            return ;
 	        }
 	        ptmt=Recordnum.con.prepareStatement(sql);
 	        ptmt.setString(1, username);
 	        ptmt.setString(2, password);
 	        rs=ptmt.executeQuery();
-	        //´ÓµÇÂ¼ÓÃ»§¸ø³öµÄÕËºÅÃÜÂëÀ´¼ì²â²éÑ¯ÔÚÊı¾İ¿â±íÖĞÊÇ·ñ´æÔÚÏàÍ¬µÄÕËºÅÃÜÂë
-	        if(rs.next()){			//ÑéÖ¤ÃÜÂëÊÇ·ñÕıÈ·
+	        //ä»ç™»å½•ç”¨æˆ·ç»™å‡ºçš„è´¦å·å¯†ç æ¥æ£€æµ‹æŸ¥è¯¢åœ¨æ•°æ®åº“è¡¨ä¸­æ˜¯å¦å­˜åœ¨ç›¸åŒçš„è´¦å·å¯†ç 
+	        if(rs.next()){			//éªŒè¯å¯†ç æ˜¯å¦æ­£ç¡®
 	            num = rs.getInt(3);
 	            rightnum = rs.getInt(4);
 	            misnum = rs.getInt(5);
@@ -491,14 +493,14 @@ public class RWThread148 extends Thread{
 					System.out.println(message);
 					out.writeUTF(message);
 					dengluSign = 1;
-					System.out.print(username+"µÇÂ¼³É¹¦£¡\r");
-				} catch (IOException e) {System.out.print(username+"·¢ËÍµÇÂ¼³É¹¦Ê§°Ü\r");}
+					System.out.print(username+"ç™»å½•æˆåŠŸï¼\r");
+				} catch (IOException e) {System.out.print(username+"å‘é€ç™»å½•æˆåŠŸå¤±è´¥\r");}
 	        }else{
-	            System.out.print(username+"ĞÕÃû»òÃÜÂë´íÎó£¡\nÇëÖØĞÂµÇÂ¼£º\r");
+	            System.out.print(username+"å§“åæˆ–å¯†ç é”™è¯¯ï¼\nè¯·é‡æ–°ç™»å½•ï¼š\r");
 	            String message = "%2%0%0%0%0%0";
 	            try {
 					out.writeUTF(message);
-				} catch (IOException e) {System.out.print(username+"·¢ËÍµÇÂ¼Ê§°ÜÊ§°Ü\r");}
+				} catch (IOException e) {System.out.print(username+"å‘é€ç™»å½•å¤±è´¥å¤±è´¥\r");}
 	        }
     	}catch(SQLException e){e.printStackTrace();}
     }
@@ -520,10 +522,10 @@ public class RWThread148 extends Thread{
 //		 ptmt.setString(1, username);
 //	        ResultSet rs=ptmt.executeQuery();
 //	        if(rs.next()){
-//	        	System.out.println(username+"½øÈëºÃÓÑÏµÍ³");
+//	        	System.out.println(username+"è¿›å…¥å¥½å‹ç³»ç»Ÿ");
 //	        	String friends[];
 //	        	String f = rs.getString(8);
-//	        	System.out.println("ºÃÓÑÁĞ±í"+f);
+//	        	System.out.println("å¥½å‹åˆ—è¡¨"+f);
 //	        	if(f!=null&&f!=""){
 //	        		friends = f.split("%");
 //	        		for(int i=0;i<friends.length;i++){
@@ -546,8 +548,8 @@ public class RWThread148 extends Thread{
 //	        		}
 //	        	}
 //	        	else{
-//	        		System.out.println("ÎŞºÃÓÑ");try {
-//						out.writeUTF("%ºÃÓÑ==0");
+//	        		System.out.println("æ— å¥½å‹");try {
+//						out.writeUTF("%å¥½å‹==0");
 //					} catch (IOException e) {
 //						// TODO Auto-generated catch block
 //						e.printStackTrace();

@@ -68,7 +68,7 @@ public class F3Listener extends AbstractAction {
 		dazi.setEditable(true);
 
 		gendaListener.setSign(0);
-		zishu.setText("×ÖÊı:" + wenben.getText().length() + "/ÒÑ´ò:" + 0);
+		zishu.setText("å­—æ•°:" + wenben.getText().length() + "/å·²æ‰“:" + 0);
 
 		gendaListener.KeyNumber = 0;
 		gendaListener.deleteNumber = 0;
@@ -82,30 +82,30 @@ public class F3Listener extends AbstractAction {
 		gendaListener.Keylength.setText("0.00");
 		// gendaListener.record = "";
 		battleSend.Mistake++;
-		// ½ø¶ÈÌõ
+		// è¿›åº¦æ¡
 		if (SetFrameJinduListener.jindusign == 1)
-			gendajindu.open(QQZaiwenListener.wenbenstr.length());// ½ø¶ÈÌõ¿ªÆô
-		// ×ÖÌåÔØÎÄ
+			gendajindu.open(QQZaiwenListener.wenbenstr.length());// è¿›åº¦æ¡å¼€å¯
+		// å­—ä½“è½½æ–‡
 		Window.tipschange.changecolortip();
 		wenben.setText("");
 		Window.gendaListener.ChangeFontColor();
 		wenben.setCaretPosition(0);
-		// ´ò´ÊÖØÖÃ
+		// æ‰“è¯é‡ç½®
 		gendaListener.daciall = 0;
 		gendaListener.daci = 0;
-		// ÀíÂÛÂë³¤
+		// ç†è®ºç é•¿
 		Window.tipschange.compalllength();
 
-//		Window.lilunma.setText("ÀíÂÛÂë³¤:"
+//		Window.lilunma.setText("ç†è®ºç é•¿:"
 //				+ String.format("%.2f", 1.0 * Window.tipschange.alllength
 //						/ QQZaiwenListener.wenbenstr.length()));
-		Window.dinglilunma.setText("±ê¶¥ÀíÂÛ:"
+		Window.dinglilunma.setText("æ ‡é¡¶ç†è®º:"
 				+ String.format("%.2f", 1.0 * Window.tipschange.allCodeLength
 						/ QQZaiwenListener.wenbenstr.length()));
-		Window.zishu.setText("×ÖÊı:" + QQZaiwenListener.wenbenstr.length()
-				+ "/ÒÑ´ò:" + 0 + "/´í" + 0);
+		Window.zishu.setText("å­—æ•°:" + QQZaiwenListener.wenbenstr.length()
+				+ "/å·²æ‰“:" + 0 + "/é”™" + 0);
 		Window.tipschange
-				.changeTips(QQZaiwenListener.wenbenstr.substring(0, 1));// µ¥×Ö±àÂëÌáÊ¾¸ü¸Ä
+				.changeTips(QQZaiwenListener.wenbenstr.substring(0, 1));// å•å­—ç¼–ç æç¤ºæ›´æ”¹
 
 		if (Window.Pattern == 2) {
 			Englishword = QQZaiwenListener.wenbenstr.split(" ");
@@ -122,7 +122,7 @@ public class F3Listener extends AbstractAction {
 				EnglishType[i] = sign;
 			}
 			Window.tips.setText(TipsFrame.bianma.get(Englishword[0]));
-			TipsFrame.show.setText(Englishword[0] + "£º"
+			TipsFrame.show.setText(Englishword[0] + "ï¼š"
 					+ TipsFrame.bianma.get(Englishword[0]));
 		}
 		dazi.requestFocusInWindow();

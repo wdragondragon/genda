@@ -12,36 +12,36 @@ public class RoomListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getActionCommand()=="Ò»·¿"){
-			accept.setText("ÒÑÑ¡ÖĞÒ»ºÅ·¿\n");
+		if(e.getActionCommand()=="ä¸€æˆ¿"){
+			accept.setText("å·²é€‰ä¸­ä¸€å·æˆ¿\n");
 			Window.RoomNum = 1;
 		}
-		else if(e.getActionCommand()=="¶ş·¿"){
-			accept.setText("ÒÑÑ¡ÖĞ¶şºÅ·¿\n");
+		else if(e.getActionCommand()=="äºŒæˆ¿"){
+			accept.setText("å·²é€‰ä¸­äºŒå·æˆ¿\n");
 			Window.RoomNum = 2;
 		}
-		else if(e.getActionCommand()=="Èı·¿"){
-			accept.setText("ÒÑÑ¡ÖĞÈıºÅ·¿\n");
+		else if(e.getActionCommand()=="ä¸‰æˆ¿"){
+			accept.setText("å·²é€‰ä¸­ä¸‰å·æˆ¿\n");
 			Window.RoomNum = 3;
 		}
-		else if(e.getActionCommand()=="ËÄ·¿"){
-			accept.setText("ÒÑÑ¡ÖĞËÄºÅ·¿\n");
+		else if(e.getActionCommand()=="å››æˆ¿"){
+			accept.setText("å·²é€‰ä¸­å››å·æˆ¿\n");
 			Window.RoomNum = 4;
 		}
-		else if(e.getActionCommand()=="Îå·¿"){
-			accept.setText("ÒÑÑ¡ÖĞÎåºÅ·¿\n");
+		else if(e.getActionCommand()=="äº”æˆ¿"){
+			accept.setText("å·²é€‰ä¸­äº”å·æˆ¿\n");
 			Window.RoomNum = 5;
 		}
-		else if(e.getActionCommand()=="Áù·¿"){
-			accept.setText("ÒÑÑ¡ÖĞÁùºÅ·¿\n");
+		else if(e.getActionCommand()=="å…­æˆ¿"){
+			accept.setText("å·²é€‰ä¸­å…­å·æˆ¿\n");
 			Window.RoomNum = 6;
 		}
-		else if(e.getActionCommand()=="Æß·¿"){
-			accept.setText("ÒÑÑ¡ÖĞÆßºÅ·¿\n");
+		else if(e.getActionCommand()=="ä¸ƒæˆ¿"){
+			accept.setText("å·²é€‰ä¸­ä¸ƒå·æˆ¿\n");
 			Window.RoomNum = 7;
 		}
-		else if(e.getActionCommand()=="°Ë·¿"){
-			accept.setText("ÒÑÑ¡ÖĞ°ËºÅ·¿\n");
+		else if(e.getActionCommand()=="å…«æˆ¿"){
+			accept.setText("å·²é€‰ä¸­å…«å·æˆ¿\n");
 			Window.RoomNum = 8;
 		}		
 	}

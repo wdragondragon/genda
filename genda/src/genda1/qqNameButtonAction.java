@@ -16,7 +16,7 @@ public class qqNameButtonAction implements MouseListener{
 		// TODO Auto-generated method stub
 //		if(getQQGroupSign==0){
 //			getQQGroupSign = 1;
-//			qqName.setText("切换到要跟打的群再次点击");
+//			qqName.setText("鍒囨崲鍒拌璺熸墦鐨勭兢鍐嶆鐐瑰嚮");
 //		}
 //		else {
 //			getQQGroupSign = 0;

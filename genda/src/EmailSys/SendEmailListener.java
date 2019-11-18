@@ -19,7 +19,7 @@ public class SendEmailListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getActionCommand().equals("»ñÈ¡ÑéÖ¤Âë")&&Window.Email.equals("0")){
+		if(e.getActionCommand().equals("è·å–éªŒè¯ç ")&&Window.Email.equals("0")){
 			try {
 				emailsend d = new emailsend();
 				d.start();
@@ -28,22 +28,22 @@ public class SendEmailListener implements ActionListener {
 				ex.printStackTrace();
 			}
 		}
-		else if(e.getActionCommand().equals("È·¶¨")){
+		else if(e.getActionCommand().equals("ç¡®å®š")){
 			if(emailsend.str.equals(EmailFrame.yanzhengma.getText())){
 				try {
 					Login.in =  new DataInputStream(Login.socket.getInputStream());
-					String message = "°ó¶¨ÓÊÏä"+EmailFrame.email.getText()+"%"+Login.zhanghao.getText();
+					String message = "ç»‘å®šé‚®ç®±"+EmailFrame.email.getText()+"%"+Login.zhanghao.getText();
 					message = KeyPassword.convertMD5(message);
 					Login.out.writeUTF(message);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(null,"°ó¶¨³É¹¦");
+				JOptionPane.showMessageDialog(null,"ç»‘å®šæˆåŠŸ");
 			}
 		}
 		else if(!Window.Email.equals("0")){
-			JOptionPane.showMessageDialog(null,"ÄãÒÑ°ó¶¨ÓÊÏä");
+			JOptionPane.showMessageDialog(null,"ä½ å·²ç»‘å®šé‚®ç®±");
 		}
 	}
 }

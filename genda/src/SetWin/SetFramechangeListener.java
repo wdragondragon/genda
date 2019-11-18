@@ -20,13 +20,13 @@ public class SetFramechangeListener implements ActionListener {
 		// TODO Auto-generated method stub
 		if(tipsign == 0){
 			tipsign = 1;
-			change.setText("词语提示\"已开\"");
+			change.setText("璇嶈鎻愮ず\"宸插紑\"");
 			change.setForeground(SetFrame.open);
 			Window.wordTips.setSelected(true);
 		}
 		else{
 			tipsign = 0;
-			change.setText("词语提示\"已关\"");
+			change.setText("璇嶈鎻愮ず\"宸插叧\"");
 			change.setForeground(SetFrame.close);
 			Window.wordTips.setSelected(false);
 		}

@@ -24,39 +24,39 @@ public class Example{
 		win = null;
 		try{
 			win = new Window();
-			win.setTitle("¸ú´ò");
+			win.setTitle("è·Ÿæ‰“");
 			win.setBounds(100,100,710,515);
 		}catch(Exception e){e.printStackTrace();}
 		try {
 			InetAddress addr;
 			addr = InetAddress.getLocalHost();
-			String ip = addr.getHostAddress().toString(); //»ñÈ¡±¾»úip
-	        String hostName = addr.getHostName().toString(); //»ñÈ¡±¾»ú¼ÆËã»úÃû³Æ
-	        System.out.println("±¾»úIP£º" + ip + "\n±¾»úÃû³Æ:" + hostName);
+			String ip = addr.getHostAddress().toString(); //è·å–æœ¬æœºip
+	        String hostName = addr.getHostName().toString(); //è·å–æœ¬æœºè®¡ç®—æœºåç§°
+	        System.out.println("æœ¬æœºIPï¼š" + ip + "\næœ¬æœºåç§°:" + hostName);
 			Properties props = System.getProperties();
 			systemname = props.getProperty("os.name");
-			System.out.println("²Ù×÷ÏµÍ³µÄÃû³Æ£º" + props.getProperty("os.name"));
-	        System.out.println("²Ù×÷ÏµÍ³µÄ°æ±¾£º" + props.getProperty("os.version"));
+			System.out.println("æ“ä½œç³»ç»Ÿçš„åç§°ï¼š" + props.getProperty("os.name"));
+	        System.out.println("æ“ä½œç³»ç»Ÿçš„ç‰ˆæœ¬ï¼š" + props.getProperty("os.version"));
 		} catch (UnknownHostException e3) {
 			// TODO Auto-generated catch block
 			e3.printStackTrace();
 		}
 		try {
-			readWrite.read(win);//¶ÁÈ¡±£´æµÄÉèÖÃ
-		} catch (IOException e1) {System.out.println("¶ÁÈ¡ÉèÖÃÊ§°Ü");}
-		String message = "ÒÔºó¸üĞÂÊ±£¬Íâ²¿ÅäÖÃjre,set²»ĞèÒªÔÙÌæ»»£¬Ö»ĞèÒªÌæ»»ÄÚ²¿µÄ¡¶ÍÏÀ­»ú1.xx¡·ÎÄ¼ş¼Ğ\nµÇÂ¼ºó»á¸²¸Çµô±¾»úÔ­ÓĞ×ÖÊı\nÈçĞè»Ö¸´±¾»ú×ÖÊı£¬ÁªÏµ×÷Õß\n»¶Ó­Ê¹ÓÃ£¬ÍÏÀ­»ú°ïÖúÈº974172771\n¼¦Áú";
+			readWrite.read(win);//è¯»å–ä¿å­˜çš„è®¾ç½®
+		} catch (IOException e1) {System.out.println("è¯»å–è®¾ç½®å¤±è´¥");}
+		String message = "ä»¥åæ›´æ–°æ—¶ï¼Œå¤–éƒ¨é…ç½®jre,setä¸éœ€è¦å†æ›¿æ¢ï¼Œåªéœ€è¦æ›¿æ¢å†…éƒ¨çš„ã€Šæ‹–æ‹‰æœº1.xxã€‹æ–‡ä»¶å¤¹\nç™»å½•åä¼šè¦†ç›–æ‰æœ¬æœºåŸæœ‰å­—æ•°\nå¦‚éœ€æ¢å¤æœ¬æœºå­—æ•°ï¼Œè”ç³»ä½œè€…\næ¬¢è¿ä½¿ç”¨ï¼Œæ‹–æ‹‰æœºå¸®åŠ©ç¾¤974172771\né¸¡é¾™";
 		try{
 			if(readWrite.readsign()==0){
 				JOptionPane.showMessageDialog(new JTextArea(),message);
 //				JOptionPane.showMessageDialog(new JTextArea(),update);
 				readWrite.setreadsign();
 			}
-		}catch(IOException e2){System.out.println("¶ÁÈ¡ÎÄ¼şÌáÊ¾Ê§°Ü");}
+		}catch(IOException e2){System.out.println("è¯»å–æ–‡ä»¶æç¤ºå¤±è´¥");}
 		try{
 			readWrite.readzm();
 			Login.denglulistener.denglu();
 		}
-		catch(Exception e){System.out.println("¶ÁÈ¡ÕËºÅÃÜÂëÊ§°Ü");}
+		catch(Exception e){System.out.println("è¯»å–è´¦å·å¯†ç å¤±è´¥");}
 	}
 
 }

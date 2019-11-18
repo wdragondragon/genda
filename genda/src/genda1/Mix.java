@@ -23,7 +23,7 @@ public class Mix extends AbstractAction{
 		mixButton(e.getActionCommand());
 	}
 	public void mixButton(String model){
-		if(model.equals("∏√∂Œ¬“–Ú")){
+		if(model.equals("ËØ•ÊÆµ‰π±Â∫è")){
 			if(SendWenben.sendwenSign3==1)
 				QQZaiwenListener.wenbenstr = mixstr(ActicleListener.chouqubufenlist,ActicleListener.y);
 			else if(SendWenben.sendwenSign4)
@@ -32,7 +32,7 @@ public class Mix extends AbstractAction{
 				QQZaiwenListener.wenbenstr = mix(QQZaiwenListener.wenbenstr);
 			Window.f3listener.F3();
 		}
-		else if(model.equals("»´æ÷¬“–Ú")){
+		else if(model.equals("ÂÖ®Â±Ä‰π±Â∫è")){
 			ActicleListener.all = mix(ActicleListener.all);
 			if(ActicleListener.all==null)return;
 			ActicleListener.showwen();

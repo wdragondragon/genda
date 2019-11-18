@@ -12,7 +12,7 @@ import denglu.Recordnum;
 public class addDatesaiwen {
 	public static void adddatesaiwen(){
 		try {
-			//ÅĞ¶Ï½ñÈÕÓĞÎŞÈüÎÄ
+			//åˆ¤æ–­ä»Šæ—¥æœ‰æ— èµ›æ–‡
 			Date date = Dateinit.getdate();
 			String sql = "select * from everydaysaiwen where saiwendate=?";
 			PreparedStatement ptmt;
@@ -21,11 +21,11 @@ public class addDatesaiwen {
 			ResultSet rs=ptmt.executeQuery();
 			if(rs.next())return;
 			System.out.println(date.toString());
-			//ÎŞÈüÎÄÔò¼ÓÈüÎÄ
+			//æ— èµ›æ–‡åˆ™åŠ èµ›æ–‡
 			sql="insert into everydaysaiwen values(?,?,?)";
 			Load load = new Load();
 			String saiwen = load.getRamdomWenben();
-			String author = "Ëæ»úÉú³É";
+			String author = "éšæœºç”Ÿæˆ";
 			ptmt = Recordnum.con.prepareStatement(sql);
 			ptmt.setDate(1, date);
 			ptmt.setString(2,saiwen);

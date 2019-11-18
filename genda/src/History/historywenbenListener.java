@@ -30,18 +30,18 @@ public class historywenbenListener implements ActionListener {
 		try{
 		lookrownum = Integer.parseInt(historyFrame.id.get(Integer.parseInt(lookcow.getText())-1));
 		System.out.println(lookrownum);
-		}catch(Exception e){	JOptionPane.showMessageDialog(new JTextArea(),"ÊäÈë´íÎó");return;}
+		}catch(Exception e){	JOptionPane.showMessageDialog(new JTextArea(),"è¾“å…¥é”™è¯¯");return;}
 		try{
 			Socket socket = new Socket(Window.IP,Login.Login.port);
 			out = new DataOutputStream(socket.getOutputStream());
 			in = new DataInputStream(socket.getInputStream());
-			out.writeUTF("ÄÚÈİ%"+String.valueOf(lookrownum));
+			out.writeUTF("å†…å®¹%"+String.valueOf(lookrownum));
 			String wen = in.readUTF();
 			System.out.println(wen);
 			socket = null;
 			sw.setVisible(true);
 			sw.showwen(wen);
 		}
-		catch(Exception e){System.out.println("·¢ËÍ»ñÈ¡ÄÚÈİÊ§°Ü");e.printStackTrace();}
+		catch(Exception e){System.out.println("å‘é€è·å–å†…å®¹å¤±è´¥");e.printStackTrace();}
 	}
 }

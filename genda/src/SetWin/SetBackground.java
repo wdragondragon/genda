@@ -15,57 +15,57 @@ public class SetBackground implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
-		if(e.getActionCommand()=="´ò×Ö¿ò±³¾°ÑÕÉ«"){
-			tempColor = JColorChooser.showDialog(win, "µ÷É«°å", Color.white);
+		if(e.getActionCommand()=="æ‰“å­—æ¡†èƒŒæ™¯é¢œè‰²"){
+			tempColor = JColorChooser.showDialog(win, "è°ƒè‰²æ¿", Color.white);
 			if(tempColor!=null)
 				Window.dazi.setBackground(tempColor);
 		}
-		else if(e.getActionCommand()=="ÎÄ±¾¿ò±³¾°ÑÕÉ«"){
-			tempColor = JColorChooser.showDialog(win, "µ÷É«°å", Color.white);
+		else if(e.getActionCommand()=="æ–‡æœ¬æ¡†èƒŒæ™¯é¢œè‰²"){
+			tempColor = JColorChooser.showDialog(win, "è°ƒè‰²æ¿", Color.white);
 			if(tempColor!=null)
 				Window.wenben.setBackground(tempColor);
 		}
-		else if(e.getActionCommand()=="´ò¶Ô×ÖÑÕÉ«"){
-			Window.rightcolor = JColorChooser.showDialog(win, "µ÷É«°å", Color.gray);
+		else if(e.getActionCommand()=="æ‰“å¯¹å­—é¢œè‰²"){
+			Window.rightcolor = JColorChooser.showDialog(win, "è°ƒè‰²æ¿", Color.gray);
 			if(Window.rightcolor!=null)
-				JTextPaneChange.createStyle("ºÚ",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.rightcolor);
+				JTextPaneChange.createStyle("é»‘",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.rightcolor);
 		}
-		else if(e.getActionCommand()=="´ò´í×ÖÑÕÉ«"){
-			Window.mistakecolor = JColorChooser.showDialog(win, "µ÷É«°å", Color.red);
+		else if(e.getActionCommand()=="æ‰“é”™å­—é¢œè‰²"){
+			Window.mistakecolor = JColorChooser.showDialog(win, "è°ƒè‰²æ¿", Color.red);
 			if(Window.mistakecolor!=null)
-				JTextPaneChange.createStyle("ºì",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);
+				JTextPaneChange.createStyle("çº¢",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Color.BLACK,Window.family,Window.mistakecolor);
 		}
-		else if(e.getActionCommand()=="ÕûÌå½çÃæÑÕÉ«"){
-			tempColor = JColorChooser.showDialog(win, "µ÷É«°å", Color.red);
+		else if(e.getActionCommand()=="æ•´ä½“ç•Œé¢é¢œè‰²"){
+			tempColor = JColorChooser.showDialog(win, "è°ƒè‰²æ¿", Color.red);
 			if(tempColor!=null)
 				win1.getContentPane().setBackground(tempColor);
 		}
-		else if(e.getActionCommand()=="È«Âë´ÊÑÕÉ«"){
-			Window.qmacicolor = JColorChooser.showDialog(win, "µ÷É«°å",new Color(128,138,135));
+		else if(e.getActionCommand()=="å…¨ç è¯é¢œè‰²"){
+			Window.qmacicolor = JColorChooser.showDialog(win, "è°ƒè‰²æ¿",new Color(128,138,135));
 			if(Window.qmacicolor!=null){
-				JTextPaneChange.createStyle("ÂÌ´Ö",JTextPaneChange.styledDoc,Window.fontSize,1,0,0,Window.qmacicolor,Window.family,Window.mistakecolor);//GRAY
-				JTextPaneChange.createStyle("ÂÌ",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Window.qmacicolor,Window.family,Window.mistakecolor);//GRAY
-				JTextPaneChange.createStyle("ÂÌĞ±",JTextPaneChange.styledDoc,Window.fontSize,0,1,0,Window.qmacicolor,Window.family,Window.mistakecolor);//GRAY
-				JTextPaneChange.createStyle("ÂÌ´ÖĞ±",JTextPaneChange.styledDoc,Window.fontSize,1,1,0,Window.qmacicolor,Window.family,Window.mistakecolor);//GRAY
+				JTextPaneChange.createStyle("ç»¿ç²—",JTextPaneChange.styledDoc,Window.fontSize,1,0,0,Window.qmacicolor,Window.family,Window.mistakecolor);//GRAY
+				JTextPaneChange.createStyle("ç»¿",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Window.qmacicolor,Window.family,Window.mistakecolor);//GRAY
+				JTextPaneChange.createStyle("ç»¿æ–œ",JTextPaneChange.styledDoc,Window.fontSize,0,1,0,Window.qmacicolor,Window.family,Window.mistakecolor);//GRAY
+				JTextPaneChange.createStyle("ç»¿ç²—æ–œ",JTextPaneChange.styledDoc,Window.fontSize,1,1,0,Window.qmacicolor,Window.family,Window.mistakecolor);//GRAY
 			}	
 		}
-		else if(e.getActionCommand()=="¶şÂë´ÊÑÕÉ«"){
-			Window.emacicolor = JColorChooser.showDialog(win, "µ÷É«°å", Color.ORANGE);
+		else if(e.getActionCommand()=="äºŒç è¯é¢œè‰²"){
+			Window.emacicolor = JColorChooser.showDialog(win, "è°ƒè‰²æ¿", Color.ORANGE);
 			if(Window.emacicolor!=null){
-				JTextPaneChange.createStyle("·Û´Ö",JTextPaneChange.styledDoc,Window.fontSize,1,0,0,Window.emacicolor,Window.family,Window.mistakecolor);//GRAY
-				JTextPaneChange.createStyle("·Û",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Window.emacicolor,Window.family,Window.mistakecolor);//GRAY
-				JTextPaneChange.createStyle("·ÛĞ±",JTextPaneChange.styledDoc,Window.fontSize,0,1,0,Window.emacicolor,Window.family,Window.mistakecolor);//GRAY
-				JTextPaneChange.createStyle("·Û´ÖĞ±",JTextPaneChange.styledDoc,Window.fontSize,1,1,0,Window.emacicolor,Window.family,Window.mistakecolor);//GRAY
+				JTextPaneChange.createStyle("ç²‰ç²—",JTextPaneChange.styledDoc,Window.fontSize,1,0,0,Window.emacicolor,Window.family,Window.mistakecolor);//GRAY
+				JTextPaneChange.createStyle("ç²‰",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Window.emacicolor,Window.family,Window.mistakecolor);//GRAY
+				JTextPaneChange.createStyle("ç²‰æ–œ",JTextPaneChange.styledDoc,Window.fontSize,0,1,0,Window.emacicolor,Window.family,Window.mistakecolor);//GRAY
+				JTextPaneChange.createStyle("ç²‰ç²—æ–œ",JTextPaneChange.styledDoc,Window.fontSize,1,1,0,Window.emacicolor,Window.family,Window.mistakecolor);//GRAY
 			}
 				
 		}
-		else if(e.getActionCommand()=="ÈıÂë´ÊÑÕÉ«"){
-			Window.smacicolor = JColorChooser.showDialog(win, "µ÷É«°å",Color.BLUE);
+		else if(e.getActionCommand()=="ä¸‰ç è¯é¢œè‰²"){
+			Window.smacicolor = JColorChooser.showDialog(win, "è°ƒè‰²æ¿",Color.BLUE);
 			if(Window.smacicolor!=null){
-				JTextPaneChange.createStyle("À¶´Ö",JTextPaneChange.styledDoc,Window.fontSize,1,0,0,Window.smacicolor,Window.family,Window.mistakecolor);//GRAY
-				JTextPaneChange.createStyle("À¶",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Window.smacicolor,Window.family,Window.mistakecolor);//GRAY
-				JTextPaneChange.createStyle("À¶Ğ±",JTextPaneChange.styledDoc,Window.fontSize,0,1,0,Window.smacicolor,Window.family,Window.mistakecolor);//GRAY
-				JTextPaneChange.createStyle("À¶´ÖĞ±",JTextPaneChange.styledDoc,Window.fontSize,1,1,0,Window.smacicolor,Window.family,Window.mistakecolor);//GRAY
+				JTextPaneChange.createStyle("è“ç²—",JTextPaneChange.styledDoc,Window.fontSize,1,0,0,Window.smacicolor,Window.family,Window.mistakecolor);//GRAY
+				JTextPaneChange.createStyle("è“",JTextPaneChange.styledDoc,Window.fontSize,0,0,0,Window.smacicolor,Window.family,Window.mistakecolor);//GRAY
+				JTextPaneChange.createStyle("è“æ–œ",JTextPaneChange.styledDoc,Window.fontSize,0,1,0,Window.smacicolor,Window.family,Window.mistakecolor);//GRAY
+				JTextPaneChange.createStyle("è“ç²—æ–œ",JTextPaneChange.styledDoc,Window.fontSize,1,1,0,Window.smacicolor,Window.family,Window.mistakecolor);//GRAY
 			}
 		}
 	}

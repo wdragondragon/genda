@@ -21,17 +21,17 @@ public class BreakLinkListener implements ActionListener{
 					Window.Linksign=client.socket.isClosed();
 				}catch(Exception ex){}
 				finally{
-					accept.append("�ѶϿ�\n");
+					accept.append("已断开\n");
 //					ReadyListener.ReadyDuan = 1;
 				}
 			}
 			else {
-				accept.append("�ѶϿ�,�����ظ��Ͽ�\n");
+				accept.append("已断开,请勿重复断开\n");
 				Window.Linksign=client.socket.isClosed();
 			}
 		}
 		catch(Exception ex){
-			accept.setText("�����������ⷿ����ѡ��Ͽ�\n");
+			accept.setText("请先连接任意房间再选择断开\n");
 		}
 	}
 	public void setClient(battleClient client){

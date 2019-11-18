@@ -8,21 +8,21 @@ public class historyfanye implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getActionCommand()=="œ¬“ª“≥"){
+		if(e.getActionCommand()=="‰∏ã‰∏ÄÈ°µ"){
 			if(historyFrame.dangqian>=historyFrame.yenum)return;
 			historyFrame.dangqian++;
 		}
-		else if(e.getActionCommand()=="…œ“ª“≥"){
+		else if(e.getActionCommand()=="‰∏ä‰∏ÄÈ°µ"){
 			if(historyFrame.dangqian<=0)return;
 			historyFrame.dangqian--;
 		}
-		else if(e.getActionCommand()=="Ã¯µΩ ◊“≥"){
+		else if(e.getActionCommand()=="Ë∑≥Âà∞È¶ñÈ°µ"){
 			historyFrame.dangqian=0;
 		}
-		else if(e.getActionCommand()=="Ã¯µΩŒ≤“≥"){
+		else if(e.getActionCommand()=="Ë∑≥Âà∞Â∞æÈ°µ"){
 			historyFrame.dangqian=historyFrame.yenum;
 		}
-		else if(e.getActionCommand()=="Ã¯◊™"){
+		else if(e.getActionCommand()=="Ë∑≥ËΩ¨"){
 			historyFrame.dangqian = Integer.parseInt(historyFrame.dangqianye.getText())-1;
 		}
 		historyFrame.clear();

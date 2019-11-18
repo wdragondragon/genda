@@ -35,7 +35,7 @@ public class Tips{
 	public static StringBuilder allCode;
 	public int max = 0;
 	enum Type{
-		//0µ¥ 1È« 2´ÎÈ« 3Èı¼ò 4 ´ÎÈı¼ò 5¶ş¼ò  6´Î¶ş¼ò
+		//0å• 1å…¨ 2æ¬¡å…¨ 3ä¸‰ç®€ 4 æ¬¡ä¸‰ç®€ 5äºŒç®€  6æ¬¡äºŒç®€
 		dan(0),q(1),cq(2),sj(3),csj(4),ej(5),cej(6);
 		Type(int code){
 			this.code = code;
@@ -51,7 +51,7 @@ public class Tips{
 	public void Fuhao() throws IOException{
 		String str;
 		symbolCode = new HashMap<String,String>();
-		File FuhaoFile = new File("±àÂëÎÄ¼ş/·ûºÅÎÄ¼ş/·ûºÅÎÄ¼ş.txt");
+		File FuhaoFile = new File("ç¼–ç æ–‡ä»¶/ç¬¦å·æ–‡ä»¶/ç¬¦å·æ–‡ä»¶.txt");
 		FileInputStream fis = new FileInputStream(FuhaoFile); 
         InputStreamReader read = new InputStreamReader(fis, "UTF-8");
 		BufferedReader  bufferRead = new BufferedReader(read);
@@ -67,7 +67,7 @@ public class Tips{
 	}
 	public Tips(JLabel showText){
 		String regex = "234567890";
-		String topSymbol = "£¬¡£";
+		String topSymbol = "ï¼Œã€‚";
 		String str;
 		File more = new File(ChooseFile.cizufilename);
 		try {
@@ -112,12 +112,12 @@ public class Tips{
 							wordCode.put(ch, bm);
 							alltable.put(ch, length);
 						}
-						else if(wordCode.get(splited[0]).length()==length){
-							if(temp.equals("2")){
-								wordCode.put(ch, bm);
-								alltable.put(ch, length);
-							}
-						}
+//						else if(wordCode.get(splited[0]).length()==length&&length!=4){
+//							if(temp.equals("2")){
+//								wordCode.put(ch, bm);
+//								alltable.put(ch, length);
+//							}
+//						}
 					}
 					else{
 						wordCode.put(ch, bm);
@@ -154,7 +154,7 @@ public class Tips{
 			read.close();
 			fis.close();
 		}catch(Exception e){
-			System.out.println("´ò¿ªÊ§°Ü2");
+			System.out.println("æ‰“å¼€å¤±è´¥2");
 			e.printStackTrace();
 		}
 	}
@@ -165,7 +165,7 @@ public class Tips{
 			showText.setText(ch+":"+bm);
 		}
 		else{
-			showText.setText("Ã»ÓĞ¸Ã×Ö");
+			showText.setText("æ²¡æœ‰è¯¥å­—");
 		}
 	}
 	public static SubscriptInstance[] subscriptInstances;
@@ -173,17 +173,17 @@ public class Tips{
 	public void changecolortip(){
 		String article = QQZaiwenListener.wenbenstr;
 		int articleLength = article.length();
-		String symbol = "¡££¬";
+		String symbol = "ã€‚ï¼Œ";
 		String codeTemp;
 		String strTemp;
 		weizhi = 0;
 		subscriptInstances = new SubscriptInstance[article.length()];
 		try{
 			/**
-			 * ´´½¨article³¤¶ÈµÄSubscriptInstanceÊı×é
-			 * ²¢¶ÔÃ¿¸öSubscriptInstance½øĞĞ³õÊ¼»¯
-			 * ÅĞ¶Ï¸ÃÏÂ±ê×Ö·ûÊÇ·ñÔÚµ¥×ÖÂë±íÖĞ£¬Èç¹ûÎŞ£¬ÔòÅĞ¶ÏÊÇ·ñÎªÊı×é»ò×ÖÄ¸£¬ÊÇÔòÖ±½ÓÉèÖÃcodeTempÎª×Ö·û×ÔÉí
-			 * ¹¹Ôìº¯Êı´´½¨ÊµÀı¡£Ïê¼ûSubscriptInstance¹¹Ôì·½·¨
+			 * åˆ›å»ºarticleé•¿åº¦çš„SubscriptInstanceæ•°ç»„
+			 * å¹¶å¯¹æ¯ä¸ªSubscriptInstanceè¿›è¡Œåˆå§‹åŒ–
+			 * åˆ¤æ–­è¯¥ä¸‹æ ‡å­—ç¬¦æ˜¯å¦åœ¨å•å­—ç è¡¨ä¸­ï¼Œå¦‚æœæ— ï¼Œåˆ™åˆ¤æ–­æ˜¯å¦ä¸ºæ•°ç»„æˆ–å­—æ¯ï¼Œæ˜¯åˆ™ç›´æ¥è®¾ç½®codeTempä¸ºå­—ç¬¦è‡ªèº«
+			 * æ„é€ å‡½æ•°åˆ›å»ºå®ä¾‹ã€‚è¯¦è§SubscriptInstanceæ„é€ æ–¹æ³•
 			 * 
 			 * 
 			 */
@@ -216,20 +216,20 @@ public class Tips{
 			}
 			subscriptInstances[0].setCodeLengthTemp(subscriptInstances[0].getWordCode().length());
 			for(int j=0;j<articleLength;j++){
-				//»ñÈ¡Ç°Ò»×Ö·ûµÄ×î¶Ì±àÂë³¤¶È¡£
+				//è·å–å‰ä¸€å­—ç¬¦çš„æœ€çŸ­ç¼–ç é•¿åº¦ã€‚
 				int preCodeLengthTemp = j==0?0:subscriptInstances[j-1].getCodeLengthTemp();
-				//ÅĞ¶ÏÃ¿¸ö³¤¶ÈÊÇ·ñÓĞ´Ê
+				//åˆ¤æ–­æ¯ä¸ªé•¿åº¦æ˜¯å¦æœ‰è¯
 				for(int i=9;i>=0;i--){
 					if(articleLength>=j+i+2&&
 							wordsCodeList.get(i).containsKey(strTemp=article.substring(j,j+i+2)))
 					{
 						/**
-						 * ÁÙÊ±·ÅÈë±àÂë£¬Íùºó¼Ó _
-						 * ÅĞ¶Ï×îºóÒ»ÂëÊÇ·ñÎª¿Õ¸ñ_²¢ÇÒÕâ¸ö´ÊÌõµÄÏÂÒ»¸ö×Ö·ûÊÇ·ñÎª£¬¡£ÆäÖĞÒ»¸ö£¬Èç¹ûÊÇÔòÌæ»»µôcodeTemp
+						 * ä¸´æ—¶æ”¾å…¥ç¼–ç ï¼Œå¾€ååŠ  _
+						 * åˆ¤æ–­æœ€åä¸€ç æ˜¯å¦ä¸ºç©ºæ ¼_å¹¶ä¸”è¿™ä¸ªè¯æ¡çš„ä¸‹ä¸€ä¸ªå­—ç¬¦æ˜¯å¦ä¸ºï¼Œã€‚å…¶ä¸­ä¸€ä¸ªï¼Œå¦‚æœæ˜¯åˆ™æ›¿æ¢æ‰codeTemp
 						 * 
-						 * ÓÃÉÏÒ»×Ö·û×î¶ÌÂë³¤¼Ó¸Ã´Ê±àÂë£¬²¢½«iÌí¼ÓÔÚÕâ¸ö´ÊµÄ½áÎ²Î»ÖÃj+i+1ÏÂ±êµÄÉÏÒ»Ìø
-						 * ÉÏÒ»ÌøÖĞÓĞ¸÷ÖÖĞÅÏ¢·â×°ÔÚSubscriptInstanceÄÚ²¿ÀàPreInfoÖĞ
-						 * ×¢£ºSubscriptInstanceÖĞÓĞ¶à¸öÉÏÒ»Ìø£¬×Ö¶Î£ºpreInfoMap
+						 * ç”¨ä¸Šä¸€å­—ç¬¦æœ€çŸ­ç é•¿åŠ è¯¥è¯ç¼–ç ï¼Œå¹¶å°†iæ·»åŠ åœ¨è¿™ä¸ªè¯çš„ç»“å°¾ä½ç½®j+i+1ä¸‹æ ‡çš„ä¸Šä¸€è·³
+						 * ä¸Šä¸€è·³ä¸­æœ‰å„ç§ä¿¡æ¯å°è£…åœ¨SubscriptInstanceå†…éƒ¨ç±»PreInfoä¸­
+						 * æ³¨ï¼šSubscriptInstanceä¸­æœ‰å¤šä¸ªä¸Šä¸€è·³ï¼Œå­—æ®µï¼špreInfoMap
 						 */
 						codeTemp = wordsCodeList.get(i).get(strTemp);	
 						
@@ -250,12 +250,12 @@ public class Tips{
 						}
 					}
 					/**
-					 * £¨ÅĞ¶Ï¸ÃÏÂ±êµÄ×î¶Ì±àÂë³¤¶ÈÓĞÎŞÉèÖÃ
+					 * ï¼ˆåˆ¤æ–­è¯¥ä¸‹æ ‡çš„æœ€çŸ­ç¼–ç é•¿åº¦æœ‰æ— è®¾ç½®
 					 * 
-					 * ÎŞ->·ÖÖ§1£ºÈôÎŞÉèÖÃ£¬¼´Ç°Ãæ±éÀú¶¼Ã»ÓĞÓöµ½´Ê£¬ÏÂ±êj´¦Îªµ¥×Ö£¬½«¸ÃÏÂ±êÉèÖÃÎªÉÏÒ»Ìø×î¶Ì±àÂë³¤¶È+¸ÃÏÂ±êµ¥×Ö±àÂë³¤¶È£©
+					 * æ— ->åˆ†æ”¯1ï¼šè‹¥æ— è®¾ç½®ï¼Œå³å‰é¢éå†éƒ½æ²¡æœ‰é‡åˆ°è¯ï¼Œä¸‹æ ‡jå¤„ä¸ºå•å­—ï¼Œå°†è¯¥ä¸‹æ ‡è®¾ç½®ä¸ºä¸Šä¸€è·³æœ€çŸ­ç¼–ç é•¿åº¦+è¯¥ä¸‹æ ‡å•å­—ç¼–ç é•¿åº¦ï¼‰
 					 * 
-					 * ÓĞ->·ÖÖ§2£º[ËµÃ÷¸Ã´¦±ØÎªÄ³´ÊµÄ×îºóÒ»×Ö]£¨¸ÃÏÂ±ê×î¶Ì±àÂë³¤¶È£©ÊÇ·ñ´óÓÚ£¨ÉÏÒ»Ìø×î¶Ì±àÂë³¤¶È+¸Ã×Ö·û±àÂë³¤¶È£©
-					 * 		ÊÇ->ËµÃ÷ÉÏÒ»ÌøµÄ´Ê²»Îª×î¶Ì±àÂë£¬½«ÉÏÒ»ÌøÉ¾³ı£¬²¢½«¸Ã´¦×î¶Ì±àÂëÉèÖÃÎªºóÕß¡£
+					 * æœ‰->åˆ†æ”¯2ï¼š[è¯´æ˜è¯¥å¤„å¿…ä¸ºæŸè¯çš„æœ€åä¸€å­—]ï¼ˆè¯¥ä¸‹æ ‡æœ€çŸ­ç¼–ç é•¿åº¦ï¼‰æ˜¯å¦å¤§äºï¼ˆä¸Šä¸€è·³æœ€çŸ­ç¼–ç é•¿åº¦+è¯¥å­—ç¬¦ç¼–ç é•¿åº¦ï¼‰
+					 * 		æ˜¯->è¯´æ˜ä¸Šä¸€è·³çš„è¯ä¸ä¸ºæœ€çŸ­ç¼–ç ï¼Œå°†ä¸Šä¸€è·³åˆ é™¤ï¼Œå¹¶å°†è¯¥å¤„æœ€çŸ­ç¼–ç è®¾ç½®ä¸ºåè€…ã€‚
 					 */
 					if(j>0){
 						String word = subscriptInstances[j].getWord();
@@ -275,15 +275,15 @@ public class Tips{
 				}
 			}
 			/**
-			 * ½áÊøÁËËùÓĞÔö¼ÓÉÏÒ»Ìø²Ù×÷ºó£¬´ÓºóÍùÇ°Ìø£¨ÒòÎª×îºóÒ»¸ñÎª×î¶Ì±àÂë£¬Ò»Ö±ÍùÉÏÒ»Ìø¾ø¶ÔÎª×î¶ÌÂ·¾¶£©
+			 * ç»“æŸäº†æ‰€æœ‰å¢åŠ ä¸Šä¸€è·³æ“ä½œåï¼Œä»åå¾€å‰è·³ï¼ˆå› ä¸ºæœ€åä¸€æ ¼ä¸ºæœ€çŸ­ç¼–ç ï¼Œä¸€ç›´å¾€ä¸Šä¸€è·³ç»å¯¹ä¸ºæœ€çŸ­è·¯å¾„ï¼‰
 			 * 
-			 * ÓÅÏÈ->Ö´ĞĞÑ­»·´ÓÇ°Íùºó±éÀú£¬Ã¿´ÎÑ­»·ÓÅÏÈÕÒiµÄ×î¼Ñ±àÂëµÄÉÏÒ»ÌøbestPre£¬ÌøÒ»´Îºó½«bestPreµãµÄÏÂÒ»ÌøÉèÖÃÎªi
-			 * 		½«bestPreÉèÖÃÎªÒÑÊ¹ÓÃ´Ê×éÊ¼Î»useWordSignÉèÖÃÎªtrue,ÔÙ½«bestPreµ½iÈ«²¿½«´Ê×é¸²¸Ç±ê¼ÇuseSignÉèÖÃÎªtrue
+			 * ä¼˜å…ˆ->æ‰§è¡Œå¾ªç¯ä»å‰å¾€åéå†ï¼Œæ¯æ¬¡å¾ªç¯ä¼˜å…ˆæ‰¾içš„æœ€ä½³ç¼–ç çš„ä¸Šä¸€è·³bestPreï¼Œè·³ä¸€æ¬¡åå°†bestPreç‚¹çš„ä¸‹ä¸€è·³è®¾ç½®ä¸ºi
+			 * 		å°†bestPreè®¾ç½®ä¸ºå·²ä½¿ç”¨è¯ç»„å§‹ä½useWordSignè®¾ç½®ä¸ºtrue,å†å°†bestPreåˆ°iå…¨éƒ¨å°†è¯ç»„è¦†ç›–æ ‡è®°useSignè®¾ç½®ä¸ºtrue
 			 *
-			 * ´ÎÓÅÏÈ->Ö´ĞĞÍêÓÅÏÈÏÂÌøºó£¬±éÀúiµãµÄËùÓĞÉÏÒ»Ìøpre£¬ÅĞ¶ÏÊÇ·ñÂú×ã£¨pre>bestPreÇÒÃ»ÓĞ´Ê×é¸²¸Ç¹ıpre£©
-			 * 		ÊÇ->ËùÓĞµÄpreµÄÏÂÒ»Ìø¶¼ÉèÖÃÎªi£¬²¢½«ÒÑÊ¹ÓÃ´Ê×éÊ¼Î»useWordSignÉèÖÃÎªtrue
+			 * æ¬¡ä¼˜å…ˆ->æ‰§è¡Œå®Œä¼˜å…ˆä¸‹è·³åï¼Œéå†iç‚¹çš„æ‰€æœ‰ä¸Šä¸€è·³preï¼Œåˆ¤æ–­æ˜¯å¦æ»¡è¶³ï¼ˆpre>bestPreä¸”æ²¡æœ‰è¯ç»„è¦†ç›–è¿‡preï¼‰
+			 * 		æ˜¯->æ‰€æœ‰çš„preçš„ä¸‹ä¸€è·³éƒ½è®¾ç½®ä¸ºiï¼Œå¹¶å°†å·²ä½¿ç”¨è¯ç»„å§‹ä½useWordSignè®¾ç½®ä¸ºtrue
 			 * 
-			 * Ö±½Ó½«±éÀúÌáÇ°µ½bestPre
+			 * ç›´æ¥å°†éå†æå‰åˆ°bestPre
 			 */
 			for(int i = article.length()-1;i>=0;i--){
 				boolean sign = true;
@@ -326,18 +326,18 @@ public class Tips{
 	}
 	public int getType(String codeTemp){
 		int lengthTemp = codeTemp.length();
-		String lastStr = codeTemp.substring(lengthTemp-1,lengthTemp);	//»ñÈ¡±àÂë×îºóÒ»¸ö×Ö·û
+		String lastStr = codeTemp.substring(lengthTemp-1,lengthTemp);	//è·å–ç¼–ç æœ€åä¸€ä¸ªå­—ç¬¦
 		String regex = "234567890";
-		int nonPreferred = 0;//·ÇÊ×Ñ¡±ê¼Ç
+		int nonPreferred = 0;//éé¦–é€‰æ ‡è®°
 		if(lastStr.equals("_")){
 			lengthTemp -= 1;
 			nonPreferred = 0;
 		}
-		else if(regex.indexOf(lastStr)!=-1){		//ÅĞ¶Ï×îºóÒ»×Ö·ûÊÇ·ñÎª¶àÖØ
+		else if(regex.indexOf(lastStr)!=-1){		//åˆ¤æ–­æœ€åä¸€å­—ç¬¦æ˜¯å¦ä¸ºå¤šé‡
 			lengthTemp -= 1;
 			nonPreferred = 1;
 		}else nonPreferred = 0;
-		if(lengthTemp<3){//0µ¥ 1È« 2´ÎÈ« 3Èı¼ò 4 ´ÎÈı¼ò 5¶ş¼ò  6´Î¶ş¼ò
+		if(lengthTemp<3){//0å• 1å…¨ 2æ¬¡å…¨ 3ä¸‰ç®€ 4 æ¬¡ä¸‰ç®€ 5äºŒç®€  6æ¬¡äºŒç®€
 			if(nonPreferred==0)return Type.ej.code;
 			else return Type.cej.code;
 		}else if(lengthTemp<4){

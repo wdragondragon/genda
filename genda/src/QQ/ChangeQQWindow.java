@@ -27,6 +27,6 @@ public class ChangeQQWindow extends AbstractAction{
 			F5.setText(ot.name.get(i));
 			i++;
 			i = i%(ot.name.size());
-		}catch(Exception e){System.out.println("»ñÈ¡QQ´°¿Ú´íÎó");}
+		}catch(Exception e){System.out.println("è·å–QQçª—å£é”™è¯¯");}
 	}
 }

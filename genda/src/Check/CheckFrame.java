@@ -11,18 +11,18 @@ public class CheckFrame extends JFrame {
 		setBounds(10,10,330,200);
 		setVisible(true);
 		setResizable(false);
-		setTitle("Ğ£Ñé¿´´ò³É¼¨");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//ÉèÖÃ¹Ø±Õ°´Å¥
+		setTitle("æ ¡éªŒçœ‹æ‰“æˆç»©");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//è®¾ç½®å…³é—­æŒ‰é’®
 	}
 	void init(){
 		setLayout(null);
 		checktext = new JTextArea("");
-		confiregen = new JButton("¸ú´òĞ£Ñé");
-		confirelook = new JButton("¿´´òĞ£Ñé");
-		confireying = new JButton("Ó¢´òĞ£Ñé");
+		confiregen = new JButton("è·Ÿæ‰“æ ¡éªŒ");
+		confirelook = new JButton("çœ‹æ‰“æ ¡éªŒ");
+		confireying = new JButton("è‹±æ‰“æ ¡éªŒ");
 		
 		checktextjs = new JScrollPane(checktext);
-		checktext.setLineWrap(true);//ÔØÎÄ¿ò×Ô¶¯»»ĞĞ
+		checktext.setLineWrap(true);//è½½æ–‡æ¡†è‡ªåŠ¨æ¢è¡Œ
 		checktextjs.setBounds(10,10,300,100);
 		confiregen.setBounds(10,120,70,30);
 		confirelook.setBounds(90,120,70,30);

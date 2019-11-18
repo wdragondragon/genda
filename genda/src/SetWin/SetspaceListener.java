@@ -20,12 +20,12 @@ public class SetspaceListener implements ActionListener {
 		// TODO Auto-generated method stub
 		if (spacesign == 0) {
 			spacesign = 1;
-			space.setText("È¥³ý¿Õ¸ñ\"ÒÑ¿ª\"");
+			space.setText("åŽ»é™¤ç©ºæ ¼\"å·²å¼€\"");
 			space.setForeground(SetFrame.open);
 			Window.space.setSelected(true);
 		} else {
 			spacesign = 0;
-			space.setText("È¥³ý¿Õ¸ñ\"ÒÑ¹Ø\"");
+			space.setText("åŽ»é™¤ç©ºæ ¼\"å·²å…³\"");
 			space.setForeground(SetFrame.close);
 			Window.space.setSelected(false);
 		}

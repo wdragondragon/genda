@@ -28,11 +28,11 @@ public class Changetxt extends Thread{
 			changetxt();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(new JTextArea(),"×ª»»Ê§°Ü2");
+			JOptionPane.showMessageDialog(new JTextArea(),"è½¬æ¢å¤±è´¥2");
 		}
 	}
 	public  void changetxt()throws IOException{
-		File one = new File("±àÂëÎÄ¼ş/Éú³ÉÂë±í.txt");
+		File one = new File("ç¼–ç æ–‡ä»¶/ç”Ÿæˆç è¡¨.txt");
 		
 //		more = new File(filename);
 		Set<String> strlist = new TreeSet<String>();
@@ -61,7 +61,7 @@ public class Changetxt extends Thread{
 				int i = str.indexOf('#');
 				int n = str.indexOf('$');
 				if(i!=-1)
-					if(str.toCharArray()[i+1]=='Ğò'||str.toCharArray()[i+1]=='ÓÃ'||str.toCharArray()[i+1]=='¹Ì')
+					if(str.toCharArray()[i+1]=='åº'||str.toCharArray()[i+1]=='ç”¨'||str.toCharArray()[i+1]=='å›º')
 						str = str.substring(0, i);
 					else continue;
 				else if(n!=-1)continue;
@@ -100,7 +100,7 @@ public class Changetxt extends Thread{
 			bufferWriter.write(all.toString());
 			bufferWriter.flush();
 			double time = comp.getSecond();
-			JOptionPane.showMessageDialog(new JTextArea(),"×ª»»³É¹¦,ÖØĞÂÉèÖÃÈ«Âë±íÉúĞ§´ÊÌá¡¢±àÂëÌáÊ¾ÓëÀíÂÛÂë³¤\nÉú³ÉÂë±íÎ»ÓÚ:±àÂëÎÄ¼ş\n¸Ã´Î×ª»»ÀúÊ±"+String.format("%.2f", time)+"Ãë");
+			JOptionPane.showMessageDialog(new JTextArea(),"è½¬æ¢æˆåŠŸ,é‡æ–°è®¾ç½®å…¨ç è¡¨ç”Ÿæ•ˆè¯æã€ç¼–ç æç¤ºä¸ç†è®ºç é•¿\nç”Ÿæˆç è¡¨ä½äº:ç¼–ç æ–‡ä»¶\nè¯¥æ¬¡è½¬æ¢å†æ—¶"+String.format("%.2f", time)+"ç§’");
 			bufferWriter.close();
 			read.close();
 			fis.close();

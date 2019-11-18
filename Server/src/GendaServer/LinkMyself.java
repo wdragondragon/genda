@@ -24,7 +24,7 @@ public class LinkMyself extends Thread{
 				for(int i=0;i<port.length;i++){
 					socket = new Socket("127.0.0.1",port[i]);
 					DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-//					out.writeUTF("×ÔÁ¬");
+//					out.writeUTF("è‡ªè¿ž");
 					socket.close();
 					socket = null;
 				}

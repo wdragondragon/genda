@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../SQL/SQL.iml" filepath="$PROJECT_DIR$/../SQL/SQL.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../Server/Server.iml" filepath="$PROJECT_DIR$/../Server/Server.iml" />
       <module fileurl="file://$PROJECT_DIR$/genda.iml" filepath="$PROJECT_DIR$/genda.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../update/update.iml" filepath="$PROJECT_DIR$/../update/update.iml" />
     </modules>
   </component>
 </project>

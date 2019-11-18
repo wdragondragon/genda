@@ -28,13 +28,13 @@ public class historyselect implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		lianjie();
-		if(e.getActionCommand()=="É¸Ñ¡ÈÕÆÚ"){
+		if(e.getActionCommand()=="ç­›é€‰æ—¥æœŸ"){
 			requestdate();
 		}
-		else if(e.getActionCommand()=="É¸Ñ¡ËÙ¶È"){
+		else if(e.getActionCommand()=="ç­›é€‰é€Ÿåº¦"){
 			requestsudu();
 		}
-		else if(e.getActionCommand()=="É¸Ñ¡ÈüÎÄ³É¼¨"){
+		else if(e.getActionCommand()=="ç­›é€‰èµ›æ–‡æˆç»©"){
 			requestsaiwen();
 		}
 		historyFrame.yenum = historyFrame.yenum++/historyFrame.fenye;
@@ -48,13 +48,13 @@ public class historyselect implements ActionListener {
 			in = new DataInputStream(socket.getInputStream());
 		}catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
-			System.out.println("¸ú´ò¼ÇÂ¼ÍøÂç´íÎó1");
+			System.out.println("è·Ÿæ‰“è®°å½•ç½‘ç»œé”™è¯¯1");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("¸ú´ò¼ÇÂ¼ÍøÂç´íÎó2");
+			System.out.println("è·Ÿæ‰“è®°å½•ç½‘ç»œé”™è¯¯2");
 		}
 		try {
-			out.writeUTF("¸ú´ò¼ÇÂ¼");
+			out.writeUTF("è·Ÿæ‰“è®°å½•");
 			out.writeUTF(Login.zhanghao.getText());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -87,7 +87,7 @@ public class historyselect implements ActionListener {
 			}
 			historyFrame.aver();
 			historyFrame.showtable();
-			System.out.println("ÅÅÃû½áÊø");
+			System.out.println("æ’åç»“æŸ");
 		}
 	}
 	void requestsudu(){
@@ -104,7 +104,7 @@ public class historyselect implements ActionListener {
 				double suduget;
 				try{
 					suduget = Integer.valueOf(historyFrame.suduf.getText());
-				}catch(Exception e){JOptionPane.showMessageDialog(new JTextArea(),"ÊäÈë´íÎó");return;}
+				}catch(Exception e){JOptionPane.showMessageDialog(new JTextArea(),"è¾“å…¥é”™è¯¯");return;}
 				if(sudu>=Integer.valueOf(historyFrame.suduf.getText())){
 					getvROW();
 				}
@@ -121,7 +121,7 @@ public class historyselect implements ActionListener {
 			if(historyFrame.num==0)return;
 			historyFrame.aver();
 			historyFrame.showtable();
-			System.out.println("ÅÅÃû½áÊø");
+			System.out.println("æ’åç»“æŸ");
 		}
 	}
 	void requestdate(){
@@ -150,10 +150,10 @@ public class historyselect implements ActionListener {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			if(historyFrame.num==0){JOptionPane.showMessageDialog(new JTextArea(),"ÎŞ¼ÇÂ¼");return;}
+			if(historyFrame.num==0){JOptionPane.showMessageDialog(new JTextArea(),"æ— è®°å½•");return;}
 			historyFrame.aver();
 			historyFrame.showtable();
-			System.out.println("ÅÅÃû½áÊø");
+			System.out.println("æ’åç»“æŸ");
 		}
 	}
 	void getvROW(){

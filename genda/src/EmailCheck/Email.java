@@ -11,6 +11,6 @@ public class Email implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		new EmailCheckFrame().setTitle("ĞŞ¸ÄÃÜÂë");
+		new EmailCheckFrame().setTitle("ä¿®æ”¹å¯†ç ");
 	}
 }

@@ -14,18 +14,18 @@ public class RankListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(Login.dengluSign==1){
-			if(e.getActionCommand()=="×Ü¸ú´òÅÅÃû")
-				new rankFrame(1).setTitle("×Ü¸ú´òÅÅÃû");
-			else if(e.getActionCommand()=="ÈÕ¸ú´òÅÅÃû")
-				new rankFrame(2).setTitle("ÈÕ¸ú´òÅÅÃû");
-			else if(e.getActionCommand()=="ÈüÎÄÆ½¾ù³É¼¨ÅÅÃû")
-				new rankFrame(3).setTitle("ÈüÎÄÆ½¾ù³É¼¨ÅÅÃû");
-			else if(e.getActionCommand()=="Ã¿ÈÕÈüÎÄÅÅÃû"){
+			if(e.getActionCommand()=="æ€»è·Ÿæ‰“æ’å")
+				new rankFrame(1).setTitle("æ€»è·Ÿæ‰“æ’å");
+			else if(e.getActionCommand()=="æ—¥è·Ÿæ‰“æ’å")
+				new rankFrame(2).setTitle("æ—¥è·Ÿæ‰“æ’å");
+			else if(e.getActionCommand()=="èµ›æ–‡å¹³å‡æˆç»©æ’å")
+				new rankFrame(3).setTitle("èµ›æ–‡å¹³å‡æˆç»©æ’å");
+			else if(e.getActionCommand()=="æ¯æ—¥èµ›æ–‡æ’å"){
 				new EveryDayRank();
 			}
 		}
 		else{
-			JOptionPane.showMessageDialog(new JTextArea(),"ÇëÏÈµÇÂ¼");
+			JOptionPane.showMessageDialog(new JTextArea(),"è¯·å…ˆç™»å½•");
 		}
 	}
 }

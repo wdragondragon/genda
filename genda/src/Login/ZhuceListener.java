@@ -40,17 +40,17 @@ public class ZhuceListener implements ActionListener {
 				Login.out.writeUTF(Login.banben);
 				String what = Login.in.readUTF();
 				Login.socket.setSoTimeout(0);
-				if (!what.substring(0, 4).equals("°æ±¾ÕıÈ·")) {
-					UIManager.put("OptionPane.yesButtonText", "×Ô¶¯¸üĞÂ");
-					UIManager.put("OptionPane.noButtonText", "ÊÖ¶¯ÏÂÔØ");
-					int n = JOptionPane.showConfirmDialog(null, what, "¸üĞÂÌáÊ¾",
+				if (!what.substring(0, 4).equals("ç‰ˆæœ¬æ­£ç¡®")) {
+					UIManager.put("OptionPane.yesButtonText", "è‡ªåŠ¨æ›´æ–°");
+					UIManager.put("OptionPane.noButtonText", "æ‰‹åŠ¨ä¸‹è½½");
+					int n = JOptionPane.showConfirmDialog(null, what, "æ›´æ–°æç¤º",
 							JOptionPane.YES_NO_OPTION);
 					if (n == JOptionPane.YES_OPTION) {
 						// ......
 						if (Example.systemname.length() >= 7
 								&& Example.systemname.substring(0, 7).equals(
 										"Windows"))
-							Runtime.getRuntime().exec("¸üĞÂ.exe");
+							Runtime.getRuntime().exec("æ›´æ–°.exe");
 						else
 							Runtime.getRuntime().exec("java -jar update.jar");
 						System.exit(0);
@@ -62,24 +62,24 @@ public class ZhuceListener implements ActionListener {
 					}
 				}
 				String message = "%2%" + Login.zhanghao.getText() + "%"
-						+ Login.mima.getText() + "%ÎŞ" + "%ÎŞ" + "%ÎŞ" + "%ÎŞ";
+						+ Login.mima.getText() + "%æ— " + "%æ— " + "%æ— " + "%æ— ";
 				message = KeyPassword.convertMD5(message);
 				Login.out.writeUTF(message);
 				int i = Integer.parseInt(Login.in.readUTF());
 				if (i == 1)
-					JOptionPane.showMessageDialog(new JTextArea(), "×¢²á³É¹¦ÇëµÇÂ¼");
+					JOptionPane.showMessageDialog(new JTextArea(), "æ³¨å†ŒæˆåŠŸè¯·ç™»å½•");
 				else if (i == 2)
-					JOptionPane.showMessageDialog(new JTextArea(), "ÒÑ´æÔÚÏàÍ¬ÓÃ»§Ãû");
+					JOptionPane.showMessageDialog(new JTextArea(), "å·²å­˜åœ¨ç›¸åŒç”¨æˆ·å");
 				else
-					JOptionPane.showMessageDialog(new JTextArea(), "Î´Öª´íÎó,ÁªÏµ×÷Õß");
+					JOptionPane.showMessageDialog(new JTextArea(), "æœªçŸ¥é”™è¯¯,è”ç³»ä½œè€…");
 			} else if (Login.dengluSign == 1) {
-				JOptionPane.showMessageDialog(new JTextArea(), "µÇÂ¼×´Ì¬ÏÂÎŞ·¨×¢²á");
+				JOptionPane.showMessageDialog(new JTextArea(), "ç™»å½•çŠ¶æ€ä¸‹æ— æ³•æ³¨å†Œ");
 			}
 			Login.out.close();
 			Login.in.close();
 			Login.socket.close();
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(new JTextArea(), "Çë¼ì²éÍøÂç");
+			JOptionPane.showMessageDialog(new JTextArea(), "è¯·æ£€æŸ¥ç½‘ç»œ");
 		}
 
 	}

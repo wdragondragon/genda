@@ -6,63 +6,457 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ca355e6-0c56-4b6a-b89b-6db56968b3a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/genda.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SQL/SQL.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Server/Server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/genda.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Login/SendQQMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../update/update.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Acticle/ActicleListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Acticle/ActicleListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Acticle/EnlishRamdom.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Acticle/EnlishRamdom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Acticle/ShareListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Acticle/ShareListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Login/DengluListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Login/DengluListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Login/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Login/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/SetWin/Cirecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/SetWin/Cirecord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/AchievementListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/AchievementListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/F3Listener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/F3Listener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/Mix.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Mix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/MousePressedZaiwenText.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/MousePressedZaiwenText.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/RegexText.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/RegexText.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/SystemListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/SystemListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/Window$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/Window.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/genda1/qqNameButtonAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/genda1/qqNameButtonAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/saiwenSys/getDatesaiwen.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/saiwenSys/getDatesaiwen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Acticle/ActicleListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Acticle/ActicleListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Acticle/EnlishRamdom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Acticle/EnlishRamdom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Acticle/ShareListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Acticle/ShareListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login/DengluListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login/DengluListener.java" afterDir="false" />
+    <list default="true" id="dbbb2e80-ed7b-4f41-b997-64c52f6c6fe2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Other/getAllFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/.fatjar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/.idea/artifacts/genda_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/genda_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/ActicleListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/COCA20000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/GUMZ.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/JIntellitype.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/JIntellitype64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/JNativeCpp.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Acticle/Acticle$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Acticle/Acticle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Acticle/ActicleListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Acticle/EnlishRamdom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Acticle/SendWenben.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Acticle/ShareListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Acticle/orActicle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/BuildSai/BuildSaiListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Check/Check.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Check/CheckFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Check/CheckListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Check/DoCheck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Communication/CommunicationListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailCheck/Email.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailCheck/EmailCheckFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailCheck/SendEmailListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailCheck/emailchecksend.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailSys/Email.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailSys/EmailFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailSys/SendEmailListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/EmailSys/emailsend.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/FriendSys/FriendSys$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/FriendSys/FriendSys.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/FriendSys/FriendsSysListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/FriendSys/addFriends.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/ShowWen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/WritehistoryListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/WritehistoryToText.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historyFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historyFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historyListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historyfanye.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historyselect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historythis.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/History/historywenbenListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/DengluListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/ForgetListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/FriendThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/Login.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/QingkongListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/RecordChange.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/UpdateListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/ZhuceListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Login/heartThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/EnglishWord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/Example10_2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/FileAccept10_2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/FullScreenTest2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/FullScreenTest2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/ROBOT.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/TestSysteTray$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/TestSysteTray$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/TestSysteTray.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Other/testInt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/QQ/ChangeQQWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/QQ/ForegroundWinName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/QQ/GetAllWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/QQ/GetQQWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/QQ/QQ.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/RamdomOne/Load.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/RamdomOne/RamdomListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Ranking/EveryDayRank$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Ranking/EveryDayRank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Ranking/RankListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Ranking/rankFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Ranking/rankFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Robots/RobotListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Robots/robotopen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/Cirecord$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/Cirecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/CirecordListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/FontFamilyListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/Set.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetBackground.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetCharListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFontSize.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrameJinduListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrameKeyboardRecordListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrameQianshuiListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFrameSplitnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFramechangeListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetFramezhidingListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/SetWin/SetspaceListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/BuildChooseFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/Changetxt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/ChooseFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/LookChange.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/Noexit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/SubscriptInstance$PreInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/SubscriptInstance.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/TheoryListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/Tips$Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/Tips.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/Tips/TipsFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/AchievementListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/AcitiyComp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Clip.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/ComputeSpeed.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/ConectionListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Example.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/F3Listener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/GendaJindutiao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/GendaListener$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/GendaListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/HelpDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/JTextPaneChange.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/JianQieListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Mix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/MousePressedZaiwenText.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/OnlineOorF.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/QQZaiwenListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/ReadyListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/RegexText.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/StopListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/SystemListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/TableAdd.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/Window.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/qqNameButtonAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/returnJspListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/genda1/winchange.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/BreakLinkListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/Count.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/LinkListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/RoomListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/audienceClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/battleClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/battleReadThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/gendaClient/battleSend.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/keep/KeyPassword.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/keep/readWrite.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/lookplay/AchListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/lookplay/ArticleMatch$DataType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/lookplay/ArticleMatch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/saiwenSys/CountSaiwen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/bin/saiwenSys/getDatesaiwen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/classes/artifacts/genda_jar/genda.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/error.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/images/config_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/images/installer_repair_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/JNative.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/SwingSet3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/beautyeye_lnf.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/commons-net-1.4.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/gnujaxp-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/javax.mail-1.6.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/jcommon-1.0.16.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/jfreechart-1.0.19.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/jintellitype-1.3.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/jna-4.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/jna-platform-4.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/jsoup-1.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/littleluck.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/ninepatch.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/substance.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/lib/trident-7.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/readsign.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Acticle/Acticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Acticle/ActicleListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Acticle/EnlishRamdom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Acticle/SendWenben.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Acticle/ShareListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Acticle/orActicle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/BuildSai/BuildSaiListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Check/Check.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Check/CheckFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Check/CheckListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Check/DoCheck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Communication/CommunicationListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/EmailCheck/Email.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/EmailCheck/EmailCheckFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/EmailCheck/SendEmailListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/EmailCheck/emailchecksend.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/EmailSys/Email.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/EmailSys/EmailFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/EmailSys/SendEmailListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/EmailSys/emailsend.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/FriendSys/FriendSys.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/FriendSys/FriendsSysListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/FriendSys/addFriends.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/History/ShowWen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/History/WritehistoryListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/History/WritehistoryToText.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/History/historyFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/History/historyListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/History/historyfanye.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/History/historyselect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/History/historythis.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/History/historywenbenListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Login/DengluListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Login/ForgetListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Login/FriendThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Login/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Login/QingkongListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Login/RecordChange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Login/UpdateListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Login/ZhuceListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Login/heartThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Other/EnglishWord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Other/Example10_2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Other/FileAccept10_2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Other/FullScreenTest2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Other/ROBOT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Other/TestSysteTray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Other/testInt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/QQ/ChangeQQWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/QQ/ForegroundWinName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/QQ/GetAllWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/QQ/GetQQWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/QQ/QQ.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/RamdomOne/Load.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/RamdomOne/RamdomListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Ranking/EveryDayRank.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Ranking/RankListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Ranking/rankFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Robots/RobotListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Robots/robotopen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/Cirecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/CirecordListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/FontFamilyListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/Set.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/SetBackground.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/SetCharListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/SetFontSize.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/SetFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/SetFrameJinduListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/SetFrameKeyboardRecordListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/SetFrameQianshuiListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/SetFrameSplitnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/SetFramechangeListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/SetFramezhidingListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/SetWin/SetspaceListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Tips/BuildChooseFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Tips/Changetxt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Tips/ChooseFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Tips/LookChange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Tips/Noexit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Tips/SubscriptInstance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Tips/TheoryListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Tips/Tips.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/Tips/TipsFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/AchievementListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/AcitiyComp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/Clip.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/ComputeSpeed.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/ConectionListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/Example.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/F3Listener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/GendaJindutiao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/GendaListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/HelpDialog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/JTextPaneChange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/JianQieListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/Mix.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/MousePressedZaiwenText.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/OnlineOorF.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/QQZaiwenListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/ReadyListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/RegexText.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/StopListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/SystemListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/TableAdd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/Window.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/qqNameButtonAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/returnJspListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/genda1/winchange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/gendaClient/BreakLinkListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/gendaClient/Count.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/gendaClient/LinkListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/gendaClient/RoomListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/gendaClient/audienceClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/gendaClient/battleClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/gendaClient/battleReadThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/gendaClient/battleSend.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/keep/KeyPassword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/keep/readWrite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/lookplay/AchListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/lookplay/ArticleMatch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/saiwenSys/CountSaiwen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/src/saiwenSys/getDatesaiwen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/原码表.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/序列化配置" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/单字类/常用单字中五百.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/单字类/常用单字前1500.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/单字类/常用单字前五百.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/单字类/常用单字后五百.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/单字类/常用词组.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/单字类/循环万字前五百.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/单字类/新建文本文档.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/《全职高手》by蝴蝶蓝.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/《天才在左疯子在右》.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/《苗疆蛊事》—南无袈裟理科佛.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/二简.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/冰灯.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/四季.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/心的出口.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/我的文章.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/民间 .txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/跟打进度.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/跟打进度《天才在左疯子在右》.txt.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/跟打进度冰灯.txt.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/跟打进度四季.txt.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/文章类/跟打进度心的出口.txt.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/COCA20000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/COCA高频1-2500.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/COCA高频10001-20000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/COCA高频20000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/COCA高频2501-5000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/COCA高频5001-7500.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/COCA高频7501-10000.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/cet4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/cet41.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/cet4带中文.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/cet4练习.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/cet6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/cet61.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/cet6。。。。.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/cet6带中文.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/文章/英打类/英文字典.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/更新.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/更新.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/生成码表.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/码表.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/生成码表.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/符号文件/符号文件.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/英文字典/英文字典.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/092五笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/21世纪码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/26键表形码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/30键表形码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/7.0原码表.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/86五笔(全码字).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/86王码五笔(含词组).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/86王码五笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/98王码五笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/QQ五笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/Tiandy中文速入.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/一根五笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/一根声形.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/一根声码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/一根形码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/丁码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/三三龙（二十重码版，只作参考）.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/三码二笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/三码五笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/三码导码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/三码导码Ｂ版.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/二笔快码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/二笔怀旧版本.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/二笔输入法.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/五笔划.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/伟码单字.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/全码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/六元金码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/六笔声形.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/四角码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/地下五笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/地下张码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/大 手 笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/大一统86五笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/大一统98五笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/大一统新世纪五笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/大家码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/大手笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/天字坐标形声.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/天然码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/太极码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/太空码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/威普输入法码表.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/导出 - 全部词条.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/导码输入法.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/小兮码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/小鹤单字码表.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/层次四角码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/左飞五笔（含词组）.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/希码单字.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/广陵码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/微软双拼.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/微风.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/快手单字.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/打字通.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/方块码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/无三重码极爽五笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/无部件四门码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/晓岸·小鹤 - 全码表.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/普通码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/极爽词库4.3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/极爽词库6.0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/海峰五笔98版.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/灵形速影.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/生成码表.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/笔组码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/简体仓颉.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/简拼.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/绿色拼形.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/编码文件导入说明.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/联想五笔86版.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/自然码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/自然码新.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/至简至爱郑码 赛码表.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/西风瘦码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/西风瘦码旧（仅作参考）.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/词组提示码表.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/通用快码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/郑码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/部首码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/首尾码.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/编码文件/输入法编码/龚码五笔.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/跟打器.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genda/跟打记录.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SetWin/Cirecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SetWin/Cirecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genda1/AchievementListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/AchievementListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genda1/Example.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/Example.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genda1/F3Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/F3Listener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genda1/Mix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/Mix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genda1/MousePressedZaiwenText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/MousePressedZaiwenText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genda1/RegexText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/RegexText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genda1/SystemListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/SystemListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genda1/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genda1/qqNameButtonAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genda1/qqNameButtonAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/saiwenSys/getDatesaiwen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/saiwenSys/getDatesaiwen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../set/lx.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../set/lx.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../set/num.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../set/num.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Other/testInt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tips/Tips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tips/Tips.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/classes/" />
+    <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,130 +464,51 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/RamdomOne/Load.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="22" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/saiwenSys/getDatesaiwen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="49" column="45" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Login/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="902">
-              <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+            <state relative-caret-position="418">
+              <caret line="62" column="8" lean-forward="true" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/SetWin/Cirecord.java">
+        <entry file="file://$PROJECT_DIR$/src/genda1/RegexText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-338">
-              <caret line="79" column="68" lean-forward="true" selection-start-line="79" selection-start-column="68" selection-end-line="79" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/RamdomOne/RamdomListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Login/SendQQMessage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="64" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="198">
+              <caret line="76" selection-start-line="76" selection-end-line="88" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>QQNameButtonACTION</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Login/SendMessage.java" />
-        <option value="$PROJECT_DIR$/src/genda1/Example.java" />
-        <option value="$PROJECT_DIR$/src/Acticle/ShareListener.java" />
-        <option value="$PROJECT_DIR$/src/Acticle/ActicleListener.java" />
-        <option value="$PROJECT_DIR$/src/genda1/RegexText.java" />
-        <option value="$PROJECT_DIR$/src/genda1/MousePressedZaiwenText.java" />
-        <option value="$PROJECT_DIR$/src/genda1/qqNameButtonAction.java" />
-        <option value="$PROJECT_DIR$/src/genda1/F3Listener.java" />
+        <option value="$PROJECT_DIR$/src/Other/testInt.java" />
+        <option value="$PROJECT_DIR$/src/Other/getAllFile.java" />
         <option value="$PROJECT_DIR$/src/genda1/Window.java" />
-        <option value="$PROJECT_DIR$/src/Login/SendQQMessage.java" />
-        <option value="$PROJECT_DIR$/src/Login/DengluListener.java" />
-        <option value="$PROJECT_DIR$/src/genda1/AchievementListener.java" />
-        <option value="$PROJECT_DIR$/src/genda1/SystemListener.java" />
-        <option value="$PROJECT_DIR$/src/genda1/Mix.java" />
-        <option value="$PROJECT_DIR$/src/Acticle/EnlishRamdom.java" />
-        <option value="$PROJECT_DIR$/src/saiwenSys/getDatesaiwen.java" />
+        <option value="$PROJECT_DIR$/src/Tips/Tips.java" />
         <option value="$PROJECT_DIR$/src/Login/Login.java" />
-        <option value="$PROJECT_DIR$/src/SetWin/Cirecord.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="14" />
-    <option name="y" value="79" />
-    <option name="width" value="1307" />
-    <option name="height" value="543" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="67" />
+    <option name="y" value="-8" />
+    <option name="width" value="1861" />
+    <option name="height" value="1096" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -209,13 +524,43 @@
             <path>
               <item name="genda" type="b2602c69:ProjectViewProjectNode" />
               <item name="genda" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="genda" type="b2602c69:ProjectViewProjectNode" />
+              <item name="genda" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="genda" type="b2602c69:ProjectViewProjectNode" />
+              <item name="genda" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="genda_jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="genda" type="b2602c69:ProjectViewProjectNode" />
+              <item name="genda" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="genda" type="b2602c69:ProjectViewProjectNode" />
               <item name="genda" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="SetWin" type="462c0819:PsiDirectoryNode" />
+              <item name="genda1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="genda" type="b2602c69:ProjectViewProjectNode" />
+              <item name="genda" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="genda" type="b2602c69:ProjectViewProjectNode" />
+              <item name="genda" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Tips" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -226,25 +571,16 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SQL" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Lenovo\Desktop\workspace\genda\genda\genda\文章\文章类" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -258,7 +594,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Example">
     <configuration name="Example" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="genda1.Example" />
       <module name="genda" />
@@ -272,9 +608,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="getAllFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Other.getAllFile" />
+      <module name="genda" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Other.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Example" />
+        <item itemvalue="Application.getAllFile" />
       </list>
     </recent_temporary>
   </component>
@@ -283,45 +633,40 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0ca355e6-0c56-4b6a-b89b-6db56968b3a2" name="Default Changelist" comment="" />
-      <created>1557488118680</created>
+      <changelist id="dbbb2e80-ed7b-4f41-b997-64c52f6c6fe2" name="Default Changelist" comment="" />
+      <created>1573438219494</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1557488118680</updated>
-      <workItem from="1557488131408" duration="383000" />
-      <workItem from="1557488604834" duration="328000" />
-      <workItem from="1557488943101" duration="855000" />
-      <workItem from="1557556176787" duration="1619000" />
-      <workItem from="1557598974817" duration="1477000" />
-      <workItem from="1557630125809" duration="3934000" />
-      <workItem from="1557661908159" duration="3627000" />
-      <workItem from="1557675794277" duration="670000" />
-      <workItem from="1557676526706" duration="1643000" />
-      <workItem from="1557678424030" duration="392000" />
-      <workItem from="1557721546266" duration="3307000" />
-      <workItem from="1557725043477" duration="7307000" />
-      <workItem from="1557834668882" duration="84000" />
-      <workItem from="1557834800386" duration="3483000" />
-      <workItem from="1557931538829" duration="29000" />
-      <workItem from="1558007824938" duration="3069000" />
-      <workItem from="1558058172605" duration="1619000" />
-      <workItem from="1558355956996" duration="355000" />
-      <workItem from="1558531992471" duration="761000" />
-      <workItem from="1558614608941" duration="25000" />
-      <workItem from="1558712056422" duration="1950000" />
-      <workItem from="1558845190562" duration="3718000" />
-      <workItem from="1558880371890" duration="92000" />
+      <updated>1573438219494</updated>
+      <workItem from="1573438258510" duration="2513000" />
+      <workItem from="1573545522936" duration="2186000" />
+      <workItem from="1574052452719" duration="5094000" />
     </task>
+    <task id="LOCAL-00001" summary="回退1.806">
+      <created>1573438584694</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1573438584694</updated>
+    </task>
+    <task id="LOCAL-00002" summary="回退1.806">
+      <created>1573438722096</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573438722096</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40727000" />
+    <option name="totallyTimeSpent" value="9793000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="-8" width="1307" height="784" extended-state="6" />
+    <frame x="67" y="-8" width="1861" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24538894" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14825097" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -330,22 +675,22 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.18051118" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.399361" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17377399" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.18530351" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3258786" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32942432" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24939856" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.329591" />
+      <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Maven" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
@@ -355,342 +700,78 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/SetWin/Cirecord.java</url>
-          <line>62</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="回退1.806" />
+    <option name="LAST_COMMIT_MESSAGE" value="回退1.806" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/genda1/HelpDialog.java">
+    <entry file="file://$PROJECT_DIR$/src/genda1/ConectionListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        <state relative-caret-position="88">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Server/src/GendaServer/AllServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Server/src/GendaServer/Start.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../update/src/Update/Load.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../SQL/src/denglu/RWThread146.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../SQL/src/denglu/Recordnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3212">
-          <caret line="160" column="33" selection-start-line="160" selection-start-column="33" selection-end-line="160" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../SQL/src/denglu/Dateinit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/Login/Login.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="52" column="46" lean-forward="true" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#4657#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login/SendMessage.java" />
     <entry file="file://$PROJECT_DIR$/src/keep/readWrite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4246">
-          <caret line="215" selection-start-line="215" selection-end-line="215" />
+        <state relative-caret-position="726">
+          <caret line="55" column="67" lean-forward="true" selection-start-line="55" selection-start-column="67" selection-end-line="55" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/genda1/Example.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        <state relative-caret-position="449">
+          <caret line="38" column="77" selection-start-line="38" selection-start-column="77" selection-end-line="38" selection-end-column="77" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tips/Tips.java">
+    <entry file="file://$PROJECT_DIR$/src/Tips/SubscriptInstance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1892">
-          <caret line="106" column="38" selection-start-line="106" selection-start-column="38" selection-end-line="106" selection-end-column="38" />
+        <state relative-caret-position="22">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login/ForgetListener.java">
+    <entry file="file://$PROJECT_DIR$/src/Other/getAllFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login/FriendThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Acticle/SendWenben.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="36" column="47" lean-forward="true" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Acticle/Acticle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1703">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Acticle/orActicle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Acticle/ShareListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="34" column="65" lean-forward="true" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/QQ/QQ.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/genda1/MoreListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-704">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/genda1/QQZaiwenListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="37" column="51" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/genda1/MousePressedZaiwenText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#256#257#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#332#333#0" expanded="true" />
-            <element signature="e#377#378#0" expanded="true" />
-            <element signature="e#408#409#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/genda1/qqNameButtonAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/genda1/F3Listener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1369">
-          <caret line="50" column="38" lean-forward="true" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
+        <state relative-caret-position="132">
+          <caret line="8" column="33" lean-forward="true" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/genda1/Window.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-462">
-          <caret line="36" column="27" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Acticle/EnlishRamdom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/genda1/AchievementListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4334">
-          <caret line="213" column="76" selection-start-line="213" selection-start-column="76" selection-end-line="213" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="440">
+          <caret line="54" column="46" lean-forward="true" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/genda1/SystemListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="176">
+          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/genda1/Mix.java">
+    <entry file="file://$PROJECT_DIR$/src/Tips/Tips.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../SQL/src/denglu/RWThread148.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5984">
-          <caret line="288" column="88" selection-start-line="288" selection-start-column="81" selection-end-line="288" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/genda1/Clip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1738">
-          <caret line="94" column="83" selection-start-line="94" selection-start-column="83" selection-end-line="94" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Acticle/ActicleListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="146" column="21" selection-start-line="146" selection-start-column="21" selection-end-line="146" selection-end-column="21" />
-          <folding>
-            <element signature="e#1079#1080#0" expanded="true" />
-            <element signature="e#1102#1103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gendaClient/Count.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login/DengluListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-280">
-          <caret line="70" column="34" selection-start-line="70" selection-start-column="34" selection-end-line="70" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/genda1/RegexText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RamdomOne/Load.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/saiwenSys/getDatesaiwen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="49" column="45" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
+        <state relative-caret-position="263">
+          <caret line="116" column="53" lean-forward="true" selection-start-line="116" selection-start-column="53" selection-end-line="116" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Login/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="902">
-          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+        <state relative-caret-position="418">
+          <caret line="62" column="8" lean-forward="true" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RamdomOne/RamdomListener.java">
+    <entry file="file://$PROJECT_DIR$/src/genda1/RegexText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login/SendQQMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="64" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/jfreechart-1.0.19.jar!/org/jfree/data/category/CategoryDataset.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SetWin/Cirecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-338">
-          <caret line="79" column="68" lean-forward="true" selection-start-line="79" selection-start-column="68" selection-end-line="79" selection-end-column="68" />
+        <state relative-caret-position="198">
+          <caret line="76" selection-start-line="76" selection-end-line="88" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -705,6 +786,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

@@ -16,15 +16,15 @@ import javax.swing.JLabel;
 public class TestSysteTray {
 	public static void main(String args[]) {
 		TrayIcon trayIcon = null;
-		if (SystemTray.isSupported()) // ÅĞ¶ÏÏµÍ³ÊÇ·ñÖ§³ÖÏµÍ³ÍĞÅÌ
+		if (SystemTray.isSupported()) // åˆ¤æ–­ç³»ç»Ÿæ˜¯å¦æ”¯æŒç³»ç»Ÿæ‰˜ç›˜
 		{
-			SystemTray tray = SystemTray.getSystemTray(); // ´´½¨ÏµÍ³ÍĞÅÌ
+			SystemTray tray = SystemTray.getSystemTray(); // åˆ›å»ºç³»ç»Ÿæ‰˜ç›˜
 
 
-			Image image = Toolkit.getDefaultToolkit().getImage("images\\config_3.png");//ÔØÈëÍ¼Æ¬ Í¼Æ¬Î»ÖÃÊÇ³ÌĞòËùÔÚµÄÄ¿Â¼
+			Image image = Toolkit.getDefaultToolkit().getImage("images\\config_3.png");//è½½å…¥å›¾ç‰‡ å›¾ç‰‡ä½ç½®æ˜¯ç¨‹åºæ‰€åœ¨çš„ç›®å½•
 			ActionListener listener = new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					// ´´½¨Ò»¸ö´°Ìå
+					// åˆ›å»ºä¸€ä¸ªçª—ä½“
 					JFrame frame = new JFrame();
 					frame.setBounds(400, 400, 200, 200);
 					JLabel label = new JLabel("welcome   JDK1.6");
@@ -33,11 +33,11 @@ public class TestSysteTray {
 				}
 			};
 
-			// ´´½¨µ¯³ö²Ëµ¥
-			PopupMenu popup = new PopupMenu();//Õâ¸öÊÇÓÒ¼ü²ÅÄÜ´¥·¢µÄ²Ëµ¥
-			MenuItem defaultItem = new MenuItem("´ò¿ª");
+			// åˆ›å»ºå¼¹å‡ºèœå•
+			PopupMenu popup = new PopupMenu();//è¿™ä¸ªæ˜¯å³é”®æ‰èƒ½è§¦å‘çš„èœå•
+			MenuItem defaultItem = new MenuItem("æ‰“å¼€");
 			defaultItem.addActionListener(listener);
-			MenuItem exitItem = new MenuItem("ÍË³ö");
+			MenuItem exitItem = new MenuItem("é€€å‡º");
 			exitItem.addActionListener(new ActionListener() {
 
 				public void actionPerformed(ActionEvent e) {
@@ -47,9 +47,9 @@ public class TestSysteTray {
 
 			popup.add(defaultItem);
 			popup.add(exitItem);
-			trayIcon = new TrayIcon(image, "×îĞ¡»¯´°¿Ú", popup);// ´´½¨trayIcon
-			trayIcon.addActionListener(listener);//¸øĞ¡Í¼±ê¼ÓÉÏ¼àÌıÆ÷£¬Ä¬ÈÏµÄ¾ÍÊÇ¼àÌıË«»÷¡£
-//Èç¹ûÅ¼Ïë¼àÌıµ¥»÷É¶µÄ  ¾Í¼Ómouselistener
+			trayIcon = new TrayIcon(image, "æœ€å°åŒ–çª—å£", popup);// åˆ›å»ºtrayIcon
+			trayIcon.addActionListener(listener);//ç»™å°å›¾æ ‡åŠ ä¸Šç›‘å¬å™¨ï¼Œé»˜è®¤çš„å°±æ˜¯ç›‘å¬åŒå‡»ã€‚
+//å¦‚æœå¶æƒ³ç›‘å¬å•å‡»å•¥çš„  å°±åŠ mouselistener
 			try {
 				tray.add(trayIcon);
 			} catch (AWTException e1) {

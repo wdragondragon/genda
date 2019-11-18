@@ -42,9 +42,9 @@ public class winchange extends Thread implements ActionListener {
 	public void run(){
 		while(true){
 			try{
-				if(heightOne!=heigthTwo)//·ÀÑÓ³ÙÉèÖÃ
+				if(heightOne!=heigthTwo)//é˜²å»¶è¿Ÿè®¾ç½®
 					for(int i= 0 ;i>100;i++){
-						win.validate();//Ë¢ÐÂ²¼ÖÃ
+						win.validate();//åˆ·æ–°å¸ƒç½®
 					}
 				sleep(1);
 				shuweizhi = jSplitPane1.getDividerLocation();
@@ -110,7 +110,7 @@ public class winchange extends Thread implements ActionListener {
 				bottom =gendajindutiao.getY()+gendajindutiao.getHeight();
 //				if(win.getWidth()<800){
 //					win.setSize(800,win.getHeight());
-//					JOptionPane.showMessageDialog(new JTextArea(),"²»ÄÜÔÙÊÝÀ²");
+//					JOptionPane.showMessageDialog(new JTextArea(),"ä¸èƒ½å†ç˜¦å•¦");
 //				}
 			}catch(Exception e){}
 		}

@@ -12,7 +12,7 @@ public class RobotListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent ex) {
 		// TODO Auto-generated method stub
-		if ((Login.Login.zhanghao.getText().equals("Ì·Óî")||Login.Login.zhanghao.getText().equals("ÇåÁ¹Ë¬¿Ú"))
+		if ((Login.Login.zhanghao.getText().equals("è°­å®‡")||Login.Login.zhanghao.getText().equals("æ¸…å‡‰çˆ½å£"))
 				&& Login.Login.dengluSign == 1) {
 			robotopen rbop = new robotopen();
 			rbop.start();

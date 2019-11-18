@@ -19,13 +19,13 @@ public class SetCharListener implements ActionListener{
 		// TODO Auto-generated method stub
 		if(charsign == 0){
 			charsign = 1;
-			charset.setText("·ûºÅÌæ»»\"ÒÑ¿ª\"");
+			charset.setText("ç¬¦å·æ›¿æ¢\"å·²å¼€\"");
 			charset.setForeground(SetFrame.open);
 			Window.charchange.setSelected(true);
 		}
 		else{
 			charsign = 0;
-			charset.setText("·ûºÅÌæ»»\"ÒÑ¹Ø\"");
+			charset.setText("ç¬¦å·æ›¿æ¢\"å·²å…³\"");
 			charset.setForeground(SetFrame.close);
 			Window.charchange.setSelected(false);
 		}

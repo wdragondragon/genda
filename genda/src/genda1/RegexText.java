@@ -18,7 +18,7 @@ public class RegexText {
 		a = str.toCharArray();
 		length = str.length();
 		for(j=length-1;j>0;j--){
-			if(a[j]=='µ⁄'){
+			if(a[j]=='Á¨¨'){
 				for(k=j-1;k>=j-5;k--){
 					if(a[k]=='-'){gang++;}
 				}
@@ -27,7 +27,7 @@ public class RegexText {
 					kong=0;
 //					duan = String.copyValueOf(a, j+1,5);
 					duan = "";
-					while(a[j]!='∂Œ'){
+					while(a[j]!='ÊÆµ'){
 						duan = duan+a[j];j++;
 					}
 				}
@@ -71,12 +71,12 @@ public class RegexText {
 
 		duan = duan.replaceAll(regex,"");
 		duan1 = Integer.valueOf(duan);
-		System.out.println("±ÍÃ‚:"+SendWenben.title+"\n"+str);
+		System.out.println("Ê†áÈ¢ò:"+SendWenben.title+"\n"+str);
 		return str;
 	}
 	public static String huanfu(String str){
 		String initchar = ";:,.!?";
-		String afterchar = "£ª£∫£¨°££°£ø";
+		String afterchar = "ÔºõÔºöÔºå„ÄÇÔºÅÔºü";
 		char []a = str.toCharArray();
 		int b ;
 		char y[] = afterchar.toCharArray();
@@ -90,12 +90,12 @@ public class RegexText {
 	public static String qukong(String str){
 		if(SetspaceListener.spacesign==1)
 			str = str.replaceAll("\\s*", "");
-		str = str.replaceAll("°°","");
+		str = str.replaceAll("„ÄÄ","");
 		return str;
 	}
 	public static String biaoding(String str){
 		char []a = str.toCharArray();
-		String ding = "£¨°£°¢£°?°˝,.!?";
+		String ding = "Ôºå„ÄÇ„ÄÅÔºÅ?‚Üì,.!?";
 		for(int i=0;i<a.length-1;i++){
 			if(a[i]=='_'&&ding.indexOf(String.valueOf(a[i+1]))!=-1){
 				a[i]='#';

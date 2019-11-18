@@ -21,14 +21,14 @@ public class SetFramezhidingListener implements ActionListener {
 		// TODO Auto-generated method stub
 		if(zhidingsign == 0){
 			zhidingsign = 1;
-			zhiding.setText("¸ú´òÖÃ¶¥\"¿ª\"");
+			zhiding.setText("è·Ÿæ‰“ç½®é¡¶\"å¼€\"");
 			zhiding.setForeground(SetFrame.open);
 			win.setAlwaysOnTop(true);
 			Window.zhiding.setSelected(true);
 		}
 		else{
 			zhidingsign = 0;
-			zhiding.setText("¸ú´òÖÃ¶¥\"¹Ø\"");
+			zhiding.setText("è·Ÿæ‰“ç½®é¡¶\"å…³\"");
 			zhiding.setForeground(SetFrame.close);
 			win.setAlwaysOnTop(false);
 			Window.zhiding.setSelected(false);

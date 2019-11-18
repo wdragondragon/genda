@@ -35,8 +35,8 @@ public class AchListener implements ActionListener {
 		record = new ArrayList<String>();
 		str1 = QQZaiwenListener.wenbenstr;
 		str2 = Window.dazi.getText();
-		String[] act = str1.split("£¬|¡£");
-		String[] dazi = str2.split("£¬|¡£");
+		String[] act = str1.split("ï¼Œ|ã€‚");
+		String[] dazi = str2.split("ï¼Œ|ã€‚");
 		System.out.println(act.length);
 		if (act.length == dazi.length && act.length != 0)
 			for (int k = 0; k < act.length; k++) {
@@ -47,8 +47,8 @@ public class AchListener implements ActionListener {
 				System.out.println(str1 + ":" + str2);
 				ArticleMatch();
 				if (tempmis != 0 || templou != 0 || tempduo != 0)
-					record.add("Ô­ÎÄ£º" + str1 + "\n¸ú´ò£º" + str2 + "\n´í£º" + tempmis
-							+ " Â©£º" + templou + " ¶à£º" + tempduo + "\n");
+					record.add("åŸæ–‡ï¼š" + str1 + "\nè·Ÿæ‰“ï¼š" + str2 + "\né”™ï¼š" + tempmis
+							+ " æ¼ï¼š" + templou + " å¤šï¼š" + tempduo + "\n");
 				tempmis = 0;
 				templou = 0;
 				tempduo = 0;
@@ -58,8 +58,8 @@ public class AchListener implements ActionListener {
 		// ArticleMatch();
 		for (int i = 0; i < record.size(); i++)
 			mistakeall += record.get(i);
-		lookplay = "´í:" + mistake + " Â©:" + lou + " ¶à:" + duo;
-		mistakeall += "×ÜÇé¿ö-----------------\n" + lookplay;
+		lookplay = "é”™:" + mistake + " æ¼:" + lou + " å¤š:" + duo;
+		mistakeall += "æ€»æƒ…å†µ-----------------\n" + lookplay;
 		Window.dazi.setEditable(false);
 		GendaListener.gendaSign = true;
 		sw.setVisible(true);
@@ -89,13 +89,13 @@ public class AchListener implements ActionListener {
 		}
 	}
 
-	// ×Ô¼ºËã·¨
+	// è‡ªå·±ç®—æ³•
 	// void ArticleMatch1(){
 	// record = new ArrayList<String>();
 	//
 	//
-	// String []act = str1.split("£¬|¡£");
-	// String []dazi = str2.split("£¬|¡£");
+	// String []act = str1.split("ï¼Œ|ã€‚");
+	// String []dazi = str2.split("ï¼Œ|ã€‚");
 	//
 	// mistake=0;duo=0;lou=0;
 	// System.out.println();
@@ -112,8 +112,8 @@ public class AchListener implements ActionListener {
 	// String mistakeall="";
 	// for(int i=0;i<record.size();i++)
 	// mistakeall+=record.get(i)+"\n";
-	// lookplay="´í:"+mistake+" Â©:"+lou+" ¶à:"+duo;
-	// mistakeall+="×ÜÇé¿ö-----------------\n"+lookplay;
+	// lookplay="é”™:"+mistake+" æ¼:"+lou+" å¤š:"+duo;
+	// mistakeall+="æ€»æƒ…å†µ-----------------\n"+lookplay;
 	// Window.dazi.setEditable(false);
 	// GendaListener.gendaSign = true;
 	// sw.setVisible(true);
@@ -157,7 +157,7 @@ public class AchListener implements ActionListener {
 	// break;
 	// }
 	// }
-	// if(tempbefore<str1.length()&&str2.length()>temp1before){ //½â¾ö×îºóÁ¬´í¡£
+	// if(tempbefore<str1.length()&&str2.length()>temp1before){ //è§£å†³æœ€åè¿é”™ã€‚
 	// int temp1=str1.length()-tempbefore;
 	// int temp2=str2.length()-temp1before;
 	// onlymistake += Math.min(temp1,temp2);
@@ -173,7 +173,7 @@ public class AchListener implements ActionListener {
 	// }
 	// }
 	// if(onlymistake!=0||onlyduo!=0||onlylou!=0)
-	// record.add("Ô­ÎÄ£º"+str1+"\n¸ú´ò£º"+str2+"\n´í£º"+onlymistake+" Â©£º"+onlylou+" ¶à£º"+onlyduo);
+	// record.add("åŸæ–‡ï¼š"+str1+"\nè·Ÿæ‰“ï¼š"+str2+"\né”™ï¼š"+onlymistake+" æ¼ï¼š"+onlylou+" å¤šï¼š"+onlyduo);
 	// i=0;
 	// }
 }

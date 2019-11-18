@@ -30,18 +30,18 @@ public class getDatesaiwen implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (SendWenben.sendwenSign == 1) {
-			JOptionPane.showMessageDialog(new JTextArea(), "ÏÈ½áÊø·¢ÎÄ");
+			JOptionPane.showMessageDialog(new JTextArea(), "å…ˆç»“æŸå‘æ–‡");
 			return;
 		}
 		if (Window.everydaySign) {
-			JOptionPane.showMessageDialog(new JTextArea(), "ÕıÔÚ½øĞĞÈüÎÄ");
+			JOptionPane.showMessageDialog(new JTextArea(), "æ­£åœ¨è¿›è¡Œèµ›æ–‡");
 			return;
 		}
 		int n = JOptionPane
 				.showConfirmDialog(
 						null,
-						"ÔÚ¸ú´òÃ¿ÈÕÈüÎÄÊ±£¬ÖØ´òÏµÍ³ÒÆ³ı£¬¹ı³ÌÖĞ²»¿ÉÔØÈë±ğµÄÎÄÕÂ£¬²»¿ÉÍË³öµÇÂ¼£¬²»¿ÉÍË³ö¸ú´òÆ÷µÈµÈÒ»ÇĞ³¢ÊÔ¶ş´Î¸ú´òµÄĞĞÎª£¬·ñÔò½ñÈÕ³É¼¨¹éÁã\nÇë¼ì²é×ÔÉíÊäÈë·¨µ÷Åä£¬×öºÃ·ÀÖ¹ÈÎºÎµ¯´°µÄ×¼±¸£¬×¼±¸ºÃÁËÂğ?µã»÷¡°ÊÇ¡±ºó½«Á¢¼´¿ªÊ¼¼ÆÊ±",
-						"ÈüÎÄÌáÊ¾", JOptionPane.YES_NO_OPTION);
+						"åœ¨è·Ÿæ‰“æ¯æ—¥èµ›æ–‡æ—¶ï¼Œé‡æ‰“ç³»ç»Ÿç§»é™¤ï¼Œè¿‡ç¨‹ä¸­ä¸å¯è½½å…¥åˆ«çš„æ–‡ç« ï¼Œä¸å¯é€€å‡ºç™»å½•ï¼Œä¸å¯é€€å‡ºè·Ÿæ‰“å™¨ç­‰ç­‰ä¸€åˆ‡å°è¯•äºŒæ¬¡è·Ÿæ‰“çš„è¡Œä¸ºï¼Œå¦åˆ™ä»Šæ—¥æˆç»©å½’é›¶\nè¯·æ£€æŸ¥è‡ªèº«è¾“å…¥æ³•è°ƒé…ï¼Œåšå¥½é˜²æ­¢ä»»ä½•å¼¹çª—çš„å‡†å¤‡ï¼Œå‡†å¤‡å¥½äº†å—?ç‚¹å‡»â€œæ˜¯â€åå°†ç«‹å³å¼€å§‹è®¡æ—¶",
+						"èµ›æ–‡æç¤º", JOptionPane.YES_NO_OPTION);
 		if (n == JOptionPane.YES_OPTION) {
 			// ......
 			try {
@@ -50,17 +50,17 @@ public class getDatesaiwen implements ActionListener {
 						Login.socket.getOutputStream());
 				DataInputStream in = new DataInputStream(
 						Login.socket.getInputStream());
-				String message = KeyPassword.convertMD5("»ñÈ¡½ñÈÕÈüÎÄ");
+				String message = KeyPassword.convertMD5("è·å–ä»Šæ—¥èµ›æ–‡");
 				out.writeUTF(message);
 				message = in.readUTF();
-				if (message.equals("ÒÑ´ò¹ı")) {
-					JOptionPane.showMessageDialog(new JTextArea(), "Äã½ñÌìÒÑ´ò¹ıÈüÎÄ");
+				if (message.equals("å·²æ‰“è¿‡")) {
+					JOptionPane.showMessageDialog(new JTextArea(), "ä½ ä»Šå¤©å·²æ‰“è¿‡èµ›æ–‡");
 					return;
-				} else if (message.equals("ÎŞÈüÎÄ")) {
-					JOptionPane.showMessageDialog(new JTextArea(), "½ñÈÕÎŞÈüÎÄ");
+				} else if (message.equals("æ— èµ›æ–‡")) {
+					JOptionPane.showMessageDialog(new JTextArea(), "ä»Šæ—¥æ— èµ›æ–‡");
 					return;
 				}
-				SendWenben.title = "ÍÏÀ­»úÃ¿ÈÕÈüÎÄ-×÷Õß£ºËæ»úÉú³É";
+				SendWenben.title = "æ‹–æ‹‰æœºæ¯æ—¥èµ›æ–‡-ä½œè€…ï¼šéšæœºç”Ÿæˆ";
 				QQZaiwenListener.wenbenstr = RegexText.huanfu(RegexText
 						.qukong(message));
 				Window.everydaySign = true;

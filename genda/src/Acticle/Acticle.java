@@ -23,17 +23,18 @@ public class Acticle extends JFrame {
 	Window win;
 	JTextArea wenben;
 	JScrollPane wenben1;
-	public static JTextField number, cikuchouqucanshu;
+	public static JTextField number,cikuchouqucanshu;;
 	JButton send, next, mix, chouqu, cikuchouqu, English;
 	JPanel p = new JPanel();
 	public JSpinner spinnerSpeed,spinnerKey,spinnerKeyLength;
-	public JComboBox<String> caozuo;
+	public JComboBox<String> caozuo,weizhi;
+	public JSpinner machang1,machang2,cishu,cichang1,cichang2;
 	int i;
 
 	public Acticle(Window win) {
 		this.win = win;
-		setTitle("·¢ÎÄ");
-		setBounds(100, 100, 605, 380);
+		setTitle("å‘æ–‡");
+		setBounds(100, 100, 605, 430);
 		// setLayout(null);
 		p.setLayout(null);
 		add(p);
@@ -59,38 +60,87 @@ public class Acticle extends JFrame {
 	}
 
 	void addEnglish() {
-		English = new JButton("Ó¢´ÊÁ·Ï°");
+		English = new JButton("è‹±è¯ç»ƒä¹ ");
 		English.setBounds(490, 270, 90, 30);
 		English.addActionListener(treeListener);
 		p.add(English);
 	}
 
 	void addcikuchouqu() {
-		cikuchouqu = new JButton("´Ê¿âÁ·Ï°");
+		cikuchouqu = new JButton("è¯åº“ç»ƒä¹ ");
+	
 		cikuchouqucanshu = new JTextField("a:b:c:d");
 		cikuchouqu.setBounds(350, 270, 70, 30);
 		cikuchouqucanshu.setBounds(425, 270, 60, 30);
+		
+		JLabel lable1 = new JLabel("ç é•¿");
+		JLabel lable2 = new JLabel("ç»„æ•°");
+		JLabel lable3 = new JLabel("è¯é•¿");
+		JLabel lable4 = new JLabel("æ¬¡é¦–é€‰ ");
+
+		
+		machang1 = new JSpinner();
+		machang1.setModel(new SpinnerNumberModel(0, 0, 6, 1));
+		machang2 = new JSpinner();
+		machang2.setModel(new SpinnerNumberModel(0, 0, 6, 1));
+		cishu = new JSpinner();
+		cishu.setModel(new SpinnerNumberModel(0, 0, 50, 1));
+		cichang1 = new JSpinner();
+		cichang1.setModel(new SpinnerNumberModel(0, 0, 50, 1));
+		cichang2 = new JSpinner();
+		cichang2.setModel(new SpinnerNumberModel(0, 0, 50, 1));
+		weizhi = new JComboBox<String>() ;
+		weizhi.addItem("å…¨éƒ¨");
+		weizhi.addItem("é¦–é€‰");
+		weizhi.addItem("æ¬¡é€‰");
+		
+		lable1.setBounds(5, 310, 30, 30);
+		machang1.setBounds(lable1.getX()+lable1.getWidth()+5,lable1.getY(),50,30);
+		machang2.setBounds(machang1.getX()+machang1.getWidth()+3,lable1.getY(),50,30);
+		
+		lable2.setBounds(machang2.getX()+machang2.getWidth()+5, lable1.getY(), 30, 30);
+		cishu.setBounds(lable2.getX()+lable2.getWidth()+3,lable2.getY(),50,30);
+		
+		lable3.setBounds(cishu.getX()+cishu.getWidth()+5, lable1.getY(), 30, 30);
+		cichang1.setBounds(lable3.getX()+lable3.getWidth()+3,lable3.getY(),50,30);
+		cichang2.setBounds(cichang1.getX()+cichang1.getWidth()+3,lable3.getY(),50,30);
+		
+		lable4.setBounds(cichang2.getX()+cichang2.getWidth()+5, lable1.getY(), 50, 30);
+		weizhi.setBounds(lable4.getX()+lable4.getWidth()+3,lable4.getY(),70,30);
+		
+//		cikuchouqu.setBounds(weizhi.getX()+weizhi.getWidth()+5, lable1.getY(), 70, 30);
+		
 		cikuchouqu.addActionListener(treeListener);
 		p.add(cikuchouqu);
+		p.add(lable1);
+		p.add(lable2);
+		p.add(lable3);
+		p.add(lable4);
+		p.add(machang1);
+		p.add(machang2);
+		p.add(weizhi);
+		p.add(cichang1);
+		p.add(cichang2);
+		p.add(cishu);
 		p.add(cikuchouqucanshu);
 	}
 
 	void addchouqu() {
-		chouqu = new JButton("³éÈ¡Ä£Ê½·¢ÎÄ");
+		chouqu = new JButton("æŠ½å–æ¨¡å¼å‘æ–‡");
 		chouqu.setBounds(245, 270, 100, 30);
 		p.add(chouqu);
 		chouqu.addActionListener(treeListener);
 	}
 
 	void addluanxu() {
-		mix = new JButton("È«¾ÖÂÒĞò");
+		mix = new JButton("å…¨å±€ä¹±åº");
 		mix.setBounds(170, 270, 70, 30);
 		p.add(mix);
 		mix.addActionListener(win.mixlistener);
 	}
 
 	void addNext() {
-		next = new JButton("ÏÂÒ»¶Î");
+		next = new JButton("ä¸‹ä¸€æ®µ");
 		next.setBounds(240, 270, 70, 30);
 		// add(next);
 		next.addActionListener(treeListener);
@@ -98,7 +148,7 @@ public class Acticle extends JFrame {
 	}
 
 	void Sendwenben() {
-		send = new JButton("Ë³ĞòÄ£Ê½·¢ÎÄ");
+		send = new JButton("é¡ºåºæ¨¡å¼å‘æ–‡");
 		send.setBounds(65, 270, 100, 30);
 		p.add(send);
 		SendWenben sendwenben = new SendWenben(wenben);
@@ -111,7 +161,7 @@ public class Acticle extends JFrame {
 		number.addKeyListener(new KeyListener() {
 					@Override
 					public void keyPressed(KeyEvent e) {
-						
+						keyReleased(e);
 					}
 					@Override
 					public void keyReleased(KeyEvent e) {
@@ -128,7 +178,7 @@ public class Acticle extends JFrame {
 					@Override
 					public void keyTyped(KeyEvent e) {
 						// TODO Auto-generated method stub
-						
+						keyReleased(e);
 					}
 		});
 		number.setBounds(5, 270, 50, 30);
@@ -143,32 +193,32 @@ public class Acticle extends JFrame {
 		p.add(wenben1);
 	}
 	void automaticDisruption() {
-		JLabel lable1 = new JLabel("ËÙ¶È¡İ");
-		JLabel lable2 = new JLabel("»÷¼ü¡İ");
-		JLabel lable3 = new JLabel("¼ü×¼¡İ");
-		JLabel lable4 = new JLabel("Î´´ï±êÊ±");
-		lable1.setBounds(5, 310, 40, 30);
+		JLabel lable1 = new JLabel("é€Ÿåº¦â‰¥");
+		JLabel lable2 = new JLabel("å‡»é”®â‰¥");
+		JLabel lable3 = new JLabel("é”®å‡†â‰¥");
+		JLabel lable4 = new JLabel("æœªè¾¾æ ‡æ—¶");
+		lable1.setBounds(5, 350, 40, 30);
 	    spinnerSpeed = new JSpinner();
 		spinnerSpeed.setModel(new SpinnerNumberModel(0, 0, 999, 0.1));
-		spinnerSpeed.setBounds(lable1.getX()+lable1.getWidth()+10, 310, 50, 30);
+		spinnerSpeed.setBounds(lable1.getX()+lable1.getWidth()+10, lable1.getY(), 50, 30);
 		
-		lable2.setBounds(spinnerSpeed.getX()+spinnerSpeed.getWidth()+10, 310, 40, 30);
+		lable2.setBounds(spinnerSpeed.getX()+spinnerSpeed.getWidth()+10,  lable1.getY(), 40, 30);
 		spinnerKey = new JSpinner();
 		spinnerKey.setModel(new SpinnerNumberModel(0, 0, 30, 0.1));
-		spinnerKey.setBounds(lable2.getX()+lable2.getWidth()+10, 310, 50, 30);
+		spinnerKey.setBounds(lable2.getX()+lable2.getWidth()+10,  lable1.getY(), 50, 30);
 		
-		lable3.setBounds(spinnerKey.getX()+spinnerKey.getWidth()+10, 310, 40, 30);
+		lable3.setBounds(spinnerKey.getX()+spinnerKey.getWidth()+10,  lable1.getY(), 40, 30);
 		spinnerKeyLength = new JSpinner();
-		spinnerKeyLength.setModel(new SpinnerNumberModel(0, 0, 7, 0.1));
-		spinnerKeyLength.setBounds(lable3.getX()+lable3.getWidth()+10, 310, 50, 30);
+		spinnerKeyLength.setModel(new SpinnerNumberModel(0, 0, 100, 0.01));
+		spinnerKeyLength.setBounds(lable3.getX()+lable3.getWidth()+10,  lable1.getY(), 50, 30);
 		
 		
-		lable4.setBounds(spinnerKeyLength.getX()+spinnerKeyLength.getWidth()+10,310,50,30);
+		lable4.setBounds(spinnerKeyLength.getX()+spinnerKeyLength.getWidth()+10, lable1.getY(),50,30);
 		caozuo = new JComboBox<String>();
-		caozuo.addItem("²»²Ù×÷");
-		caozuo.addItem("ÂÒĞò");
-		caozuo.addItem("ÖØ´ò");
-		caozuo.setBounds(lable4.getX()+lable4.getWidth()+10, 310, 100, 30);
+		caozuo.addItem("ä¸æ“ä½œ");
+		caozuo.addItem("ä¹±åº");
+		caozuo.addItem("é‡æ‰“");
+		caozuo.setBounds(lable4.getX()+lable4.getWidth()+10,  lable1.getY(), 100, 30);
 		
 		
 		
@@ -182,17 +232,18 @@ public class Acticle extends JFrame {
 		p.add(lable4);
 	}
 	void Articlelist() {
-		root = new DefaultMutableTreeNode("Á·Ï°");
-		danzilei = new DefaultMutableTreeNode("µ¥×ÖÀà");
-		wenzhanglei = new DefaultMutableTreeNode("ÎÄÕÂÀà");
-		yingwenlei = new DefaultMutableTreeNode("Ó¢´òÀà");
-		File danziDir = new File("ÎÄÕÂ//µ¥×ÖÀà"), wenzhangDir = new File("ÎÄÕÂ//ÎÄÕÂÀà"), yingwenDir = new File(
-				"ÎÄÕÂ//Ó¢´òÀà");
+		root = new DefaultMutableTreeNode("ç»ƒä¹ ");
+		danzilei = new DefaultMutableTreeNode("å•å­—ç±»");
+		wenzhanglei = new DefaultMutableTreeNode("æ–‡ç« ç±»");
+		yingwenlei = new DefaultMutableTreeNode("è‹±æ‰“ç±»");
+		File danziDir = new File("æ–‡ç« //å•å­—ç±»"), wenzhangDir = new File("æ–‡ç« //æ–‡ç« ç±»"), yingwenDir = new File(
+				"æ–‡ç« //è‹±æ‰“ç±»");
 
 		File[] danziFile = danziDir.listFiles(), wenzhangFile = wenzhangDir
 				.listFiles(), yingwenFile = yingwenDir.listFiles();
 		String[] danziFileName = danziDir.list(), wenzhangFileName = wenzhangDir
 				.list(), yingwenFileName = yingwenDir.list();
+		root.add(new DefaultMutableTreeNode("éšæœºä¸€æ–‡"));
 		for (i = 0; i < danziFileName.length; i++)
 			if (danziFile[i].isFile()) {
 				danzilei.add(new DefaultMutableTreeNode(danziFileName[i]));

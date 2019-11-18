@@ -13,13 +13,13 @@ public class EmailFrame extends JFrame {
 		init();
 		setVisible(true);
 		
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//ÉèÖÃ¹Ø±Õ°´Å¥
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//è®¾ç½®å…³é—­æŒ‰é’®
 	}
 	void init(){
-		con = new JButton("»ñÈ¡ÑéÖ¤Âë");
-		confire = new JButton("È·¶¨");
-		email = new JTextField("ÓÊÏäºÅÂë");
-		yanzhengma = new JTextField("ÑéÖ¤Âë");
+		con = new JButton("è·å–éªŒè¯ç ");
+		confire = new JButton("ç¡®å®š");
+		email = new JTextField("é‚®ç®±å·ç ");
+		yanzhengma = new JTextField("éªŒè¯ç ");
 		
 		email.setBounds(20,20,120,30);
 		con.setBounds(150,20,80,30);

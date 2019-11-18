@@ -25,22 +25,22 @@ public class ShareListener extends AbstractAction {
 	}
 	public static  void send(){
 //		if(SendWenben.sendwenSign==0&&SendWenben.sendwenSign2==0){
-//			JOptionPane.showMessageDialog(new JTextArea(),"·¢ÎÄ¹¦ÄÜÖ»Ö§³Ö·¢ÎÄ×´Ì¬ÏÂÊ¹ÓÃ");return;}
+//			JOptionPane.showMessageDialog(new JTextArea(),"å‘æ–‡åŠŸèƒ½åªæ”¯æŒå‘æ–‡çŠ¶æ€ä¸‹ä½¿ç”¨");return;}
 		String share = "";
 		if(SendWenben.sendwenSign==1)
-			share = SendWenben.title+"\n"+QQZaiwenListener.wenbenstr+"\n-----"+"µÚ"+String.valueOf(RegexText.duan1)+"¶Î-Óà"+(ActicleListener.length-ActicleListener.fontweizhi-ActicleListener.fontnum)+"×Ö";
+			share = SendWenben.title+"\n"+QQZaiwenListener.wenbenstr+"\n-----"+"ç¬¬"+String.valueOf(RegexText.duan1)+"æ®µ-ä½™"+(ActicleListener.length-ActicleListener.fontweizhi-ActicleListener.fontnum)+"å­—";
 		else if(SendWenben.sendwenSign2==1)
-			share = SendWenben.title+"£ºËæ»ú³éÈ¡·¢ÎÄÄ£Ê½"+"\n"+QQZaiwenListener.wenbenstr+"\n-----"+"µÚ"+String.valueOf(RegexText.duan1)+"¶Î";
+			share = SendWenben.title+"ï¼šéšæœºæŠ½å–å‘æ–‡æ¨¡å¼"+"\n"+QQZaiwenListener.wenbenstr+"\n-----"+"ç¬¬"+String.valueOf(RegexText.duan1)+"æ®µ";
 		else
-			share = SendWenben.title+"\n"+QQZaiwenListener.wenbenstr+"\n-----"+"µÚ"+String.valueOf(RegexText.duan1)+"¶Î";
-		AchievementListener.setClipboardString(share); //½«³É¼¨·ÅÈë¼ôÌù°å
+			share = SendWenben.title+"\n"+QQZaiwenListener.wenbenstr+"\n-----"+"ç¬¬"+String.valueOf(RegexText.duan1)+"æ®µ";
+		AchievementListener.setClipboardString(share); //å°†æˆç»©æ”¾å…¥å‰ªè´´æ¿
 		System.out.println(AchievementListener.getClipboardString());
 		try {
 			if(Example.systemname.substring(0,7).equals("Windows"))
 				QQ.sendMessage(2,qqName.getText());
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
-			System.out.println("·ÖÏí·¢ÎÄÊ§°Ü");
+			System.out.println("åˆ†äº«å‘æ–‡å¤±è´¥");
 		}
 	}
 }

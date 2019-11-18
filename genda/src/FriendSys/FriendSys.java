@@ -34,8 +34,8 @@ public class FriendSys extends JFrame{
 	public FriendSys(){
 		init();
 		setVisible(true);
-		setTitle("ºÃÓÑÏµÍ³");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//ÉèÖÃ¹Ø±Õ°´Å¥
+		setTitle("å¥½å‹ç³»ç»Ÿ");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//è®¾ç½®å…³é—­æŒ‰é’®
 		setBounds(10,10,850,850);
 	}
 	public static JTable table;
@@ -52,7 +52,7 @@ public class FriendSys extends JFrame{
 	public static List<Vector> all = new ArrayList<Vector>();
 	void init(){
 		setLayout(null);
-		Object name[]={"","Ãû×Ö","×Ü×ÖÊı","ÕıÈ·×ÖÊı","´íÎó×ÖÊı","½ñÈÕ¸ú´ò","ÔÚÏßÇé¿ö"},a[][] = null;
+		Object name[]={"","åå­—","æ€»å­—æ•°","æ­£ç¡®å­—æ•°","é”™è¯¯å­—æ•°","ä»Šæ—¥è·Ÿæ‰“","åœ¨çº¿æƒ…å†µ"},a[][] = null;
 		tableM = new DefaultTableModel(a,name) {
             private static final long serialVersionUID = 1L;
             @Override
@@ -65,8 +65,8 @@ public class FriendSys extends JFrame{
 		
 		tableN = new JScrollPane(table);
 		tableN.setBounds(0,0,800,700);
-		addfriend = new JButton("Íæ¼ÒÃû×Ö");
-		addfriendname = new JTextField("ÉêÇëÌí¼Ó");
+		addfriend = new JButton("ç©å®¶åå­—");
+		addfriendname = new JTextField("ç”³è¯·æ·»åŠ ");
 		addfriend.setBounds(10, 710, 120,30 );
 		addfriendname.setBounds(140, 710, 120, 30);
 		
@@ -88,26 +88,26 @@ public class FriendSys extends JFrame{
 			in = new DataInputStream(socket.getInputStream());
 		}catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
-			System.out.println("¸ú´ò¼ÇÂ¼ÍøÂç´íÎó1");
+			System.out.println("è·Ÿæ‰“è®°å½•ç½‘ç»œé”™è¯¯1");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("¸ú´ò¼ÇÂ¼ÍøÂç´íÎó2");
+			System.out.println("è·Ÿæ‰“è®°å½•ç½‘ç»œé”™è¯¯2");
 		}
 		try {
-			System.out.println("ºÃÓÑÏµÍ³");
-			out.writeUTF("ºÃÓÑ");
+			System.out.println("å¥½å‹ç³»ç»Ÿ");
+			out.writeUTF("å¥½å‹");
 			while(true){
 				vRow1 = new Vector();
 				vRow1.add(++n);
 				for(int i=0;i<5;i++){
 					temp = in.readUTF();
-					if(temp.equals("%ºÃÓÑ==0")){JOptionPane.showMessageDialog(new JTextArea(),"ºÃÓÑÁĞ±íÎŞºÃÓÑ");return;}
+					if(temp.equals("%å¥½å‹==0")){JOptionPane.showMessageDialog(new JTextArea(),"å¥½å‹åˆ—è¡¨æ— å¥½å‹");return;}
 					vRow1.add(temp);
 				}
 				if(in.readUTF().equals("1"))
-					vRow1.add("ÔÚÏß");
+					vRow1.add("åœ¨çº¿");
 				else
-					vRow1.add("²»ÔÚÏß");
+					vRow1.add("ä¸åœ¨çº¿");
 //				id.add(in.readUTF());
 				all.add(vRow1);
 			}
@@ -119,7 +119,7 @@ public class FriendSys extends JFrame{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			System.out.println("ÅÅÃû½áÊø");
+			System.out.println("æ’åç»“æŸ");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			try {
@@ -128,7 +128,7 @@ public class FriendSys extends JFrame{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			System.out.println("ÅÅÃû½áÊø");
+			System.out.println("æ’åç»“æŸ");
 		}
 		showtable();
 	}
@@ -137,7 +137,7 @@ public class FriendSys extends JFrame{
 		for(int i=0;i<all.size();i++)
 			try{
 				tableM.addRow(all.get(i));
-			}catch(Exception e){System.out.println("ÏÔÊ¾ºÃÓÑ");break;}
+			}catch(Exception e){System.out.println("æ˜¾ç¤ºå¥½å‹");break;}
 	}
 	public static void clear(){
 		while (historyFrame.table.getRowCount()>0)

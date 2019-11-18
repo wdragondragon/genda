@@ -11,16 +11,16 @@ public class CountSaiwen extends Thread {
 			try {
 				sleep(1);
 			} catch (InterruptedException e1) {}
-			for(int i = 5;i>=0;i--){//Ë«·½×¼±¸ºóµ¹Êı
+			for(int i = 5;i>=0;i--){//åŒæ–¹å‡†å¤‡åå€’æ•°
 				try {
 					sleep(1000);
 					Window.wenben.setText(String.valueOf(i));
-				} catch (InterruptedException e) {System.out.println("µ¹ÊıÊ§°Ü");}
+				} catch (InterruptedException e) {System.out.println("å€’æ•°å¤±è´¥");}
 			}
 			Window.f3listener.f3caozuo();
 			Window.gendaListener.sign = 1;
 			Window.gendaListener.comp.setTimeOne();
-			System.out.println("ÈüÎÄ¿ªÊ¼");
+			System.out.println("èµ›æ–‡å¼€å§‹");
 			stop();
 		}
 	}

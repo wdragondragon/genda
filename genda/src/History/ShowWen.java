@@ -7,7 +7,7 @@ public class ShowWen extends JFrame{
 	JScrollPane jswenshow = new JScrollPane(wenshow);
 //	JTextPane wenshow = new JTextPane();;
 	public ShowWen(){
-		setTitle("¸ú´òÏêÏ¸");
+		setTitle("è·Ÿæ‰“è¯¦ç»†");
 		setBounds(100,100,550,550);
 		
 //		wenshow.setLineWrap(true);

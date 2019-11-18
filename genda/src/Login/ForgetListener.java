@@ -15,9 +15,9 @@ public class ForgetListener implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 
-		new EmailCheckFrame().setTitle("ĞŞ¸ÄÃÜÂë");
+		new EmailCheckFrame().setTitle("ä¿®æ”¹å¯†ç ");
 
-		// JOptionPane.showMessageDialog(new JTextArea(),"ÎŞ×ÔÖú¸ÄÃÜ\nµã»÷Ğ­Öú×÷ÕßÀ´ÁªÏµ×÷Õß");
+		// JOptionPane.showMessageDialog(new JTextArea(),"æ— è‡ªåŠ©æ”¹å¯†\nç‚¹å‡»ååŠ©ä½œè€…æ¥è”ç³»ä½œè€…");
 	}
 
 }

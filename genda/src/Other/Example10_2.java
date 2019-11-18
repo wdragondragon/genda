@@ -13,12 +13,12 @@ public class Example10_2 {
 //		for (int i = 0; i < fileName.length; i++) {
 //            if (fileName[i].isFile()) {
 //                String fileName1 = fileName[i].getName();
-//                System.out.println("ÎÄ¼þ£º" + fileName1);                
+//                System.out.println("æ–‡ä»¶ï¼š" + fileName1);                
 //            }
 //            
 //            if (fileName[i].isDirectory()) {
 //                String fileName1 = fileName[i].getName();
-//                System.out.println("Ä¿Â¼£º" + fileName1);        
+//                System.out.println("ç›®å½•ï¼š" + fileName1);        
 //            }
 //        }
 		for(String name:fileName){
@@ -35,8 +35,8 @@ public class Example10_2 {
 			n++;
 		}
 		strlength = strall.length();
-		System.out.println("Ò»¹²"+n+"¸öÀà");
-		System.out.println("Ò»¹²"+strnum+"ÐÐ´úÂë");
-		System.out.println("Ò»¹²"+strlength+"¸ö×Ö·û");
+		System.out.println("ä¸€å…±"+n+"ä¸ªç±»");
+		System.out.println("ä¸€å…±"+strnum+"è¡Œä»£ç ");
+		System.out.println("ä¸€å…±"+strlength+"ä¸ªå­—ç¬¦");
 	}
 }

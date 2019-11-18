@@ -33,11 +33,11 @@ public class QQZaiwenListener extends AbstractAction {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (SendWenben.sendwenSign == 1) {
-			JOptionPane.showMessageDialog(new JTextArea(), "ÏÈ½áÊø·¢ÎÄ");
+			JOptionPane.showMessageDialog(new JTextArea(), "å…ˆç»“æŸå‘æ–‡");
 			return;
 		}
 		if (Window.everydaySign) {
-			JOptionPane.showMessageDialog(new JTextArea(), "ÇëÏÈ½áÊøÃ¿ÈÕÈüÎÄ");
+			JOptionPane.showMessageDialog(new JTextArea(), "è¯·å…ˆç»“æŸæ¯æ—¥èµ›æ–‡");
 			return;
 		}
 		try {
@@ -45,7 +45,7 @@ public class QQZaiwenListener extends AbstractAction {
 				QQ.sendMessage(1, qqName.getText());
 		} catch (Exception ex) {
 			// TODO Auto-generated catch block
-			System.out.println("ÔØÎÄÊ§°Ü");
+			System.out.println("è½½æ–‡å¤±è´¥");
 			// ex.printStackTrace();
 		}
 		zaiwenSign = true;

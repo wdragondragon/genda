@@ -37,18 +37,18 @@ public class JTextPaneChange {
 		try {
 			doc.removeStyle(style);
 		} catch (Exception e) {
-		} // ÏÈÉ¾³ıÕâÖÖStyle,¼ÙÊ¹Ëû´æÔÚ
+		} // å…ˆåˆ é™¤è¿™ç§Style,å‡ä½¿ä»–å­˜åœ¨
 
-		Style s = doc.addStyle(style, sys); // ¼ÓÈë
-		StyleConstants.setFontSize(s, size); // ´óĞ¡
-		StyleConstants.setBold(s, (bold == 1) ? true : false); // ´ÖÌå
-		StyleConstants.setItalic(s, (italic == 1) ? true : false); // Ğ±Ìå
-		StyleConstants.setUnderline(s, (underline == 1) ? true : false); // ÏÂ»®Ïß
-		StyleConstants.setForeground(s, color); // ÑÕÉ«
-		StyleConstants.setFontFamily(s, fontName);// ×ÖÌå
-		if (style.equals("ºÚ"))
+		Style s = doc.addStyle(style, sys); // åŠ å…¥
+		StyleConstants.setFontSize(s, size); // å¤§å°
+		StyleConstants.setBold(s, (bold == 1) ? true : false); // ç²—ä½“
+		StyleConstants.setItalic(s, (italic == 1) ? true : false); // æ–œä½“
+		StyleConstants.setUnderline(s, (underline == 1) ? true : false); // ä¸‹åˆ’çº¿
+		StyleConstants.setForeground(s, color); // é¢œè‰²
+		StyleConstants.setFontFamily(s, fontName);// å­—ä½“
+		if (style.equals("é»‘"))
 			StyleConstants.setBackground(s, backcolor);
-		else if (style.equals("ºì")) {
+		else if (style.equals("çº¢")) {
 			StyleConstants.setBackground(s, backcolor);
 		}
 	}

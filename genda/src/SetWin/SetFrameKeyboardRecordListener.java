@@ -12,9 +12,9 @@ public class SetFrameKeyboardRecordListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getActionCommand()=="提取本次跟打击键记录")
+		if(e.getActionCommand()=="鎻愬彇鏈璺熸墦鍑婚敭璁板綍")
 			Keyboarddisplay.setText(gendalistener.record);
-		else if (e.getActionCommand()=="提取本次跟打错字记录"){
+		else if (e.getActionCommand()=="鎻愬彇鏈璺熸墦閿欏瓧璁板綍"){
 			Keyboarddisplay.setText("");
 			for(int i = 0;i<gendalistener.mistakelist.size();i++)
 				Keyboarddisplay.append(gendalistener.mistakelist.get(i));

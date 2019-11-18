@@ -12,14 +12,14 @@ public class Server {
 				server = new ServerSocket(2010);
 			}
 			catch(IOException el){
-				System.out.println("正在监听");
+				System.out.println("姝ｅ湪鐩戝惉");
 			}
 			try{
-				System.out.println(" 等待客户呼叫:");
+				System.out.println(" 绛夊緟瀹㈡埛鍛煎彨:");
 				you = server.accept();
-				System.out.println("客户的地址:"+you.getInetAddress());
+				System.out.println("瀹㈡埛鐨勫湴鍧�:"+you.getInetAddress());
 			}catch(IOException e){
-				System.out.println("正在等待客户");
+				System.out.println("姝ｅ湪绛夊緟瀹㈡埛");
 			}
 			if(you!=null){
 				new ServerThread(you).start();

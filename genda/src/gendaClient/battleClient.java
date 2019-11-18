@@ -4,7 +4,7 @@ import genda1.*;
 import java.io.*;
 import java.net.*;
 import javax.swing.*;
-/*¿Í»§¶ËÀà*/
+/*å®¢æˆ·ç«¯ç±»*/
 public class battleClient{
 	JTextArea dazi;
 	JTextArea accept;
@@ -17,17 +17,17 @@ public class battleClient{
 	GendaJindutiao gendajindu;
 	public void StratClient(){
 		try {
-			socket = new Socket(Window.IP,portNum[Window.RoomNum-1]);//´´½¨¿Í»§¶Ë
+			socket = new Socket(Window.IP,portNum[Window.RoomNum-1]);//åˆ›å»ºå®¢æˆ·ç«¯
 			send = new battleSend(dazi,accept,socket);
 //			((dazi.getDocument())).addDocumentListener(sendlistener);
-			readThread = new battleReadThread(socket,accept,gendajindu);//¿ªÆô¶ÁÈ¡´Ó·şÎñÆ÷¶Ë·¢À´µÄĞÅÏ¢
+			readThread = new battleReadThread(socket,accept,gendajindu);//å¼€å¯è¯»å–ä»æœåŠ¡å™¨ç«¯å‘æ¥çš„ä¿¡æ¯
 			//			readThread.start();
 		}
 		catch (UnknownHostException e) {
-			System.out.println("¶Ô·½Á¬½Ó¶Ï¿ª");
+			System.out.println("å¯¹æ–¹è¿æ¥æ–­å¼€");
 		}
 		catch (IOException e) { 
-			System.out.println("´íÎó£º·şÎñÆ÷Î´¿ªÆô£¡£¡£¡");
+			System.out.println("é”™è¯¯ï¼šæœåŠ¡å™¨æœªå¼€å¯ï¼ï¼ï¼");
 		}
 	}
 	public void setDazi(JTextArea dazi){

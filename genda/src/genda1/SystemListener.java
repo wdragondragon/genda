@@ -32,30 +32,30 @@ public class SystemListener implements ActionListener,MouseListener,MouseMotionL
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getActionCommand()=="¹Ø"){
+		if(e.getActionCommand()=="å…³"){
 			if(win.one.isVisible()){
-				JOptionPane.showMessageDialog(new JTextArea(),"ÇëÏÈ¹Ø±ÕÔÚÏß¶ÔÕ½");return;
+				JOptionPane.showMessageDialog(new JTextArea(),"è¯·å…ˆå…³é—­åœ¨çº¿å¯¹æˆ˜");return;
 			}
 			if(MaxSign==1){
-				JOptionPane.showMessageDialog(new JTextArea(),"ÇëÏÈ¹Ø±ÕÈ«ÆÁÄ£Ê½");return;
+				JOptionPane.showMessageDialog(new JTextArea(),"è¯·å…ˆå…³é—­å…¨å±æ¨¡å¼");return;
 			}
-			UIManager.put("OptionPane.yesButtonText", "¹Ø±Õ");
-			UIManager.put("OptionPane.noButtonText", "Òş²Ø");
-			int n = JOptionPane.showConfirmDialog(null, "Òª¹Ø±Õ¸ú´òÆ÷£¬»¹ÊÇÑ¡ÔñÒş²Øµ½ÍĞÅÌ", "¹Ø±ÕÌáÊ¾", JOptionPane.YES_NO_OPTION);
+			UIManager.put("OptionPane.yesButtonText", "å…³é—­");
+			UIManager.put("OptionPane.noButtonText", "éšè—");
+			int n = JOptionPane.showConfirmDialog(null, "è¦å…³é—­è·Ÿæ‰“å™¨ï¼Œè¿˜æ˜¯é€‰æ‹©éšè—åˆ°æ‰˜ç›˜", "å…³é—­æç¤º", JOptionPane.YES_NO_OPTION);
 			if (n == JOptionPane.YES_OPTION) {
 				try {
-					readWrite.keep(win);//±£´æÉèÖÃ
-//					SendQQMessage.sendmessage(Login.zhanghao.getText()+"ÒÑÏÂÏß£¬£¨ÉÏÏßÏûÏ¢Ö»»á·¢ËÍµ½ÍÏÀ­»ú½»Á÷Èº£©");
-				} catch (IOException e1) {System.out.println("±£´æÊ§°Ü");}
+					readWrite.keep(win);//ä¿å­˜è®¾ç½®
+//					SendQQMessage.sendmessage(Login.zhanghao.getText()+"å·²ä¸‹çº¿ï¼Œï¼ˆä¸Šçº¿æ¶ˆæ¯åªä¼šå‘é€åˆ°æ‹–æ‹‰æœºäº¤æµç¾¤ï¼‰");
+				} catch (IOException e1) {System.out.println("ä¿å­˜å¤±è´¥");}
 				System.exit(0);
 			}
 			else{
 				win.setVisible(false);
 			}
 		}
-		else if(e.getActionCommand()=="×î´ó»¯"){
+		else if(e.getActionCommand()=="æœ€å¤§åŒ–"){
 			if(MaxSign == 0){
-//				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //µÃµ½ÆÁÄ»·Ö±æÂÊ
+//				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); //å¾—åˆ°å±å¹•åˆ†è¾¨ç‡
 //				GraphicsEnvironment ge=GraphicsEnvironment.getLocalGraphicsEnvironment(); 
 //				Rectangle screenSize=ge.getMaximumWindowBounds(); 
 //				int w=screenSize.width; 
@@ -68,8 +68,8 @@ public class SystemListener implements ActionListener,MouseListener,MouseMotionL
 				min();
 			}
 		}
-		else if(e.getActionCommand().equals("×îĞ¡»¯")){
-			System.out.println("×îĞ¡»¯");
+		else if(e.getActionCommand().equals("æœ€å°åŒ–")){
+			System.out.println("æœ€å°åŒ–");
 			win.setExtendedState(JFrame.ICONIFIED); 
 		}
 	}
@@ -99,17 +99,17 @@ public class SystemListener implements ActionListener,MouseListener,MouseMotionL
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		win.setCursor(Cursor.getPredefinedCursor(Cursor.SE_RESIZE_CURSOR)); //¸Ä±ä´°¿Ú´óĞ¡Ö¸Õë 
+		win.setCursor(Cursor.getPredefinedCursor(Cursor.SE_RESIZE_CURSOR)); //æ”¹å˜çª—å£å¤§å°æŒ‡é’ˆ 
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		win.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));	//»Ö¸´Ä¬ÈÏÖ¸Õë
+		win.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));	//æ¢å¤é»˜è®¤æŒ‡é’ˆ
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		pressedPoint = e.getPoint(); //¼ÇÂ¼Êó±ê×ø±ê
+		pressedPoint = e.getPoint(); //è®°å½•é¼ æ ‡åæ ‡
 	}
 
 	@Override
@@ -119,12 +119,12 @@ public class SystemListener implements ActionListener,MouseListener,MouseMotionL
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
 		if(MaxSign==0){
-			Point point = e.getPoint();// »ñÈ¡µ±Ç°×ø±ê
+			Point point = e.getPoint();// è·å–å½“å‰åæ ‡
 			locationPointx = win.getWidth();
 			locationPointy = win.getHeight();
-			int i = locationPointx + point.x - pressedPoint.x;// ¼ÆËãÒÆ¶¯ºóµÄĞÂ×ø±ê
+			int i = locationPointx + point.x - pressedPoint.x;// è®¡ç®—ç§»åŠ¨åçš„æ–°åæ ‡
 			int j = locationPointy + point.y - pressedPoint.y;
-			win.setSize(i, j);// ¸Ä±ä´°Ìå´óĞ¡
+			win.setSize(i, j);// æ”¹å˜çª—ä½“å¤§å°
 		}
 	}
 

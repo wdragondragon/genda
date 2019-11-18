@@ -14,7 +14,7 @@ public class LookChange extends JFrame {
 	LookChange() {
 		init();
 		setVisible(true);
-		setTitle("ÕıÔÚ×ª»»");
+		setTitle("æ­£åœ¨è½¬æ¢");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 200, 150);
 	}

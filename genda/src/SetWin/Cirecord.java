@@ -98,8 +98,8 @@ public class Cirecord extends JFrame {
 		
 		jfreechart.getLegend().setItemFont(font);
 //		jfreechart.getLegend().setMargin(0, 0, 0, 5);
-		CategoryPlot plot1 = jfreechart.getCategoryPlot();// 获得图表区域对象   
-		// 设置图表的纵轴和横轴   
+		CategoryPlot plot1 = jfreechart.getCategoryPlot();// 获得图表区域对象?? 
+		// 设置图表的纵轴和横轴?? 
 		CategoryAxis domainAxis1 = plot1.getDomainAxis(); //获得横轴——目录轴
 		ValueAxis rangeAxis1 = plot1.getRangeAxis(); //获得纵轴——数值轴
 		domainAxis1.setLabelFont(font);

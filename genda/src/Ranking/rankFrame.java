@@ -32,14 +32,14 @@ public class rankFrame extends JFrame {
 //		setLayout(new FlowLayout());
 		setBounds(10,10,700,500);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//ÉèÖÃ¹Ø±Õ°´Å¥
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//è®¾ç½®å…³é—­æŒ‰é’®
 		
 //		setResizable(false);
 	}
 	void init(){
 		
 //		add(p);
-		Object name[]={"","Ãû×Ö","×Ü×ÖÊı","ÕıÈ·×ÖÊı","´íÎó×ÖÊı","½ñÈÕ¸ú´ò","ÈüÎÄµÈ¼¶","ÔÚÏßÇé¿ö","×îºóµÇÂ¼","×¢²áÈÕÆÚ"},a[][] = null;
+		Object name[]={"","åå­—","æ€»å­—æ•°","æ­£ç¡®å­—æ•°","é”™è¯¯å­—æ•°","ä»Šæ—¥è·Ÿæ‰“","èµ›æ–‡ç­‰çº§","åœ¨çº¿æƒ…å†µ","æœ€åç™»å½•","æ³¨å†Œæ—¥æœŸ"},a[][] = null;
 		tableM = new DefaultTableModel(a,name){
             private static final long serialVersionUID = 1L;
             @Override
@@ -62,11 +62,11 @@ public class rankFrame extends JFrame {
 			DataInputStream in = new DataInputStream(socket.getInputStream());
 			socket.setSoTimeout(2000);
 			if(i==1)
-				out.writeUTF("ÅÅÃû1");
+				out.writeUTF("æ’å1");
 			else if(i==2)
-				out.writeUTF("ÅÅÃû2");
+				out.writeUTF("æ’å2");
 			else if(i==3);
-				out.writeUTF("ÅÅÃû3");
+				out.writeUTF("æ’å3");
 			int n =0;
 			while(true){
 				Vector vRow1 = new Vector();
@@ -81,64 +81,64 @@ public class rankFrame extends JFrame {
 					{
 					    case 0:
 					    case 1:
-					    case 2:duanwei = "Ò»¼¶";break;
-					    case 3:duanwei = "¶ş¼¶";break;
-					    case 4:duanwei = "Èı¼¶";break;
-					    case 5:duanwei = "ËÄ¼¶";break;
+					    case 2:duanwei = "ä¸€çº§";break;
+					    case 3:duanwei = "äºŒçº§";break;
+					    case 4:duanwei = "ä¸‰çº§";break;
+					    case 5:duanwei = "å››çº§";break;
 					    case 6:
-					    case 7:duanwei = "Îå¼¶";break;
-					    case 8:duanwei = "Áù¼¶";break;
-					    case 9:duanwei = "Æß¼¶";break;
-					    case 10:duanwei = "°Ë¼¶";break;
-					    case 11:duanwei = "¾Å¼¶";break;
-					    case 12:duanwei = "Ò»¶Î";break;
-					    case 13:duanwei = "¶ş¶Î";break;
-					    case 14:duanwei = "Èı¶Î";break;
-					    case 15:duanwei = "ËÄ¶Î";break;
-					    case 16:duanwei = "Îå¶Î";break;
-					    case 17:duanwei = "Áù¶Î";break;
-					    case 18:duanwei = "Æß¶Î";break;
-					    case 19:duanwei = "°Ë¶Î";break;
-					    case 20:duanwei = "¾Å¶Î";break;
-					    case 21:duanwei = "Ò»ĞÇ";break;
-					    case 22:duanwei = "¶şĞÇ";break;
-					    case 23:duanwei = "ÈıĞÇ";break;
-					    case 24:duanwei = "ËÄĞÇ";break;
-					    case 25:duanwei = "ÎåĞÇ";break;
-					    case 26:duanwei = "ÁùĞÇ";break;
-					    case 27:duanwei = "ÆßĞÇ";break;
-					    case 28:duanwei = "°ËĞÇ";break;
-					    case 29:duanwei = "¾ÅĞÇ";break;
-					    case 30:duanwei = "Ò»ÖØ";break;
-					    case 31:duanwei = "¶şÖØ";break;
-					    case 32:duanwei = "ÈıÖØ";break;
-					    case 33:duanwei = "ËÄÖØ";break;
-					    case 34:duanwei = "ÎåÖØ";break;
-					    case 35:duanwei = "ÁùÖØ";break;
-					    case 36:duanwei = "ÆßÖØ";break;
-					    case 37:duanwei = "°ËÖØ";break;
-					    case 38:duanwei = "¾ÅÖØ";break;
-					    case 39:duanwei = "Ê®ÖØ";break;
+					    case 7:duanwei = "äº”çº§";break;
+					    case 8:duanwei = "å…­çº§";break;
+					    case 9:duanwei = "ä¸ƒçº§";break;
+					    case 10:duanwei = "å…«çº§";break;
+					    case 11:duanwei = "ä¹çº§";break;
+					    case 12:duanwei = "ä¸€æ®µ";break;
+					    case 13:duanwei = "äºŒæ®µ";break;
+					    case 14:duanwei = "ä¸‰æ®µ";break;
+					    case 15:duanwei = "å››æ®µ";break;
+					    case 16:duanwei = "äº”æ®µ";break;
+					    case 17:duanwei = "å…­æ®µ";break;
+					    case 18:duanwei = "ä¸ƒæ®µ";break;
+					    case 19:duanwei = "å…«æ®µ";break;
+					    case 20:duanwei = "ä¹æ®µ";break;
+					    case 21:duanwei = "ä¸€æ˜Ÿ";break;
+					    case 22:duanwei = "äºŒæ˜Ÿ";break;
+					    case 23:duanwei = "ä¸‰æ˜Ÿ";break;
+					    case 24:duanwei = "å››æ˜Ÿ";break;
+					    case 25:duanwei = "äº”æ˜Ÿ";break;
+					    case 26:duanwei = "å…­æ˜Ÿ";break;
+					    case 27:duanwei = "ä¸ƒæ˜Ÿ";break;
+					    case 28:duanwei = "å…«æ˜Ÿ";break;
+					    case 29:duanwei = "ä¹æ˜Ÿ";break;
+					    case 30:duanwei = "ä¸€é‡";break;
+					    case 31:duanwei = "äºŒé‡";break;
+					    case 32:duanwei = "ä¸‰é‡";break;
+					    case 33:duanwei = "å››é‡";break;
+					    case 34:duanwei = "äº”é‡";break;
+					    case 35:duanwei = "å…­é‡";break;
+					    case 36:duanwei = "ä¸ƒé‡";break;
+					    case 37:duanwei = "å…«é‡";break;
+					    case 38:duanwei = "ä¹é‡";break;
+					    case 39:duanwei = "åé‡";break;
 					    case 40:
 					    case 41:
 					    case 42:
 					    case 43:
-					    case 44:duanwei = "µØÊÖ";break;
+					    case 44:duanwei = "åœ°æ‰‹";break;
 					    case 45:
 					    case 46:
 					    case 47:
 					    case 48:
-					    case 49:duanwei = "ÌìÊÖ";break;
-					    default:duanwei = "¼«ÊÖ";break;
+					    case 49:duanwei = "å¤©æ‰‹";break;
+					    default:duanwei = "ææ‰‹";break;
 					}
 					vRow1.add(duanwei);
 				}
 				else
 					vRow1.add(aversudu);
 				if(in.readUTF().equals("1"))
-					vRow1.add("ÔÚÏß");
+					vRow1.add("åœ¨çº¿");
 				else
-					vRow1.add("²»ÔÚÏß");
+					vRow1.add("ä¸åœ¨çº¿");
 				vRow1.add(in.readUTF());
 				vRow1.add(in.readUTF());
 				tableM.addRow(vRow1);
@@ -151,7 +151,7 @@ public class rankFrame extends JFrame {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			System.out.println("ÅÅÃû½áÊø");
+			System.out.println("æ’åç»“æŸ");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			try {
@@ -160,7 +160,7 @@ public class rankFrame extends JFrame {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			System.out.println("ÅÅÃû½áÊø");
+			System.out.println("æ’åç»“æŸ");
 		}
 	}
 }

@@ -24,9 +24,9 @@ public class RamdomListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		if(SendWenben.sendwenSign==1){JOptionPane.showMessageDialog(new JTextArea(),"ÏÈ½áÊø·¢ÎÄ");return;}
-		if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"ÇëÏÈ½áÊøÃ¿ÈÕÈüÎÄ");return;}
-		String ramdomWen = load.getRamdomWenben();
+		if(SendWenben.sendwenSign==1){JOptionPane.showMessageDialog(new JTextArea(),"å…ˆç»“æŸå‘æ–‡");return;}
+		if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"è¯·å…ˆç»“æŸæ¯æ—¥èµ›æ–‡");return;}
+		String ramdomWen = Load.getRamdomWenben();
 		ramdomWen = RegexText.qukong(ramdomWen);
 		ramdomWen = RegexText.huanfu(ramdomWen);
 		QQZaiwenListener.wenbenstr = ramdomWen;
@@ -35,7 +35,7 @@ public class RamdomListener implements ActionListener{
 			out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+Window.wenben.getText()+"%0"+"%"+Login.zhanghao.getText());
 		}
 		catch(Exception ex){
-			System.out.println("ÎŞ·¨·¢ËÍÎÄ±¾ÄÚÈİramdomlistener,38");
+			System.out.println("æ— æ³•å‘é€æ–‡æœ¬å†…å®¹ramdomlistener,38");
 		}
 		Window.f3listener.F3();
 		RegexText.duan1 = 1;

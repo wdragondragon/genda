@@ -6,19 +6,19 @@ import java.util.HashMap;
 import java.util.List;
 
 public class SubscriptInstance {
-	private int next;//ÏÂÒ»Ìø
-	private HashMap<Integer,PreInfo> preInfoMap;//ÉÏÒ»Ìø
+	private int next;//ä¸‹ä¸€è·³
+	private HashMap<Integer,PreInfo> preInfoMap;//ä¸Šä¸€è·³
 	private String word;
 	private String wordCode;
-	private int type;//0µ¥ 1È« 2´ÎÈ« 3Èı¼ò 4 ´ÎÈı¼ò 5¶ş¼ò  6´Î¶ş¼ò
+	private int type;//0å• 1å…¨ 2æ¬¡å…¨ 3ä¸‰ç®€ 4 æ¬¡ä¸‰ç®€ 5äºŒç®€  6æ¬¡äºŒç®€
 	private boolean useSign;
 	private boolean useWordSign;
 	private int codeLengthTemp;
 	public class PreInfo{
-		//Í¬³¤¶È²»Í¬ÉÏÌø±í£¬ÓÃÓÚ¶¯Ì¬´ÊÌá
+		//åŒé•¿åº¦ä¸åŒä¸Šè·³è¡¨ï¼Œç”¨äºåŠ¨æ€è¯æ
 		private HashMap<Integer,Integer> preAndType = new HashMap<Integer,Integer>();
-		private String wordsCode;//×î¶Ì±àÂëÂ·¾¶µÄ±àÂë
-		private String words;//×î¶Ì±àÂëÂ·¾¶µÄ´ÊÌõ
+		private String wordsCode;//æœ€çŸ­ç¼–ç è·¯å¾„çš„ç¼–ç 
+		private String words;//æœ€çŸ­ç¼–ç è·¯å¾„çš„è¯æ¡
 		PreInfo(int pre,String words,String wordsCode,int type){
 			this.preAndType.put(pre, type);
 			this.words = words;

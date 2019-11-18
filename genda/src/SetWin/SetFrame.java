@@ -41,8 +41,8 @@ public class SetFrame extends JFrame {
 	ButtonGroup setchange;
 	
 	Window win;
-	JLabel setjindutiao = new JLabel("ÉèÖÃ¶¯Ì¬½ø¶ÈÌõ",JLabel.LEFT);
-	JLabel setchangetxt = new JLabel("´ÊÓïÌáÊ¾",JLabel.LEFT);
+	JLabel setjindutiao = new JLabel("è®¾ç½®åŠ¨æ€è¿›åº¦æ¡",JLabel.LEFT);
+	JLabel setchangetxt = new JLabel("è¯è¯­æç¤º",JLabel.LEFT);
 	public static Color close,open = new Color(255,117,90);
 	public static JPanel p = new JPanel();
 	public static JComboBox<String> family ;
@@ -53,12 +53,12 @@ public class SetFrame extends JFrame {
 	public SetFramechangeListener tiplistener;
 	public SetFramezhidingListener setframezhidinglistener;
 	public void SetFrame1(){
-		setTitle("ÉèÖÃ");
+		setTitle("è®¾ç½®");
 //		setLayout(null);
 		setVisible(false);	
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		p.setLayout(null);
-//		com.sun.awt.AWTUtilities.setWindowOpaque(this,true);//È¡ÏûÍ¸Ã÷
+//		com.sun.awt.AWTUtilities.setWindowOpaque(this,true);//å–æ¶ˆé€æ˜
 		add(p);
 		
 		addJinduON_Off();
@@ -73,41 +73,41 @@ public class SetFrame extends JFrame {
 		SetBackground setbackgroundListener = new SetBackground();
 		setbackgroundListener.setFrame(this);
 		setbackgroundListener.setWin(win);
-		JButton RightcolorSet = new JButton("´ò¶Ô×ÖÑÕÉ«");
+		JButton RightcolorSet = new JButton("æ‰“å¯¹å­—é¢œè‰²");
 		RightcolorSet.setBounds(10,180,100,30);
 		p.add(RightcolorSet);
 		
-		JButton MistakecolorSet = new JButton("´ò´í×ÖÑÕÉ«");
+		JButton MistakecolorSet = new JButton("æ‰“é”™å­—é¢œè‰²");
 		MistakecolorSet.setBounds(RightcolorSet.getX()+RightcolorSet.getWidth()+10,RightcolorSet.getY(),100,30);
 		p.add(MistakecolorSet);
 		
-		JButton WenbenBackgroundSet = new JButton("ÎÄ±¾¿ò±³¾°ÑÕÉ«");
+		JButton WenbenBackgroundSet = new JButton("æ–‡æœ¬æ¡†èƒŒæ™¯é¢œè‰²");
 		WenbenBackgroundSet.setBounds(MistakecolorSet.getX()+MistakecolorSet.getWidth()+10,RightcolorSet.getY(),140,30);
 		p.add(WenbenBackgroundSet);
 		
-		JButton qmccolorset = new JButton("È«Âë´ÊÑÕÉ«");
+		JButton qmccolorset = new JButton("å…¨ç è¯é¢œè‰²");
 		qmccolorset.setBounds(WenbenBackgroundSet.getX()+WenbenBackgroundSet.getWidth()+10,RightcolorSet.getY(),140,30);
 		p.add(qmccolorset);
 		
-		JButton BackgroundSet = new JButton("ÕûÌå½çÃæÑÕÉ«");
+		JButton BackgroundSet = new JButton("æ•´ä½“ç•Œé¢é¢œè‰²");
 		BackgroundSet.setBounds(RightcolorSet.getX(),RightcolorSet.getY()+RightcolorSet.getHeight()+10,140,30);
 		p.add(BackgroundSet);
 		
-		JButton DaziBackgroundSet = new JButton("´ò×Ö¿ò±³¾°ÑÕÉ«");
+		JButton DaziBackgroundSet = new JButton("æ‰“å­—æ¡†èƒŒæ™¯é¢œè‰²");
 		DaziBackgroundSet.setBounds(BackgroundSet.getX()+BackgroundSet.getWidth()+10,RightcolorSet.getHeight()+RightcolorSet.getY()+10,140,30);
 		p.add(DaziBackgroundSet);
 		
-		JButton emccolorset = new JButton("¶şÂë´ÊÑÕÉ«");
+		JButton emccolorset = new JButton("äºŒç è¯é¢œè‰²");
 		emccolorset.setBounds(DaziBackgroundSet.getX()+DaziBackgroundSet.getWidth()+10,RightcolorSet.getHeight()+RightcolorSet.getY()+10,100,30);
 		p.add(emccolorset);
 		
-		JButton smccolorset = new JButton("ÈıÂë´ÊÑÕÉ«");
+		JButton smccolorset = new JButton("ä¸‰ç è¯é¢œè‰²");
 		smccolorset.setBounds(emccolorset.getX()+emccolorset.getWidth()+10,RightcolorSet.getHeight()+RightcolorSet.getY()+10,100,30);
 		p.add(smccolorset);
 		
-		FontSize = new JTextField("ÌîÈë×ÖºÅ:±£´æ");
+		FontSize = new JTextField("å¡«å…¥å­—å·:ä¿å­˜");
 		FontSize.setBounds(BackgroundSet.getX(),BackgroundSet.getY()+BackgroundSet.getHeight()+10,70,30);
-		FontSize.addKeyListener(		//Ö»ÄÜÊäÈëÊı×Ö
+		FontSize.addKeyListener(		//åªèƒ½è¾“å…¥æ•°å­—
 				new KeyListener(){
 					@Override
 					public void keyPressed(KeyEvent arg0) {}
@@ -124,13 +124,13 @@ public class SetFrame extends JFrame {
 			);
 		p.add(FontSize);
 		
-		JButton changeFontSize = new JButton("±£´æ");
+		JButton changeFontSize = new JButton("ä¿å­˜");
 		changeFontSize.setBounds(FontSize.getX()+FontSize.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,60,30);
 		p.add(changeFontSize);
 		
-		Splitenum = new JTextField("·ÖÒ³×ÖÊı:±£´æ");
+		Splitenum = new JTextField("åˆ†é¡µå­—æ•°:ä¿å­˜");
 		Splitenum.setBounds(changeFontSize.getX()+changeFontSize.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,70,30);
-		Splitenum.addKeyListener(		//Ö»ÄÜÊäÈëÊı×Ö
+		Splitenum.addKeyListener(		//åªèƒ½è¾“å…¥æ•°å­—
 				new KeyListener(){
 					@Override
 					public void keyPressed(KeyEvent arg0) {}
@@ -147,15 +147,15 @@ public class SetFrame extends JFrame {
 			);
 		p.add(Splitenum);
 		
-		JButton splitebutton = new JButton("±£´æ");
+		JButton splitebutton = new JButton("ä¿å­˜");
 		splitebutton.setBounds(Splitenum.getX()+Splitenum.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,60,30);
 		p.add(splitebutton);
 
-		JButton mabiao = new JButton("È«Âë±íÑ¡Ôñ");
+		JButton mabiao = new JButton("å…¨ç è¡¨é€‰æ‹©");
 		mabiao.setBounds(splitebutton.getX()+splitebutton.getWidth()+10,BackgroundSet.getY()+BackgroundSet.getHeight()+10,100,30);
 		p.add(mabiao);
 		
-		JButton zhiding = new JButton("ÖÃ¶¥¸ú´ò\"¹Ø\"");
+		JButton zhiding = new JButton("ç½®é¡¶è·Ÿæ‰“\"å…³\"");
 		p.add(zhiding);
 		setframezhidinglistener = new SetFramezhidingListener(zhiding,win);
 		zhiding.addActionListener(setframezhidinglistener);
@@ -170,13 +170,13 @@ public class SetFrame extends JFrame {
 		family.setBounds(RightcolorSet.getX(),FontSize.getY()+FontSize.getHeight()+10,120,30);
 		p.add(family);
 		
-		JButton familyque = new JButton("ĞŞ¸Ä×ÖĞÍ");
+		JButton familyque = new JButton("ä¿®æ”¹å­—å‹");
 		familyque.setBounds(family.getX()+family.getWidth()+10,FontSize.getY()+FontSize.getHeight()+10,90,30);
 		p.add(familyque);
 		
 		readyFont = new JTextField("0");
 		readyFont.setBounds(familyque.getX()+familyque.getWidth()+10,FontSize.getY()+FontSize.getHeight()+10,90,30);
-		readyFont.addKeyListener(		//Ö»ÄÜÊäÈëÊı×Ö
+		readyFont.addKeyListener(		//åªèƒ½è¾“å…¥æ•°å­—
 				new KeyListener(){
 					@Override
 					public void keyPressed(KeyEvent arg0) {}
@@ -224,7 +224,7 @@ public class SetFrame extends JFrame {
 		this.win = win;
 	}
 	void addcharON_Off(){
-		JButton charchange = new JButton("·ûºÅÌæ»»\"ÒÑ¹Ø\"");
+		JButton charchange = new JButton("ç¬¦å·æ›¿æ¢\"å·²å…³\"");
 		charchange.setBounds(460,10,110,20);
 		p.add(charchange);
 		setcharlistener = new SetCharListener(charchange);
@@ -232,28 +232,28 @@ public class SetFrame extends JFrame {
 		close = charchange.getForeground();
 	}
 	void addspaceON_Off(){
-		JButton space = new JButton("È¥³ı¿Õ¸ñ\"ÒÑ¹Ø\"");
+		JButton space = new JButton("å»é™¤ç©ºæ ¼\"å·²å…³\"");
 		space.setBounds(350,10,110,20);
 		p.add(space);
 		setspacelistener = new SetspaceListener(space);
 		space.addActionListener(setspacelistener);
 	}
 	void addJinduON_Off(){
-		JButton jindu = new JButton("ÏÔÊ¾½ø¶ÈÌõ\"ÒÑ¿ª\"");
+		JButton jindu = new JButton("æ˜¾ç¤ºè¿›åº¦æ¡\"å·²å¼€\"");
 		jindu.setBounds(10,10,120,20);
 		p.add(jindu);
 		setframeJindulistener = new SetFrameJinduListener(jindu);
 		jindu.addActionListener(setframeJindulistener);
 	}
 	void addChangetxt(){	
-		JButton changetxt = new JButton("´ÊÓïÌáÊ¾\"ÒÑ¿ª\"");
+		JButton changetxt = new JButton("è¯è¯­æç¤º\"å·²å¼€\"");
 		changetxt.setBounds(240,10,110,20);
 		p.add(changetxt);
 		tiplistener = new SetFramechangeListener(changetxt);
 		changetxt.addActionListener(tiplistener);
 	}
 	void addQianshu(){
-		JButton qianshui = new JButton("Ç±Ë®¸ú´ò\"ÒÑ¹Ø\"");
+		JButton qianshui = new JButton("æ½œæ°´è·Ÿæ‰“\"å·²å…³\"");
 		qianshui.setBounds(130,10,110,20);
 		p.add(qianshui);
 		setFrameQianshuiListener = new SetFrameQianshuiListener(qianshui);
@@ -261,8 +261,8 @@ public class SetFrame extends JFrame {
 	}
 	
 	void addKeyboardRecord(){
-		JButton KeyboardRecord = new JButton("ÌáÈ¡±¾´Î¸ú´ò»÷¼ü¼ÇÂ¼");
-		JTextArea Keyboarddisplay = new JTextArea("ÌáÈ¡ÎÄ±¾ÔÚ´ËÏÔÊ¾");
+		JButton KeyboardRecord = new JButton("æå–æœ¬æ¬¡è·Ÿæ‰“å‡»é”®è®°å½•");
+		JTextArea Keyboarddisplay = new JTextArea("æå–æ–‡æœ¬åœ¨æ­¤æ˜¾ç¤º");
 		JScrollPane Keyboarddisplay1 = new JScrollPane(Keyboarddisplay);
 		
 		
@@ -279,14 +279,14 @@ public class SetFrame extends JFrame {
 		p.add(Keyboarddisplay1);
 	}
 	void addKeymistakeRecord(){
-		JButton KeymistakeRecord = new JButton("ÌáÈ¡±¾´Î¸ú´ò´í×Ö¼ÇÂ¼");
+		JButton KeymistakeRecord = new JButton("æå–æœ¬æ¬¡è·Ÿæ‰“é”™å­—è®°å½•");
 		KeymistakeRecord.addActionListener(keyRecordListener);
 		KeymistakeRecord.setBounds(220,40,200,20);
 		p.add(KeymistakeRecord);;
 	}
 	
 	void addCiRecord(){
-		JButton Cirecord = new JButton("¸ú´òÏêÇé");
+		JButton Cirecord = new JButton("è·Ÿæ‰“è¯¦æƒ…");
 		cirecordlistener = new CirecordListener();
 		Cirecord.addActionListener(cirecordlistener);
 		Cirecord.setBounds(430,40,120,20);

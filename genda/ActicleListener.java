@@ -48,7 +48,7 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 		try{
 			fontnum = Integer.parseInt(number.getText());}
 		catch(Exception e){
-			JOptionPane.showMessageDialog(new JTextArea(),"×ÖÊı¿òÊäÈëÊı×Ö");
+			JOptionPane.showMessageDialog(new JTextArea(),"å­—æ•°æ¡†è¾“å…¥æ•°å­—");
 		}	
 	}
 	public void valueChanged(TreeSelectionEvent arg0) {
@@ -60,7 +60,7 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 				fontweizhi = 0;
 				for(i=0;i<danziFileName.length;i++)	
 					if(node.toString().equals(danziFileName[i])){
-						open = new File("ÎÄÕÂ//µ¥×ÖÀà",node.toString());
+						open = new File("æ–‡ç« //å•å­—ç±»",node.toString());
 						in = new RandomAccessFile(open,"r");
 						SendWenben.title = node.toString();
 						break;
@@ -68,7 +68,7 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 				for(i=0;i<wenzhangFileName.length;i++){
 					if(in!=null)break;
 					if(node.toString().equals(wenzhangFileName[i])){
-						open = new File("ÎÄÕÂ//ÎÄÕÂÀà",node.toString());
+						open = new File("æ–‡ç« //æ–‡ç« ç±»",node.toString());
 						in = new RandomAccessFile(open,"r");
 						SendWenben.title = node.toString();
 						break;
@@ -96,10 +96,10 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(SendWenben.sendwenSign==1){
-			if(e.getActionCommand()=="ÏÂÒ»¶Î"){
+			if(e.getActionCommand()=="ä¸‹ä¸€æ®µ"){
 				try{
 					if(fontweizhi>=all.length()){
-						JOptionPane.showMessageDialog(new JTextArea(),"·¢ÎÄ½áÊø");
+						JOptionPane.showMessageDialog(new JTextArea(),"å‘æ–‡ç»“æŸ");
 						win.sendwen.setVisible(false);
 						SendWenben.sendwenSign = 0;
 						return;
@@ -111,28 +111,28 @@ public class ActicleListener implements TreeSelectionListener ,ActionListener{
 					QQZaiwenListener.wenbenstr = wen;
 					Window.f3listener.F3();
 					fontweizhi+= fontnum;
-					RegexText.duan1++;	//·¢ÎÄÔö¶Î
+					RegexText.duan1++;	//å‘æ–‡å¢æ®µ
 					win.sendwen.setText(String.valueOf(fontweizhi/2)+"/"+String.valueOf(length/2)+":"+String.format("%.2f",(double)fontweizhi*100/length)+"%");
 					try{
 						DataOutputStream out = new DataOutputStream(battleClient.socket.getOutputStream());
 						out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+Window.wenben.getText()+"%0"+"%"+Login.zhanghao.getText());
 					}
 					catch(Exception ex){
-						System.out.println("ÎŞ·¨·¢ËÍÎÄ±¾ÄÚÈİacticlelistner,121");
+						System.out.println("æ— æ³•å‘é€æ–‡æœ¬å†…å®¹acticlelistner,121");
 					}
 				}
-				catch(Exception ex){System.out.println("·¢ÎÄ´¦Ê§°Ü");}
+				catch(Exception ex){System.out.println("å‘æ–‡å¤„å¤±è´¥");}
 			}
-			else if(e.getActionCommand()=="±£´æ¸ú´ò½ø¶È"){
+			else if(e.getActionCommand()=="ä¿å­˜è·Ÿæ‰“è¿›åº¦"){
 				try{
-					open = new File("ÎÄÕÂ//ÎÄÕÂÀà","¸ú´ò½ø¶È.txt");
+					open = new File("æ–‡ç« //æ–‡ç« ç±»","è·Ÿæ‰“è¿›åº¦.txt");
 					out = new RandomAccessFile(open,"rw");
 					wen = all.substring(fontweizhi-fontnum, all.length());
 					byte baocun[] = wen.getBytes();
 					out.write(baocun);
 					out.close();
-					JOptionPane.showMessageDialog(new JTextArea(),"ÒÑ±£´æµ±Ç°¸ú´ò½ø¶È");
-				}catch(Exception ex){JOptionPane.showMessageDialog(new JTextArea(),"±£´æ½ø¶ÈÊ§°Ü");}
+					JOptionPane.showMessageDialog(new JTextArea(),"å·²ä¿å­˜å½“å‰è·Ÿæ‰“è¿›åº¦");
+				}catch(Exception ex){JOptionPane.showMessageDialog(new JTextArea(),"ä¿å­˜è¿›åº¦å¤±è´¥");}
 			}
 		}
 		else 

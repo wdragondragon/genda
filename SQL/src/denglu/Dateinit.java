@@ -23,14 +23,14 @@ public class Dateinit extends Thread{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			addDatesaiwen.adddatesaiwen();//Ìí¼ÓÃ¿ÈÕÈüÎÄ
+			addDatesaiwen.adddatesaiwen();//æ·»åŠ æ¯æ—¥èµ›æ–‡
 			
 			date2 = date1;
 			date1 = getdate();
 			if(date1.toString().equals(date2.toString()))continue;
 			else {
 				try{
-					String sql="update client set datenum=0";//ËÑË÷´æÔÚÓÃ»§Ãû£¬²¢¸ÄÃñ×ÖÊı
+					String sql="update client set datenum=0";//æœç´¢å­˜åœ¨ç”¨æˆ·åï¼Œå¹¶æ”¹æ°‘å­—æ•°
 					PreparedStatement ptmt=Recordnum.con.prepareStatement(sql);
 					ptmt.execute();
 //					String sql1 = "delete from saiwenchengji";

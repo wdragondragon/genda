@@ -18,7 +18,7 @@ import javax.swing.JTextPane;
 
 import SetWin.SetFrameJinduListener;
 
-public class battleReadThread extends Thread {// ¶ÁÈ¡·şÎñÆ÷·¢À´ĞÅÏ¢µÄÏß³Ì
+public class battleReadThread extends Thread {// è¯»å–æœåŠ¡å™¨å‘æ¥ä¿¡æ¯çš„çº¿ç¨‹
 	public Socket socket;
 	public static int otherready = 0;
 	public static String Whowin = "";
@@ -61,10 +61,10 @@ public class battleReadThread extends Thread {// ¶ÁÈ¡·şÎñÆ÷·¢À´ĞÅÏ¢µÄÏß³Ì
 				String system = message.substring(num[5], num[6] - 1);
 				String began = message.substring(num[6]);
 				Whowin = othName + win;
-				String wenben = "ÎŞ";
+				String wenben = "æ— ";
 				// System.out.println(wenbentemp);
 
-				if (!wenbentemp.equals("ÎŞ") && !wenbentemp.equals("")
+				if (!wenbentemp.equals("æ— ") && !wenbentemp.equals("")
 						&& wenbentemp != null) {
 					String wenben1[] = wenbentemp.split("#");
 					wenben = wenben1[1];
@@ -82,27 +82,27 @@ public class battleReadThread extends Thread {// ¶ÁÈ¡·şÎñÆ÷·¢À´ĞÅÏ¢µÄÏß³Ì
 						}
 					}
 				}
-				if (!win.equals("ÎŞ"))
+				if (!win.equals("æ— "))
 					Window.score.setText(win);
-				if (!system.equals("ÎŞ")) {
-					if (system.equals("¶Ô·½ÒÑ×¼±¸\n"))
+				if (!system.equals("æ— ")) {
+					if (system.equals("å¯¹æ–¹å·²å‡†å¤‡\n"))
 						otherready = 1;
-					else if (system.equals("¶Ô·½È¡Ïû×¼±¸\n"))
+					else if (system.equals("å¯¹æ–¹å–æ¶ˆå‡†å¤‡\n"))
 						otherready = 0;
-					// else if(system.equals("ÁíÒ»Íæ¼Ò¶Ï¿ª\n"))
+					// else if(system.equals("å¦ä¸€ç©å®¶æ–­å¼€\n"))
 
 					Window.communion.append(system);
 				}
-				if (!began.equals("ÎŞ")) {
+				if (!began.equals("æ— ")) {
 					Window.communion.append(began);
 				}
 				// System.out.println(otherready);
-				if (!jindu.equals("ÎŞ")) {
+				if (!jindu.equals("æ— ")) {
 					accept.setText(jindu);
 				}
-				if (wenben.equals(jindu) && !wenben.equals("ÎŞ")) {
+				if (wenben.equals(jindu) && !wenben.equals("æ— ")) {
 					System.out.println(jindu + "  " + wenben);
-					Window.communion.append("¶Ô·½ÒÑ´òÍê\n");
+					Window.communion.append("å¯¹æ–¹å·²æ‰“å®Œ\n");
 				}
 				// System.out.println(message);
 				accept.setCaretPosition(accept.getText().length());

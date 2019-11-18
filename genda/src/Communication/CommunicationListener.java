@@ -10,6 +10,6 @@ public class CommunicationListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		JOptionPane.showMessageDialog(new JTextArea(),"¾´ÇëÆÚ´ý");
+		JOptionPane.showMessageDialog(new JTextArea(),"æ•¬è¯·æœŸå¾…");
 	}
 }

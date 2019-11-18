@@ -16,27 +16,27 @@ public class LinkListener implements ActionListener{
 		// TODO Auto-generated method stub
 		try{
 			if(Window.Linksign){
-				if(Window.state.equals("¶ÔÕ½")){
+				if(Window.state.equals("å¯¹æˆ˜")){
 					client.StratClient();
 					client.readThread.start();
 					DataOutputStream out = new DataOutputStream(client.socket.getOutputStream());
 					out.writeUTF(Window.state);
-					communion.append("ÒÑÁ¬½Óµ½"+Window.RoomNum+"ºÅ·¿\nµÈ´ı¶Ô·½Á¬½Ó\n");
+					communion.append("å·²è¿æ¥åˆ°"+Window.RoomNum+"å·æˆ¿\nç­‰å¾…å¯¹æ–¹è¿æ¥\n");
 					Window.Linksign=battleClient.socket.isClosed();
 //					ReadyListener.ReadyDuan = 1;
 				}
-				else if(Window.state.equals("¹ÛÕ½")){
+				else if(Window.state.equals("è§‚æˆ˜")){
 					
 				}
 			}
 			else {
-				communion.append("ÒÑÁ¬½Ó"+Window.state+",ÇëÎğÖØ¸´Á¬½Ó\n");
+				communion.append("å·²è¿æ¥"+Window.state+",è¯·å‹¿é‡å¤è¿æ¥\n");
 				Window.Linksign=client.socket.isClosed();
 			}
 			
 		}
 		catch(Exception ex){
-			communion.setText("ÇëÏÈÑ¡Ôñ·¿¼ä£¬ÔÙ½øĞĞÁ¬½Ó\n");
+			communion.setText("è¯·å…ˆé€‰æ‹©æˆ¿é—´ï¼Œå†è¿›è¡Œè¿æ¥\n");
 		}
 	}
 	public void setClient(battleClient client){

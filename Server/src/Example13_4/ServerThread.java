@@ -24,7 +24,7 @@ public class ServerThread extends Thread {
 				out.writeDouble(area);
 			}
 			catch(IOException e){
-				System.out.println("�ͻ��뿪");
+				System.out.println("客户离开");
 				return;
 			}
 		}

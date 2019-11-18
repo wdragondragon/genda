@@ -9,12 +9,12 @@ public class QQ {
 	public static void sendMessage(int i,String Name) throws Exception {
     	Robot robot = new Robot();
     	HWND hWnd=User32.FindWindow("TXGuiFoundation", Name);
-    	HWND genda = User32.FindWindow(null, "¸ú´ò");
+    	HWND genda = User32.FindWindow(null, "è·Ÿæ‰“");
     	robot.delay(150);
     	if(hWnd.getValue()>0){
     		java.lang.String winname = User32.GetWindowText(hWnd);
     		System.out.println(winname);
-    		User32.SetForegroundWindow(hWnd);	//ÇĞ»»µ½ÁÄÌì´°¿Ú
+    		User32.SetForegroundWindow(hWnd);	//åˆ‡æ¢åˆ°èŠå¤©çª—å£
         	if(i==1){
         		
     			robot.keyPress(KeyEvent.VK_TAB);

@@ -14,11 +14,11 @@ public class DoCheck {
 	}
 	public static boolean checkstr(String str,String model){
 		
-		String []regex = {"速度(.*?) ","击键(.*?) ","码长(.*?) "};
+		String []regex = {"閫熷害(.*?) ","鍑婚敭(.*?) ","鐮侀暱(.*?) "};
 		Double a=0.0;
 		for(int i = 0;i<regex.length;i++){
-			Pattern pattern = Pattern.compile(regex[i]);//匹配模式
-			Matcher m = pattern.matcher(str);//判断是否符合匹配
+			Pattern pattern = Pattern.compile(regex[i]);//鍖归厤妯″紡
+			Matcher m = pattern.matcher(str);//鍒ゆ柇鏄惁绗﹀悎鍖归厤
 			if(m.find()){
 				String temp = m.group(1);
 				if(temp.indexOf("/")!=-1)
@@ -27,7 +27,7 @@ public class DoCheck {
 				
 			}
 		}
-		String Check = str.substring(str.indexOf("校验")+2,str.length()); 
+		String Check = str.substring(str.indexOf("鏍￠獙")+2,str.length()); 
 		String temp = String.format("%.2f", a);
 //		System.out.println(temp);
 		String check = buildcheckstr(temp,model);

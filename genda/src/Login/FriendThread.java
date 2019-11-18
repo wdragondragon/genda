@@ -13,7 +13,7 @@ public class FriendThread extends Thread {
 		while (true) {
 			try {
 				String message = Login.in.readUTF();
-				if (message.substring(0, 4).equals("Ìí¼ÓºÃÓÑ")) {
+				if (message.substring(0, 4).equals("æ·»åŠ å¥½å‹")) {
 					JOptionPane.showMessageDialog(new JTextArea(),
 							message.substring(4));
 				}

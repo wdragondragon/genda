@@ -20,9 +20,9 @@ public class orActicle extends AbstractAction{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"ÇëÏÈ½áÊøÃ¿ÈÕÈüÎÄ");return;}
+		if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"è¯·å…ˆç»“æŸæ¯æ—¥èµ›æ–‡");return;}
 		if (SendWenben.sendwenSign==1||SendWenben.sendwenSign2==1||SendWenben.sendwenSign3==1||SendWenben.sendwenSign4){
-			n = JOptionPane.showConfirmDialog(null, "ÕıÔÚ·¢ÎÄ£¬ÒªÈ¡Ïû·¢ÎÄÂğ?", "ÕıÔÚ·¢ÎÄÌáÊ¾", JOptionPane.YES_NO_OPTION);
+			n = JOptionPane.showConfirmDialog(null, "æ­£åœ¨å‘æ–‡ï¼Œè¦å–æ¶ˆå‘æ–‡å—?", "æ­£åœ¨å‘æ–‡æç¤º", JOptionPane.YES_NO_OPTION);
 			if (n == JOptionPane.YES_OPTION) {
 				// ......
 //				a.setVisible(true);

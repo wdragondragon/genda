@@ -16,18 +16,18 @@ import javax.swing.*;
 
 public class Load extends JFrame{
 	public static void main(String args[]) throws IOException{
-		
-		
+
+
 		JFrame jf = new Load();
 		jf.setVisible(true);
 		jf.setBounds(100,100,250,100);
-		jf.setTitle("ÕıÔÚ¸üĞÂ");
+		jf.setTitle("æ­£åœ¨æ›´æ–°");
 		JLabel notice = new JLabel("0kb");
 		jf.setLayout(null);
 		notice.setBounds(90,20,70,30);
 		jf.add(notice);
-		
-		
+
+
 		Properties props = System.getProperties();
 		String systemname = props.getProperty("os.name");
 		URL url ;
@@ -35,15 +35,15 @@ public class Load extends JFrame{
 		boolean sign = true;
 		if(systemname.length()>7&&systemname.substring(0,7).equals("Windows")){
 			url = new URL("https://jdragon.club/upload/2019/7/tlj/new.exe");
-			file = new File("¸ú´òÆ÷.exe");
-			
+			file = new File("è·Ÿæ‰“å™¨.exe");
+
 		}
 		else{
 			url = new URL("https://jdragon.club/upload/2019/7/tlj/new.jar");
 			file = new File("genda.jar");
 			sign = false;
 		}
-		URLConnection urlcon = url.openConnection(); //Ä£Äâä¯ÀÀÆ÷·¢³öÇëÇó
+		URLConnection urlcon = url.openConnection(); //æ¨¡æ‹Ÿæµè§ˆå™¨å‘å‡ºè¯·æ±‚
 //		urlcon.setRequestProperty("User-agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36");
 		urlcon.setRequestProperty("User-Agent","Mozilla/5.0 (Windows NT 10.0; WOW64; rv:46.0) Gecko/20100101 Firefox/46.0");
 		InputStream inexe = urlcon.getInputStream();
@@ -52,20 +52,20 @@ public class Load extends JFrame{
 		int len = 0;
 		int all = 0;
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
-		
+
 		OutputStream infile = new FileOutputStream(file);
 		while ((len = inexe.read(a)) != -1) {
 			infile.write(a, 0, len);
 			all += len;
 			notice.setText(all/1024+"kb");
 		}
-		notice.setText("ÏÂÔØÍê³É");
-		JOptionPane.showMessageDialog(new JTextArea(),"ÏÂÔØÍê³É");
-		
+		notice.setText("ä¸‹è½½å®Œæˆ");
+		JOptionPane.showMessageDialog(new JTextArea(),"ä¸‹è½½å®Œæˆ");
+
 		infile.close();
 		inexe.close();
 		if(sign)
-			Runtime.getRuntime().exec("¸ú´òÆ÷.exe");
+			Runtime.getRuntime().exec("è·Ÿæ‰“å™¨.exe");
 		else
 			Runtime.getRuntime().exec("java -jar genda.jar");
 		System.exit(0);

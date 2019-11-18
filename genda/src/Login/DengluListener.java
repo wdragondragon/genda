@@ -44,14 +44,14 @@ public class DengluListener implements ActionListener{
 				Login.out.writeUTF(Login.banben);
 				String what = Login.in.readUTF();
 				Login.socket.setSoTimeout(0);
-				if(!what.substring(0,4).equals("°æ±¾ÕıÈ·")){
-					UIManager.put("OptionPane.yesButtonText", "×Ô¶¯¸üĞÂ");
-					UIManager.put("OptionPane.noButtonText", "ÊÖ¶¯ÏÂÔØ");
-					int n = JOptionPane.showConfirmDialog(null, what, "¸üĞÂÌáÊ¾", JOptionPane.YES_NO_OPTION);
+				if(!what.substring(0,4).equals("ç‰ˆæœ¬æ­£ç¡®")){
+					UIManager.put("OptionPane.yesButtonText", "è‡ªåŠ¨æ›´æ–°");
+					UIManager.put("OptionPane.noButtonText", "æ‰‹åŠ¨ä¸‹è½½");
+					int n = JOptionPane.showConfirmDialog(null, what, "æ›´æ–°æç¤º", JOptionPane.YES_NO_OPTION);
 					if (n == JOptionPane.YES_OPTION) {
 						// ......
 						if(Example.systemname.length()>=7&&Example.systemname.substring(0,7).equals("Windows"))
-							Runtime.getRuntime().exec("¸üĞÂ.exe");
+							Runtime.getRuntime().exec("æ›´æ–°.exe");
 						else
 							Runtime.getRuntime().exec("java -jar update.jar");
 						System.exit(0);
@@ -61,10 +61,10 @@ public class DengluListener implements ActionListener{
 						return;
 					}
 				}
-				Login.zxbanben = what.substring(what.indexOf("×îĞÂ°æ±¾")+4);
+				Login.zxbanben = what.substring(what.indexOf("æœ€æ–°ç‰ˆæœ¬")+4);
 				Window.zxbanben.setText(Window.zxbanben.getText()+Login.zxbanben);
 				
-				String message = "%1%" + Login.zhanghao.getText() + "%" + Login.mima.getText() + "%-999" + "%ÎŞ" + "%ÎŞ" + "%ÎŞ";
+				String message = "%1%" + Login.zhanghao.getText() + "%" + Login.mima.getText() + "%-999" + "%æ— " + "%æ— " + "%æ— ";
 				message = KeyPassword.convertMD5(message);
 				Login.out.writeUTF(message);
 				message = Login.in.readUTF();
@@ -76,9 +76,9 @@ public class DengluListener implements ActionListener{
 						num[i] = pos;
 					else break;
 				}
-				int i = Integer.parseInt(message.substring(num[0], num[1] - 1));    //½ÓÊÜµÇÂ¼½á¹û
+				int i = Integer.parseInt(message.substring(num[0], num[1] - 1));    //æ¥å—ç™»å½•ç»“æœ
 
-				int zishu = Integer.parseInt(message.substring(num[1], num[2] - 1));        //½ÓÊÜÊı¾İ×ÖÊı
+				int zishu = Integer.parseInt(message.substring(num[1], num[2] - 1));        //æ¥å—æ•°æ®å­—æ•°
 				int rightnum = Integer.parseInt(message.substring(num[2], num[3] - 1));
 				int misnum = Integer.parseInt(message.substring(num[3], num[4] - 1));
 				int datenum = Integer.parseInt(message.substring(num[4], num[5] - 1));
@@ -90,11 +90,11 @@ public class DengluListener implements ActionListener{
 					Window.rightnum = rightnum;
 					Window.misnum = misnum;
 					Window.datenum = datenum;
-//					JOptionPane.showMessageDialog(new JTextArea(),"µÇÂ¼³É¹¦");
-					Login.confirm.setText("ÍË³öµÇÂ¼");
-					Window.denglu.setText("»¶Ó­£º" + Login.zhanghao.getText());
-					Window.wenben.setText("µÇÂ¼³É¹¦" + "\n" + "»¶Ó­£º" + Login.zhanghao.getText() + "\nÍÏÀ­»ú½»Á÷Èº:974172771");
-//					SendQQMessage.sendmessage(Login.zhanghao.getText() + "ÒÑÉÏÏß£¬£¨ÉÏÏßÏûÏ¢Ö»»á·¢ËÍµ½ÍÏÀ­»ú½»Á÷Èº£©");
+//					JOptionPane.showMessageDialog(new JTextArea(),"ç™»å½•æˆåŠŸ");
+					Login.confirm.setText("é€€å‡ºç™»å½•");
+					Window.denglu.setText("æ¬¢è¿ï¼š" + Login.zhanghao.getText());
+					Window.wenben.setText("ç™»å½•æˆåŠŸ" + "\n" + "æ¬¢è¿ï¼š" + Login.zhanghao.getText() + "\næ‹–æ‹‰æœºäº¤æµç¾¤:974172771");
+//					SendQQMessage.sendmessage(Login.zhanghao.getText() + "å·²ä¸Šçº¿ï¼Œï¼ˆä¸Šçº¿æ¶ˆæ¯åªä¼šå‘é€åˆ°æ‹–æ‹‰æœºäº¤æµç¾¤ï¼‰");
 					Login.zhanghao.setEditable(false);
 					Login.mima.setEditable(false);
 					readWrite.setzm();
@@ -102,23 +102,23 @@ public class DengluListener implements ActionListener{
 
 					Window.everydaySign = false;
 
-					heartThread = new heartThread(this);//ĞÄÌø°ü·¢ËÍ
+					heartThread = new heartThread(this);//å¿ƒè·³åŒ…å‘é€
 					heartThread.start();
 				} else if (i == 2)
-					JOptionPane.showMessageDialog(new JTextArea(), "ÃÜÂë´íÎó");
+					JOptionPane.showMessageDialog(new JTextArea(), "å¯†ç é”™è¯¯");
 				else if (i == 3)
-					JOptionPane.showMessageDialog(new JTextArea(), "ÕË»§²»´æÔÚ");
+					JOptionPane.showMessageDialog(new JTextArea(), "è´¦æˆ·ä¸å­˜åœ¨");
 			} catch (Exception e1) {
 				e1.printStackTrace();
-				JOptionPane.showMessageDialog(new JTextArea(), "Çë¼ì²éÍøÂç2");
+				JOptionPane.showMessageDialog(new JTextArea(), "è¯·æ£€æŸ¥ç½‘ç»œ2");
 			}
 		} else if (Login.dengluSign == 1) {
 			try {
-				Login.out.writeUTF("¶Ï¿ª");
+				Login.out.writeUTF("æ–­å¼€");
 				Login.zhanghao.setEditable(true);
 				Login.mima.setEditable(true);
-				Login.confirm.setText("µÇÂ¼");
-				Window.denglu.setText("µÇÂ¼");
+				Login.confirm.setText("ç™»å½•");
+				Window.denglu.setText("ç™»å½•");
 				Login.dengluSign = 0;
 				Login.in.close();
 				Login.out.close();
@@ -126,10 +126,10 @@ public class DengluListener implements ActionListener{
 				heartThread.stop();
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
-				JOptionPane.showMessageDialog(new JTextArea(), "Çë¼ì²éÍøÂç1");
+				JOptionPane.showMessageDialog(new JTextArea(), "è¯·æ£€æŸ¥ç½‘ç»œ1");
 			}
 		} else {
-			JOptionPane.showMessageDialog(new JTextArea(), "ÄãÒÑµÇÂ¼");
+			JOptionPane.showMessageDialog(new JTextArea(), "ä½ å·²ç™»å½•");
 		}
 	}
 }

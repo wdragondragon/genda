@@ -11,10 +11,10 @@ public class Email implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getActionCommand().equals("°ó¶¨ÓÊÏä"))
+		if(e.getActionCommand().equals("ç»‘å®šé‚®ç®±"))
 			if(Login.Login.dengluSign==1)
-				new EmailFrame().setTitle("°ó¶¨ÓÊÏä");
+				new EmailFrame().setTitle("ç»‘å®šé‚®ç®±");
 			else
-				JOptionPane.showMessageDialog(new JTextArea(),"ÇëÏÈµÇÂ¼");
+				JOptionPane.showMessageDialog(new JTextArea(),"è¯·å…ˆç™»å½•");
 	}
 }

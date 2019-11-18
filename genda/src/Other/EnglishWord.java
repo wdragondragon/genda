@@ -21,12 +21,12 @@ public class EnglishWord {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		HashMap<String,String> bianma = new HashMap<String,String>();
-		File open = new File("ÎÄÕÂ//Ó¢´òÀà","cet4.txt");
+		File open = new File("æ–‡ç« //è‹±æ‰“ç±»","cet4.txt");
 		FileInputStream fis = new FileInputStream(open); 
 		InputStreamReader read = new InputStreamReader(fis, "UTF-8");
 		BufferedReader  bufferRead = new BufferedReader(read);
 		
-		File bao = new File("ÎÄÕÂ//Ó¢´òÀà","cet41.txt");
+		File bao = new File("æ–‡ç« //è‹±æ‰“ç±»","cet41.txt");
 		FileOutputStream fos = new FileOutputStream(bao); 
         OutputStreamWriter writer = new OutputStreamWriter(fos, "UTF-8");
 		BufferedWriter  bufferWriter = new BufferedWriter(writer);

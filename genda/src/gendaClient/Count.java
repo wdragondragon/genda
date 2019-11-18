@@ -19,19 +19,19 @@ public class Count extends Thread {
 				sleep(1);
 			} catch (InterruptedException e1) {}
 			if(ReadyListener.BeganSign==1&&battleReadThread.otherready==1){
-				communion.append("Ë«·½ÒÑ×¼±¸¾ÍĞ÷\n");
+				communion.append("åŒæ–¹å·²å‡†å¤‡å°±ç»ª\n");
 				Window.dazi.setText("");
-				for(int i = 3;i>=0;i--){//Ë«·½×¼±¸ºóµ¹Êı
-					if(!(ReadyListener.BeganSign==1&&battleReadThread.otherready==1))break;//ÅĞ¶ÏÖĞÍ¾È¡Ïû×¼±¸
+				for(int i = 3;i>=0;i--){//åŒæ–¹å‡†å¤‡åå€’æ•°
+					if(!(ReadyListener.BeganSign==1&&battleReadThread.otherready==1))break;//åˆ¤æ–­ä¸­é€”å–æ¶ˆå‡†å¤‡
 					try {
 						sleep(1000);
-					} catch (InterruptedException e) {System.out.println("µ¹ÊıÊ§°Ü");}
+					} catch (InterruptedException e) {System.out.println("å€’æ•°å¤±è´¥");}
 					if(i!=0){
 						communion.append(String.valueOf(i)+"\n");
 						dazi.setEditable(false);
 					}
 					else{
-						communion.append("¿ªÊ¼£¡£¡£¡£¡£¡£¡£¡£¡\n");
+						communion.append("å¼€å§‹ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼\n");
 						dazi.setEditable(true);
 					}
 					communion.setCaretPosition(Window.communion.getText().length());
@@ -39,7 +39,7 @@ public class Count extends Thread {
 				}
 				GendaListener.sign = 1;
 				GendaListener.comp.setTimeOne();
-				GendaListener.record = "";	//»÷¼üÇå¿Õ
+				GendaListener.record = "";	//å‡»é”®æ¸…ç©º
 				while(ReadyListener.BeganSign==1&&battleReadThread.otherready==1){
 					try {
 						sleep(100);

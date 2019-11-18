@@ -22,8 +22,8 @@ public class OnlineOorF implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 //		frame.setVisible(true);
-		if(Login.dengluSign == 0){JOptionPane.showMessageDialog(new JTextArea(),"请先登录");return;}
-		if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"请先结束每日赛文");return;}
+		if(Login.dengluSign == 0){JOptionPane.showMessageDialog(new JTextArea(),"璇峰厛鐧诲綍");return;}
+		if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"璇峰厛缁撴潫姣忔棩璧涙枃");return;}
 		if(one.isVisible()){
 			one.setVisible(false);
 			two.setVisible(false);

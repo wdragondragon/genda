@@ -15,10 +15,10 @@ public class Noexit implements ActionListener {
 		// TODO Auto-generated method stub
 		if(Tips.weizhi!=0){
 			AchievementListener.setClipboardString(Tips.weizhistr);
-			JOptionPane.showMessageDialog(new JTextArea(),"ÔØÎÄÖĞÓĞ"+Tips.weizhi+"¸öÎ´ÊÕÂ¼×Ö·û:\n"+Tips.weizhistr+"\nÒÑ·ÅÈë¼ôÌù°å");
+			JOptionPane.showMessageDialog(new JTextArea(),"è½½æ–‡ä¸­æœ‰"+Tips.weizhi+"ä¸ªæœªæ”¶å½•å­—ç¬¦:\n"+Tips.weizhistr+"\nå·²æ”¾å…¥å‰ªè´´æ¿");
 		}
 		else if(Tips.weizhi==0){
-			JOptionPane.showMessageDialog(new JTextArea(),"ÎÄÕÂÖĞÃ»ÓĞÎ´ÊÕÂ¼µÄ×Ö·û");
+			JOptionPane.showMessageDialog(new JTextArea(),"æ–‡ç« ä¸­æ²¡æœ‰æœªæ”¶å½•çš„å­—ç¬¦");
 		}
 	}
 }

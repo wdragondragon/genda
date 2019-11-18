@@ -28,7 +28,7 @@ public class battleSend{
 			out = new DataOutputStream(socket.getOutputStream());
 			if(sendText.getText().length()!=0&&Window.wenben.getText().length()!=0){
 				message = "%"+ReadyListener.BeganSign+"%"+sendText.getText()+"%"+RegexText.duan1+"#"+QQZaiwenListener.wenbenstr+"%0"+"%"+Login.zhanghao.getText();
-				out.writeUTF(message);//Ïò·şÎñÆ÷·¢ËÍĞÅÏ¢
+				out.writeUTF(message);//å‘æœåŠ¡å™¨å‘é€ä¿¡æ¯
 			}
 		} catch (IOException e) {
 //			e.printStackTrace();

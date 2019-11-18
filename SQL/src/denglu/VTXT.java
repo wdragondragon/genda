@@ -15,9 +15,9 @@ import java.sql.Statement;
 
 public class VTXT {
 
-	 public static String url="jdbc:mysql://localhost:3306/students?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull";//Á¬½ÓÊı¾İ¿âµÄurl£¬testÊÇÎÒ×Ô¼ºµÄÒ»¸öÊı¾İ¿â°¡±¦±¦ÃÇ¡£
-	    public  static String user="root";//mysqlµÇÂ¼Ãû
-	    public  static String pass="951753";//mysqlµÇÂ¼ÃÜÂë
+	 public static String url="jdbc:mysql://localhost:3306/students?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull";//è¿æ¥æ•°æ®åº“çš„urlï¼Œtestæ˜¯æˆ‘è‡ªå·±çš„ä¸€ä¸ªæ•°æ®åº“å•Šå®å®ä»¬ã€‚
+	    public  static String user="root";//mysqlç™»å½•å
+	    public  static String pass="951753";//mysqlç™»å½•å¯†ç 
 	    public static Connection con;//
 	/**
 	 * @param args
@@ -32,11 +32,11 @@ public class VTXT {
 		String sql="select * from history";
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
-		File fs = new File("ÀúÊ·¸ú´ò¼ÇÂ¼.txt");
+		File fs = new File("å†å²è·Ÿæ‰“è®°å½•.txt");
 		FileOutputStream fos = new FileOutputStream(fs); 
         OutputStreamWriter writer = new OutputStreamWriter(fos, "UTF-8");
 		BufferedWriter  bufferWriter = new BufferedWriter(writer);
-		String qitou = "ĞÕÃû\tÈÕÆÚ\tËÙ¶È\t»÷¼ü\tÂë³¤\t×ÖÊı\t»Ø¸Ä\tÍË¸ñ\t´í×Ö\tÑ¡ÖØ\t¼ü×¼\tÊ±¼ä\t¶ÎÊı\r\n";
+		String qitou = "å§“å\tæ—¥æœŸ\té€Ÿåº¦\tå‡»é”®\tç é•¿\tå­—æ•°\tå›æ”¹\té€€æ ¼\té”™å­—\té€‰é‡\té”®å‡†\tæ—¶é—´\tæ®µæ•°\r\n";
 		bufferWriter.write(qitou);
 		bufferWriter.flush();
 		while(rs.next()){

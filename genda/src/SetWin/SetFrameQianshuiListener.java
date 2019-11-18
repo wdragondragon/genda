@@ -21,13 +21,13 @@ public class SetFrameQianshuiListener implements ActionListener {
 		// TODO Auto-generated method stub
 		if(qianshui==0){
 			qianshui = 1;
-			qianshui1.setText("潜水跟打\"已开\"");
+			qianshui1.setText("娼滄按璺熸墦\"宸插紑\"");
 			qianshui1.setForeground(SetFrame.open);
 			Window.qianshui.setSelected(true);
 		}
 		else{
 			qianshui = 0;
-			qianshui1.setText("潜水跟打\"已关\"");
+			qianshui1.setText("娼滄按璺熸墦\"宸插叧\"");
 			qianshui1.setForeground(SetFrame.close);
 			Window.qianshui.setSelected(false);
 		}

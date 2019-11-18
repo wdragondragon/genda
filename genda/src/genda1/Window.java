@@ -39,7 +39,7 @@ import lookplay.AchListener;
 @SuppressWarnings("serial")
 public class Window extends JFrame {
 	public static String IP = "39.96.83.89";
-	public static String state = "¶ÔÕ½";// Á¬½Ó×´Ì¬
+	public static String state = "å¯¹æˆ˜";// è¿æ¥çŠ¶æ€
 	public static Color rightcolor = Color.gray;
 	public static Color mistakecolor = Color.red;
 	public static Color smacicolor = Color.BLUE;
@@ -58,7 +58,7 @@ public class Window extends JFrame {
 	public static boolean everydaySign = false;
 	public static Tips tipschange;
 	public static JLabel tips;
-	public static String family = "Î¢ÈíÑÅºÚ";
+	public static String family = "å¾®è½¯é›…é»‘";
 //	 public static String IP = "127.0.0.1";
 	public static String Email = "";
 	public static int Pattern = 0;
@@ -93,7 +93,7 @@ public class Window extends JFrame {
 	JButton share;
 	JButton chouqu;
 	JButton Englishnew;
-	//¿ì½İÉèÖÃ°´Å¥×é
+	//å¿«æ·è®¾ç½®æŒ‰é’®ç»„
 	public static JButton charchange;
 	public static JButton space;
 	public static JButton jindu;
@@ -139,7 +139,7 @@ public class Window extends JFrame {
 	ForegroundWinName setwinName;
 	winchange Winchg;
 
-	// ÒÔÏÂÎªÁ¬½ÓÏµÍ³¶¨Òå
+	// ä»¥ä¸‹ä¸ºè¿æ¥ç³»ç»Ÿå®šä¹‰
 
 	JButton link, breaklink, ready;
 	public static JButton score;
@@ -156,7 +156,7 @@ public class Window extends JFrame {
 	public static JTextArea communion = new JTextArea();
 	JScrollPane accept1 = new JScrollPane(accept);
 	JScrollPane communion1 = new JScrollPane(communion);
-	LinkListener linkListener;// Á¬½Ó¼àÊÓ
+	LinkListener linkListener;// è¿æ¥ç›‘è§†
 	BreakLinkListener breakLinkListener;
 	RoomListener roomListener;
 	ReadyListener readyListener;
@@ -164,7 +164,7 @@ public class Window extends JFrame {
 
 	battleClient client;
 
-	// È«¾Ö¶¨Òå
+	// å…¨å±€å®šä¹‰
 	public static JSplitPane jSplitPane1;
 	// public JSplitPane jSplitPane2;
 	public static int RoomNum = 0;
@@ -202,17 +202,17 @@ public class Window extends JFrame {
 			// e1.printStackTrace();
 		}
 		addWindowFocusListener(new StopListener());
-		// ÉèÖÃÎŞ±ß¿ò£¬ÓÃÊó±ê¿ØÖÆ´°ÌåÒÆ¶¯
+		// è®¾ç½®æ— è¾¹æ¡†ï¼Œç”¨é¼ æ ‡æ§åˆ¶çª—ä½“ç§»åŠ¨
 		getContentPane().setLayout(null);
 		setLocationRelativeTo(null);
 		setUndecorated(true);
 		this.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) { // Êó±ê°´ÏÂÊÂ¼ş
-				pressedPoint = e.getPoint(); // ¼ÇÂ¼Êó±ê×ø±ê
+			public void mousePressed(MouseEvent e) { // é¼ æ ‡æŒ‰ä¸‹äº‹ä»¶
+				pressedPoint = e.getPoint(); // è®°å½•é¼ æ ‡åæ ‡
 			}
 
 			public void mouseClicked(MouseEvent e) {
-				if (e.getClickCount() >= 2) // Ë«»÷×î´ó»¯
+				if (e.getClickCount() >= 2) // åŒå‡»æœ€å¤§åŒ–
 					if (systemlistener.MaxSign == 0)
 						SystemListener.max();
 					else
@@ -220,113 +220,113 @@ public class Window extends JFrame {
 			}
 		});
 		this.addMouseMotionListener(new MouseMotionAdapter() {
-			public void mouseDragged(MouseEvent e) { // Êó±êÍÏ×§ÊÂ¼ş
-				Point point = e.getPoint();// »ñÈ¡µ±Ç°×ø±ê
-				Point locationPoint = getLocation();// »ñÈ¡´°Ìå×ø±ê
-				int x = locationPoint.x + point.x - pressedPoint.x;// ¼ÆËãÒÆ¶¯ºóµÄĞÂ×ø±ê
+			public void mouseDragged(MouseEvent e) { // é¼ æ ‡æ‹–æ‹½äº‹ä»¶
+				Point point = e.getPoint();// è·å–å½“å‰åæ ‡
+				Point locationPoint = getLocation();// è·å–çª—ä½“åæ ‡
+				int x = locationPoint.x + point.x - pressedPoint.x;// è®¡ç®—ç§»åŠ¨åçš„æ–°åæ ‡
 				int y = locationPoint.y + point.y - pressedPoint.y;
-				setLocation(x, y);// ¸Ä±ä´°ÌåÎ»ÖÃ
+				setLocation(x, y);// æ”¹å˜çª—ä½“ä½ç½®
 			}
 		});
-		try {// ¶ÁÈ¡×Ü×ÖÊı
+		try {// è¯»å–æ€»å­—æ•°
 			readWrite.readfontnum();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
-			System.out.println("¶ÁÈ¡×Ü¸ú´ò×ÖÊıÊ§°Ü");
+			System.out.println("è¯»å–æ€»è·Ÿæ‰“å­—æ•°å¤±è´¥");
 		}
-		setVisible(true);// ÉèÖÃ¿É¼û
+		setVisible(true);// è®¾ç½®å¯è§
 		setMinimumSize(new Dimension(100, 100));
-		init();// ³õÊ¼»¯
+		init();// åˆå§‹åŒ–
 //		setOpacity(0.95f);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// ÉèÖÃ¹Ø±Õ°´Å¥
-		dazi.setBackground(new Color(238, 238, 238));// ÉèÖÃ´ò×Ö¿òÑÕÉ«
-		wenben.setBackground(new Color(238, 238, 238));// ÉèÖÃÎÄ±¾¿òÑÕÉ«
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// è®¾ç½®å…³é—­æŒ‰é’®
+		dazi.setBackground(new Color(238, 238, 238));// è®¾ç½®æ‰“å­—æ¡†é¢œè‰²
+		wenben.setBackground(new Color(238, 238, 238));// è®¾ç½®æ–‡æœ¬æ¡†é¢œè‰²
 	}
 
-	// window³õÊ¼»¯
+	// windowåˆå§‹åŒ–
 	void init() {
-		setNew();// ´´½¨ĞÂ¶ÔÏó
-		setAllziti();// ÉèÖÃËùÓĞ×ÖÌå
-		TrueOrFalse();// ËùÓĞTrue FalseÉèÖÃ
+		setNew();// åˆ›å»ºæ–°å¯¹è±¡
+		setAllziti();// è®¾ç½®æ‰€æœ‰å­—ä½“
+		TrueOrFalse();// æ‰€æœ‰True Falseè®¾ç½®
 		// Listener Set
-		gendaListenerset();// ¸ú´ò¿ò¼àÊÓÆ÷ÉèÖÃ
-		f3Listenerset();// ÖØ´òÉèÖÃ
-		zaiwenlistenerset();// ¼ôÇĞ°åÔØÎÄÉèÖÃ
-		zaiwenMouselistenerset();// ÔØÎÄ¿òÊó±êÊÂ¼ş¼àÊÓÆ÷ÉèÖÃ
+		gendaListenerset();// è·Ÿæ‰“æ¡†ç›‘è§†å™¨è®¾ç½®
+		f3Listenerset();// é‡æ‰“è®¾ç½®
+		zaiwenlistenerset();// å‰ªåˆ‡æ¿è½½æ–‡è®¾ç½®
+		zaiwenMouselistenerset();// è½½æ–‡æ¡†é¼ æ ‡äº‹ä»¶ç›‘è§†å™¨è®¾ç½®
 		achievementlistenerset();
 		qqzaiwenlistenerset();
-		addAllListener();// ¸øĞèÒªÌí¼Ó¼àÊÓÆ÷×é¼şÌí¼Ó¼àÊÓÆ÷
-		setAllBounds();// ËùÓĞBoundsÊôĞÔÉèÖÃ
-		qqsendChengjiset();// ·¢ËÍ³É¼¨°´Å¥ÉèÖÃ
-		gendajinduset();// ¸ú´ò½ø¶ÈÌõÉèÖÃ
-		setlistenerset();// ÉèÖÃÃæ°åµÄÉèÖÃ
-		setwinNameset();// ÉèÖÃÈ¡qq´°¿ÚÃû×Ö·½·¨
-		qqNamebuttonlistenerset();// qq°´Å¥¼àÊÓÆ÷
+		addAllListener();// ç»™éœ€è¦æ·»åŠ ç›‘è§†å™¨ç»„ä»¶æ·»åŠ ç›‘è§†å™¨
+		setAllBounds();// æ‰€æœ‰Boundså±æ€§è®¾ç½®
+		qqsendChengjiset();// å‘é€æˆç»©æŒ‰é’®è®¾ç½®
+		gendajinduset();// è·Ÿæ‰“è¿›åº¦æ¡è®¾ç½®
+		setlistenerset();// è®¾ç½®é¢æ¿çš„è®¾ç½®
+		setwinNameset();// è®¾ç½®å–qqçª—å£åå­—æ–¹æ³•
+		qqNamebuttonlistenerset();// qqæŒ‰é’®ç›‘è§†å™¨
 		// setKey
-		setF3Key();// ¸øF3ÉèÖÃ¿ì½İ¼ü
-		setQQzaiwenKey();// QQÔØÎÄ¿ì½İ¼ü
-		setMoreKey();// ¸ü¶à¿ì½İ¼ü
-		setChangeQQKey();// »»Èº¿ì½İ¼ü
-		setSetKey();// ¸ü¶àÉèÖÃ¿ì½İ¼ü
-		setMixKey();// ÂÒĞò¿ì½İ¼ü
-		setFawenKey();// ·¢ÎÄ¿ì½İ¼ü
+		setF3Key();// ç»™F3è®¾ç½®å¿«æ·é”®
+		setQQzaiwenKey();// QQè½½æ–‡å¿«æ·é”®
+		setMoreKey();// æ›´å¤šå¿«æ·é”®
+		setChangeQQKey();// æ¢ç¾¤å¿«æ·é”®
+		setSetKey();// æ›´å¤šè®¾ç½®å¿«æ·é”®
+		setMixKey();// ä¹±åºå¿«æ·é”®
+		setFawenKey();// å‘æ–‡å¿«æ·é”®
 		TableRowAddset();
-		initText();// ³õÊ¼»¯ÎÄ±¾¿ò
+		initText();// åˆå§‹åŒ–æ–‡æœ¬æ¡†
 
-		// ÎÄÕÂÊ÷ºÍ³É¼¨±í¸ñ
+		// æ–‡ç« æ ‘å’Œæˆç»©è¡¨æ ¼
 		Tableset();
 
-		addAll();// Ìí¼ÓËùÓĞ×é¼ş
-		jsplit();// ÈıÀ¸
-		Client();// ¿Í»§¶ËÁ¬½Ó
-		menu();// ²Ëµ¥
-		FlowLayout();// ²¼ÖÃÁ÷²¼¾Ö
+		addAll();// æ·»åŠ æ‰€æœ‰ç»„ä»¶
+		jsplit();// ä¸‰æ 
+		Client();// å®¢æˆ·ç«¯è¿æ¥
+		menu();// èœå•
+		FlowLayout();// å¸ƒç½®æµå¸ƒå±€
 
 		Count backConut = new Count(communion, dazi);
 		backConut.start();
 	}
 
-	// ¸ø¶ÔÏóÊµÀı»¯
+	// ç»™å¯¹è±¡å®ä¾‹åŒ–
 	void setNew() {
 		setLayout(null);
-		Object name[] = { "", "ËÙ¶È", "»÷¼ü", "Âë³¤", "×ÖÊı", "»Ø¸Ä", "ÍË¸ñ", "´í×Ö", "Ñ¡ÖØ",
-				"¼ü×¼", "´ò´ÊÂÊ", "Ê±¼ä(Ãë)" }, a[][] = null;
-		// ×ÖÌå´óĞ¡
+		Object name[] = { "", "é€Ÿåº¦", "å‡»é”®", "ç é•¿", "å­—æ•°", "å›æ”¹", "é€€æ ¼", "é”™å­—", "é€‰é‡",
+				"é”®å‡†", "æ‰“è¯ç‡", "æ—¶é—´(ç§’)" }, a[][] = null;
+		// å­—ä½“å¤§å°
 		ziti = new Font(family, 0, fontSize);
 		zititip = new Font(family, 0, 12);
-		// ×ÖÌåÑÕÉ«
+		// å­—ä½“é¢œè‰²
 		JTextPaneChange.creat();
-		JTextPaneChange.createStyle("ºÚ", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("é»‘", JTextPaneChange.styledDoc, fontSize,
 				0, 0, 0, Color.BLACK, family, rightcolor);
-		JTextPaneChange.createStyle("ºì", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("çº¢", JTextPaneChange.styledDoc, fontSize,
 				0, 0, 0, Color.BLACK, family, mistakecolor);
-		JTextPaneChange.createStyle("»Ò", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("ç°", JTextPaneChange.styledDoc, fontSize,
 				0, 0, 0, Color.BLACK, family, mistakecolor);// GRAY
 
-		JTextPaneChange.createStyle("À¶´Ö", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("è“ç²—", JTextPaneChange.styledDoc, fontSize,
 				1, 0, 0, smacicolor, family, mistakecolor);// GRAY
-		JTextPaneChange.createStyle("À¶", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("è“", JTextPaneChange.styledDoc, fontSize,
 				0, 0, 0, smacicolor, family, mistakecolor);// GRAY
-		JTextPaneChange.createStyle("À¶Ğ±", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("è“æ–œ", JTextPaneChange.styledDoc, fontSize,
 				0, 1, 0, smacicolor, family, mistakecolor);// GRAY
-		JTextPaneChange.createStyle("À¶´ÖĞ±", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("è“ç²—æ–œ", JTextPaneChange.styledDoc, fontSize,
 				1, 1, 0, smacicolor, family, mistakecolor);// GRAY
-		JTextPaneChange.createStyle("·Û´Ö", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("ç²‰ç²—", JTextPaneChange.styledDoc, fontSize,
 				1, 0, 0, emacicolor, family, mistakecolor);// GRAY
-		JTextPaneChange.createStyle("·Û", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("ç²‰", JTextPaneChange.styledDoc, fontSize,
 				0, 0, 0, emacicolor, family, mistakecolor);// GRAY
-		JTextPaneChange.createStyle("·ÛĞ±", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("ç²‰æ–œ", JTextPaneChange.styledDoc, fontSize,
 				0, 1, 0, emacicolor, family, mistakecolor);// GRAY
-		JTextPaneChange.createStyle("·Û´ÖĞ±", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("ç²‰ç²—æ–œ", JTextPaneChange.styledDoc, fontSize,
 				1, 1, 0, emacicolor, family, mistakecolor);// GRAY
 
-		JTextPaneChange.createStyle("ÂÌ´Ö", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("ç»¿ç²—", JTextPaneChange.styledDoc, fontSize,
 				1, 0, 0, qmacicolor, family, mistakecolor);// GRAY
-		JTextPaneChange.createStyle("ÂÌ", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("ç»¿", JTextPaneChange.styledDoc, fontSize,
 				0, 0, 0, qmacicolor, family, mistakecolor);// GRAY
-		JTextPaneChange.createStyle("ÂÌĞ±", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("ç»¿æ–œ", JTextPaneChange.styledDoc, fontSize,
 				0, 1, 0, qmacicolor, family, mistakecolor);// GRAY
-		JTextPaneChange.createStyle("ÂÌ´ÖĞ±", JTextPaneChange.styledDoc, fontSize,
+		JTextPaneChange.createStyle("ç»¿ç²—æ–œ", JTextPaneChange.styledDoc, fontSize,
 				1, 1, 0, qmacicolor, family, mistakecolor);// GRAY
 		gendajindutiao = new JProgressBar(0, 0);
 
@@ -340,19 +340,19 @@ public class Window extends JFrame {
 			@Override
 			public void copy() {
 				if (Window.everydaySign)
-					JOptionPane.showMessageDialog(new JTextArea(), "ÈÕÈüÖĞ²»ÔÊĞí¸´ÖÆ");
+					JOptionPane.showMessageDialog(new JTextArea(), "æ—¥èµ›ä¸­ä¸å…è®¸å¤åˆ¶");
 			}
 
 			@Override
 			public void paste() {
-				JOptionPane.showMessageDialog(new JTextArea(), "²»ÔÊĞíÕ³Ìù");
+				JOptionPane.showMessageDialog(new JTextArea(), "ä¸å…è®¸ç²˜è´´");
 			}
 		};
 		// dazi = new JTextArea();
 		chengji = new JTextArea();
 		zaiwenText = new JTextArea();
 		reducesudu = new JTextField("0");
-		reducesudu.addKeyListener( // Ö»ÄÜÊäÈëÊı×Ö
+		reducesudu.addKeyListener( // åªèƒ½è¾“å…¥æ•°å­—
 				new KeyListener() {
 					@Override
 					public void keyPressed(KeyEvent arg0) {
@@ -377,22 +377,22 @@ public class Window extends JFrame {
 		chengji1 = new JScrollPane(chengji);
 		tableN = new JScrollPane(table);
 
-		qqName = new JLabel("F5¸ü»»¸ú´òÈº");
-		qqName.setBorder(BorderFactory.createTitledBorder("¸ú´òÈº"));
-		zishu = new JLabel("×ÖÊı:0/ÒÑ´ò:0/´í:0");
-		zishu.setBorder(BorderFactory.createTitledBorder("×ÖÊı"));
-		allnumber = new JLabel("×Ü:" + String.valueOf(Window.fontallnum) + " ¶Ô:"
-				+ String.valueOf(Window.rightnum) + " ´í:"
-				+ String.valueOf(Window.misnum) + " ½ñ:"
+		qqName = new JLabel("F5æ›´æ¢è·Ÿæ‰“ç¾¤");
+		qqName.setBorder(BorderFactory.createTitledBorder("è·Ÿæ‰“ç¾¤"));
+		zishu = new JLabel("å­—æ•°:0/å·²æ‰“:0/é”™:0");
+		zishu.setBorder(BorderFactory.createTitledBorder("å­—æ•°"));
+		allnumber = new JLabel("æ€»:" + String.valueOf(Window.fontallnum) + " å¯¹:"
+				+ String.valueOf(Window.rightnum) + " é”™:"
+				+ String.valueOf(Window.misnum) + " ä»Š:"
 				+ String.valueOf(Window.datenum));
-		allnumber.setBorder(BorderFactory.createTitledBorder("¸ú´ò¼ÇÂ¼"));
-		sendwen = new JLabel("·¢ÎÄ½ø¶È");
-		sendwen.setBorder(BorderFactory.createTitledBorder("·¢ÎÄ½ø¶È"));
-		tips = new JLabel("±àÂëÌáÊ¾");
-		tips.setBorder(BorderFactory.createTitledBorder("±àÂëÌáÊ¾"));
+		allnumber.setBorder(BorderFactory.createTitledBorder("è·Ÿæ‰“è®°å½•"));
+		sendwen = new JLabel("å‘æ–‡è¿›åº¦");
+		sendwen.setBorder(BorderFactory.createTitledBorder("å‘æ–‡è¿›åº¦"));
+		tips = new JLabel("ç¼–ç æç¤º");
+		tips.setBorder(BorderFactory.createTitledBorder("ç¼–ç æç¤º"));
 
-		dqbanben = new JLabel("µ±Ç°");
-		zxbanben = new JLabel("×îĞÂ");
+		dqbanben = new JLabel("å½“å‰");
+		zxbanben = new JLabel("æœ€æ–°");
 
 		charchange = new JButton("");
 		space = new JButton("");
@@ -401,42 +401,42 @@ public class Window extends JFrame {
 		qianshui = new JButton("");
 		zhiding = new JButton("");
 		
-		F3 = new JButton("ÖØ´ò");
-		zaiwen = new JButton("¼ôÇĞ°åÔØÎÄ");
-		more = new JButton("²Ëµ¥Ä£Ê½");
+		F3 = new JButton("é‡æ‰“");
+		zaiwen = new JButton("å‰ªåˆ‡æ¿è½½æ–‡");
+		more = new JButton("èœå•æ¨¡å¼");
 
-		suduButton = new JButton("ËÙ¶È");
-		KeySuduButton = new JButton("»÷¼ü");
-		Keylength = new JButton("Âë³¤");
-//		lilunma = new JButton("ÀíÂÛÂë³¤");
-		dinglilunma = new JButton("±ê¶¥ÀíÂÛ");
-		achievementButton = new JButton("Éú³É³É¼¨");
-		QQzaiwenButton = new JButton("QQÈºÔØÎÄ");
-		help = new JButton("°ïÖú");
-		conection = new JButton("Ğ­Öú×÷Õß");
-		set = new JButton("¸ü¶àÉèÖÃ");
-		online = new JButton("ÔÚÏß¶ÔÕ½");
-		close = new JButton("¹Ø");
-		max = new JButton("×î´ó»¯");
-		min = new JButton("×îĞ¡»¯");
-		size = new JButton("´óĞ¡");
+		suduButton = new JButton("é€Ÿåº¦");
+		KeySuduButton = new JButton("å‡»é”®");
+		Keylength = new JButton("ç é•¿");
+//		lilunma = new JButton("ç†è®ºç é•¿");
+		dinglilunma = new JButton("æ ‡é¡¶ç†è®º");
+		achievementButton = new JButton("ç”Ÿæˆæˆç»©");
+		QQzaiwenButton = new JButton("QQç¾¤è½½æ–‡");
+		help = new JButton("å¸®åŠ©");
+		conection = new JButton("ååŠ©ä½œè€…");
+		set = new JButton("æ›´å¤šè®¾ç½®");
+		online = new JButton("åœ¨çº¿å¯¹æˆ˜");
+		close = new JButton("å…³");
+		max = new JButton("æœ€å¤§åŒ–");
+		min = new JButton("æœ€å°åŒ–");
+		size = new JButton("å¤§å°");
 		changeQQButton = new JButton();
 		rightce = new JButton();
 		leftce = new JButton();
-		acticlebutton = new JButton("·¢ÎÄ");
-		mix = new JButton("¸Ã¶ÎÂÒĞò");
-		next = new JButton("ÏÂÒ»¶Î");
-		save = new JButton("±£´æ¸ú´ò½ø¶È");
-		share = new JButton("·ÖÏí·¢ÎÄ");
-		chouqu = new JButton("³éÈ¡ÏÂÒ»¶Î");
-		Englishnew = new JButton("Ó¢´ÊÏÂÒ»¶Î");
-		lookplayfinish = new JButton("¸ú´ò");
-		lookplayfinish.setToolTipText("¿´´òËã·¨ÓÉÓ¢´òÈºÈºÖ÷¡°Áè·ç¡±ÓÑÇéÓÅ»¯");
+		acticlebutton = new JButton("å‘æ–‡");
+		mix = new JButton("è¯¥æ®µä¹±åº");
+		next = new JButton("ä¸‹ä¸€æ®µ");
+		save = new JButton("ä¿å­˜è·Ÿæ‰“è¿›åº¦");
+		share = new JButton("åˆ†äº«å‘æ–‡");
+		chouqu = new JButton("æŠ½å–ä¸‹ä¸€æ®µ");
+		Englishnew = new JButton("è‹±è¯ä¸‹ä¸€æ®µ");
+		lookplayfinish = new JButton("è·Ÿæ‰“");
+		lookplayfinish.setToolTipText("çœ‹æ‰“ç®—æ³•ç”±è‹±æ‰“ç¾¤ç¾¤ä¸»â€œå‡Œé£â€å‹æƒ…ä¼˜åŒ–");
 
 		
 		
-		gendaListener = new GendaListener();// ´ò×Ö¿ò¼àÊÓÆ÷
-		f3listener = new F3Listener();// F3°´Å¥¼àÊÓÆ÷
+		gendaListener = new GendaListener();// æ‰“å­—æ¡†ç›‘è§†å™¨
+		f3listener = new F3Listener();// F3æŒ‰é’®ç›‘è§†å™¨
 		zaiwenlistener = new JianQieListener();
 		zaiwenMouselistener = new MousePressedZaiwenText();
 		achievementListener = new AchievementListener();
@@ -471,18 +471,18 @@ public class Window extends JFrame {
 		Englishnew.addActionListener(Acticle.treeListener);
 
 		AcitiyComp acitiycomp = new AcitiyComp();
-		acitiycomp.start();// ËÙ¶È»÷¼üÂë³¤¶¯Ì¬±ä»¯Ïß³Ì
+		acitiycomp.start();// é€Ÿåº¦å‡»é”®ç é•¿åŠ¨æ€å˜åŒ–çº¿ç¨‹
 
 		Clip clip = new Clip();
 		clip.start();
 
-		ImageIcon icon = new ImageIcon("images//installer_repair_1.png"); // xxx´ú±íÍ¼Æ¬´æ·ÅÂ·¾¶£¬2.pngÍ¼Æ¬Ãû³Æ¼°¸ñÊ½
+		ImageIcon icon = new ImageIcon("images//installer_repair_1.png"); // xxxä»£è¡¨å›¾ç‰‡å­˜æ”¾è·¯å¾„ï¼Œ2.pngå›¾ç‰‡åç§°åŠæ ¼å¼
 		this.setIconImage(icon.getImage());
 
 		Onsystem();
 	}
 
-	// Ìí¼ÓËùÓĞ×é¼ş
+	// æ·»åŠ æ‰€æœ‰ç»„ä»¶
 	void addAll() {
 		add(wenben1);
 		// add(dazi1);
@@ -536,12 +536,12 @@ public class Window extends JFrame {
 		add(zhiding);
 	}
 
-	// ¸øËùÓĞ×é¼şÉèÖÃ¼àÊÓÆ÷
+	// ç»™æ‰€æœ‰ç»„ä»¶è®¾ç½®ç›‘è§†å™¨
 	void addAllListener() {
-		(dazi.getDocument()).addDocumentListener(gendaListener);// ¸ø¸ú´ò¿ò¼Ó¼àÊÓÆ÷
+		(dazi.getDocument()).addDocumentListener(gendaListener);// ç»™è·Ÿæ‰“æ¡†åŠ ç›‘è§†å™¨
 		dazi.addKeyListener(gendaListener);
-		F3.addActionListener(f3listener);// ÖØ´ò¼àÊÓÆ÷
-		zaiwen.addActionListener(zaiwenlistener);// ¼ôÇĞ°åÔØÎÄ¼Ó¼àÊÓÆ÷
+		F3.addActionListener(f3listener);// é‡æ‰“ç›‘è§†å™¨
+		zaiwen.addActionListener(zaiwenlistener);// å‰ªåˆ‡æ¿è½½æ–‡åŠ ç›‘è§†å™¨
 		zaiwenText.addMouseListener(zaiwenMouselistener);
 
 		achievementButton.addActionListener(achievementListener);
@@ -581,11 +581,11 @@ public class Window extends JFrame {
 		qianshui.addActionListener(setFrameQianshuiListener);
 	}
 
-	// ËùÓĞ¼àÊÓÆ÷ÉèÖÃ¡£¡£¡£¡£¡£¡£
+	// æ‰€æœ‰ç›‘è§†å™¨è®¾ç½®ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚
 	void gendaListenerset() {
 		gendaListener.setDaziText(dazi);
 		gendaListener.setChengjiText(chengji);
-		gendaListener.setWenben1Text(wenben1);// ÉèÖÃ¸ú´ò¿ò¼àÊÓÆ÷¶ÔÏó
+		gendaListener.setWenben1Text(wenben1);// è®¾ç½®è·Ÿæ‰“æ¡†ç›‘è§†å™¨å¯¹è±¡
 		gendaListener.setWenbenText(wenben);
 		gendaListener.setJSB(JSBwenben);
 		gendaListener.setZishu(zishu);
@@ -600,7 +600,7 @@ public class Window extends JFrame {
 	}
 
 	void f3Listenerset() {
-		f3listener.setDaziText(dazi);// ÉèÖÃF3´ò×Ö¿ò
+		f3listener.setDaziText(dazi);// è®¾ç½®F3æ‰“å­—æ¡†
 		f3listener.setChengjiText(chengji);
 		f3listener.setZishu(zishu);
 		f3listener.setWenben(wenben);
@@ -610,8 +610,8 @@ public class Window extends JFrame {
 	}
 
 	void zaiwenlistenerset() {
-		zaiwenlistener.setWenbenText(wenben);// ¼ôÇĞ°åÉèÖÃÎÄ±¾¿ò
-		zaiwenlistener.setDaziText(dazi);// ¼ôÇĞ°åÉèÖÃ´ò×Ö¿ò
+		zaiwenlistener.setWenbenText(wenben);// å‰ªåˆ‡æ¿è®¾ç½®æ–‡æœ¬æ¡†
+		zaiwenlistener.setDaziText(dazi);// å‰ªåˆ‡æ¿è®¾ç½®æ‰“å­—æ¡†
 		zaiwenlistener.setGendaListener(gendaListener);
 		zaiwenlistener.setZishu(zishu);
 		zaiwenlistener.setJSB(JSBwenben);
@@ -644,7 +644,7 @@ public class Window extends JFrame {
 		qqNamebuttonlistener.setQQnameButton(qqName);
 	}
 
-	// ¡£¡£¡£¡£¡£¡£¡£¡£¡£
+	// ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚
 	void setlistenerset() {
 		setlistener.setFrame(setframe);
 		setframe.setGendaListener(gendaListener);
@@ -652,10 +652,10 @@ public class Window extends JFrame {
 		setframe.SetFrame1();
 	}
 
-	// ÉèÖÃËùÓĞ×é¼ş´óĞ¡
+	// è®¾ç½®æ‰€æœ‰ç»„ä»¶å¤§å°
 	void setAllBounds() {
 		// TODO
-		// ÉÏÅÅ°´Å¥
+		// ä¸Šæ’æŒ‰é’®
 		jindu.setBounds(50,0,20,10);
 		qianshui.setBounds(jindu.getX()+jindu.getWidth()+10,0,20,10);
 		wordTips.setBounds(qianshui.getX()+qianshui.getWidth()+10,0,20,10);
@@ -663,19 +663,19 @@ public class Window extends JFrame {
 		charchange.setBounds(space.getX()+space.getWidth()+10,0,20,10);
 		zhiding.setBounds(charchange.getX()+charchange.getWidth()+10,0,20,10);
 		
-		F3.setBounds(57, 10, 0, 0); // ÖØ´òÉèÖÃ°´Å¥´óĞ¡Î»ÖÃ 190
+		F3.setBounds(57, 10, 0, 0); // é‡æ‰“è®¾ç½®æŒ‰é’®å¤§å°ä½ç½® 190
 		suduButton.setBounds(57, F3.getY(), 150, 30);
 		KeySuduButton.setBounds(217, F3.getY(), 150, 30);
 		Keylength.setBounds(377, F3.getY(), 150, 30);
 		dinglilunma.setBounds(537, F3.getY(), 150, 30);
 //		dinglilunma.setBounds(697, F3.getY(), 150, 30);
 
-		zaiwen.setBounds(353, F3.getY(), 0, 0);// ¼ôÇĞ°æÔØÎÄ°´Å¥´óĞ¡Î»ÖÃ
-		more.setBounds(458, F3.getY(), 0, 0);// ÎÄ±¾ÔØÎÄ°´Å¥´óĞ¡Î»ÖÃ
+		zaiwen.setBounds(353, F3.getY(), 0, 0);// å‰ªåˆ‡ç‰ˆè½½æ–‡æŒ‰é’®å¤§å°ä½ç½®
+		more.setBounds(458, F3.getY(), 0, 0);// æ–‡æœ¬è½½æ–‡æŒ‰é’®å¤§å°ä½ç½®
 		achievementButton.setBounds(563, F3.getY(), 0, 0);
 		QQzaiwenButton.setBounds(668, F3.getY(), 0, 0);
 
-		set.setBounds(963, F3.getY(), 0, 0);// ¸ü¶à
+		set.setBounds(963, F3.getY(), 0, 0);// æ›´å¤š
 
 		help.setBounds(868, F3.getY(), 0, 0);
 		acticlebutton.setBounds(1058, F3.getY(), 0, 0);
@@ -685,11 +685,11 @@ public class Window extends JFrame {
 		
 	}
 
-	// ÉèÖÃÎÄ±¾¿ò×ÖÌå
+	// è®¾ç½®æ–‡æœ¬æ¡†å­—ä½“
 	void setAllziti() {
 		wenben.setFont(ziti);
 		dazi.setFont(ziti);
-		chengji.setFont(new Font("Î¢ÈíÑÅºÚ", 0, 20));
+		chengji.setFont(new Font("å¾®è½¯é›…é»‘", 0, 20));
 		min.setFont(new Font(family, 0, 0));
 		max.setFont(new Font(family, 0, 0));
 		close.setFont(new Font(family, 0, 0));
@@ -706,25 +706,25 @@ public class Window extends JFrame {
 	}
 
 	void TrueOrFalse() {
-		// wenben.setLineWrap(true);//ÎÄ±¾¿ò×Ô¶¯»»ĞĞ
-		dazi.setLineWrap(true);// ´ò×Ö¿ò×Ô¶¯»»ĞĞ
-		chengji.setLineWrap(true);// ´ò×Ö¿ò×Ô¶¯»»ĞĞ
-		zaiwenText.setLineWrap(true);// ÔØÎÄ¿ò×Ô¶¯»»ĞĞ
+		// wenben.setLineWrap(true);//æ–‡æœ¬æ¡†è‡ªåŠ¨æ¢è¡Œ
+		dazi.setLineWrap(true);// æ‰“å­—æ¡†è‡ªåŠ¨æ¢è¡Œ
+		chengji.setLineWrap(true);// æ‰“å­—æ¡†è‡ªåŠ¨æ¢è¡Œ
+		zaiwenText.setLineWrap(true);// è½½æ–‡æ¡†è‡ªåŠ¨æ¢è¡Œ
 		wenben.setEditable(false);
-		chengji.setEditable(false);// Ëø¶¨ÎÄ±¾¿òºÍ³É¼¨¿ò²»¿É±à¼­
+		chengji.setEditable(false);// é”å®šæ–‡æœ¬æ¡†å’Œæˆç»©æ¡†ä¸å¯ç¼–è¾‘
 		sendwen.setVisible(false);
 		// this.setResizable(false);
 	}
 
-	// ½«ËùÓĞÎÄ±¾¿ò³õÊ¼»¯
+	// å°†æ‰€æœ‰æ–‡æœ¬æ¡†åˆå§‹åŒ–
 	void initText() {
-		wenben.setText("F5»»Èº£¬F4ÔØÎÄ£¬F3ÖØ´ò£¬F2·¢ÎÄ£¬F1·¢ËÍ³É¼¨£¬Ä¬ÈÏ×Ô¶¯·¢ËÍ³É¼¨¡£");
+		wenben.setText("F5æ¢ç¾¤ï¼ŒF4è½½æ–‡ï¼ŒF3é‡æ‰“ï¼ŒF2å‘æ–‡ï¼ŒF1å‘é€æˆç»©ï¼Œé»˜è®¤è‡ªåŠ¨å‘é€æˆç»©ã€‚");
 		dazi.setText("");
 		chengji.setText("");
 		zaiwenText.setText("");
 	}
 
-	// ÉèÖÃ¿ì½İ¼ü¡£¡£¡£¡£¡£
+	// è®¾ç½®å¿«æ·é”®ã€‚ã€‚ã€‚ã€‚ã€‚
 	void setMixKey() {
 		mix.setMnemonic(KeyEvent.VK_L);
 		next.setMnemonic(KeyEvent.VK_P);
@@ -741,7 +741,7 @@ public class Window extends JFrame {
 	}
 
 	void setF3Key() {
-		F3.setMnemonic(KeyEvent.VK_3);// F3°´Å¥¿ì½İ¼ü
+		F3.setMnemonic(KeyEvent.VK_3);// F3æŒ‰é’®å¿«æ·é”®
 		F3Key = F3.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 		F3Key.put(KeyStroke.getKeyStroke("F3"), "dog");
 		ActionMap F3Action = F3.getActionMap();
@@ -757,7 +757,7 @@ public class Window extends JFrame {
 		qqzaiwenAction.put("qqzaiwen", qqzaiwenListener);
 	}
 
-	// qq·¢ËÍ³É¼¨ÉèÖÃ¿ì½İ¼ü
+	// qqå‘é€æˆç»©è®¾ç½®å¿«æ·é”®
 	void qqsendChengjiset() {
 		achievementButton.setMnemonic(KeyEvent.VK_1);
 		sendChengji = achievementButton
@@ -795,23 +795,23 @@ public class Window extends JFrame {
 	void setSetKey() {
 		set.setMnemonic(KeyEvent.VK_Z);
 		setKey = set.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-		setKey.put(KeyStroke.getKeyStroke("F10"), "¸ü¶àÉèÖÃ");
+		setKey.put(KeyStroke.getKeyStroke("F10"), "æ›´å¤šè®¾ç½®");
 		ActionMap setAction = set.getActionMap();
-		setAction.put("¸ü¶àÉèÖÃ", setlistener);
+		setAction.put("æ›´å¤šè®¾ç½®", setlistener);
 	}
 
-	// ¡£¡£¡£¡£¡£¡£¡£¡£
-	// ½ø¶ÈÌõÉèÖÃ
+	// ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚
+	// è¿›åº¦æ¡è®¾ç½®
 	void gendajinduset() {
 		setGendajindu.setJProgressBar(gendajindutiao);
 	}
 
-	// ±íÌí¼ÓĞĞÉèÖÃ
+	// è¡¨æ·»åŠ è¡Œè®¾ç½®
 	void TableRowAddset() {
 		tableAdd.init(tableM, gendaListener, table);
 	}
 
-	// ³É¼¨±í¸ñÉèÖÃ
+	// æˆç»©è¡¨æ ¼è®¾ç½®
 	void Tableset() {
 		table.setRowHeight(25);
 		table.setBackground(Color.white);
@@ -819,12 +819,12 @@ public class Window extends JFrame {
 		column = table.getColumnModel().getColumn(0);
 		column.setPreferredWidth(1);
 		JTableHeader head = table.getTableHeader();
-		head.setFont(new Font("Î¢ÈíÑÅºÚ", 1, 15));
+		head.setFont(new Font("å¾®è½¯é›…é»‘", 1, 15));
 		head.setBackground(Color.white);
 
 	}
 
-	// ÉèÖÃ´°¿ÚÃû×ÖµÄÉèÖÃ
+	// è®¾ç½®çª—å£åå­—çš„è®¾ç½®
 	void setwinNameset() {
 		setwinName.setQQname(qqName);
 	}
@@ -897,55 +897,55 @@ public class Window extends JFrame {
 
 	void menu() {
 		menubar = new JMenuBar();
-		menu = new JMenu("²Ëµ¥");
-		base = new JMenu("»ù±¾²Ù×÷");
-		linkbase = new JMenu("ÁªÍø²Ù×÷");
-		other = new JMenu("ÆäËû");
-		paiming = new JMenu("ÅÅÃû");
-		fawenmenu = new JMenu("·¢ÎÄ²Ù×÷");
+		menu = new JMenu("èœå•");
+		base = new JMenu("åŸºæœ¬æ“ä½œ");
+		linkbase = new JMenu("è”ç½‘æ“ä½œ");
+		other = new JMenu("å…¶ä»–");
+		paiming = new JMenu("æ’å");
+		fawenmenu = new JMenu("å‘æ–‡æ“ä½œ");
 
-		paimingall = new JMenuItem("×Ü¸ú´òÅÅÃû");
-		paimingday = new JMenuItem("ÈÕ¸ú´òÅÅÃû");
-		paiming999 = new JMenuItem("ÈüÎÄÆ½¾ù³É¼¨ÅÅÃû");
-		everydaypaiming = new JMenuItem("Ã¿ÈÕÈüÎÄÅÅÃû");
+		paimingall = new JMenuItem("æ€»è·Ÿæ‰“æ’å");
+		paimingday = new JMenuItem("æ—¥è·Ÿæ‰“æ’å");
+		paiming999 = new JMenuItem("èµ›æ–‡å¹³å‡æˆç»©æ’å");
+		everydaypaiming = new JMenuItem("æ¯æ—¥èµ›æ–‡æ’å");
 
-		denglu = new JMenuItem("µÇÂ¼");
-		fasongchengji = new JMenuItem("·¢ËÍ³É¼¨ F1");
-		fawen = new JMenuItem("·¢ÎÄF2");
-		chongda = new JMenuItem("ÖØ´òF3");
-		QQQzaiwen = new JMenuItem("ÔØÎÄ F4");
-		huanqun = new JMenuItem("»»Èº F5");
+		denglu = new JMenuItem("ç™»å½•");
+		fasongchengji = new JMenuItem("å‘é€æˆç»© F1");
+		fawen = new JMenuItem("å‘æ–‡F2");
+		chongda = new JMenuItem("é‡æ‰“F3");
+		QQQzaiwen = new JMenuItem("è½½æ–‡ F4");
+		huanqun = new JMenuItem("æ¢ç¾¤ F5");
 
-		xiayiduan = new JMenuItem("Ë³ĞòÏÂÒ»¶Î");
-		baocun = new JMenuItem("±£´æ¸ú´ò½ø¶È");
-		chouquxiayiduan = new JMenuItem("³éÈ¡ÏÂÒ»¶Î");
-		luanxu = new JMenuItem("¸Ã¶ÎÂÒĞò");
+		xiayiduan = new JMenuItem("é¡ºåºä¸‹ä¸€æ®µ");
+		baocun = new JMenuItem("ä¿å­˜è·Ÿæ‰“è¿›åº¦");
+		chouquxiayiduan = new JMenuItem("æŠ½å–ä¸‹ä¸€æ®µ");
+		luanxu = new JMenuItem("è¯¥æ®µä¹±åº");
 
-		jqbzaiwen = new JMenuItem("¼ôÌù°åÔØÎÄ");
-		// jjmu = new JMenuItem("°´Å¥Ä£Ê½");
-		ramdom = new JMenuItem("Ëæ»úÒ»ÎÄ");
+		jqbzaiwen = new JMenuItem("å‰ªè´´æ¿è½½æ–‡");
+		// jjmu = new JMenuItem("æŒ‰é’®æ¨¡å¼");
+		ramdom = new JMenuItem("éšæœºä¸€æ–‡");
 
-		txt = new JMenuItem("Éú³ÉÂë±í");
-		gengduo = new JMenuItem("¸ü¶àÉèÖÃ alt+Z");
-		zxdv = new JMenuItem("ÔÚÏß¶ÔÕ½");
-		bang = new JMenuItem("Ê¹ÓÃ°ïÖú");
-		xiezhu = new JMenuItem("Ğ­Öú×÷Õß");
-		historyall = new JMenuItem("¸ú´ò¼ÇÂ¼");
-		friendSys = new JMenuItem("ºÃÓÑÏµÍ³");
-		everydaysaiwen = new JMenuItem("Ã¿ÈÕÈüÎÄ");
-		buildsaiwen = new JMenuItem("´´½¨±ÈÈü");
-		com = new JMenuItem("¹²¾ÛÒ»ÌÃ");
-		fuwei = new JMenuItem("¸´Î»");
-		email = new JMenuItem("°ó¶¨ÓÊÏä");
-		chexit = new JMenuItem("¼ì²é±àÂë");
-		kaiG = new JMenuItem("Òş²Ø¹¦ÄÜ");
-		resert = new JMenuItem("´íÎ»¸´Î»");
-		update = new JMenuItem("¸üĞÂ");
+		txt = new JMenuItem("ç”Ÿæˆç è¡¨");
+		gengduo = new JMenuItem("æ›´å¤šè®¾ç½® alt+Z");
+		zxdv = new JMenuItem("åœ¨çº¿å¯¹æˆ˜");
+		bang = new JMenuItem("ä½¿ç”¨å¸®åŠ©");
+		xiezhu = new JMenuItem("ååŠ©ä½œè€…");
+		historyall = new JMenuItem("è·Ÿæ‰“è®°å½•");
+		friendSys = new JMenuItem("å¥½å‹ç³»ç»Ÿ");
+		everydaysaiwen = new JMenuItem("æ¯æ—¥èµ›æ–‡");
+		buildsaiwen = new JMenuItem("åˆ›å»ºæ¯”èµ›");
+		com = new JMenuItem("å…±èšä¸€å ‚");
+		fuwei = new JMenuItem("å¤ä½");
+		email = new JMenuItem("ç»‘å®šé‚®ç®±");
+		chexit = new JMenuItem("æ£€æŸ¥ç¼–ç ");
+		kaiG = new JMenuItem("éšè—åŠŸèƒ½");
+		resert = new JMenuItem("é”™ä½å¤ä½");
+		update = new JMenuItem("æ›´æ–°");
 		
-		lookplay = new JMenuItem("³É¼¨Ìá½»");
-		check = new JMenuItem("¿´´ò¼ìÑé");
+		lookplay = new JMenuItem("æˆç»©æäº¤");
+		check = new JMenuItem("çœ‹æ‰“æ£€éªŒ");
 
-		EnglishNext = new JMenuItem("Ó¢´ÊÏÂÒ»¶Î");
+		EnglishNext = new JMenuItem("è‹±è¯ä¸‹ä¸€æ®µ");
 
 		RamdomListener ramdomlistener = new RamdomListener();
 		getDatesaiwen getsaiwen = new getDatesaiwen(this);
@@ -1058,7 +1058,7 @@ public class Window extends JFrame {
 		menu.add(kaiG);
 		menu.add(resert);
 		menu.add(update);
-		// menu.setFont(); //ÉèÖÃ×ÖÌå
+		// menu.setFont(); //è®¾ç½®å­—ä½“
 		menubar.setBorder(BorderFactory.createEtchedBorder());
 		menubar.add(menu);
 		menubar.setBounds(5, 10, 45, 32);
@@ -1072,7 +1072,7 @@ public class Window extends JFrame {
 		Winchg.start();
 	}
 
-	// ÒÔÏÂÎªÁ¬½ÓÏµÍ³
+	// ä»¥ä¸‹ä¸ºè¿æ¥ç³»ç»Ÿ
 	void Client() {
 		clientNew();
 		setReadyKey();
@@ -1081,48 +1081,48 @@ public class Window extends JFrame {
 				communion1, this);
 		online.addActionListener(onlineListener);
 		rightce.addActionListener(onlineListener);
-		// LINK¼àÊÓÆ÷ÉèÖÃ
+		// LINKç›‘è§†å™¨è®¾ç½®
 		linkListener.setClient(client);
 		linkListener.setCommunion(communion);
-		// LINK°´Å¥Ìí¼Ó¼àÊÓÆ÷
+		// LINKæŒ‰é’®æ·»åŠ ç›‘è§†å™¨
 		link.addActionListener(linkListener);
-		// breaklinklistener¼àÊÓÆ÷ÉèÖÃ
+		// breaklinklistenerç›‘è§†å™¨è®¾ç½®
 		breakLinkListener.setClient(client);
 		breakLinkListener.setAccept(communion);
 		breaklink.addActionListener(breakLinkListener);
-		// Ñ¡Ôñ·¿¼ä°´Å¥¼àÊÓÆ÷
+		// é€‰æ‹©æˆ¿é—´æŒ‰é’®ç›‘è§†å™¨
 		roomListener.setAccept(communion);
-		// Ready°´Å¥¼àÊÓÆ÷ÉèÖÃ
+		// ReadyæŒ‰é’®ç›‘è§†å™¨è®¾ç½®
 		readyListener.setAccept(communion);
 		readyListener.setSocket(client);
 		readyListener.setSendText(dazi);
 		readyListener.setGendaLisener(gendaListener);
-		// clientÉèÖÃ
+		// clientè®¾ç½®
 		client.setDazi(dazi);
 		client.setAccept(accept);
 		client.setGendajindu(setGendajindu);
 
-		clientButtonSetListener();// °´Å¥Ìí¼Ó¼àÊÓÆ÷
-		clientSetBounds();// ×é¼şÉèÖÃ
-		clientAdd();// Ìí¼Ó×é¼ş
+		clientButtonSetListener();// æŒ‰é’®æ·»åŠ ç›‘è§†å™¨
+		clientSetBounds();// ç»„ä»¶è®¾ç½®
+		clientAdd();// æ·»åŠ ç»„ä»¶
 	}
 
 	void clientNew() {
-		one = new JButton("Ò»·¿");
-		two = new JButton("¶ş·¿");
-		three = new JButton("Èı·¿");
-		four = new JButton("ËÄ·¿");
-		five = new JButton("Îå·¿");
-		six = new JButton("Áù·¿");
-		seven = new JButton("Æß·¿");
-		eight = new JButton("°Ë·¿");
-		link = new JButton("Á¬½Ó");
-		breaklink = new JButton("¶Ï¿ªÁ¬½Ó");
+		one = new JButton("ä¸€æˆ¿");
+		two = new JButton("äºŒæˆ¿");
+		three = new JButton("ä¸‰æˆ¿");
+		four = new JButton("å››æˆ¿");
+		five = new JButton("äº”æˆ¿");
+		six = new JButton("å…­æˆ¿");
+		seven = new JButton("ä¸ƒæˆ¿");
+		eight = new JButton("å…«æˆ¿");
+		link = new JButton("è¿æ¥");
+		breaklink = new JButton("æ–­å¼€è¿æ¥");
 
-		ready = new JButton("×¼±¸");
-		score = new JButton("±È·Ö");
+		ready = new JButton("å‡†å¤‡");
+		score = new JButton("æ¯”åˆ†");
 
-		accept.setLineWrap(true);// ×Ô¶¯»»ĞĞ
+		accept.setLineWrap(true);// è‡ªåŠ¨æ¢è¡Œ
 		accept.setFont(new Font(family, 0, 30));
 
 		onlineListener = new OnlineOorF();
@@ -1220,32 +1220,32 @@ public class Window extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			if (Pattern == 1) {
 				Pattern = 2;
-				System.out.println("Ó¢´ò");
-				lookplayfinish.setText("Ó¢´ò");
-				JTextPaneChange.createStyle("ºÚ", JTextPaneChange.styledDoc,
+				System.out.println("è‹±æ‰“");
+				lookplayfinish.setText("è‹±æ‰“");
+				JTextPaneChange.createStyle("é»‘", JTextPaneChange.styledDoc,
 						Window.fontSize, 0, 0, 0, Color.BLACK, Window.family,
 						Window.rightcolor);
-				JTextPaneChange.createStyle("ºì", JTextPaneChange.styledDoc,
+				JTextPaneChange.createStyle("çº¢", JTextPaneChange.styledDoc,
 						Window.fontSize, 0, 0, 0, Color.BLACK, Window.family,
 						Window.mistakecolor);
 			} else if (Pattern == 0) {
 				Pattern = 1;
-				lookplayfinish.setText("¿´´ò");
-				System.out.println("¿´´ò");
-				JTextPaneChange.createStyle("ºÚ", JTextPaneChange.styledDoc,
+				lookplayfinish.setText("çœ‹æ‰“");
+				System.out.println("çœ‹æ‰“");
+				JTextPaneChange.createStyle("é»‘", JTextPaneChange.styledDoc,
 						Window.fontSize, 0, 0, 0, Color.BLACK, Window.family,
 						new Color(238, 238, 238));
-				JTextPaneChange.createStyle("ºì", JTextPaneChange.styledDoc,
+				JTextPaneChange.createStyle("çº¢", JTextPaneChange.styledDoc,
 						Window.fontSize, 0, 0, 0, Color.BLACK, Window.family,
 						new Color(238, 238, 238));
 			} else if (Pattern == 2) {
 				Pattern = 0;
-				System.out.println("¸ú´ò");
-				lookplayfinish.setText("¸ú´ò");
-				JTextPaneChange.createStyle("ºÚ", JTextPaneChange.styledDoc,
+				System.out.println("è·Ÿæ‰“");
+				lookplayfinish.setText("è·Ÿæ‰“");
+				JTextPaneChange.createStyle("é»‘", JTextPaneChange.styledDoc,
 						Window.fontSize, 0, 0, 0, Color.BLACK, Window.family,
 						Window.rightcolor);
-				JTextPaneChange.createStyle("ºì", JTextPaneChange.styledDoc,
+				JTextPaneChange.createStyle("çº¢", JTextPaneChange.styledDoc,
 						Window.fontSize, 0, 0, 0, Color.BLACK, Window.family,
 						Window.mistakecolor);
 			}
@@ -1255,26 +1255,26 @@ public class Window extends JFrame {
 
 	void Onsystem() {
 		TrayIcon trayIcon = null;
-		if (SystemTray.isSupported()) // ÅĞ¶ÏÏµÍ³ÊÇ·ñÖ§³ÖÏµÍ³ÍĞÅÌ
+		if (SystemTray.isSupported()) // åˆ¤æ–­ç³»ç»Ÿæ˜¯å¦æ”¯æŒç³»ç»Ÿæ‰˜ç›˜
 		{
-			SystemTray tray = SystemTray.getSystemTray(); // ´´½¨ÏµÍ³ÍĞÅÌ
+			SystemTray tray = SystemTray.getSystemTray(); // åˆ›å»ºç³»ç»Ÿæ‰˜ç›˜
 
 			Image image = Toolkit.getDefaultToolkit().getImage(
-					"images\\config_3.png");// ÔØÈëÍ¼Æ¬ Í¼Æ¬Î»ÖÃÊÇ³ÌĞòËùÔÚµÄÄ¿Â¼
+					"images\\config_3.png");// è½½å…¥å›¾ç‰‡ å›¾ç‰‡ä½ç½®æ˜¯ç¨‹åºæ‰€åœ¨çš„ç›®å½•
 			ActionListener listener = new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					// ´´½¨Ò»¸ö´°Ìå
+					// åˆ›å»ºä¸€ä¸ªçª—ä½“
 					setVisible(true);
 
 				}
 			};
-			// ´´½¨µ¯³ö²Ëµ¥
-			PopupMenu popup = new PopupMenu();// Õâ¸öÊÇÓÒ¼ü²ÅÄÜ´¥·¢µÄ²Ëµ¥
-			MenuItem defaultItem = new MenuItem("´ò¿ª");
+			// åˆ›å»ºå¼¹å‡ºèœå•
+			PopupMenu popup = new PopupMenu();// è¿™ä¸ªæ˜¯å³é”®æ‰èƒ½è§¦å‘çš„èœå•
+			MenuItem defaultItem = new MenuItem("æ‰“å¼€");
 			defaultItem.addActionListener(listener);
-			MenuItem change = new MenuItem("¿´/¸ú");
+			MenuItem change = new MenuItem("çœ‹/è·Ÿ");
 			change.addActionListener(lookda);
-			MenuItem exitItem = new MenuItem("ÍË³ö");
+			MenuItem exitItem = new MenuItem("é€€å‡º");
 			exitItem.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					System.exit(0);
@@ -1283,9 +1283,9 @@ public class Window extends JFrame {
 			popup.add(defaultItem);
 			popup.add(change);
 			popup.add(exitItem);
-			trayIcon = new TrayIcon(image, "ÍÏÀ­»ú¸ú´òÆ÷", popup);// ´´½¨trayIcon
-			trayIcon.addActionListener(listener);// ¸øĞ¡Í¼±ê¼ÓÉÏ¼àÌıÆ÷£¬Ä¬ÈÏµÄ¾ÍÊÇ¼àÌıË«»÷¡£
-			// Èç¹ûÅ¼Ïë¼àÌıµ¥»÷É¶µÄ ¾Í¼Ómouselistener
+			trayIcon = new TrayIcon(image, "æ‹–æ‹‰æœºè·Ÿæ‰“å™¨", popup);// åˆ›å»ºtrayIcon
+			trayIcon.addActionListener(listener);// ç»™å°å›¾æ ‡åŠ ä¸Šç›‘å¬å™¨ï¼Œé»˜è®¤çš„å°±æ˜¯ç›‘å¬åŒå‡»ã€‚
+			// å¦‚æœå¶æƒ³ç›‘å¬å•å‡»å•¥çš„ å°±åŠ mouselistener
 			try {
 				tray.add(trayIcon);
 			} catch (AWTException e1) {

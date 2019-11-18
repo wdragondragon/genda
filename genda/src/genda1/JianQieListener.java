@@ -34,8 +34,8 @@ public class JianQieListener extends AbstractAction {
 		JSB = t;
 	}
 	public void actionPerformed(ActionEvent arg0) {
-		if(SendWenben.sendwenSign==1){JOptionPane.showMessageDialog(new JTextArea(),"ÏÈ½áÊø·¢ÎÄ");return;}
-		if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"ÇëÏÈ½áÊøÃ¿ÈÕÈüÎÄ");return;}
+		if(SendWenben.sendwenSign==1){JOptionPane.showMessageDialog(new JTextArea(),"å…ˆç»“æŸå‘æ–‡");return;}
+		if(Window.everydaySign){JOptionPane.showMessageDialog(new JTextArea(),"è¯·å…ˆç»“æŸæ¯æ—¥èµ›æ–‡");return;}
 		RegexText.duan1 = 1;
 		if(SetFrameJinduListener.jindusign==1)
 			gendajindu.open(wenben.getText().length());
@@ -46,7 +46,7 @@ public class JianQieListener extends AbstractAction {
 			out.writeUTF("%"+ReadyListener.BeganSign+"%"+"%"+RegexText.duan1+"#"+Window.wenben.getText()+"%0"+"%"+Login.zhanghao.getText());
 		}
 		catch(Exception ex){
-			System.out.println("ÎŞ·¨·¢ËÍÎÄ±¾ÄÚÈİjianqie,49");
+			System.out.println("æ— æ³•å‘é€æ–‡æœ¬å†…å®¹jianqie,49");
 		}
 		Window.f3listener.F3();
 	}

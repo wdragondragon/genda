@@ -21,12 +21,12 @@ public class ReadyListener extends AbstractAction {
 		if (!Window.Linksign) {
 			if (BeganSign == 0) {
 				BeganSign = 1;
-				accept.append("ÒÑ×¼±¸\n");
+				accept.append("å·²å‡†å¤‡\n");
 				Window.f3listener.F3();
 				battleSend.Mistake = 0;
 			} else {
 				BeganSign = 0;
-				accept.append("È¡Ïû×¼±¸\n");
+				accept.append("å–æ¶ˆå‡†å¤‡\n");
 				sendText.setText("");
 				sendText.setEditable(false);
 			}
@@ -36,13 +36,13 @@ public class ReadyListener extends AbstractAction {
 						+ "%" + RegexText.duan1 + "#" + Window.wenben.getText()
 						+ "%0" + "%" + Login.zhanghao.getText();
 				QQZaiwenListener.wenbenstr = Window.wenben.getText();
-				out.writeUTF(message);// Ïò·şÎñÆ÷·¢ËÍĞÅÏ¢
+				out.writeUTF(message);// å‘æœåŠ¡å™¨å‘é€ä¿¡æ¯
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
-			accept.append("ÇëÏÈ¼ÓÈëÒ»¸ö·¿¼ä\n");
+			accept.append("è¯·å…ˆåŠ å…¥ä¸€ä¸ªæˆ¿é—´\n");
 		}
 	}
 

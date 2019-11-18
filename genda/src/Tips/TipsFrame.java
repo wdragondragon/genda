@@ -26,13 +26,13 @@ public class TipsFrame extends JFrame implements MouseListener {
 	public static HashMap<String,String> bianma = new HashMap<String,String>();
 	public static JTextArea show ;
 	public TipsFrame(){
-		setTitle("Ó¢ÎÄ×Öµä");
+		setTitle("è‹±æ–‡å­—å…¸");
 		
 		setVisible(false);
 		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		show = new JTextArea();
-		show.setFont(new Font("Î¢ÈíÑÅºÚ",0,30));
+		show.setFont(new Font("å¾®è½¯é›…é»‘",0,30));
 		show.setLineWrap(true);
 		
 		JScrollPane show1 = new JScrollPane(show);
@@ -47,7 +47,7 @@ public class TipsFrame extends JFrame implements MouseListener {
 	}
 	public void zidian() throws IOException{
 		
-		File open = new File("±àÂëÎÄ¼ş//Ó¢ÎÄ×Öµä//","Ó¢ÎÄ×Öµä.txt");
+		File open = new File("ç¼–ç æ–‡ä»¶//è‹±æ–‡å­—å…¸//","è‹±æ–‡å­—å…¸.txt");
 		FileInputStream fis = new FileInputStream(open); 
 		InputStreamReader read = new InputStreamReader(fis, "UTF-8");
 		BufferedReader  bufferRead = new BufferedReader(read);

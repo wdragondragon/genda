@@ -23,7 +23,7 @@ import javax.swing.JTextArea;
 
 public class WritehistoryToText extends Thread{
 	public void run(){
-		String name[]={"ĞòºÅ","ÈÕÆÚ","ËÙ¶È","»÷¼ü","Âë³¤","×ÖÊı","»Ø¸Ä","ÍË¸ñ","´í×Ö","Ñ¡ÖØ","¼ü×¼","¼ü·¨","´ò´ÊÂÊ","Ê±¼ä(Ãë)","¶ÎÊı","ÄÚÈİ"};
+		String name[]={"åºå·","æ—¥æœŸ","é€Ÿåº¦","å‡»é”®","ç é•¿","å­—æ•°","å›æ”¹","é€€æ ¼","é”™å­—","é€‰é‡","é”®å‡†","é”®æ³•","æ‰“è¯ç‡","æ—¶é—´(ç§’)","æ®µæ•°","å†…å®¹"};
 		FileOutputStream fos;
 		StringBuilder all = new StringBuilder();
 		int n = 0;
@@ -32,7 +32,7 @@ public class WritehistoryToText extends Thread{
 			DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 			DataInputStream in = new DataInputStream(socket.getInputStream());
 		
-			out.writeUTF("È«²¿ÎÄ±¾¼ÇÂ¼");
+			out.writeUTF("å…¨éƒ¨æ–‡æœ¬è®°å½•");
 			ObjectOutputStream outputToServer = new ObjectOutputStream(out);
 			ObjectInputStream inputByServer = new ObjectInputStream(in);
 			outputToServer.writeObject(historyFrame.id);
@@ -45,7 +45,7 @@ public class WritehistoryToText extends Thread{
 			in.close();
 			socket.close();
 			
-			fos = new FileOutputStream("¸ú´ò¼ÇÂ¼.txt");
+			fos = new FileOutputStream("è·Ÿæ‰“è®°å½•.txt");
 			OutputStreamWriter writer;
 			writer = new OutputStreamWriter(fos, "UTF-8");
 			BufferedWriter  bufferWriter = new BufferedWriter(writer);
@@ -64,7 +64,7 @@ public class WritehistoryToText extends Thread{
 			bufferWriter.close();
 			writer.close();
 			fos.close();
-			JOptionPane.showMessageDialog(new JTextArea(),"±£´æ³É¹¦");
+			JOptionPane.showMessageDialog(new JTextArea(),"ä¿å­˜æˆåŠŸ");
 		} catch (IOException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -24,7 +24,7 @@ public class SetFrameSplitnum implements ActionListener{
 			GendaListener.fenye = Integer.parseInt(splitenum.getText());
 		}
 		catch(Exception e){
-			JOptionPane.showMessageDialog(new JTextArea(),"ÉèÖÃ·ÖÒ³×ÖÊıÖ»ÄÜÎªÊı×Ö");
+			JOptionPane.showMessageDialog(new JTextArea(),"è®¾ç½®åˆ†é¡µå­—æ•°åªèƒ½ä¸ºæ•°å­—");
 		}
 	}
 }

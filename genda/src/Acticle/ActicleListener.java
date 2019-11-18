@@ -16,6 +16,7 @@ import javax.swing.event.*;
 import javax.swing.tree.*;
 
 import Login.Login;
+import RamdomOne.Load;
 import SetWin.SetFrameQianshuiListener;
 import Tips.*;
 
@@ -68,7 +69,7 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 		try {
 			fontnum = Integer.parseInt(number.getText());
 		} catch (Exception e) {
-//			JOptionPane.showMessageDialog(new JTextArea(), "×ÖÊı¿òÊäÈëÊı×Ö");
+//			JOptionPane.showMessageDialog(new JTextArea(), "å­—æ•°æ¡†è¾“å…¥æ•°å­—");
 		}
 	}
 
@@ -81,19 +82,23 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 
 				fontweizhi = 0;
 				SendWenben.title = node.toString();
-				if (SendWenben.title.substring(0, 4).equals("¸ú´ò½ø¶È")) {
-					readjindu();
+				if(!SendWenben.title.equals("éšæœºä¸€æ–‡")){
+					if (SendWenben.title.substring(0, 4).equals("è·Ÿæ‰“è¿›åº¦")) {
+						readjindu();
+					}
+					open = new File("æ–‡ç« //" + node.getParent(), SendWenben.title);
+					in = new RandomAccessFile(open, "r");
+					getNumber();
+					length = in.length();
+					s = new byte[(int) length];
+					in.readFully(s);
+					all = new String(s);
+				}else{
+					all = Load.getRamdomWenben();
 				}
-				open = new File("ÎÄÕÂ//" + node.getParent(), SendWenben.title);
-				in = new RandomAccessFile(open, "r");
-				getNumber();
-				length = in.length();
-				s = new byte[(int) length];
-				in.readFully(s);
-				all = new String(s);
-				all = RegexText.qukong(all);
+				all = RegexText.huanfu(RegexText.qukong(all));
 				length = all.length();
-				acticle.setTitle("ÎÄÕÂ×Ü³¤¶È:"+length);
+				acticle.setTitle("æ–‡ç« æ€»é•¿åº¦:"+length);
 				showwen();
 			}
 		} catch (Exception e) {
@@ -120,7 +125,7 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 
 	void readjindu() throws IOException {
 		try {
-			open = new File("ÎÄÕÂ//ÎÄÕÂÀà", SendWenben.title);
+			open = new File("æ–‡ç« //æ–‡ç« ç±»", SendWenben.title);
 			Reader read = new FileReader(open);
 			BufferedReader br = new BufferedReader(read);
 			SendWenben.title = br.readLine();
@@ -136,7 +141,7 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 	public void nextOrder(){
 		try {
 			if (fontweizhi >= all.length()) {
-				JOptionPane.showMessageDialog(new JTextArea(), "·¢ÎÄ½áÊø");
+				JOptionPane.showMessageDialog(new JTextArea(), "å‘æ–‡ç»“æŸ");
 				win.sendwen.setVisible(false);
 				SendWenben.sendwenSign = 0;
 				return;
@@ -153,7 +158,7 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 					.huanfu(QQZaiwenListener.wenbenstr));
 			Window.f3listener.F3();
 
-			RegexText.duan1++; // ·¢ÎÄÔö¶Î
+			RegexText.duan1++; // å‘æ–‡å¢æ®µ
 			win.sendwen.setText(String.valueOf(fontweizhi)
 					+ "/"
 					+ String.valueOf(all.length())
@@ -168,27 +173,31 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 						+ Window.wenben.getText() + "%0" + "%"
 						+ Login.zhanghao.getText());
 			} catch (Exception ex) {
-				System.out.println("ÎŞ·¨·¢ËÍÎÄ±¾ÄÚÈİacticlelistner,121");
+				System.out.println("æ— æ³•å‘é€æ–‡æœ¬å†…å®¹acticlelistner,121");
 			}
 			if (SetFrameQianshuiListener.qianshui == 0)
 				ShareListener.send();
 		} catch (Exception ex) {
-			System.out.println("·¢ÎÄ´¦Ê§°Ü");
+			System.out.println("å‘æ–‡å¤„å¤±è´¥");
 		}
 	}
 	public void save(){
 		try {
-			String jindufile = "¸ú´ò½ø¶È" + SendWenben.title + ".txt";
-			open = new File("ÎÄÕÂ//ÎÄÕÂÀà", jindufile);
+			if(SendWenben.title.equals("éšæœºä¸€æ–‡")){
+				JOptionPane.showMessageDialog(new JTextArea(), "éšæœºä¸€æ–‡æš‚æ—¶ä¸æ”¯æŒä¿å­˜è¿›åº¦");
+				return;
+			}
+			String jindufile = "è·Ÿæ‰“è¿›åº¦" + SendWenben.title + ".txt";
+			open = new File("æ–‡ç« //æ–‡ç« ç±»", jindufile);
 			FileOutputStream testfile = new FileOutputStream(open);
 			testfile.write(new String("").getBytes());
 			byte baocun[] = (SendWenben.title + "\r\n" + String
 					.valueOf(fontweizhi - fontnum)).getBytes();
 			testfile.write(baocun);
 			testfile.close();
-			JOptionPane.showMessageDialog(new JTextArea(), "ÒÑ±£´æµ±Ç°¸ú´ò½ø¶È");
+			JOptionPane.showMessageDialog(new JTextArea(), "å·²ä¿å­˜å½“å‰è·Ÿæ‰“è¿›åº¦");
 		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(new JTextArea(), "±£´æ½ø¶ÈÊ§°Ü");
+			JOptionPane.showMessageDialog(new JTextArea(), "ä¿å­˜è¿›åº¦å¤±è´¥");
 		}
 	}
 	public void chouqu(String model){
@@ -206,7 +215,7 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 			RegexText.duan1++;
 			if (SetFrameQianshuiListener.qianshui == 0)
 				ShareListener.send();
-		} else if (model.equals("³éÈ¡Ä£Ê½·¢ÎÄ")
+		} else if (model.equals("æŠ½å–æ¨¡å¼å‘æ–‡")
 				|| SendWenben.sendwenSign2 == 1) {
 			getNumber();
 			QQZaiwenListener.wenbenstr = randomCommon(all, fontnum);
@@ -218,19 +227,19 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 				RegexText.duan1 = 1;
 				SendWenben.sendwenSign2 = 1;
 			} else
-				RegexText.duan1++; // ·¢ÎÄÔö¶Î
+				RegexText.duan1++; // å‘æ–‡å¢æ®µ
 			if (SetFrameQianshuiListener.qianshui == 0)
 				ShareListener.send();
 		}
 	}
 	public void enlighWord(String model){
-		SendWenben.title = "Ó¢ÎÄµ¥´Ê³éÈ¡Á·Ï°";
+		SendWenben.title = "è‹±æ–‡å•è¯æŠ½å–ç»ƒä¹ ";
 		if (!SendWenben.sendwenSign4) {
 			acticle.setVisible(false);
 			RegexText.duan1 = 1;
 		} else
 			RegexText.duan1++;
-		if (model.equals("Ó¢´ÊÁ·Ï°"))
+		if (model.equals("è‹±è¯ç»ƒä¹ "))
 			QQZaiwenListener.wenbenstr = EnlishRamdom.readtext(open);
 		else
 			QQZaiwenListener.wenbenstr = EnlishRamdom.RamdomWord();
@@ -245,7 +254,7 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 		String temp = "";
 		chouqulist.clear();
 		chouqubufenlist.clear();
-		SendWenben.title = "´Ê¿âÁ·Ï°";
+		SendWenben.title = "è¯åº“ç»ƒä¹ ";
 		try {
 			String num[] = win.acticle.cikuchouqucanshu.getText()
 					.split(":");
@@ -392,19 +401,19 @@ public class ActicleListener implements TreeSelectionListener, ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (SendWenben.sendwenSign == 1) {
-			if (e.getActionCommand() == "ÏÂÒ»¶Î"
-					|| e.getActionCommand() == "Ë³ĞòÏÂÒ»¶Î") {
+			if (e.getActionCommand() == "ä¸‹ä¸€æ®µ"
+					|| e.getActionCommand() == "é¡ºåºä¸‹ä¸€æ®µ") {
 				nextOrder();
-			} else if (e.getActionCommand() == "±£´æ¸ú´ò½ø¶È") {
+			} else if (e.getActionCommand() == "ä¿å­˜è·Ÿæ‰“è¿›åº¦") {
 				save();
 			}
-		} else if (e.getActionCommand().equals("³éÈ¡Ä£Ê½·¢ÎÄ")
-				|| e.getActionCommand().equals("³éÈ¡ÏÂÒ»¶Î")) {
+		} else if (e.getActionCommand().equals("æŠ½å–æ¨¡å¼å‘æ–‡")
+				|| e.getActionCommand().equals("æŠ½å–ä¸‹ä¸€æ®µ")) {
 			chouqu(e.getActionCommand());
-		} else if (e.getActionCommand().equals("Ó¢´ÊÁ·Ï°")
-				|| e.getActionCommand().endsWith("Ó¢´ÊÏÂÒ»¶Î")) {
+		} else if (e.getActionCommand().equals("è‹±è¯ç»ƒä¹ ")
+				|| e.getActionCommand().endsWith("è‹±è¯ä¸‹ä¸€æ®µ")) {
 			enlighWord(e.getActionCommand());
-		} else if (e.getActionCommand().equals("´Ê¿âÁ·Ï°")) {
+		} else if (e.getActionCommand().equals("è¯åº“ç»ƒä¹ ")) {
 			ciku();
 		} else
 			win.dazi.requestFocusInWindow();

@@ -13,8 +13,8 @@ public class historythis extends JFrame{
 		setBounds(10,10,850,screenSize.height*3/4);
 		init();
 		setVisible(true);
-//		setTitle("¸ú´ò¼ÇÂ¼");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//ÉèÖÃ¹Ø±Õ°´Å¥
+//		setTitle("è·Ÿæ‰“è®°å½•");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//è®¾ç½®å…³é—­æŒ‰é’®
 	}
 	void init (){
 		add(Window.tableN);

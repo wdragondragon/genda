@@ -31,18 +31,18 @@ public class addFriends implements ActionListener {
 			out = new DataOutputStream(Login.socket.getOutputStream());
 			in = new DataInputStream(Login.socket.getInputStream());
 		} catch (UnknownHostException e) {
-			System.out.println("¸ú´ò¼ÇÂ¼ÍøÂç´íÎó1");
+			System.out.println("è·Ÿæ‰“è®°å½•ç½‘ç»œé”™è¯¯1");
 		} catch (IOException e) {
-			System.out.println("¸ú´ò¼ÇÂ¼ÍøÂç´íÎó2");
+			System.out.println("è·Ÿæ‰“è®°å½•ç½‘ç»œé”™è¯¯2");
 		}
 		try {
-			out.writeUTF("Ìí¼ÓºÃÓÑ");
+			out.writeUTF("æ·»åŠ å¥½å‹");
 			out.writeUTF(addfriendname.getText());
 			String message = in.readUTF();
-			if (message.equals("²»ÔÚÏß"))
-				JOptionPane.showMessageDialog(new JTextArea(), "¶Ô·½²»ÔÚÏß");
-			else if (message.equals("²»´æÔÚ"))
-				JOptionPane.showMessageDialog(new JTextArea(), "Ã»ÓĞ¸ÃÓÃ»§");
+			if (message.equals("ä¸åœ¨çº¿"))
+				JOptionPane.showMessageDialog(new JTextArea(), "å¯¹æ–¹ä¸åœ¨çº¿");
+			else if (message.equals("ä¸å­˜åœ¨"))
+				JOptionPane.showMessageDialog(new JTextArea(), "æ²¡æœ‰è¯¥ç”¨æˆ·");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

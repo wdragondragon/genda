@@ -20,7 +20,7 @@ public class LinkMyself extends Thread{
 			}
 			try {
 				Recordnum.con.close();
-				System.out.println("数据库重开");
+				System.out.println("鏁版嵁搴撻噸寮�");
 				Recordnum.con = DriverManager.getConnection(Recordnum.url,Recordnum.user,Recordnum.pass);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

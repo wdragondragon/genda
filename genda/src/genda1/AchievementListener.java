@@ -41,7 +41,7 @@ public class AchievementListener extends AbstractAction {
 
 	public void sendchengji() {
 		if (gendaListener.sign == 2) {
-			try { // ÅĞ¶Ï¶ÔÕ½ÖĞ
+			try { // åˆ¤æ–­å¯¹æˆ˜ä¸­
 				if (!battleClient.socket.isClosed()) {
 					if (Window.reducesudu.getText() != "")
 						battleSend.out.writeUTF("%"
@@ -71,7 +71,7 @@ public class AchievementListener extends AbstractAction {
 										+ String.valueOf(sudu - 30
 												* battleSend.Mistake) + "%"
 										+ Login.zhanghao.getText());
-					System.out.println("ËÙ¶È"
+					System.out.println("é€Ÿåº¦"
 							+ String.valueOf(sudu
 									- 30
 									* battleSend.Mistake
@@ -79,17 +79,17 @@ public class AchievementListener extends AbstractAction {
 											.getText())));
 				}
 			} catch (Exception ex) {
-				System.out.println("ÎŞ·¨·¢ËÍÎÄ±¾ÄÚÈİF1");
+				System.out.println("æ— æ³•å‘é€æ–‡æœ¬å†…å®¹F1");
 			}
-			setClipboardString(gendageshi);// ½«³É¼¨¶Î·ÅÈë¼ôÇĞ°å
+			setClipboardString(gendageshi);// å°†æˆç»©æ®µæ”¾å…¥å‰ªåˆ‡æ¿
 
-			try { // ·¢ËÍ³É¼¨¸øQQ´°¿Ú
+			try { // å‘é€æˆç»©ç»™QQçª—å£
 				QQ qq = new QQ();
 				if (Example.systemname.substring(0, 7).equals("Windows"))
 					qq.sendMessage(2, qqName.getText());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
-				System.out.println("·¢ËÍ³É¼¨´íÎó");
+				System.out.println("å‘é€æˆç»©é”™è¯¯");
 			}
 		}
 	}
@@ -121,7 +121,7 @@ public class AchievementListener extends AbstractAction {
 		// +":"
 		// +Double.parseDouble(String.format("%.2f", KeyNumber/length))
 		// +":"
-		// +"ËÙ¶È:"+check);
+		// +"é€Ÿåº¦:"+check);
 
 		if (right != 0)
 			Keymethod = left / right;
@@ -135,28 +135,28 @@ public class AchievementListener extends AbstractAction {
 				mistake = (int) 4
 						* (AchListener.duo + AchListener.lou + AchListener.mistake);
 			// sudu =
-			// Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),4*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));//ËÙ¶ÈÏÔÊ¾
+			// Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),4*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));//é€Ÿåº¦æ˜¾ç¤º
 			else if (QQZaiwenListener.wenbenstr.length() <= 600
 					&& QQZaiwenListener.wenbenstr.length() > 300)
 				mistake = (int) 3
 						* (AchListener.duo + AchListener.lou + AchListener.mistake);
 			// sudu =
 			// Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),3*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));
-			// //ËÙ¶ÈÏÔÊ¾
+			// //é€Ÿåº¦æ˜¾ç¤º
 			else if (QQZaiwenListener.wenbenstr.length() <= 1000
 					&& QQZaiwenListener.wenbenstr.length() > 600)
 				mistake = (int) 2
 						* (AchListener.duo + AchListener.lou + AchListener.mistake);
 			// sudu =
 			// Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),2*(int)(AchListener.duo+AchListener.lou+AchListener.mistake));
-			// //ËÙ¶ÈÏÔÊ¾
+			// //é€Ÿåº¦æ˜¾ç¤º
 			else if (QQZaiwenListener.wenbenstr.length() > 1000)
 				// sudu =
 				// Window.gendaListener.comp.getSpeed(Window.gendaListener.str1.length(),(int)(AchListener.duo+AchListener.lou+AchListener.mistake));
-				// //ËÙ¶ÈÏÔÊ¾
+				// //é€Ÿåº¦æ˜¾ç¤º
 				mistake = (int) (AchListener.duo + AchListener.lou + AchListener.mistake);
 			sudu = Window.gendaListener.comp.getSpeed(
-					Window.gendaListener.str1.length(), (int) mistake); // ËÙ¶ÈÏÔÊ¾
+					Window.gendaListener.str1.length(), (int) mistake); // é€Ÿåº¦æ˜¾ç¤º
 		} else if (Window.Pattern == 2) {
 			ArrayList<Integer> misType = new ArrayList<Integer>();
 			for (int i = 0; i < temp.length; i++) {
@@ -184,9 +184,9 @@ public class AchievementListener extends AbstractAction {
 					Window.gendaListener.str1.length(),
 					(int) (Window.gendaListener.mistake));
 			yingdamistake = misType.size();
-			System.out.println("´íÎó" + yingdamistake);
+			System.out.println("é”™è¯¯" + yingdamistake);
 			yingdasudu = Window.gendaListener.comp.getSpeed(temp.length,
-					(int) yingdamistake); // ËÙ¶ÈÏÔÊ¾
+					(int) yingdamistake); // é€Ÿåº¦æ˜¾ç¤º
 			yingdanomistakesudu = String.format("%.2f",
 					Window.gendaListener.comp.getSpeed(temp.length, 0));
 		} else {
@@ -208,112 +208,112 @@ public class AchievementListener extends AbstractAction {
 		dacilv = ((double) (gendaListener.daciall) / (QQZaiwenListener.wenbenstr
 				.length() + deleteTextNumber));
 
-		gendageshi = "µÚ" + RegexText.duan1;
+		gendageshi = "ç¬¬" + RegexText.duan1;
 
 		if (mistake == 0)
-			gendageshi += "¶Î ËÙ¶È"
+			gendageshi += "æ®µ é€Ÿåº¦"
 					+ String.format("%.2f", sudu)
-					+ " »÷¼ü"
+					+ " å‡»é”®"
 					+ String.format("%.2f", KeyNumber / second)
-					+ " Âë³¤"
+					+ " ç é•¿"
 					+ String.format("%.2f", KeyNumber / length)
-					+ " ±ê¶¥ÀíÂÛ"
+					+ " æ ‡é¡¶ç†è®º"
 					+ String.format("%.2f", Tips.allCodeLength
-							/ QQZaiwenListener.wenbenstr.length()) + " ×ÖÊı"
-					+ (int) (length) + " »Ø¸Ä" + (int) (deleteTextNumber) + " ÍË¸ñ"
-					+ (int) (deleteNumber) + " ´í×Ö" + (int) (mistake) + " ¼üÊı"
-					+ (int) (KeyNumber) + " Ñ¡ÖØ" + (int) (repeat) + " ¼ü×¼"
-					+ String.format("%.2f", Keyaccuracy * 100) + "% ¼ü·¨"
-					+ String.format("%.2f", Keymethod * 100) + "%(×ó"
-					+ String.valueOf((int) left) + ":ÓÒ"
-					+ String.valueOf((int) right) + ":¿Õ¸ñ"
-					+ String.valueOf(space) + ")" + " ´ò´ÊÂÊ"
-					+ String.format("%.2f", dacilv * 100) + "% Ñ¡ÖØÂÊ"
+							/ QQZaiwenListener.wenbenstr.length()) + " å­—æ•°"
+					+ (int) (length) + " å›æ”¹" + (int) (deleteTextNumber) + " é€€æ ¼"
+					+ (int) (deleteNumber) + " é”™å­—" + (int) (mistake) + " é”®æ•°"
+					+ (int) (KeyNumber) + " é€‰é‡" + (int) (repeat) + " é”®å‡†"
+					+ String.format("%.2f", Keyaccuracy * 100) + "% é”®æ³•"
+					+ String.format("%.2f", Keymethod * 100) + "%(å·¦"
+					+ String.valueOf((int) left) + ":å³"
+					+ String.valueOf((int) right) + ":ç©ºæ ¼"
+					+ String.valueOf(space) + ")" + " æ‰“è¯ç‡"
+					+ String.format("%.2f", dacilv * 100) + "% é€‰é‡ç‡"
 					+ String.format("%.2f", repeat / length * 100)
-					+ "% ÍÏÀ­»ú¸ú´òÆ÷ " + Login.banben + " " + Example.systemname
-					+ "°æ ";
+					+ "% æ‹–æ‹‰æœºè·Ÿæ‰“å™¨ " + Login.banben + " " + Example.systemname
+					+ "ç‰ˆ ";
 		else
-			gendageshi += "¶Î ËÙ¶È"
+			gendageshi += "æ®µ é€Ÿåº¦"
 					+ String.format("%.2f", sudu)
 					+ "/"
 					+ nomistakesudu
-					+ " »÷¼ü"
+					+ " å‡»é”®"
 					+ String.format("%.2f", KeyNumber / second)
-					+ " Âë³¤"
+					+ " ç é•¿"
 					+ String.format("%.2f", KeyNumber / length)
-					+ " ±ê¶¥ÀíÂÛ"
+					+ " æ ‡é¡¶ç†è®º"
 					+ String.format("%.2f", Tips.allCodeLength
-							/ QQZaiwenListener.wenbenstr.length()) + " ×ÖÊı"
-					+ (int) (length) + " »Ø¸Ä" + (int) (deleteTextNumber) + " ÍË¸ñ"
-					+ (int) (deleteNumber) + " ´í×Ö" + (int) (mistake) + " ¼üÊı"
-					+ (int) (KeyNumber) + " Ñ¡ÖØ" + (int) (repeat) + " ¼ü×¼"
-					+ String.format("%.2f", Keyaccuracy * 100) + "% ¼ü·¨"
-					+ String.format("%.2f", Keymethod * 100) + "%(×ó"
-					+ String.valueOf((int) left) + ":ÓÒ"
-					+ String.valueOf((int) right) + ":¿Õ¸ñ"
-					+ String.valueOf(space) + ")" + " ´ò´ÊÂÊ"
-					+ String.format("%.2f", dacilv * 100) + "% Ñ¡ÖØÂÊ"
+							/ QQZaiwenListener.wenbenstr.length()) + " å­—æ•°"
+					+ (int) (length) + " å›æ”¹" + (int) (deleteTextNumber) + " é€€æ ¼"
+					+ (int) (deleteNumber) + " é”™å­—" + (int) (mistake) + " é”®æ•°"
+					+ (int) (KeyNumber) + " é€‰é‡" + (int) (repeat) + " é”®å‡†"
+					+ String.format("%.2f", Keyaccuracy * 100) + "% é”®æ³•"
+					+ String.format("%.2f", Keymethod * 100) + "%(å·¦"
+					+ String.valueOf((int) left) + ":å³"
+					+ String.valueOf((int) right) + ":ç©ºæ ¼"
+					+ String.valueOf(space) + ")" + " æ‰“è¯ç‡"
+					+ String.format("%.2f", dacilv * 100) + "% é€‰é‡ç‡"
 					+ String.format("%.2f", repeat / length * 100)
-					+ "% ÍÏÀ­»ú¸ú´òÆ÷ " + Login.banben + " " + Example.systemname
-					+ "°æ ";
+					+ "% æ‹–æ‹‰æœºè·Ÿæ‰“å™¨ " + Login.banben + " " + Example.systemname
+					+ "ç‰ˆ ";
 
 		if (Window.Pattern == 1)
-			gendageshi += " ¿´´ò°æ " + AchListener.lookplay + " Ğ£Ñé"
+			gendageshi += " çœ‹æ‰“ç‰ˆ " + AchListener.lookplay + " æ ¡éªŒ"
 					+ DoCheck.buildcheckstr(check, "kanda");
 		else if (Window.Pattern == 2)
 			if (mistake == 0)
-				gendageshi += "Ó¢´ò°æ ËÙ¶È:" + String.format("%.2f", yingdasudu)
-						+ " µ¥´Ê" + temp.length + " ´í" + (int) yingdamistake
-						+ " Ğ£Ñé" + DoCheck.buildcheckstr(check, "yingda");
+				gendageshi += "è‹±æ‰“ç‰ˆ é€Ÿåº¦:" + String.format("%.2f", yingdasudu)
+						+ " å•è¯" + temp.length + " é”™" + (int) yingdamistake
+						+ " æ ¡éªŒ" + DoCheck.buildcheckstr(check, "yingda");
 			else
-				gendageshi += "Ó¢´ò°æ ËÙ¶È:" + String.format("%.2f", yingdasudu)
-						+ "/" + yingdanomistakesudu + " µ¥´Ê" + temp.length
-						+ " ´í" + (int) yingdamistake + " Ğ£Ñé"
+				gendageshi += "è‹±æ‰“ç‰ˆ é€Ÿåº¦:" + String.format("%.2f", yingdasudu)
+						+ "/" + yingdanomistakesudu + " å•è¯" + temp.length
+						+ " é”™" + (int) yingdamistake + " æ ¡éªŒ"
 						+ DoCheck.buildcheckstr(check, "yingda");
 		else
-			gendageshi += " Ğ£Ñé" + DoCheck.buildcheckstr(check, "genda");
+			gendageshi += " æ ¡éªŒ" + DoCheck.buildcheckstr(check, "genda");
 		// ReadyListener.ReadyDuan++;
 		table.addRow();
 		try {
 			sendhistory();
 		} catch (Exception e) {
-			System.out.println("ÀúÊ·³É¼¨´íÎó");
+			System.out.println("å†å²æˆç»©é”™è¯¯");
 		}
 		try {
 			if (Window.everydaySign) {
 				sendsaiwen();
-				Login.out.writeUTF(KeyPassword.convertMD5("¿Û¿Û·¢ËÍ³É¼¨"
-						+ Login.zhanghao.getText() + "ÒÑ´ò½ñÈÕÈüÎÄ\n³É¼¨£ºËÙ¶È"
-						+ String.format("%.2f", sudu) + " »÷¼ü"
-						+ String.format("%.2f", KeyNumber / second) + " Âë³¤"
+				Login.out.writeUTF(KeyPassword.convertMD5("æ‰£æ‰£å‘é€æˆç»©"
+						+ Login.zhanghao.getText() + "å·²æ‰“ä»Šæ—¥èµ›æ–‡\næˆç»©ï¼šé€Ÿåº¦"
+						+ String.format("%.2f", sudu) + " å‡»é”®"
+						+ String.format("%.2f", KeyNumber / second) + " ç é•¿"
 						+ String.format("%.2f", KeyNumber / length)));
 				win.setAlwaysOnTop(false);
 				Window.everydaySign = false;
 			}
 		} catch (Exception e) {
-			System.out.println("Ã¿ÈÕÈüÎÄ³É¼¨´íÎó ACHI 112");
+			System.out.println("æ¯æ—¥èµ›æ–‡æˆç»©é”™è¯¯ ACHI 112");
 		}
-		try { // ÅĞ¶Ï¶ÔÕ½ÖĞ
+		try { // åˆ¤æ–­å¯¹æˆ˜ä¸­
 			if (!battleClient.socket.isClosed()) {
 				gendageshi = gendageshi
-						+ " ÈÃËÙ"
+						+ " è®©é€Ÿ"
 						+ Window.reducesudu.getText()
-						+ " ÖØ´ò"
+						+ " é‡æ‰“"
 						+ battleSend.Mistake
-						+ " ×îÖÕËÙ¶È(ÏÔÊ¾ËÙ¶È-ÖØ´ò*30-ÈÃËÙ)"
+						+ " æœ€ç»ˆé€Ÿåº¦(æ˜¾ç¤ºé€Ÿåº¦-é‡æ‰“*30-è®©é€Ÿ)"
 						+ String.format("%.2f", sudu - 30 * battleSend.Mistake
 								- Integer.parseInt(Window.reducesudu.getText()));
-				gendageshi = gendageshi + " ÕıÔÚ¶ÔÕ½ÖĞ " + battleReadThread.Whowin;
+				gendageshi = gendageshi + " æ­£åœ¨å¯¹æˆ˜ä¸­ " + battleReadThread.Whowin;
 			}
 		} catch (Exception ex) {
-			System.out.println("ÎŞ·¨ÉèÖÃ¶ÔÕ½ºó×º");
+			System.out.println("æ— æ³•è®¾ç½®å¯¹æˆ˜åç¼€");
 		}
 		return gendageshi;
 	}
 
 	public void sendsaiwen() {
 		if (Login.dengluSign == 1) {
-			String message = "³É¼¨" + "%" + Login.zhanghao.getText() + "%"
+			String message = "æˆç»©" + "%" + Login.zhanghao.getText() + "%"
 					+ String.format("%.2f", sudu) + "%"
 					+ String.format("%.2f", KeyNumber / second) + "%"
 					+ String.format("%.2f", KeyNumber / length) + "%"
@@ -337,7 +337,7 @@ public class AchievementListener extends AbstractAction {
 
 	public void sendhistory() {
 		if (Login.dengluSign == 1) {
-			String message = "ÀúÊ·" + "%" + Login.zhanghao.getText() + "%"
+			String message = "å†å²" + "%" + Login.zhanghao.getText() + "%"
 					+ String.format("%.2f", sudu) + "%"
 					+ String.format("%.2f", KeyNumber / second) + "%"
 					+ String.format("%.2f", KeyNumber / length) + "%"
@@ -390,26 +390,26 @@ public class AchievementListener extends AbstractAction {
 	}
 
 	public static void setClipboardString(String text) {
-		// »ñÈ¡ÏµÍ³¼ôÌù°å
+		// è·å–ç³»ç»Ÿå‰ªè´´æ¿
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		// ·â×°ÎÄ±¾ÄÚÈİ
+		// å°è£…æ–‡æœ¬å†…å®¹
 		Transferable trans = new StringSelection(text);
-		// °ÑÎÄ±¾ÄÚÈİÉèÖÃµ½ÏµÍ³¼ôÌù°å
+		// æŠŠæ–‡æœ¬å†…å®¹è®¾ç½®åˆ°ç³»ç»Ÿå‰ªè´´æ¿
 		clipboard.setContents(trans, null);
 		clipboard = null;
 	}
 
 	public static String getClipboardString() {
-		// »ñÈ¡ÏµÍ³¼ôÌù°å
+		// è·å–ç³»ç»Ÿå‰ªè´´æ¿
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		// »ñÈ¡¼ôÌù°åÖĞµÄÄÚÈİ
+		// è·å–å‰ªè´´æ¿ä¸­çš„å†…å®¹
 		Transferable trans = clipboard.getContents(null);
 
 		if (trans != null) {
-			// ÅĞ¶Ï¼ôÌù°åÖĞµÄÄÚÈİÊÇ·ñÖ§³ÖÎÄ±¾
+			// åˆ¤æ–­å‰ªè´´æ¿ä¸­çš„å†…å®¹æ˜¯å¦æ”¯æŒæ–‡æœ¬
 			if (trans.isDataFlavorSupported(DataFlavor.stringFlavor)) {
 				try {
-					// »ñÈ¡¼ôÌù°åÖĞµÄÎÄ±¾ÄÚÈİ
+					// è·å–å‰ªè´´æ¿ä¸­çš„æ–‡æœ¬å†…å®¹
 					String text = (String) trans
 							.getTransferData(DataFlavor.stringFlavor);
 					clipboard = null;

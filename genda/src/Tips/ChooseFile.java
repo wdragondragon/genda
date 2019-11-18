@@ -10,7 +10,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 
 public class ChooseFile implements ActionListener{
-	public static String cizufilename = "±àÂëÎÄ¼ş/ÊäÈë·¨±àÂë/´Ê×éÌáÊ¾Âë±í.txt";
+	public static String cizufilename = "ç¼–ç æ–‡ä»¶/è¾“å…¥æ³•ç¼–ç /è¯ç»„æç¤ºç è¡¨.txt";
 	@Override
 	public void actionPerformed(ActionEvent e) {  
         // TODO Auto-generated method stub 
@@ -24,17 +24,17 @@ public class ChooseFile implements ActionListener{
 		File file;
 		jfc=new JFileChooser();  
 	    jfc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES );  
-	    jfc.showDialog(new JLabel(), "Ñ¡Ôñ");  
+	    jfc.showDialog(new JLabel(), "é€‰æ‹©");  
 	    file=jfc.getSelectedFile();
 	    if(file!=null){
 		    if(file.isDirectory()){
-		    	System.out.println("ÎÄ¼ş¼Ğ:"+file.getAbsolutePath());  
+		    	System.out.println("æ–‡ä»¶å¤¹:"+file.getAbsolutePath());  
 		    }else if(file.isFile()){  
-		        System.out.println("ÎÄ¼ş:"+file.getAbsolutePath());  
+		        System.out.println("æ–‡ä»¶:"+file.getAbsolutePath());  
 		    }
 		    String str = file.getAbsolutePath();
 		    str = str.replace("\\", "/");
-		    System.out.println("Ñ¡Ôñ´ÊÂë±í:"+str); 
+		    System.out.println("é€‰æ‹©è¯ç è¡¨:"+str); 
 			return str;
 	    }
 	    return null;
